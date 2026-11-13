@@ -1,6 +1,6 @@
 #include "threadpool.h"
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 ThreadPool::ThreadPool(size_t num_threads) : stop_(false), active_tasks_(0) {
@@ -74,4 +74,4 @@ size_t ThreadPool::active_tasks() const {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin

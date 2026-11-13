@@ -1,6 +1,6 @@
 # Advanced Type System
 
-Sapphire features a cutting-edge type system with dependent types, higher-kinded types, and type-level computation.
+Corin features a cutting-edge type system with dependent types, higher-kinded types, and type-level computation.
 
 ## Dependent Types
 
@@ -8,7 +8,7 @@ Types that depend on values, enabling compile-time guarantees about runtime beha
 
 ### Fixed-Size Vectors
 
-```sapphire
+```corin
 type Vec<T, n: usize> {
     data: [T; n]
 }
@@ -20,7 +20,7 @@ fn create_vec3() -> Vec<f64, 3> {
 
 ### Dimension-Safe Matrix Operations
 
-```sapphire
+```corin
 fn matrix_multiply<T, m: usize, n: usize, p: usize>(
     a: Matrix<T, m, n>,
     b: Matrix<T, n, p>
@@ -32,7 +32,7 @@ fn matrix_multiply<T, m: usize, n: usize, p: usize>(
 
 ### Length-Preserving Operations
 
-```sapphire
+```corin
 fn concat<T, m: usize, n: usize>(
     a: Vec<T, m>,
     b: Vec<T, n>
@@ -47,7 +47,7 @@ Types that take type constructors as parameters, enabling powerful abstractions.
 
 ### Functor
 
-```sapphire
+```corin
 trait Functor<F<_>> {
     fn map<A, B>(self: F<A>, f: fn(A) -> B) -> F<B>
 }
@@ -55,7 +55,7 @@ trait Functor<F<_>> {
 
 ### Monad
 
-```sapphire
+```corin
 trait Monad<M<_>>: Functor<M> {
     fn pure<A>(value: A) -> M<A>
     fn flat_map<A, B>(self: M<A>, f: fn(A) -> M<B>) -> M<B>
@@ -77,7 +77,7 @@ impl Monad<Option> for Option<T> {
 
 ### Usage
 
-```sapphire
+```corin
 let result = Some(42)
     .flat_map(|x| Some(x * 2))
     .flat_map(|x| Some(x + 10))
@@ -90,7 +90,7 @@ Compute types at compile time using type families.
 
 ### Type-Level Arithmetic
 
-```sapphire
+```corin
 type family Add(a: Nat, b: Nat) -> Nat {
     Add(Zero, n) = n
     Add(Succ(m), n) = Succ(Add(m, n))
@@ -104,7 +104,7 @@ type family Multiply(a: Nat, b: Nat) -> Nat {
 
 ### Type-Level Lists
 
-```sapphire
+```corin
 type family Append(a: List, b: List) -> List {
     Append(Nil, ys) = ys
     Append(Cons(x, xs), ys) = Cons(x, Append(xs, ys))
@@ -117,7 +117,7 @@ Types that exist only at compile time for state tracking.
 
 ### State Machine
 
-```sapphire
+```corin
 type Locked = State<"locked">
 type Unlocked = State<"unlocked">
 
@@ -145,7 +145,7 @@ Types with predicates that constrain values.
 
 ### Basic Refinements
 
-```sapphire
+```corin
 type NonZero = { x: i64 | x != 0 }
 type Positive = { x: i64 | x > 0 }
 type Negative = { x: i64 | x < 0 }
@@ -154,7 +154,7 @@ type Range<min: i64, max: i64> = { x: i64 | min <= x && x <= max }
 
 ### Safe Division
 
-```sapphire
+```corin
 fn safe_divide(a: i64, b: NonZero) -> i64 {
     // Compiler guarantees b is never zero
     return a / b
@@ -163,7 +163,7 @@ fn safe_divide(a: i64, b: NonZero) -> i64 {
 
 ### Bounded Arrays
 
-```sapphire
+```corin
 fn get_element<n: usize>(arr: [i64; n], idx: Range<0, n-1>) -> i64 {
     // Compiler guarantees idx is in bounds
     return arr[idx]
@@ -176,7 +176,7 @@ Types with different type parameters in different constructors.
 
 ### Type-Safe Expression Evaluator
 
-```sapphire
+```corin
 type Expr<T> {
     IntLit(i64): Expr<i64>
     BoolLit(bool): Expr<bool>
@@ -208,7 +208,7 @@ Types that must be used exactly once, preventing resource leaks.
 
 ### File Handles
 
-```sapphire
+```corin
 type File: Linear {
     handle: FileHandle
 }
@@ -237,7 +237,7 @@ fn example() {
 
 ## Type Classes with Associated Types
 
-```sapphire
+```corin
 trait Container {
     type Item
     type Iter: Iterator<Item = Self::Item>
@@ -264,7 +264,7 @@ impl Container for Vec<T> {
 
 Types that hide implementation details.
 
-```sapphire
+```corin
 type exists T. Container<T> = {
     value: T,
     operations: ContainerOps<T>
@@ -288,7 +288,7 @@ fn create_container<T>(value: T) -> exists T. Container<T> {
 
 ## Examples
 
-See `examples/advanced_types.spp` for complete examples.
+See `examples/advanced_types.corin` for complete examples.
 
 ## Further Reading
 

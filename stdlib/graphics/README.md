@@ -1,23 +1,23 @@
-# Sapphire Graphics Library
+# Corin Graphics Library
 
 Cross-platform graphics support for game development and visualization.
 
 ## Overview
 
-The Sapphire Graphics Library provides header files for multiple graphics APIs, allowing you to choose the best tool for your project.
+The Corin Graphics Library provides header files for multiple graphics APIs, allowing you to choose the best tool for your project.
 
 ## Available Libraries
 
-### 1. Window System (`window.spp`)
+### 1. Window System (`window.corin`)
 **Best For**: All desktop applications  
 **Platform**: Linux, Windows, macOS  
 **Backend**: SDL2
 
 Cross-platform window management with input handling and 2D rendering.
 
-```sapphire
+```corin
 # Import window system
-# (Future: import "stdlib/graphics/window.spp")
+# (Future: import "stdlib/graphics/window.corin")
 
 # For now, use built-in functions directly
 let window = window_create("My App", 800, 600)
@@ -32,16 +32,16 @@ while window_is_running(window):
 window_destroy(window)
 ```
 
-### 2. SDL2 (`sdl2.spp`)
+### 2. SDL2 (`sdl2.corin`)
 **Best For**: 2D games, simple graphics  
 **Platform**: Linux, Windows, macOS  
 **Complexity**: ⭐ Simple
 
 Full SDL2 support with keycodes, colors, and helper functions.
 
-```sapphire
+```corin
 # Import SDL2
-# (Future: import "stdlib/graphics/sdl2.spp")
+# (Future: import "stdlib/graphics/sdl2.corin")
 
 let window = window_create("2D Game", 800, 600)
 window_show(window)
@@ -55,16 +55,16 @@ while sdl_game_loop_running(window):
 window_destroy(window)
 ```
 
-### 3. OpenGL (`opengl.spp`)
+### 3. OpenGL (`opengl.corin`)
 **Best For**: 3D games, custom rendering  
 **Platform**: Linux, Windows, macOS  
 **Complexity**: ⭐⭐ Moderate
 
 OpenGL 2.1+ support with constants and helper functions.
 
-```sapphire
+```corin
 # Import OpenGL
-# (Future: import "stdlib/graphics/opengl.spp")
+# (Future: import "stdlib/graphics/opengl.corin")
 
 gl_clear_black()
 gl_setup_3d_projection()
@@ -74,23 +74,23 @@ gl_color_red()
 gl_draw_triangle(0, 1, 0, 0 - 1, 0 - 1, 0, 1, 0 - 1, 0)
 ```
 
-### 4. GLUT (`glut.spp`)
+### 4. GLUT (`glut.corin`)
 **Best For**: Quick 3D prototypes  
 **Platform**: Linux, Windows, macOS  
 **Complexity**: ⭐⭐ Moderate
 
 GLUT support for quick 3D shapes and utilities.
 
-```sapphire
+```corin
 # Import GLUT
-# (Future: import "stdlib/graphics/glut.spp")
+# (Future: import "stdlib/graphics/glut.corin")
 
 let window = glut_init_default(800, 600, "3D App")
 glut_draw_sphere(1)
 glut_swap_buffers()
 ```
 
-### 5. Vulkan (`vulkan.spp`)
+### 5. Vulkan (`vulkan.corin`)
 **Best For**: AAA games, game engines  
 **Platform**: Linux, Windows, macOS (MoltenVK)  
 **Complexity**: ⭐⭐⭐⭐⭐ Very Complex
@@ -154,7 +154,7 @@ brew install sdl2 sdl2_ttf freeglut molten-vk
 ## Usage Examples
 
 ### Simple Window
-```sapphire
+```corin
 let window = window_create("Hello", 800, 600)
 window_show(window)
 
@@ -167,7 +167,7 @@ window_destroy(window)
 ```
 
 ### 2D Game Loop
-```sapphire
+```corin
 let window = window_create("2D Game", 800, 600)
 window_show(window)
 
@@ -195,7 +195,7 @@ window_destroy(window)
 ```
 
 ### 3D Rendering
-```sapphire
+```corin
 # Setup
 gl_clear_black()
 gl_setup_3d_projection()
@@ -264,7 +264,7 @@ gl_draw_quad(0 - 2, 0 - 2, 0, 1, 1)
 
 ### SDL2 Program
 ```bash
-./sapp compile game.spp 2>/dev/null > game.ll
+./corin compile game.corin 2>/dev/null > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o -o game stdlib/gui/window.cpp -Istdlib -lSDL2 -lSDL2_ttf -lstdc++
 ./game
@@ -272,7 +272,7 @@ clang game.o -o game stdlib/gui/window.cpp -Istdlib -lSDL2 -lSDL2_ttf -lstdc++
 
 ### OpenGL Program
 ```bash
-./sapp compile game.spp 2>/dev/null > game.ll
+./corin compile game.corin 2>/dev/null > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o -o game -lGL -lGLU -lstdc++
 ./game
@@ -325,7 +325,7 @@ See `examples/challenges/round3_field_level/` for complete game examples:
 - [ ] Sound integration
 
 ### Medium-term
-- [ ] Full GLUT callback support in Sapphire
+- [ ] Full GLUT callback support in Corin
 - [ ] SDL2 + OpenGL hybrid helpers
 - [ ] Lighting functions
 - [ ] Particle system framework
@@ -339,14 +339,14 @@ See `examples/challenges/round3_field_level/` for complete game examples:
 ## Contributing
 
 To add new graphics functions:
-1. Add constants to appropriate `.spp` file
+1. Add constants to appropriate `.corin` file
 2. Add helper functions
 3. Update documentation
 4. Add examples
 
 ## License
 
-Part of the Sapphire standard library.
+Part of the Corin standard library.
 
 ---
 

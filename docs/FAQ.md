@@ -1,19 +1,19 @@
-# Sapphire FAQ
+# Corin FAQ
 
 ## Performance Questions
 
-### Q: Is Sapphire faster than assembly?
+### Q: Is Corin faster than assembly?
 
-**A:** No, and that's impossible. Assembly language IS the machine code (or maps directly to it). Every compiled language, including Sapphire, compiles DOWN to assembly/machine code. You can't be faster than your compilation target.
+**A:** No, and that's impossible. Assembly language IS the machine code (or maps directly to it). Every compiled language, including Corin, compiles DOWN to assembly/machine code. You can't be faster than your compilation target.
 
 Think of it this way:
-- Sapphire code → LLVM IR → Assembly → Machine Code
+- Corin code → LLVM IR → Assembly → Machine Code
 - Assembly is the second-to-last step before raw binary
-- Best case: Sapphire generates assembly as good as hand-written
+- Best case: Corin generates assembly as good as hand-written
 
-### Q: So how fast IS Sapphire?
+### Q: So how fast IS Corin?
 
-**A:** Sapphire aims to be the **second-fastest programming language** (after C/Assembly):
+**A:** Corin aims to be the **second-fastest programming language** (after C/Assembly):
 - Compiles to native machine code via LLVM
 - Zero-cost abstractions (no runtime overhead)
 - Faster than C++, Rust, and all other compiled languages
@@ -22,11 +22,11 @@ Think of it this way:
 
 **Performance ranking:**
 1. C/Assembly
-2. **Sapphire** ← Our goal
+2. **Corin** ← Our goal
 3. C++/Rust (we aim to exceed)
 4. Everything else
 
-### Q: Can Sapphire beat hand-written assembly?
+### Q: Can Corin beat hand-written assembly?
 
 **A:** In practice, yes, for complex code:
 - Modern compilers (LLVM) can optimize better than humans
@@ -36,7 +36,7 @@ Think of it this way:
 
 For simple code, hand-written assembly might be slightly faster. For real-world programs, compiler-generated code is usually better.
 
-### Q: What makes Sapphire fast?
+### Q: What makes Corin fast?
 
 **A:** Several key techniques:
 1. **Native compilation** - No interpreter, direct to machine code
@@ -46,12 +46,12 @@ For simple code, hand-written assembly might be slightly faster. For real-world 
 5. **Aggressive inlining** - Eliminate function call overhead
 6. **Profile-guided optimization** - Optimize based on real usage
 
-### Q: How does Sapphire compare to other languages?
+### Q: How does Corin compare to other languages?
 
 ```
 Speed Comparison (Fibonacci benchmark):
 - C:        0.80s  (baseline)
-- Sapphire: 0.81s  (1% slower than C) ← Target
+- Corin: 0.81s  (1% slower than C) ← Target
 - C++:      0.82s  (2% slower than C)
 - Rust:     0.83s  (4% slower than C)
 - Go:       1.20s  (50% slower than C)
@@ -73,7 +73,7 @@ Speed Comparison (Fibonacci benchmark):
 
 One language for all domains: web, systems, ML, mobile, etc.
 
-### Q: What's unique about Sapphire?
+### Q: What's unique about Corin?
 
 **A:** The combination:
 - **Second-fastest language** (only C/Assembly faster)
@@ -85,7 +85,7 @@ One language for all domains: web, systems, ML, mobile, etc.
 - Excellent error messages
 - Universal language (not domain-specific)
 
-### Q: Is Sapphire production-ready?
+### Q: Is Corin production-ready?
 
 **A:** Not yet. Current status:
 - ✅ Milestone 1: Lexer, Parser, Interpreter (Complete)
@@ -95,15 +95,15 @@ One language for all domains: web, systems, ML, mobile, etc.
 
 Expected production-ready: 2027-2028
 
-### Q: What file extension does Sapphire use?
+### Q: What file extension does Corin use?
 
-**A:** `.spp` (Sapphire++)
+**A:** `.corin` (Corin++)
 
 ### Q: What are the compiler commands?
 
 **A:** Two options:
-- `sapp` - Short form (4 characters)
-- `sapphire` - Full name (8 characters)
+- `corin` - Short form (4 characters)
+- `corin` - Full name (8 characters)
 
 Both work identically. Use whichever you prefer.
 
@@ -119,9 +119,9 @@ Both work identically. Use whichever you prefer.
 
 You choose based on your needs.
 
-### Q: Does Sapphire have a package manager?
+### Q: Does Corin have a package manager?
 
-**A:** Yes, SPM (Sapphire Package Manager) - similar to Cargo/npm.
+**A:** Yes, SPM (Corin Package Manager) - similar to Cargo/npm.
 - `spm init` - Create new project
 - `spm add <package>` - Add dependency
 - `spm build` - Build project
@@ -129,9 +129,9 @@ You choose based on your needs.
 
 (Coming in Milestone 6)
 
-### Q: What platforms does Sapphire support?
+### Q: What platforms does Corin support?
 
-**A:** Via LLVM, Sapphire can target:
+**A:** Via LLVM, Corin can target:
 - Linux (x86_64, ARM64)
 - macOS (x86_64, ARM64/M1)
 - Windows (x86_64)
@@ -139,7 +139,7 @@ You choose based on your needs.
 - iOS/Android (cross-compilation)
 - Embedded systems
 
-### Q: Can Sapphire interop with other languages?
+### Q: Can Corin interop with other languages?
 
 **A:** Yes:
 - **C/C++**: Direct FFI (foreign function interface)
@@ -151,19 +151,19 @@ You choose based on your needs.
 
 ## Getting Started Questions
 
-### Q: How do I install Sapphire?
+### Q: How do I install Corin?
 
 **A:** Currently build from source:
 ```bash
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
-./sapp examples/demo.spp
+./corin examples/demo.corin
 ```
 
 Binary releases coming soon.
 
-### Q: Where can I learn Sapphire?
+### Q: Where can I learn Corin?
 
 **A:** Documentation:
 - [Quick Start](QUICK_START.md) - First steps
@@ -194,7 +194,7 @@ See [ROADMAP.md](ROADMAP.md) for details.
 
 ## Philosophy Questions
 
-### Q: What's Sapphire's design philosophy?
+### Q: What's Corin's design philosophy?
 
 **A:** 
 1. **Developer experience first** - Easy to write, easy to read
@@ -203,7 +203,7 @@ See [ROADMAP.md](ROADMAP.md) for details.
 4. **Universal applicability** - One language for everything
 5. **Gradual complexity** - Simple to start, powerful when needed
 
-### Q: Who is Sapphire for?
+### Q: Who is Corin for?
 
 **A:** Everyone:
 - **Beginners**: Python-like syntax, great error messages
@@ -227,14 +227,14 @@ See [ROADMAP.md](ROADMAP.md) for details.
 - Forum: Coming soon
 - Documentation: docs/ folder
 
-### Q: Is there a Sapphire community?
+### Q: Is there a Corin community?
 
 **A:** Growing! Currently:
 - GitHub repository
 - Discord (coming soon)
-- Twitter @sapphire_lang (coming soon)
+- Twitter @corin_lang (coming soon)
 
-### Q: Can I use Sapphire in production?
+### Q: Can I use Corin in production?
 
 **A:** Not recommended yet. Wait for:
 - Milestone 3: Native compilation

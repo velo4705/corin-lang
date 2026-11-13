@@ -1,7 +1,7 @@
 #include "opengl.h"
 #include <cmath>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -124,115 +124,115 @@ void OpenGL::material(unsigned int face, unsigned int pname, const float* params
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    bool sapphire_gl_init() {
-        return sapphire::stdlib::graphics::OpenGL::init();
+    bool corin_gl_init() {
+        return corin::stdlib::graphics::OpenGL::init();
     }
     
-    void sapphire_gl_viewport(int x, int y, int width, int height) {
-        sapphire::stdlib::graphics::OpenGL::viewport(x, y, width, height);
+    void corin_gl_viewport(int x, int y, int width, int height) {
+        corin::stdlib::graphics::OpenGL::viewport(x, y, width, height);
     }
     
-    void sapphire_gl_clear_color(float r, float g, float b, float a) {
-        sapphire::stdlib::graphics::OpenGL::clear_color(r, g, b, a);
+    void corin_gl_clear_color(float r, float g, float b, float a) {
+        corin::stdlib::graphics::OpenGL::clear_color(r, g, b, a);
     }
     
-    void sapphire_gl_clear(unsigned int mask) {
-        sapphire::stdlib::graphics::OpenGL::clear(mask);
+    void corin_gl_clear(unsigned int mask) {
+        corin::stdlib::graphics::OpenGL::clear(mask);
     }
     
-    void sapphire_gl_matrix_mode(unsigned int mode) {
-        sapphire::stdlib::graphics::OpenGL::matrix_mode(mode);
+    void corin_gl_matrix_mode(unsigned int mode) {
+        corin::stdlib::graphics::OpenGL::matrix_mode(mode);
     }
     
-    void sapphire_gl_load_identity() {
-        sapphire::stdlib::graphics::OpenGL::load_identity();
+    void corin_gl_load_identity() {
+        corin::stdlib::graphics::OpenGL::load_identity();
     }
     
-    void sapphire_gl_ortho(double left, double right, double bottom, double top, double near_val, double far_val) {
-        sapphire::stdlib::graphics::OpenGL::ortho(left, right, bottom, top, near_val, far_val);
+    void corin_gl_ortho(double left, double right, double bottom, double top, double near_val, double far_val) {
+        corin::stdlib::graphics::OpenGL::ortho(left, right, bottom, top, near_val, far_val);
     }
     
-    void sapphire_gl_perspective(double fovy, double aspect, double near_val, double far_val) {
-        sapphire::stdlib::graphics::OpenGL::perspective(fovy, aspect, near_val, far_val);
+    void corin_gl_perspective(double fovy, double aspect, double near_val, double far_val) {
+        corin::stdlib::graphics::OpenGL::perspective(fovy, aspect, near_val, far_val);
     }
     
-    void sapphire_gl_frustum(double left, double right, double bottom, double top, double near_val, double far_val) {
-        sapphire::stdlib::graphics::OpenGL::frustum(left, right, bottom, top, near_val, far_val);
+    void corin_gl_frustum(double left, double right, double bottom, double top, double near_val, double far_val) {
+        corin::stdlib::graphics::OpenGL::frustum(left, right, bottom, top, near_val, far_val);
     }
     
-    void sapphire_gl_translate(float x, float y, float z) {
-        sapphire::stdlib::graphics::OpenGL::translate(x, y, z);
+    void corin_gl_translate(float x, float y, float z) {
+        corin::stdlib::graphics::OpenGL::translate(x, y, z);
     }
     
-    void sapphire_gl_rotate(float angle, float x, float y, float z) {
-        sapphire::stdlib::graphics::OpenGL::rotate(angle, x, y, z);
+    void corin_gl_rotate(float angle, float x, float y, float z) {
+        corin::stdlib::graphics::OpenGL::rotate(angle, x, y, z);
     }
     
-    void sapphire_gl_scale(float x, float y, float z) {
-        sapphire::stdlib::graphics::OpenGL::scale(x, y, z);
+    void corin_gl_scale(float x, float y, float z) {
+        corin::stdlib::graphics::OpenGL::scale(x, y, z);
     }
     
-    void sapphire_gl_push_matrix() {
-        sapphire::stdlib::graphics::OpenGL::push_matrix();
+    void corin_gl_push_matrix() {
+        corin::stdlib::graphics::OpenGL::push_matrix();
     }
     
-    void sapphire_gl_pop_matrix() {
-        sapphire::stdlib::graphics::OpenGL::pop_matrix();
+    void corin_gl_pop_matrix() {
+        corin::stdlib::graphics::OpenGL::pop_matrix();
     }
     
-    void sapphire_gl_begin(unsigned int mode) {
-        sapphire::stdlib::graphics::OpenGL::begin(mode);
+    void corin_gl_begin(unsigned int mode) {
+        corin::stdlib::graphics::OpenGL::begin(mode);
     }
     
-    void sapphire_gl_end() {
-        sapphire::stdlib::graphics::OpenGL::end();
+    void corin_gl_end() {
+        corin::stdlib::graphics::OpenGL::end();
     }
     
-    void sapphire_gl_vertex2f(float x, float y) {
-        sapphire::stdlib::graphics::OpenGL::vertex2f(x, y);
+    void corin_gl_vertex2f(float x, float y) {
+        corin::stdlib::graphics::OpenGL::vertex2f(x, y);
     }
     
-    void sapphire_gl_vertex3f(float x, float y, float z) {
-        sapphire::stdlib::graphics::OpenGL::vertex3f(x, y, z);
+    void corin_gl_vertex3f(float x, float y, float z) {
+        corin::stdlib::graphics::OpenGL::vertex3f(x, y, z);
     }
     
-    void sapphire_gl_color3f(float r, float g, float b) {
-        sapphire::stdlib::graphics::OpenGL::color3f(r, g, b);
+    void corin_gl_color3f(float r, float g, float b) {
+        corin::stdlib::graphics::OpenGL::color3f(r, g, b);
     }
     
-    void sapphire_gl_color4f(float r, float g, float b, float a) {
-        sapphire::stdlib::graphics::OpenGL::color4f(r, g, b, a);
+    void corin_gl_color4f(float r, float g, float b, float a) {
+        corin::stdlib::graphics::OpenGL::color4f(r, g, b, a);
     }
     
-    void sapphire_gl_normal3f(float x, float y, float z) {
-        sapphire::stdlib::graphics::OpenGL::normal3f(x, y, z);
+    void corin_gl_normal3f(float x, float y, float z) {
+        corin::stdlib::graphics::OpenGL::normal3f(x, y, z);
     }
     
-    void sapphire_gl_tex_coord2f(float s, float t) {
-        sapphire::stdlib::graphics::OpenGL::tex_coord2f(s, t);
+    void corin_gl_tex_coord2f(float s, float t) {
+        corin::stdlib::graphics::OpenGL::tex_coord2f(s, t);
     }
     
-    void sapphire_gl_enable(unsigned int cap) {
-        sapphire::stdlib::graphics::OpenGL::enable(cap);
+    void corin_gl_enable(unsigned int cap) {
+        corin::stdlib::graphics::OpenGL::enable(cap);
     }
     
-    void sapphire_gl_disable(unsigned int cap) {
-        sapphire::stdlib::graphics::OpenGL::disable(cap);
+    void corin_gl_disable(unsigned int cap) {
+        corin::stdlib::graphics::OpenGL::disable(cap);
     }
     
-    void sapphire_gl_depth_func(unsigned int func) {
-        sapphire::stdlib::graphics::OpenGL::depth_func(func);
+    void corin_gl_depth_func(unsigned int func) {
+        corin::stdlib::graphics::OpenGL::depth_func(func);
     }
     
-    void sapphire_gl_blend_func(unsigned int sfactor, unsigned int dfactor) {
-        sapphire::stdlib::graphics::OpenGL::blend_func(sfactor, dfactor);
+    void corin_gl_blend_func(unsigned int sfactor, unsigned int dfactor) {
+        corin::stdlib::graphics::OpenGL::blend_func(sfactor, dfactor);
     }
     
-    void sapphire_gl_cull_face(unsigned int mode) {
-        sapphire::stdlib::graphics::OpenGL::cull_face(mode);
+    void corin_gl_cull_face(unsigned int mode) {
+        corin::stdlib::graphics::OpenGL::cull_face(mode);
     }
 }

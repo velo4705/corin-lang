@@ -1,24 +1,24 @@
 #!/bin/bash
-# Sapphire Compiler Demo
-# Demonstrates end-to-end compilation from .spp to native executable
+# Corin Compiler Demo
+# Demonstrates end-to-end compilation from .corin to native executable
 
 set -e
 
 echo "╔════════════════════════════════════════════════════════════════╗"
-echo "║         Sapphire Compiler - End-to-End Demo                   ║"
-echo "║         From .spp source to native executable                 ║"
+echo "║         Corin Compiler - End-to-End Demo                   ║"
+echo "║         From .corin source to native executable                 ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 
 # Check if example file is provided
 if [ -z "$1" ]; then
-    EXAMPLE="examples/simple_test.spp"
+    EXAMPLE="examples/simple_test.corin"
 else
     EXAMPLE="$1"
 fi
 
-BASENAME=$(basename "$EXAMPLE" .spp)
-OUTPUT_DIR="/tmp/sapphire_demo"
+BASENAME=$(basename "$EXAMPLE" .corin)
+OUTPUT_DIR="/tmp/corin_demo"
 mkdir -p "$OUTPUT_DIR"
 
 echo "📄 Source file: $EXAMPLE"
@@ -30,7 +30,7 @@ echo "-------------------"
 echo ""
 
 echo "🔧 Step 1: Compile to LLVM IR"
-./sapp compile "$EXAMPLE" > "$OUTPUT_DIR/$BASENAME.ll"
+./corin compile "$EXAMPLE" > "$OUTPUT_DIR/$BASENAME.ll"
 echo "   ✓ Generated: $OUTPUT_DIR/$BASENAME.ll"
 echo ""
 
@@ -59,7 +59,7 @@ echo ""
 
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║                    SUCCESS!                                    ║"
-echo "║   Sapphire code compiled to native executable!                ║"
+echo "║   Corin code compiled to native executable!                ║"
 echo "║   Performance: Native speed (C-like)                          ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
@@ -69,4 +69,4 @@ echo "  - Object:     $OUTPUT_DIR/$BASENAME.o"
 echo "  - Executable: $OUTPUT_DIR/$BASENAME"
 echo ""
 echo "Try it yourself:"
-echo "  ./scripts/demo_compiler.sh examples/comprehensive_test.spp"
+echo "  ./scripts/demo_compiler.sh examples/comprehensive_test.corin"

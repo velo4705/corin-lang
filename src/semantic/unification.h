@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_UNIFICATION_H
-#define SAPPHIRE_UNIFICATION_H
+#ifndef CORIN_UNIFICATION_H
+#define CORIN_UNIFICATION_H
 
 #include "../types/type.h"
 #include "substitution.h"
@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <set>
 
-namespace sapphire {
+namespace corin {
 
 class UnificationError : public std::runtime_error {
 public:
@@ -136,6 +136,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_UNIFICATION_H
+#endif // CORIN_UNIFICATION_H

@@ -6,7 +6,7 @@
 #include <memory>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Template {
 
@@ -50,16 +50,16 @@ private:
 
 } // namespace Template
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire integration
+// C API for Corin integration
 extern "C" {
-    void* sapphire_html_template_engine_create();
-    void sapphire_html_template_engine_destroy(void* engine);
-    char* sapphire_html_template_render(void* engine, const char* template_str, const char** keys, const char** values, int count);
-    char* sapphire_html_template_render_file(void* engine, const char* filename, const char** keys, const char** values, int count);
-    void sapphire_html_template_set_dir(void* engine, const char* dir);
-    void sapphire_html_template_cache(void* engine, const char* name, const char* content);
-    void sapphire_html_template_clear_cache(void* engine);
-    void sapphire_html_template_free_string(char* str);
+    void* corin_html_template_engine_create();
+    void corin_html_template_engine_destroy(void* engine);
+    char* corin_html_template_render(void* engine, const char* template_str, const char** keys, const char** values, int count);
+    char* corin_html_template_render_file(void* engine, const char* filename, const char** keys, const char** values, int count);
+    void corin_html_template_set_dir(void* engine, const char* dir);
+    void corin_html_template_cache(void* engine, const char* name, const char* content);
+    void corin_html_template_clear_cache(void* engine);
+    void corin_html_template_free_string(char* str);
 }

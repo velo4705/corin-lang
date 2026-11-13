@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_REPL_H
-#define SAPPHIRE_REPL_H
+#ifndef CORIN_REPL_H
+#define CORIN_REPL_H
 
 #include <string>
 #include <vector>
@@ -8,7 +8,7 @@
 #include <chrono>
 #include "../interpreter/interpreter.h"
 
-namespace sapphire {
+namespace corin {
 
 class REPL {
 public:
@@ -33,7 +33,7 @@ private:
     // Handle REPL commands
     bool handleCommand(const std::string& line);
     
-    // Execute Sapphire code
+    // Execute Corin code
     void executeCode(const std::string& code);
     
     // Print welcome message
@@ -79,6 +79,6 @@ private:
     std::string readLine(const std::string& prompt);
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_REPL_H
+#endif // CORIN_REPL_H

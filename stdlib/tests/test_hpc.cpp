@@ -5,7 +5,7 @@
 #include <random>
 #include <iomanip>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 // Benchmark helper
 template<typename Func>
@@ -331,27 +331,27 @@ void test_c_api() {
     }
     
     // Test C API functions
-    sapphire_simd_add_f32(a, b, result, size);
+    corin_simd_add_f32(a, b, result, size);
     std::cout << "  ✓ C API: add_f32" << std::endl;
     
-    sapphire_simd_mul_f32(a, b, result, size);
+    corin_simd_mul_f32(a, b, result, size);
     std::cout << "  ✓ C API: mul_f32" << std::endl;
     
-    float dot = sapphire_simd_dot_f32(a, b, size);
+    float dot = corin_simd_dot_f32(a, b, size);
     std::cout << "  ✓ C API: dot_f32 = " << dot << std::endl;
     
-    float sum = sapphire_simd_sum_f32(a, size);
+    float sum = corin_simd_sum_f32(a, size);
     std::cout << "  ✓ C API: sum_f32 = " << sum << std::endl;
     
     // Memory operations
-    void* ptr = sapphire_memory_aligned_alloc(64, 1024);
+    void* ptr = corin_memory_aligned_alloc(64, 1024);
     if (ptr) {
         std::cout << "  ✓ C API: aligned_alloc" << std::endl;
-        sapphire_memory_aligned_free(ptr);
+        corin_memory_aligned_free(ptr);
         std::cout << "  ✓ C API: aligned_free" << std::endl;
     }
     
-    sapphire_memory_fence();
+    corin_memory_fence();
     std::cout << "  ✓ C API: memory_fence" << std::endl;
     
     delete[] a;
@@ -385,7 +385,7 @@ void print_system_info() {
 }
 
 int main() {
-    std::cout << "=== Sapphire HPC/SIMD Tests ===" << std::endl;
+    std::cout << "=== Corin HPC/SIMD Tests ===" << std::endl;
     
     print_system_info();
     

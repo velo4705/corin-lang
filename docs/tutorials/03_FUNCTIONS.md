@@ -11,7 +11,7 @@ Functions are reusable blocks of code that perform specific tasks. They help you
 
 ## Basic Function
 
-```sapphire
+```corin
 fn greet() {
     println("Hello, World!")
 }
@@ -32,7 +32,7 @@ Hello, World!
 
 Pass data to functions:
 
-```sapphire
+```corin
 fn greet(name: str) {
     println("Hello, " + name + "!")
 }
@@ -53,7 +53,7 @@ Hello, Charlie!
 
 ### Multiple Parameters
 
-```sapphire
+```corin
 fn introduce(name: str, age: int) {
     println("My name is " + name + " and I am " + str(age) + " years old")
 }
@@ -68,7 +68,7 @@ fn main() {
 
 Functions can return values:
 
-```sapphire
+```corin
 fn add(a: int, b: int) -> int {
     return a + b
 }
@@ -81,7 +81,7 @@ fn main() {
 
 ### Multiple Return Statements
 
-```sapphire
+```corin
 fn abs(x: int) -> int {
     if x < 0 {
         return -x
@@ -99,7 +99,7 @@ fn main() {
 
 The last expression is automatically returned:
 
-```sapphire
+```corin
 fn square(x: int) -> int {
     x * x  // No return keyword needed
 }
@@ -113,7 +113,7 @@ fn main() {
 
 ### Area Calculator
 
-```sapphire
+```corin
 fn rectangle_area(width: float, height: float) -> float {
     width * height
 }
@@ -133,7 +133,7 @@ fn main() {
 
 ### Temperature Converter
 
-```sapphire
+```corin
 fn celsius_to_fahrenheit(celsius: float) -> float {
     (celsius * 9.0 / 5.0) + 32.0
 }
@@ -155,7 +155,7 @@ fn main() {
 
 ### Is Even/Odd
 
-```sapphire
+```corin
 fn is_even(n: int) -> bool {
     n % 2 == 0
 }
@@ -179,7 +179,7 @@ fn main() {
 
 Variables defined inside a function are local to that function:
 
-```sapphire
+```corin
 fn test() {
     let x = 10  // Local to test()
     println(x)
@@ -193,7 +193,7 @@ fn main() {
 
 ### Global vs Local
 
-```sapphire
+```corin
 let global_var = 100  // Global variable
 
 fn show_vars() {
@@ -211,7 +211,7 @@ fn main() {
 
 ## Default Parameters
 
-```sapphire
+```corin
 fn greet(name: str, greeting: str = "Hello") {
     println(greeting + ", " + name + "!")
 }
@@ -227,7 +227,7 @@ fn main() {
 
 Functions that call themselves:
 
-```sapphire
+```corin
 fn factorial(n: int) -> int {
     if n <= 1 {
         return 1
@@ -243,7 +243,7 @@ fn main() {
 
 ### Fibonacci
 
-```sapphire
+```corin
 fn fibonacci(n: int) -> int {
     if n <= 1 {
         return n
@@ -263,7 +263,7 @@ fn main() {
 ### Exercise 1: Max Function
 Write a function that returns the maximum of two numbers:
 
-```sapphire
+```corin
 fn max(a: int, b: int) -> int {
     if a > b {
         return a
@@ -280,7 +280,7 @@ fn main() {
 ### Exercise 2: Power Function
 Calculate x raised to the power of y:
 
-```sapphire
+```corin
 fn power(x: int, y: int) -> int {
     let mut result = 1
     for i in 0..y {
@@ -298,7 +298,7 @@ fn main() {
 ### Exercise 3: Prime Checker
 Check if a number is prime:
 
-```sapphire
+```corin
 fn is_prime(n: int) -> bool {
     if n < 2 {
         return false
@@ -325,7 +325,7 @@ fn main() {
 ### Exercise 4: String Reverser
 Reverse a string:
 
-```sapphire
+```corin
 fn reverse(s: str) -> str {
     let mut result = ""
     for i in len(s)-1..0 step -1 {
@@ -336,14 +336,14 @@ fn reverse(s: str) -> str {
 
 fn main() {
     println(reverse("hello"))     // olleh
-    println(reverse("Sapphire"))  // erihppaS
+    println(reverse("Corin"))  // erihppaS
 }
 ```
 
 ### Exercise 5: Grade Calculator
 Convert score to letter grade:
 
-```sapphire
+```corin
 fn get_grade(score: int) -> str {
     if score >= 90 {
         return "A"
@@ -371,7 +371,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. Forgetting Return Type
-```sapphire
+```corin
 // Wrong:
 fn add(a: int, b: int) {  // Missing return type
     return a + b
@@ -384,7 +384,7 @@ fn add(a: int, b: int) -> int {
 ```
 
 ### 2. Not Returning a Value
-```sapphire
+```corin
 // Wrong:
 fn add(a: int, b: int) -> int {
     let sum = a + b
@@ -399,7 +399,7 @@ fn add(a: int, b: int) -> int {
 ```
 
 ### 3. Wrong Parameter Types
-```sapphire
+```corin
 // Wrong:
 fn greet(name: int) {  // Should be str, not int
     println("Hello, " + name)

@@ -4,7 +4,7 @@ This guide shows how to compile and run each graphics example.
 
 ## Prerequisites
 
-1. Sapphire compiler built: `make quick`
+1. Corin compiler built: `make quick`
 2. Graphics libraries built: `cd stdlib/graphics && make`
 3. SDL2, OpenGL, GLUT installed on your system
 
@@ -26,7 +26,7 @@ Use the provided build script:
 
 ```bash
 # 1. Compile to LLVM IR
-./sapp compile examples/graphics_tests/game_pong.spp 2>/dev/null > game_pong.ll
+./corin compile examples/graphics_tests/game_pong.corin 2>/dev/null > game_pong.ll
 
 # 2. Compile to object file
 llc game_pong.ll -filetype=obj -o game_pong.o
@@ -34,7 +34,7 @@ llc game_pong.ll -filetype=obj -o game_pong.o
 # 3. Link with SDL2 library
 clang game_pong.o -o game_pong \
     -L./stdlib/graphics/sdl2 \
-    -lsapphire_sdl2 \
+    -lcorin_sdl2 \
     -lSDL2 \
     -lstdc++
 
@@ -46,7 +46,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./game_pong
 
 ```bash
 # 1. Compile to LLVM IR
-./sapp compile examples/graphics_tests/demo_3d_cube.spp 2>/dev/null > demo_3d_cube.ll
+./corin compile examples/graphics_tests/demo_3d_cube.corin 2>/dev/null > demo_3d_cube.ll
 
 # 2. Compile to object file
 llc demo_3d_cube.ll -filetype=obj -o demo_3d_cube.o
@@ -55,8 +55,8 @@ llc demo_3d_cube.ll -filetype=obj -o demo_3d_cube.o
 clang demo_3d_cube.o -o demo_3d_cube \
     -L./stdlib/graphics/opengl \
     -L./stdlib/graphics/glut \
-    -lsapphire_opengl \
-    -lsapphire_glut \
+    -lcorin_opengl \
+    -lcorin_glut \
     -lGL \
     -lGLU \
     -lglut \
@@ -68,31 +68,31 @@ LD_LIBRARY_PATH=./stdlib/graphics/opengl:./stdlib/graphics/glut:$LD_LIBRARY_PATH
 
 ## Examples Overview
 
-### 🎮 game_pong.spp
+### 🎮 game_pong.corin
 Classic Pong game with two paddles and a ball.
 - **Controls**: W/S (left paddle), Up/Down (right paddle), ESC (quit)
 - **Features**: Collision detection, scoring, game loop
 - **Library**: SDL2
 
-### 🐍 game_snake.spp
+### 🐍 game_snake.corin
 Snake game where you eat food and grow.
 - **Controls**: Arrow keys (move), ESC (quit)
 - **Features**: Grid-based movement, collision detection, scoring
 - **Library**: SDL2
 
-### 🎨 app_paint.spp
+### 🎨 app_paint.corin
 Simple paint application for drawing.
 - **Controls**: WASD (move brush), 1-5 (colors), C (clear), ESC (quit)
 - **Features**: Color selection, drawing, canvas management
 - **Library**: SDL2
 
-### ✨ demo_particles.spp
+### ✨ demo_particles.corin
 Animated particle system with colorful bouncing particles.
 - **Controls**: ESC (quit), or wait 10 seconds
 - **Features**: Multiple particles, motion trails, bouncing physics
 - **Library**: SDL2
 
-### 🎲 demo_3d_cube.spp
+### 🎲 demo_3d_cube.corin
 Rotating 3D cube with colored faces.
 - **Controls**: Automatic rotation
 - **Features**: 3D transformations, depth testing, OpenGL rendering
@@ -120,7 +120,7 @@ export LD_LIBRARY_PATH=./stdlib/graphics/sdl2:./stdlib/graphics/opengl:./stdlib/
 - Check that SDL2/OpenGL/GLUT are installed
 
 ### Compilation errors
-- Make sure you're using `./sapp compile`, not `./sapp` (interpreter)
+- Make sure you're using `./corin compile`, not `./corin` (interpreter)
 - Check that LLVM is installed: `llc --version`
 - Verify clang is installed: `clang --version`
 

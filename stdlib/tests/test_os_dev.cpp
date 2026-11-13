@@ -4,7 +4,7 @@
 #include <sys/mman.h>
 #include <signal.h>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 // Signal handler for testing
 volatile sig_atomic_t signal_received = 0;
@@ -201,14 +201,14 @@ void test_c_api() {
     std::cout << "\nTest 9: C API" << std::endl;
     
     // Test memory mapping C API
-    size_t page_size = sapphire_system_page_size();
-    void* addr = sapphire_kernel_map_memory(nullptr, page_size,
+    size_t page_size = corin_system_page_size();
+    void* addr = corin_kernel_map_memory(nullptr, page_size,
                                              PROT_READ | PROT_WRITE,
                                              MAP_PRIVATE | MAP_ANONYMOUS);
     
     if (addr) {
         std::cout << "  ✓ C API: Memory mapped at " << addr << std::endl;
-        sapphire_kernel_unmap_memory(addr, page_size);
+        corin_kernel_unmap_memory(addr, page_size);
         std::cout << "  ✓ C API: Memory unmapped" << std::endl;
     } else {
         std::cout << "  ✗ C API: Failed to map memory" << std::endl;
@@ -217,7 +217,7 @@ void test_c_api() {
     // Test syscall C API
     #ifdef __linux__
     #ifdef __x86_64__
-    int pid = sapphire_kernel_syscall(39, nullptr, nullptr);  // SYS_getpid
+    int pid = corin_kernel_syscall(39, nullptr, nullptr);  // SYS_getpid
     std::cout << "  ✓ C API: Syscall returned PID = " << pid << std::endl;
     #endif
     #endif
@@ -238,7 +238,7 @@ void test_memory_info() {
 }
 
 int main() {
-    std::cout << "=== Sapphire OS Development Features Tests ===" << std::endl;
+    std::cout << "=== Corin OS Development Features Tests ===" << std::endl;
     std::cout << std::endl;
     
     test_memory_mapping();

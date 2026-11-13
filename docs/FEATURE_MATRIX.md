@@ -1,4 +1,4 @@
-# Sapphire v1.1 Feature Matrix
+# Corin v1.1 Feature Matrix
 
 **Last Updated:** March 6, 2026  
 **Version:** 1.1.0-dev

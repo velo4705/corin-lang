@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_SUBSTITUTION_H
-#define SAPPHIRE_SUBSTITUTION_H
+#ifndef CORIN_SUBSTITUTION_H
+#define CORIN_SUBSTITUTION_H
 
 #include "../types/type.h"
 #include <map>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 
 // Type substitution: maps type variables to types
 class Substitution {
@@ -115,6 +115,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_SUBSTITUTION_H
+#endif // CORIN_SUBSTITUTION_H

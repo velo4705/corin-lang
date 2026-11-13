@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_INTERPRETER_H
-#define SAPPHIRE_INTERPRETER_H
+#ifndef CORIN_INTERPRETER_H
+#define CORIN_INTERPRETER_H
 
 #include "../parser/stmt.h"
 #include "../parser/expr.h"
@@ -19,7 +19,7 @@
 
 #include "../../runtime/refcount.h"
 
-namespace sapphire {
+namespace corin {
 
 // Forward declarations
 class Environment;
@@ -609,6 +609,6 @@ public:
     void visitExtendDecl(ExtendDecl& stmt) override;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_INTERPRETER_H
+#endif // CORIN_INTERPRETER_H

@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cstring>
 
-namespace Sapphire {
+namespace Corin {
 namespace ORM {
 
 // ===== Record =====
@@ -358,77 +358,77 @@ bool ORMManager::create_all_tables() { return true; }
 bool ORMManager::drop_all_tables() { return true; }
 
 } // namespace ORM
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 
 extern "C" {
 
 void* orm_model_create(const char* table_name) {
-    return new Sapphire::ORM::Model(table_name);
+    return new Corin::ORM::Model(table_name);
 }
 void orm_model_destroy(void* model) {
-    delete static_cast<Sapphire::ORM::Model*>(model);
+    delete static_cast<Corin::ORM::Model*>(model);
 }
 void orm_model_add_string_field(void* model, const char* name, int max_length) {
-    static_cast<Sapphire::ORM::Model*>(model)->add_string_field(name, max_length);
+    static_cast<Corin::ORM::Model*>(model)->add_string_field(name, max_length);
 }
 void orm_model_add_int_field(void* model, const char* name) {
-    static_cast<Sapphire::ORM::Model*>(model)->add_int_field(name);
+    static_cast<Corin::ORM::Model*>(model)->add_int_field(name);
 }
 void orm_model_add_primary_key(void* model, const char* name) {
-    static_cast<Sapphire::ORM::Model*>(model)->add_primary_key(name);
+    static_cast<Corin::ORM::Model*>(model)->add_primary_key(name);
 }
 int orm_model_create_table(void* model) {
-    return static_cast<Sapphire::ORM::Model*>(model)->create_table() ? 1 : 0;
+    return static_cast<Corin::ORM::Model*>(model)->create_table() ? 1 : 0;
 }
 const char* orm_model_get_create_sql(void* model) {
     static std::string result;
-    result = static_cast<Sapphire::ORM::Model*>(model)->get_create_table_sql();
+    result = static_cast<Corin::ORM::Model*>(model)->get_create_table_sql();
     return result.c_str();
 }
 
 void* orm_record_create() {
-    return new Sapphire::ORM::Record();
+    return new Corin::ORM::Record();
 }
 void orm_record_destroy(void* record) {
-    delete static_cast<Sapphire::ORM::Record*>(record);
+    delete static_cast<Corin::ORM::Record*>(record);
 }
 void orm_record_set_string(void* record, const char* field, const char* value) {
-    static_cast<Sapphire::ORM::Record*>(record)->set(field, std::string(value));
+    static_cast<Corin::ORM::Record*>(record)->set(field, std::string(value));
 }
 void orm_record_set_int(void* record, const char* field, int value) {
-    static_cast<Sapphire::ORM::Record*>(record)->set(field, value);
+    static_cast<Corin::ORM::Record*>(record)->set(field, value);
 }
 const char* orm_record_get_string(void* record, const char* field) {
     static std::string result;
-    result = static_cast<Sapphire::ORM::Record*>(record)->get_string(field);
+    result = static_cast<Corin::ORM::Record*>(record)->get_string(field);
     return result.c_str();
 }
 int orm_record_get_int(void* record, const char* field) {
-    return static_cast<Sapphire::ORM::Record*>(record)->get_int(field);
+    return static_cast<Corin::ORM::Record*>(record)->get_int(field);
 }
 const char* orm_record_to_json(void* record) {
     static std::string result;
-    result = static_cast<Sapphire::ORM::Record*>(record)->to_json();
+    result = static_cast<Corin::ORM::Record*>(record)->to_json();
     return result.c_str();
 }
 
 void* orm_query_create(const char* table_name) {
-    return new Sapphire::ORM::QueryBuilder(table_name);
+    return new Corin::ORM::QueryBuilder(table_name);
 }
 void orm_query_destroy(void* query) {
-    delete static_cast<Sapphire::ORM::QueryBuilder*>(query);
+    delete static_cast<Corin::ORM::QueryBuilder*>(query);
 }
 void orm_query_where_eq(void* query, const char* field, const char* value) {
-    static_cast<Sapphire::ORM::QueryBuilder*>(query)->where_eq(field, value);
+    static_cast<Corin::ORM::QueryBuilder*>(query)->where_eq(field, value);
 }
 void orm_query_limit(void* query, int count) {
-    static_cast<Sapphire::ORM::QueryBuilder*>(query)->limit(count);
+    static_cast<Corin::ORM::QueryBuilder*>(query)->limit(count);
 }
 const char* orm_query_to_sql(void* query) {
     static std::string result;
-    result = static_cast<Sapphire::ORM::QueryBuilder*>(query)->to_sql();
+    result = static_cast<Corin::ORM::QueryBuilder*>(query)->to_sql();
     return result.c_str();
 }
 void* orm_query_get_all(void* query) {
@@ -441,16 +441,16 @@ void* orm_query_first(void* query) {
 }
 
 void* orm_db_create() {
-    return new Sapphire::ORM::DatabaseConnection();
+    return new Corin::ORM::DatabaseConnection();
 }
 void orm_db_destroy(void* db) {
-    delete static_cast<Sapphire::ORM::DatabaseConnection*>(db);
+    delete static_cast<Corin::ORM::DatabaseConnection*>(db);
 }
 int orm_db_connect_sqlite(void* db, const char* path) {
-    return static_cast<Sapphire::ORM::DatabaseConnection*>(db)->connect_sqlite(path) ? 1 : 0;
+    return static_cast<Corin::ORM::DatabaseConnection*>(db)->connect_sqlite(path) ? 1 : 0;
 }
 int orm_db_execute_command(void* db, const char* sql) {
-    return static_cast<Sapphire::ORM::DatabaseConnection*>(db)->execute_command(sql) ? 1 : 0;
+    return static_cast<Corin::ORM::DatabaseConnection*>(db)->execute_command(sql) ? 1 : 0;
 }
 
 void orm_free_string(char* str) {

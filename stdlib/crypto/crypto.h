@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Crypto {
 
 // ===== Hash Functions =====
@@ -87,7 +87,7 @@ std::string pbkdf2_sha256(const std::string& password,
 std::string random_bytes_hex(int count);
 
 } // namespace Crypto
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

@@ -1,4 +1,4 @@
-# Sapphire Performance Ranking
+# Corin Performance Ranking
 
 ## The Goal: Second-Fastest Programming Language
 
@@ -12,7 +12,7 @@
 ║      └─ The absolute baseline (0.80s)                        ║
 ║         Cannot be beaten - this is the machine code          ║
 ║                                                               ║
-║  🥈 #2: SAPPHIRE (GOAL) ⭐                                    ║
+║  🥈 #2: CORIN (GOAL) ⭐                                    ║
 ║      └─ Target: 0.81s (1% slower than C)                     ║
 ║         Faster than everything except C/Assembly             ║
 ║                                                               ║
@@ -26,7 +26,7 @@
 ║                                                               ║
 ║  ⚡ #5-10: Go, Java, C#, Swift, etc.                         ║
 ║      └─ 1.2s - 2.0s (50-150% slower than C)                  ║
-║         Significantly slower than Sapphire                   ║
+║         Significantly slower than Corin                   ║
 ║                                                               ║
 ║  🐌 #11+: Python, Ruby, PHP, etc.                            ║
 ║      └─ 45s+ (5000%+ slower than C)                          ║
@@ -67,7 +67,7 @@
 ### Fibonacci(40) - CPU Intensive
 ```
 C:        0.80s  ████████████████████ (100% - baseline)
-Sapphire: 0.81s  ████████████████████ (99% of C) ← TARGET
+Corin: 0.81s  ████████████████████ (99% of C) ← TARGET
 C++:      0.82s  ███████████████████▌ (98% of C)
 Rust:     0.83s  ███████████████████▎ (96% of C)
 Go:       1.20s  █████████████▎       (67% of C)
@@ -77,7 +77,7 @@ Python:   45.2s  ▎                    (2% of C)
 ### HTTP Server - I/O + CPU
 ```
 C:        110k req/s  ████████████████████ (100%)
-Sapphire: 108k req/s  ████████████████████ (98%) ← TARGET
+Corin: 108k req/s  ████████████████████ (98%) ← TARGET
 C++:      105k req/s  ███████████████████  (95%)
 Rust:     103k req/s  ██████████████████▋  (94%)
 Go:        95k req/s  █████████████████▎   (86%)
@@ -87,7 +87,7 @@ Python:     5k req/s  ▉                    (5%)
 ### JSON Parsing - Memory + CPU
 ```
 C:        1.35 GB/s  ████████████████████ (100%)
-Sapphire: 1.32 GB/s  ████████████████████ (98%) ← TARGET
+Corin: 1.32 GB/s  ████████████████████ (98%) ← TARGET
 C++:      1.30 GB/s  ███████████████████▎ (96%)
 Rust:     1.25 GB/s  ██████████████████▌  (93%)
 Go:       1.00 GB/s  ██████████████▊      (74%)
@@ -118,7 +118,7 @@ Python:   0.05 GB/s  ▋                    (4%)
 
 ## The Competitive Advantage
 
-**Sapphire = #2 Speed + Python Syntax + Rust Safety**
+**Corin = #2 Speed + Python Syntax + Rust Safety**
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -161,7 +161,7 @@ Python:   0.05 GB/s  ▋                    (4%)
 
 ## Conclusion
 
-Sapphire will be the **second-fastest programming language** in the world:
+Corin will be the **second-fastest programming language** in the world:
 - Only C and Assembly will be faster
 - Faster than C++, Rust, Go, Java, and everything else
 - Within 0-5% of C performance

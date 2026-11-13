@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_TYPE_ERROR_H
-#define SAPPHIRE_TYPE_ERROR_H
+#ifndef CORIN_TYPE_ERROR_H
+#define CORIN_TYPE_ERROR_H
 
 #include "../types/type.h"
 #include <string>
 #include <vector>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 
 // Error severity
 enum class ErrorSeverity {
@@ -206,6 +206,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TYPE_ERROR_H
+#endif // CORIN_TYPE_ERROR_H

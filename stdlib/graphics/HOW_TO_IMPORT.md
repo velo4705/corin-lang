@@ -1,4 +1,4 @@
-# How to Import Graphics Modules in Sapphire
+# How to Import Graphics Modules in Corin
 
 ## Current Status (March 8, 2026)
 
@@ -20,9 +20,9 @@
 
 ### Built-in Functions (Work Today!)
 
-Sapphire has **built-in graphics functions** that work without any imports:
+Corin has **built-in graphics functions** that work without any imports:
 
-```sapphire
+```corin
 fn main():
     # Window management
     let window = window_create("My Game", 800, 600)
@@ -47,7 +47,7 @@ fn main():
 
 **Compile and run:**
 ```bash
-./sapp compile game.spp > game.ll
+./corin compile game.corin > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o -o game stdlib/gui/window.cpp -Istdlib -lSDL2 -lSDL2_ttf -lstdc++
 ./game
@@ -58,7 +58,7 @@ clang game.o -o game stdlib/gui/window.cpp -Istdlib -lSDL2 -lSDL2_ttf -lstdc++
 ## Available Built-in Functions
 
 ### Window Management
-```sapphire
+```corin
 window_create(title: string, width: int, height: int) -> ptr
 window_show(window: ptr)
 window_hide(window: ptr)
@@ -68,25 +68,25 @@ window_poll_events(window: ptr)
 ```
 
 ### Rendering
-```sapphire
+```corin
 window_clear(window: ptr, r: int, g: int, b: int)
 window_present(window: ptr)
 window_fill_rect(window: ptr, x: int, y: int, w: int, h: int, r: int, g: int, b: int)
 ```
 
 ### Input
-```sapphire
+```corin
 window_is_key_down(window: ptr, scancode: int) -> bool
 ```
 
 ### Timing
-```sapphire
+```corin
 delay(ms: int)
 SDL_Delay(ms: int)  # Alternative
 ```
 
 ### OpenGL Functions
-```sapphire
+```corin
 glClearColor(r: float, g: float, b: float, a: float)
 glClear(mask: int)
 glBegin(mode: int)
@@ -106,26 +106,26 @@ glLoadIdentity()
 These syntaxes are **valid** but don't do anything yet:
 
 ### Simple Import
-```sapphire
+```corin
 import math
 import os
 import graphics
 ```
 
 ### Import with Alias
-```sapphire
+```corin
 import math as m
 import os as operating_system
 ```
 
 ### From Import
-```sapphire
+```corin
 from math import sqrt, pow
 from collections import Vec, HashMap
 ```
 
 ### From Import with Alias
-```sapphire
+```corin
 from math import sqrt as square_root
 ```
 
@@ -136,7 +136,7 @@ from math import sqrt as square_root
 Once the import system is fully implemented, you'll be able to:
 
 ### Option 1: Import Graphics Module
-```sapphire
+```corin
 import graphics
 
 fn main():
@@ -146,7 +146,7 @@ fn main():
 ```
 
 ### Option 2: From Import
-```sapphire
+```corin
 from graphics import window_create, window_show, window_clear
 
 fn main():
@@ -156,7 +156,7 @@ fn main():
 ```
 
 ### Option 3: Import Specific API
-```sapphire
+```corin
 import graphics.sdl2
 import graphics.opengl
 import graphics.vulkan
@@ -179,7 +179,7 @@ fn main():
 Until imports are implemented, use the built-in functions directly:
 
 ### Example: Simple Game
-```sapphire
+```corin
 fn main():
     print("Starting game...")
     
@@ -288,9 +288,9 @@ GL_PROJECTION = 0x1701
 ## Examples
 
 See these working examples:
-- `examples/test_window_visible.spp` - Window with colored rectangles
-- `examples/test_window_create.spp` - Basic window creation
-- `examples/challenges/round3_field_level/pong_sdl2.spp` - Pong game
+- `examples/test_window_visible.corin` - Window with colored rectangles
+- `examples/test_window_create.corin` - Basic window creation
+- `examples/challenges/round3_field_level/pong_sdl2.corin` - Pong game
 
 ---
 

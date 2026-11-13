@@ -4,7 +4,7 @@
 #include <cctype>
 #include <cstring>
 
-namespace Sapphire {
+namespace Corin {
 namespace GraphQL {
 
 // ===== Schema =====
@@ -525,5 +525,5 @@ bool SubscriptionManager::is_subscribed(const std::string& client_id,
 }
 
 } // namespace GraphQL
-} // namespace Sapphire
+} // namespace Corin
 

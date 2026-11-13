@@ -1,6 +1,6 @@
-# Pong Game - Sapphire Language Demo
+# Pong Game - Corin Language Demo
 
-A simple but fully functional Pong game written in Sapphire, demonstrating the language's SDL2 graphics capabilities.
+A simple but fully functional Pong game written in Corin, demonstrating the language's SDL2 graphics capabilities.
 
 ## Features
 
@@ -26,13 +26,13 @@ A simple but fully functional Pong game written in Sapphire, demonstrating the l
 ### Manual Build
 ```bash
 # Compile to LLVM IR
-./sapp compile working_pong.spp > working_pong.ll
+./corin compile working_pong.corin > working_pong.ll
 
 # Compile to object file
 llc working_pong.ll -filetype=obj -o working_pong.o
 
 # Link with SDL2
-clang working_pong.o -o working_pong -L./stdlib/graphics/sdl2 -lsapphire_sdl2 -lSDL2 -lstdc++
+clang working_pong.o -o working_pong -L./stdlib/graphics/sdl2 -lcorin_sdl2 -lSDL2 -lstdc++
 
 # Run
 LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./working_pong
@@ -40,11 +40,11 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./working_pong
 
 ## Requirements
 
-- Sapphire compiler (`sapp`)
+- Corin compiler (`corin`)
 - LLVM toolchain (`llc`)
 - Clang
 - SDL2 library
-- Sapphire SDL2 wrapper (included in `stdlib/graphics/sdl2/`)
+- Corin SDL2 wrapper (included in `stdlib/graphics/sdl2/`)
 
 ## Game Rules
 
@@ -56,8 +56,8 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./working_pong
 
 ## Technical Details
 
-- **Language**: Sapphire (top-level statement syntax)
-- **Graphics**: SDL2 via Sapphire's graphics.sdl2 module
+- **Language**: Corin (top-level statement syntax)
+- **Graphics**: SDL2 via Corin's graphics.sdl2 module
 - **Resolution**: 800x600 pixels
 - **Frame Rate**: ~60 FPS (16ms delay per frame)
 - **Paddle Size**: 15x100 pixels
@@ -66,7 +66,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./working_pong
 
 ## Code Structure
 
-The game uses Sapphire's top-level statement syntax (no explicit `fn main()`):
+The game uses Corin's top-level statement syntax (no explicit `fn main()`):
 - Import SDL2 graphics module
 - Initialize window and game state
 - Main game loop with `while running:` condition
@@ -93,4 +93,4 @@ The game uses Sapphire's top-level statement syntax (no explicit `fn main()`):
 
 ## License
 
-Part of the Sapphire language project. See main LICENSE file.
+Part of the Corin language project. See main LICENSE file.

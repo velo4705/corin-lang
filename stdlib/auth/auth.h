@@ -7,7 +7,7 @@
 #include <functional>
 #include <ctime>
 
-namespace Sapphire {
+namespace Corin {
 namespace Auth {
 
 // ===== JWT Handler =====
@@ -209,7 +209,7 @@ private:
 };
 
 } // namespace Auth
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

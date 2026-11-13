@@ -3,7 +3,7 @@
 #include <cctype>
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 
 Lexer::Lexer(const std::string& src) 
     : source(src), current(0), line(1), column(1), indent_stack({0}) {}
@@ -408,4 +408,4 @@ void Lexer::scanIdentifier() {
     }
 }
 
-} // namespace sapphire
+} // namespace corin

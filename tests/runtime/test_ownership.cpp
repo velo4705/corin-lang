@@ -4,7 +4,7 @@
 #include <thread>
 #include <vector>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 // Test counters
 int tests_passed = 0;
@@ -358,26 +358,26 @@ TEST(c_api) {
     std::cout << "  Testing C API..." << std::endl;
     
     TestObject obj(42);
-    uint64_t owner = sapphire_current_thread_id();
+    uint64_t owner = corin_current_thread_id();
     
     // Set owner
-    sapphire_set_owner(&obj, owner);
-    assert(sapphire_get_owner(&obj) == owner);
-    assert(sapphire_is_owner(&obj, owner));
+    corin_set_owner(&obj, owner);
+    assert(corin_get_owner(&obj) == owner);
+    assert(corin_is_owner(&obj, owner));
     
     // Move
-    assert(!sapphire_is_moved(&obj));
-    sapphire_mark_moved(&obj);
-    assert(sapphire_is_moved(&obj));
+    assert(!corin_is_moved(&obj));
+    corin_mark_moved(&obj);
+    assert(corin_is_moved(&obj));
     
     // Transfer
     uint64_t new_owner = owner + 1;
-    sapphire_transfer_ownership(&obj, new_owner);
-    assert(sapphire_get_owner(&obj) == new_owner);
+    corin_transfer_ownership(&obj, new_owner);
+    assert(corin_get_owner(&obj) == new_owner);
     
     // Shared
-    sapphire_mark_shared(&obj);
-    assert(sapphire_is_shared(&obj));
+    corin_mark_shared(&obj);
+    assert(corin_is_shared(&obj));
     
     std::cout << "  C API working correctly" << std::endl;
 }
@@ -420,7 +420,7 @@ TEST(statistics) {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Ownership System Tests\n";
+    std::cout << "Corin Ownership System Tests\n";
     std::cout << "================================================================================\n\n";
     
     // Run all tests

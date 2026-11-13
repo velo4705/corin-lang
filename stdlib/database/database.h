@@ -6,7 +6,7 @@
 #include <functional>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Database {
 
 // ===== Core value type =====
@@ -266,4 +266,4 @@ DocumentCollection* doc_collection(Connection* conn, const std::string& name);
 void                doc_collection_destroy(DocumentCollection* coll);
 
 } // namespace Database
-} // namespace Sapphire
+} // namespace Corin

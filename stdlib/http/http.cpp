@@ -15,7 +15,7 @@
 #include <fcntl.h>
 #include <sys/select.h>
 
-namespace Sapphire {
+namespace Corin {
 namespace HTTP {
 
 // HTTPRequest Implementation
@@ -518,7 +518,7 @@ std::string HTTPServer::read_static_file(const std::string& filepath) {
 
 // HTTPClient Implementation
 HTTPClient::HTTPClient() : timeout_ms_(30000), ssl_enabled_(false) {
-    set_user_agent("Sapphire-HTTP-Client/1.0");
+    set_user_agent("Corin-HTTP-Client/1.0");
 }
 
 HTTPClient::~HTTPClient() {}
@@ -743,11 +743,11 @@ std::string get_mime_type(const std::string& filename) {
 }
 
 } // namespace HTTP
-} // namespace Sapphire
+} // namespace Corin
 
 // C API Implementation
 extern "C" {
-    using namespace Sapphire::HTTP;
+    using namespace Corin::HTTP;
     
     void* http_server_create(int port) {
         return new HTTPServer(port);

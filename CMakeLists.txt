@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Sapphire VERSION 1.0.0-beta.8 LANGUAGES CXX)
+project(Corin VERSION 1.0.0-beta.8 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -45,11 +45,11 @@ set(RUNTIME_SOURCES
 )
 
 # Compiler executable
-add_executable(sapphire ${COMPILER_SOURCES})
-target_link_libraries(sapphire LLVM pthread)
+add_executable(corin ${COMPILER_SOURCES})
+target_link_libraries(corin LLVM pthread)
 
 # Runtime library
-add_library(sapphire_runtime SHARED ${RUNTIME_SOURCES})
+add_library(corin_runtime SHARED ${RUNTIME_SOURCES})
 
 # Tools
 if(BUILD_TOOLS)
@@ -64,7 +64,7 @@ if(BUILD_TESTS)
 endif()
 
 # Install
-install(TARGETS sapphire DESTINATION bin)
-install(TARGETS sapphire_runtime DESTINATION lib)
-install(DIRECTORY stdlib/ DESTINATION lib/sapphire/stdlib)
-install(DIRECTORY examples/ DESTINATION share/sapphire/examples)
+install(TARGETS corin DESTINATION bin)
+install(TARGETS corin_runtime DESTINATION lib)
+install(DIRECTORY stdlib/ DESTINATION lib/corin/stdlib)
+install(DIRECTORY examples/ DESTINATION share/corin/examples)

@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STMT_H
-#define SAPPHIRE_STMT_H
+#ifndef CORIN_STMT_H
+#define CORIN_STMT_H
 
 #include "expr.h"
 #include <memory>
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 // Forward declarations
 class StmtVisitor;
@@ -383,6 +383,6 @@ public:
     virtual void visitExtendDecl(ExtendDecl& stmt) = 0;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STMT_H
+#endif // CORIN_STMT_H

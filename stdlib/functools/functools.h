@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_FUNCTOOLS_H
-#define SAPPHIRE_STDLIB_FUNCTOOLS_H
+#ifndef CORIN_STDLIB_FUNCTOOLS_H
+#define CORIN_STDLIB_FUNCTOOLS_H
 
 #include <functional>
 #include <map>
@@ -7,7 +7,7 @@
 #include <tuple>
 #include <chrono>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -141,6 +141,6 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_FUNCTOOLS_H
+#endif // CORIN_STDLIB_FUNCTOOLS_H

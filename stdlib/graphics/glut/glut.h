@@ -1,15 +1,15 @@
-#ifndef SAPPHIRE_STDLIB_GLUT_H
-#define SAPPHIRE_STDLIB_GLUT_H
+#ifndef CORIN_STDLIB_GLUT_H
+#define CORIN_STDLIB_GLUT_H
 
 #include <GL/glut.h>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
 /**
- * GLUT Graphics Library for Sapphire
+ * GLUT Graphics Library for Corin
  * 
  * Provides GLUT (OpenGL Utility Toolkit) for 3D graphics and window management.
  * Use this for quick 3D prototypes and visualizations.
@@ -74,63 +74,63 @@ public:
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire code generation
+// C API for Corin code generation
 extern "C" {
     // Initialization
-    void sapphire_glut_init();
-    void sapphire_glut_init_display_mode(unsigned int mode);
-    void sapphire_glut_init_window_size(int width, int height);
-    void sapphire_glut_init_window_position(int x, int y);
-    int sapphire_glut_create_window(const char* title);
+    void corin_glut_init();
+    void corin_glut_init_display_mode(unsigned int mode);
+    void corin_glut_init_window_size(int width, int height);
+    void corin_glut_init_window_position(int x, int y);
+    int corin_glut_create_window(const char* title);
     
     // Main loop
-    void sapphire_glut_main_loop();
-    void sapphire_glut_post_redisplay();
+    void corin_glut_main_loop();
+    void corin_glut_post_redisplay();
     
     // Window management
-    void sapphire_glut_set_window(int win);
-    int sapphire_glut_get_window();
-    void sapphire_glut_set_window_title(const char* title);
-    void sapphire_glut_set_icon_title(const char* title);
-    void sapphire_glut_position_window(int x, int y);
-    void sapphire_glut_reshape_window(int width, int height);
-    void sapphire_glut_full_screen();
-    void sapphire_glut_pop_window();
-    void sapphire_glut_push_window();
-    void sapphire_glut_show_window();
-    void sapphire_glut_hide_window();
-    void sapphire_glut_iconify_window();
-    void sapphire_glut_destroy_window(int win);
+    void corin_glut_set_window(int win);
+    int corin_glut_get_window();
+    void corin_glut_set_window_title(const char* title);
+    void corin_glut_set_icon_title(const char* title);
+    void corin_glut_position_window(int x, int y);
+    void corin_glut_reshape_window(int width, int height);
+    void corin_glut_full_screen();
+    void corin_glut_pop_window();
+    void corin_glut_push_window();
+    void corin_glut_show_window();
+    void corin_glut_hide_window();
+    void corin_glut_iconify_window();
+    void corin_glut_destroy_window(int win);
     
     // Rendering
-    void sapphire_glut_swap_buffers();
+    void corin_glut_swap_buffers();
     
     // 3D Shapes - Solid
-    void sapphire_glut_solid_sphere(double radius, int slices, int stacks);
-    void sapphire_glut_solid_cube(double size);
-    void sapphire_glut_solid_cone(double base, double height, int slices, int stacks);
-    void sapphire_glut_solid_torus(double inner_radius, double outer_radius, int sides, int rings);
-    void sapphire_glut_solid_teapot(double size);
-    void sapphire_glut_solid_octahedron();
-    void sapphire_glut_solid_dodecahedron();
-    void sapphire_glut_solid_icosahedron();
-    void sapphire_glut_solid_tetrahedron();
+    void corin_glut_solid_sphere(double radius, int slices, int stacks);
+    void corin_glut_solid_cube(double size);
+    void corin_glut_solid_cone(double base, double height, int slices, int stacks);
+    void corin_glut_solid_torus(double inner_radius, double outer_radius, int sides, int rings);
+    void corin_glut_solid_teapot(double size);
+    void corin_glut_solid_octahedron();
+    void corin_glut_solid_dodecahedron();
+    void corin_glut_solid_icosahedron();
+    void corin_glut_solid_tetrahedron();
     
     // 3D Shapes - Wireframe
-    void sapphire_glut_wire_sphere(double radius, int slices, int stacks);
-    void sapphire_glut_wire_cube(double size);
-    void sapphire_glut_wire_cone(double base, double height, int slices, int stacks);
-    void sapphire_glut_wire_torus(double inner_radius, double outer_radius, int sides, int rings);
-    void sapphire_glut_wire_teapot(double size);
-    void sapphire_glut_wire_octahedron();
-    void sapphire_glut_wire_dodecahedron();
-    void sapphire_glut_wire_icosahedron();
-    void sapphire_glut_wire_tetrahedron();
+    void corin_glut_wire_sphere(double radius, int slices, int stacks);
+    void corin_glut_wire_cube(double size);
+    void corin_glut_wire_cone(double base, double height, int slices, int stacks);
+    void corin_glut_wire_torus(double inner_radius, double outer_radius, int sides, int rings);
+    void corin_glut_wire_teapot(double size);
+    void corin_glut_wire_octahedron();
+    void corin_glut_wire_dodecahedron();
+    void corin_glut_wire_icosahedron();
+    void corin_glut_wire_tetrahedron();
     
     // Timing
-    int sapphire_glut_get_time();
+    int corin_glut_get_time();
 }
 
-#endif // SAPPHIRE_STDLIB_GLUT_H
+#endif // CORIN_STDLIB_GLUT_H

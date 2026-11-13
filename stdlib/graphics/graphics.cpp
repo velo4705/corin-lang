@@ -3,7 +3,7 @@
 #include <fstream>
 #include <algorithm>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 Canvas::Canvas(uint32_t w, uint32_t h) 
@@ -153,55 +153,55 @@ bool Canvas::save_png(const std::string& filename) const {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    void* sapphire_canvas_create(uint32_t width, uint32_t height) {
-        return new sapphire::stdlib::Canvas(width, height);
+    void* corin_canvas_create(uint32_t width, uint32_t height) {
+        return new corin::stdlib::Canvas(width, height);
     }
     
-    void sapphire_canvas_destroy(void* canvas) {
-        delete static_cast<sapphire::stdlib::Canvas*>(canvas);
+    void corin_canvas_destroy(void* canvas) {
+        delete static_cast<corin::stdlib::Canvas*>(canvas);
     }
     
-    void sapphire_canvas_clear(void* canvas, uint8_t r, uint8_t g, uint8_t b) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->clear(sapphire::stdlib::Color(r, g, b));
+    void corin_canvas_clear(void* canvas, uint8_t r, uint8_t g, uint8_t b) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->clear(corin::stdlib::Color(r, g, b));
     }
     
-    void sapphire_canvas_draw_pixel(void* canvas, int x, int y, uint8_t r, uint8_t g, uint8_t b) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->draw_pixel(x, y, sapphire::stdlib::Color(r, g, b));
+    void corin_canvas_draw_pixel(void* canvas, int x, int y, uint8_t r, uint8_t g, uint8_t b) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->draw_pixel(x, y, corin::stdlib::Color(r, g, b));
     }
     
-    void sapphire_canvas_draw_line(void* canvas, double x1, double y1, double x2, double y2) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->draw_line(sapphire::stdlib::Point(x1, y1), sapphire::stdlib::Point(x2, y2));
+    void corin_canvas_draw_line(void* canvas, double x1, double y1, double x2, double y2) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->draw_line(corin::stdlib::Point(x1, y1), corin::stdlib::Point(x2, y2));
     }
     
-    void sapphire_canvas_draw_rect(void* canvas, double x, double y, double w, double h) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->draw_rect(sapphire::stdlib::Rect(x, y, w, h));
+    void corin_canvas_draw_rect(void* canvas, double x, double y, double w, double h) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->draw_rect(corin::stdlib::Rect(x, y, w, h));
     }
     
-    void sapphire_canvas_fill_rect(void* canvas, double x, double y, double w, double h) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->fill_rect(sapphire::stdlib::Rect(x, y, w, h));
+    void corin_canvas_fill_rect(void* canvas, double x, double y, double w, double h) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->fill_rect(corin::stdlib::Rect(x, y, w, h));
     }
     
-    void sapphire_canvas_draw_circle(void* canvas, double x, double y, double r) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->draw_circle(sapphire::stdlib::Point(x, y), r);
+    void corin_canvas_draw_circle(void* canvas, double x, double y, double r) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->draw_circle(corin::stdlib::Point(x, y), r);
     }
     
-    void sapphire_canvas_fill_circle(void* canvas, double x, double y, double r) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
-        c->fill_circle(sapphire::stdlib::Point(x, y), r);
+    void corin_canvas_fill_circle(void* canvas, double x, double y, double r) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
+        c->fill_circle(corin::stdlib::Point(x, y), r);
     }
     
-    bool sapphire_canvas_save_ppm(void* canvas, const char* filename) {
-        auto* c = static_cast<sapphire::stdlib::Canvas*>(canvas);
+    bool corin_canvas_save_ppm(void* canvas, const char* filename) {
+        auto* c = static_cast<corin::stdlib::Canvas*>(canvas);
         return c->save_ppm(filename);
     }
 }

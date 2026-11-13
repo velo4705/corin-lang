@@ -2,7 +2,7 @@
 #include <chrono>
 #include <string>
 
-using namespace Sapphire::SmartContract;
+using namespace Corin::SmartContract;
 
 extern "C" {
 

@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-using namespace sapphire;
+using namespace corin;
 
 void test_integers() {
     Lexer lexer("42 123 0");

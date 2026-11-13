@@ -1,6 +1,6 @@
 # Exception Handling Examples
 
-This directory contains examples demonstrating exception handling and error management in Sapphire.
+This directory contains examples demonstrating exception handling and error management in Corin.
 
 ---
 
@@ -13,7 +13,7 @@ These examples are separated from the main examples directory because they inten
 ## Features Demonstrated
 
 ### 1. Try/Catch/Finally
-```sapphire
+```corin
 try:
     risky_operation()
 catch DivisionByZeroError as e:
@@ -23,21 +23,21 @@ finally:
 ```
 
 ### 2. Error Throwing
-```sapphire
+```corin
 fn validate(x):
     if x < 0:
         throw ValueError("x must be positive")
 ```
 
 ### 3. Error Propagation
-```sapphire
+```corin
 fn process():
     let result = risky_operation()?
     return result
 ```
 
 ### 4. Option Error Handling
-```sapphire
+```corin
 let value = Some(42)
 match value:
     Some(x) => print("Got:", x)
@@ -49,16 +49,16 @@ match value:
 ## Files in This Directory
 
 ### Basic Exception Tests
-- **error_test_minimal.spp** - Minimal exception example
-- **error_test_simple.spp** - Simple try/catch
-- **error_test_division.spp** - Division by zero handling
-- **error_test_specific.spp** - Specific exception types
-- **error_test_throw.spp** - Throwing exceptions
-- **error_test_finally.spp** - Finally blocks
+- **error_test_minimal.corin** - Minimal exception example
+- **error_test_simple.corin** - Simple try/catch
+- **error_test_division.corin** - Division by zero handling
+- **error_test_specific.corin** - Specific exception types
+- **error_test_throw.corin** - Throwing exceptions
+- **error_test_finally.corin** - Finally blocks
 
 ### Complete Examples
-- **error_handling_complete.spp** - Comprehensive error handling
-- **option_error_handling.spp** - Option type error handling
+- **error_handling_complete.corin** - Comprehensive error handling
+- **option_error_handling.corin** - Option type error handling
 
 ---
 
@@ -68,7 +68,7 @@ All these examples work correctly and demonstrate proper error handling:
 
 ```bash
 # Run individual example
-./sapp examples/exception_handling/error_test_division.spp
+./corin examples/exception_handling/error_test_division.corin
 
 # Expected output includes error messages (this is correct!)
 # Example:
@@ -91,7 +91,7 @@ These examples are designed to:
 
 ---
 
-## Error Types in Sapphire
+## Error Types in Corin
 
 ### Built-in Errors
 - **DivisionByZeroError** - Division by zero
@@ -101,7 +101,7 @@ These examples are designed to:
 
 ### Custom Errors
 You can throw custom error messages:
-```sapphire
+```corin
 throw CustomError("Something went wrong")
 ```
 
@@ -110,7 +110,7 @@ throw CustomError("Something went wrong")
 ## Best Practices
 
 ### 1. Use Result Types
-```sapphire
+```corin
 fn divide(a, b) -> Result:
     if b == 0:
         return Err("Division by zero")
@@ -118,7 +118,7 @@ fn divide(a, b) -> Result:
 ```
 
 ### 2. Use Option Types
-```sapphire
+```corin
 fn find(arr, value) -> Option:
     for item in arr:
         if item == value:
@@ -127,7 +127,7 @@ fn find(arr, value) -> Option:
 ```
 
 ### 3. Use Try/Catch for Exceptional Cases
-```sapphire
+```corin
 try:
     file = open("data.txt")
     process(file)
@@ -153,9 +153,9 @@ To verify these examples work:
 
 ```bash
 # Run each file
-for file in examples/exception_handling/*.spp; do
+for file in examples/exception_handling/*.corin; do
     echo "Testing: $file"
-    ./sapp "$file"
+    ./corin "$file"
     echo "---"
 done
 ```

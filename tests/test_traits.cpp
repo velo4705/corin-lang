@@ -17,7 +17,7 @@ void test(const std::string& name, bool condition) {
 int main() {
     std::cout << "=== Trait System Tests ===" << std::endl;
     
-    // Note: These are integration tests that would run .spp files
+    // Note: These are integration tests that would run .corin files
     // For now, we document what should be tested
     
     std::cout << "\nTest Categories:" << std::endl;
@@ -33,7 +33,7 @@ int main() {
     std::cout << "10. Where clauses" << std::endl;
     
     std::cout << "\n✓ Trait system test suite defined" << std::endl;
-    std::cout << "Run: ./sapp examples/traits_*.spp" << std::endl;
+    std::cout << "Run: ./corin examples/traits_*.corin" << std::endl;
     
     return 0;
 }

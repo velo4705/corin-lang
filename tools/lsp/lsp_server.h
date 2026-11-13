@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_LSP_SERVER_H
-#define SAPPHIRE_LSP_SERVER_H
+#ifndef CORIN_LSP_SERVER_H
+#define CORIN_LSP_SERVER_H
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,7 @@
 #include "../../src/parser/parser.h"
 #include "../../src/parser/stmt.h"
 
-namespace sapphire {
+namespace corin {
 namespace lsp {
 
 /**
@@ -174,6 +174,6 @@ public:
 };
 
 } // namespace lsp
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_LSP_SERVER_H
+#endif // CORIN_LSP_SERVER_H

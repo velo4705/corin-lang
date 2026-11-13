@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_CONSTRAINTS_H
-#define SAPPHIRE_CONSTRAINTS_H
+#ifndef CORIN_CONSTRAINTS_H
+#define CORIN_CONSTRAINTS_H
 
 #include "../types/type.h"
 #include <memory>
 #include <vector>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 
 // Type constraint: T1 = T2
 class Constraint {
@@ -68,6 +68,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_CONSTRAINTS_H
+#endif // CORIN_CONSTRAINTS_H

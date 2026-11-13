@@ -16,7 +16,7 @@
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace WebSocket {
 
@@ -687,97 +687,97 @@ std::string WebSocketClient::generate_websocket_key() {
 
 } // namespace WebSocket
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
-    using namespace sapphire::stdlib::WebSocket;
+    using namespace corin::stdlib::WebSocket;
     
     // WebSocket Server
-    void* sapphire_websocket_server_create(int port) {
+    void* corin_websocket_server_create(int port) {
         return new WebSocketServer(port);
     }
     
-    void sapphire_websocket_server_destroy(void* server) {
+    void corin_websocket_server_destroy(void* server) {
         delete static_cast<WebSocketServer*>(server);
     }
     
-    int sapphire_websocket_server_start(void* server) {
+    int corin_websocket_server_start(void* server) {
         return static_cast<WebSocketServer*>(server)->start() ? 1 : 0;
     }
     
-    void sapphire_websocket_server_stop(void* server) {
+    void corin_websocket_server_stop(void* server) {
         static_cast<WebSocketServer*>(server)->stop();
     }
     
-    void sapphire_websocket_server_broadcast_text(void* server, const char* text) {
+    void corin_websocket_server_broadcast_text(void* server, const char* text) {
         static_cast<WebSocketServer*>(server)->broadcast_text(std::string(text));
     }
     
-    void sapphire_websocket_server_broadcast_binary(void* server, const uint8_t* data, int size) {
+    void corin_websocket_server_broadcast_binary(void* server, const uint8_t* data, int size) {
         std::vector<uint8_t> data_vec(data, data + size);
         static_cast<WebSocketServer*>(server)->broadcast_binary(data_vec);
     }
     
-    int sapphire_websocket_server_connection_count(void* server) {
+    int corin_websocket_server_connection_count(void* server) {
         return static_cast<WebSocketServer*>(server)->get_connections().size();
     }
     
     // WebSocket Client
-    void* sapphire_websocket_client_create() {
+    void* corin_websocket_client_create() {
         return new WebSocketClient();
     }
     
-    void sapphire_websocket_client_destroy(void* client) {
+    void corin_websocket_client_destroy(void* client) {
         delete static_cast<WebSocketClient*>(client);
     }
     
-    int sapphire_websocket_client_connect(void* client, const char* url) {
+    int corin_websocket_client_connect(void* client, const char* url) {
         return static_cast<WebSocketClient*>(client)->connect(std::string(url)) ? 1 : 0;
     }
     
-    void sapphire_websocket_client_disconnect(void* client) {
+    void corin_websocket_client_disconnect(void* client) {
         static_cast<WebSocketClient*>(client)->disconnect();
     }
     
-    int sapphire_websocket_client_send_text(void* client, const char* text) {
+    int corin_websocket_client_send_text(void* client, const char* text) {
         return static_cast<WebSocketClient*>(client)->send_text(std::string(text)) ? 1 : 0;
     }
     
-    int sapphire_websocket_client_send_binary(void* client, const uint8_t* data, int size) {
+    int corin_websocket_client_send_binary(void* client, const uint8_t* data, int size) {
         std::vector<uint8_t> data_vec(data, data + size);
         return static_cast<WebSocketClient*>(client)->send_binary(data_vec) ? 1 : 0;
     }
     
-    int sapphire_websocket_client_is_connected(void* client) {
+    int corin_websocket_client_is_connected(void* client) {
         return static_cast<WebSocketClient*>(client)->is_connected() ? 1 : 0;
     }
     
     // WebSocket Connection
-    int sapphire_websocket_connection_send_text(void* connection, const char* text) {
+    int corin_websocket_connection_send_text(void* connection, const char* text) {
         return static_cast<WebSocketConnection*>(connection)->send_text(std::string(text)) ? 1 : 0;
     }
     
-    int sapphire_websocket_connection_send_binary(void* connection, const uint8_t* data, int size) {
+    int corin_websocket_connection_send_binary(void* connection, const uint8_t* data, int size) {
         std::vector<uint8_t> data_vec(data, data + size);
         return static_cast<WebSocketConnection*>(connection)->send_binary(data_vec) ? 1 : 0;
     }
     
-    void sapphire_websocket_connection_close(void* connection, int code, const char* reason) {
+    void corin_websocket_connection_close(void* connection, int code, const char* reason) {
         static_cast<WebSocketConnection*>(connection)->close(code, std::string(reason));
     }
     
-    int sapphire_websocket_connection_is_open(void* connection) {
+    int corin_websocket_connection_is_open(void* connection) {
         return static_cast<WebSocketConnection*>(connection)->is_open() ? 1 : 0;
     }
     
-    const char* sapphire_websocket_connection_get_id(void* connection) {
+    const char* corin_websocket_connection_get_id(void* connection) {
         static std::string id = static_cast<WebSocketConnection*>(connection)->get_id();
         return id.c_str();
     }
     
     // Utility functions
-    char* sapphire_websocket_base64_encode(const uint8_t* data, int size) {
+    char* corin_websocket_base64_encode(const uint8_t* data, int size) {
         std::vector<uint8_t> data_vec(data, data + size);
         std::string encoded = base64_encode(data_vec);
         char* result = new char[encoded.length() + 1];
@@ -785,7 +785,7 @@ extern "C" {
         return result;
     }
     
-    uint8_t* sapphire_websocket_base64_decode(const char* encoded, int* out_size) {
+    uint8_t* corin_websocket_base64_decode(const char* encoded, int* out_size) {
         std::vector<uint8_t> decoded = base64_decode(std::string(encoded));
         *out_size = decoded.size();
         uint8_t* result = new uint8_t[decoded.size()];
@@ -793,11 +793,11 @@ extern "C" {
         return result;
     }
     
-    void sapphire_websocket_free_string(char* str) {
+    void corin_websocket_free_string(char* str) {
         delete[] str;
     }
     
-    void sapphire_websocket_free_data(uint8_t* data) {
+    void corin_websocket_free_data(uint8_t* data) {
         delete[] data;
     }
 }

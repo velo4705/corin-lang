@@ -1,24 +1,24 @@
-# Sapphire Compiler Usage Guide
+# Corin Compiler Usage Guide
 
 ## Overview
 
-Sapphire now has a working compiler that generates LLVM IR! This guide shows you how to use it.
+Corin now has a working compiler that generates LLVM IR! This guide shows you how to use it.
 
 ## Quick Start
 
 ### Compile and Show IR
 ```bash
-./sapp compile program.spp
+./corin compile program.corin
 ```
 
 This will:
-1. Parse your Sapphire code
+1. Parse your Corin code
 2. Generate LLVM IR
 3. Print the IR to stdout
 
 ### Save IR to File
 ```bash
-./sapp compile program.spp > program.ll
+./corin compile program.corin > program.ll
 ```
 
 ### Compile to Native Executable
@@ -26,7 +26,7 @@ This will:
 #### Step-by-Step
 ```bash
 # 1. Generate LLVM IR
-./sapp compile program.spp > program.ll
+./corin compile program.corin > program.ll
 
 # 2. Compile IR to object file
 llc program.ll -o program.o
@@ -40,7 +40,7 @@ clang program.o -o program
 
 #### One-Liner
 ```bash
-./sapp compile program.spp > program.ll && llc program.ll -o program.o && clang program.o -o program && ./program
+./corin compile program.corin > program.ll && llc program.ll -o program.o && clang program.o -o program && ./program
 ```
 
 ## Supported Features
@@ -70,8 +70,8 @@ clang program.o -o program
 ## Examples
 
 ### Simple Arithmetic
-```sapphire
-# simple.spp
+```corin
+# simple.corin
 let x = 10
 let y = 20
 let sum = x + y
@@ -80,20 +80,20 @@ let product = x * y
 
 Compile:
 ```bash
-./sapp compile simple.spp
+./corin compile simple.corin
 ```
 
 ### Type Promotion
-```sapphire
-# types.spp
+```corin
+# types.corin
 let a = 100
 let x = 3.14
 let mixed = a + x  # Promotes a to float
 ```
 
 ### Comparisons
-```sapphire
-# compare.spp
+```corin
+# compare.corin
 let a = 100
 let b = 50
 let is_greater = a > b
@@ -101,8 +101,8 @@ let is_equal = a == 100
 ```
 
 ### Logical Operations
-```sapphire
-# logic.spp
+```corin
+# logic.corin
 let x = true
 let y = false
 let both = x and y
@@ -111,8 +111,8 @@ let negated = not x
 ```
 
 ### Control Flow
-```sapphire
-# control.spp
+```corin
+# control.corin
 let x = 10
 
 if x > 5:
@@ -128,7 +128,7 @@ while i < 10:
 ## Understanding the Generated IR
 
 ### Variables
-Sapphire variables become stack allocations:
+Corin variables become stack allocations:
 ```llvm
 %x = alloca i64, align 8
 store i64 10, ptr %x, align 4
@@ -193,13 +193,13 @@ Optimization levels:
 ## Troubleshooting
 
 ### "Parse error" messages
-- Check your indentation (Sapphire uses Python-style indentation)
+- Check your indentation (Corin uses Python-style indentation)
 - Make sure if/while statements end with `:`
 - Ensure proper nesting
 
 ### Segmentation fault
 - Likely caused by function calls (known issue)
-- Workaround: Use interpreter mode (`./sapp program.spp`)
+- Workaround: Use interpreter mode (`./corin program.corin`)
 
 ### Empty IR output
 - Check that your program has statements
@@ -207,7 +207,7 @@ Optimization levels:
 
 ### "Could not open file" error
 - Check the file path
-- Make sure the file has `.spp` extension
+- Make sure the file has `.corin` extension
 
 ## Performance
 
@@ -223,7 +223,7 @@ Optimization levels:
 
 ### Interpreter Mode
 ```bash
-./sapp program.spp
+./corin program.corin
 ```
 - Pros: Fast development, supports all features
 - Cons: ~1000x slower than compiled code
@@ -231,7 +231,7 @@ Optimization levels:
 
 ### Compiler Mode
 ```bash
-./sapp compile program.spp > program.ll
+./corin compile program.corin > program.ll
 llc program.ll -o program.o
 clang program.o -o program
 ```
@@ -242,7 +242,7 @@ clang program.o -o program
 ## Next Steps
 
 1. Try compiling the example programs in `examples/`
-2. Write your own Sapphire programs
+2. Write your own Corin programs
 3. Experiment with the generated IR
 4. Compare performance with other languages
 

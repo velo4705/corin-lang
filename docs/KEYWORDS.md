@@ -1,13 +1,13 @@
-# Sapphire Keywords Reference
+# Corin Keywords Reference
 
-Complete list of all keywords, reserved words, and their usage in Sapphire.
+Complete list of all keywords, reserved words, and their usage in Corin.
 
 ## Control Flow Keywords
 
 ### `if` / `else` / `elif`
 Conditional execution
 
-```sapphire
+```corin
 if x > 0:
     print("positive")
 elif x < 0:
@@ -19,7 +19,7 @@ else:
 ### `match`
 Pattern matching
 
-```sapphire
+```corin
 match value:
     0 => print("zero")
     1..=10 => print("small")
@@ -29,7 +29,7 @@ match value:
 ### `while`
 Loop while condition is true
 
-```sapphire
+```corin
 while x < 10:
     print(x)
     x += 1
@@ -38,7 +38,7 @@ while x < 10:
 ### `for`
 Iterate over collection
 
-```sapphire
+```corin
 for item in collection:
     print(item)
 
@@ -49,7 +49,7 @@ for i in 0..10:
 ### `loop`
 Infinite loop
 
-```sapphire
+```corin
 loop:
     if should_break():
         break
@@ -58,7 +58,7 @@ loop:
 ### `break`
 Exit loop
 
-```sapphire
+```corin
 for i in 0..100:
     if i == 50:
         break
@@ -67,7 +67,7 @@ for i in 0..100:
 ### `continue`
 Skip to next iteration
 
-```sapphire
+```corin
 for i in 0..10:
     if i % 2 == 0:
         continue
@@ -77,7 +77,7 @@ for i in 0..10:
 ### `return`
 Return from function
 
-```sapphire
+```corin
 fn add(a, b):
     return a + b
 ```
@@ -87,7 +87,7 @@ fn add(a, b):
 ### `let`
 Variable declaration
 
-```sapphire
+```corin
 let x = 42
 let mut y = 10  // Mutable
 let z: i64 = 100  // With type
@@ -96,7 +96,7 @@ let z: i64 = 100  // With type
 ### `const`
 Constant declaration
 
-```sapphire
+```corin
 const PI = 3.14159
 const MAX_SIZE: usize = 1000
 ```
@@ -104,7 +104,7 @@ const MAX_SIZE: usize = 1000
 ### `static`
 Static variable
 
-```sapphire
+```corin
 static COUNTER: i64 = 0
 static mut GLOBAL: String = ""
 ```
@@ -112,7 +112,7 @@ static mut GLOBAL: String = ""
 ### `fn`
 Function declaration
 
-```sapphire
+```corin
 fn add(a: i64, b: i64) -> i64:
     return a + b
 ```
@@ -120,7 +120,7 @@ fn add(a: i64, b: i64) -> i64:
 ### `type`
 Type alias or struct definition
 
-```sapphire
+```corin
 type Point = (i64, i64)
 
 type User {
@@ -132,7 +132,7 @@ type User {
 ### `enum`
 Enumeration
 
-```sapphire
+```corin
 enum Color {
     Red
     Green
@@ -143,7 +143,7 @@ enum Color {
 ### `struct`
 Structure (alternative syntax)
 
-```sapphire
+```corin
 struct Point {
     x: i64
     y: i64
@@ -153,7 +153,7 @@ struct Point {
 ### `class`
 Class definition
 
-```sapphire
+```corin
 class Animal {
     fn speak(self):
         print("...")
@@ -163,7 +163,7 @@ class Animal {
 ### `trait`
 Trait definition
 
-```sapphire
+```corin
 trait Drawable {
     fn draw(self)
 }
@@ -172,7 +172,7 @@ trait Drawable {
 ### `impl`
 Implementation block
 
-```sapphire
+```corin
 impl Point {
     fn new(x: i64, y: i64) -> Point {
         return Point { x, y }
@@ -185,7 +185,7 @@ impl Point {
 ### `import`
 Import module or items
 
-```sapphire
+```corin
 import math
 import json::{parse, stringify}
 import http::*
@@ -194,7 +194,7 @@ import http::*
 ### `from`
 Import from module
 
-```sapphire
+```corin
 from math import sqrt, pow
 from collections import Vec, HashMap
 ```
@@ -202,7 +202,7 @@ from collections import Vec, HashMap
 ### `export`
 Export items
 
-```sapphire
+```corin
 export fn public_function() { }
 export type PublicType { }
 ```
@@ -210,7 +210,7 @@ export type PublicType { }
 ### `mod`
 Module declaration
 
-```sapphire
+```corin
 mod utils {
     fn helper() { }
 }
@@ -219,7 +219,7 @@ mod utils {
 ### `use`
 Bring items into scope
 
-```sapphire
+```corin
 use std::collections::HashMap
 use super::parent_module
 use self::current_module
@@ -228,7 +228,7 @@ use self::current_module
 ### `pub`
 Public visibility
 
-```sapphire
+```corin
 pub fn public_function() { }
 pub type PublicType { }
 ```
@@ -236,7 +236,7 @@ pub type PublicType { }
 ### `priv`
 Private visibility (default)
 
-```sapphire
+```corin
 priv fn private_function() { }
 ```
 
@@ -245,7 +245,7 @@ priv fn private_function() { }
 ### `i8`, `i16`, `i32`, `i64`, `i128`
 Signed integers
 
-```sapphire
+```corin
 let x: i32 = -42
 let y: i64 = 1000
 ```
@@ -253,7 +253,7 @@ let y: i64 = 1000
 ### `u8`, `u16`, `u32`, `u64`, `u128`
 Unsigned integers
 
-```sapphire
+```corin
 let x: u32 = 42
 let y: u64 = 1000
 ```
@@ -261,7 +261,7 @@ let y: u64 = 1000
 ### `f32`, `f64`
 Floating point
 
-```sapphire
+```corin
 let x: f32 = 3.14
 let y: f64 = 2.71828
 ```
@@ -269,7 +269,7 @@ let y: f64 = 2.71828
 ### `bool`
 Boolean type
 
-```sapphire
+```corin
 let x: bool = true
 let y: bool = false
 ```
@@ -277,21 +277,21 @@ let y: bool = false
 ### `char`
 Character type
 
-```sapphire
+```corin
 let c: char = 'A'
 ```
 
 ### `str`
 String type
 
-```sapphire
+```corin
 let s: str = "Hello"
 ```
 
 ### `void`
 No return value
 
-```sapphire
+```corin
 fn print_message() -> void {
     print("Hello")
 }
@@ -300,7 +300,7 @@ fn print_message() -> void {
 ### `never`
 Never returns
 
-```sapphire
+```corin
 fn panic() -> never {
     abort()
 }
@@ -309,7 +309,7 @@ fn panic() -> never {
 ### `any`
 Any type
 
-```sapphire
+```corin
 let x: any = 42
 let y: any = "string"
 ```
@@ -319,7 +319,7 @@ let y: any = "string"
 ### `ref`
 Reference
 
-```sapphire
+```corin
 let x = 42
 let r: &i64 = &x
 ```
@@ -327,7 +327,7 @@ let r: &i64 = &x
 ### `mut`
 Mutable
 
-```sapphire
+```corin
 let mut x = 42
 x = 50
 ```
@@ -335,7 +335,7 @@ x = 50
 ### `move`
 Move ownership
 
-```sapphire
+```corin
 let x = vec![1, 2, 3]
 let y = move x  // x is no longer valid
 ```
@@ -343,7 +343,7 @@ let y = move x  // x is no longer valid
 ### `copy`
 Copy value
 
-```sapphire
+```corin
 let x = 42
 let y = copy x
 ```
@@ -351,7 +351,7 @@ let y = copy x
 ### `clone`
 Deep clone
 
-```sapphire
+```corin
 let x = vec![1, 2, 3]
 let y = x.clone()
 ```
@@ -359,7 +359,7 @@ let y = x.clone()
 ### `drop`
 Explicitly drop value
 
-```sapphire
+```corin
 let x = allocate_resource()
 drop(x)  // Free immediately
 ```
@@ -369,7 +369,7 @@ drop(x)  // Free immediately
 ### `async`
 Async function
 
-```sapphire
+```corin
 async fn fetch_data() -> String {
     let response = await http.get(url)
     return response.text()
@@ -379,14 +379,14 @@ async fn fetch_data() -> String {
 ### `await`
 Wait for async operation
 
-```sapphire
+```corin
 let data = await fetch_data()
 ```
 
 ### `yield`
 Yield value from generator
 
-```sapphire
+```corin
 fn* generator() {
     yield 1
     yield 2
@@ -399,7 +399,7 @@ fn* generator() {
 ### `try`
 Try block
 
-```sapphire
+```corin
 try {
     risky_operation()
 } catch e {
@@ -410,7 +410,7 @@ try {
 ### `catch`
 Catch exception
 
-```sapphire
+```corin
 try {
     may_fail()
 } catch FileNotFoundError as e {
@@ -423,7 +423,7 @@ try {
 ### `finally`
 Always execute
 
-```sapphire
+```corin
 try {
     open_file()
 } catch e {
@@ -436,7 +436,7 @@ try {
 ### `throw`
 Throw exception
 
-```sapphire
+```corin
 fn validate(x: i64) {
     if x < 0:
         throw ValueError("x must be positive")
@@ -446,7 +446,7 @@ fn validate(x: i64) {
 ### `panic`
 Unrecoverable error
 
-```sapphire
+```corin
 if critical_error:
     panic("System failure!")
 ```
@@ -456,7 +456,7 @@ if critical_error:
 ### `own`
 Owned value
 
-```sapphire
+```corin
 fn take_ownership(x: own String) {
     // x is owned here
 }
@@ -465,7 +465,7 @@ fn take_ownership(x: own String) {
 ### `borrow`
 Borrowed reference
 
-```sapphire
+```corin
 fn use_reference(x: borrow String) {
     // x is borrowed
 }
@@ -474,7 +474,7 @@ fn use_reference(x: borrow String) {
 ### `lifetime`
 Lifetime annotation
 
-```sapphire
+```corin
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() { x } else { y }
 }
@@ -485,7 +485,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 ### `unsafe`
 Unsafe code block
 
-```sapphire
+```corin
 unsafe {
     let ptr = raw_pointer()
     *ptr = 42
@@ -495,7 +495,7 @@ unsafe {
 ### `raw`
 Raw pointer
 
-```sapphire
+```corin
 let ptr: *mut i64 = raw_alloc()
 ```
 
@@ -504,7 +504,7 @@ let ptr: *mut i64 = raw_alloc()
 ### `atomic`
 Atomic operation
 
-```sapphire
+```corin
 let counter: atomic i64 = 0
 counter.fetch_add(1)
 ```
@@ -512,7 +512,7 @@ counter.fetch_add(1)
 ### `sync`
 Synchronization
 
-```sapphire
+```corin
 sync {
     // Synchronized block
     shared_data.modify()
@@ -522,7 +522,7 @@ sync {
 ### `spawn`
 Spawn thread
 
-```sapphire
+```corin
 spawn {
     background_task()
 }
@@ -533,7 +533,7 @@ spawn {
 ### `self`
 Current instance
 
-```sapphire
+```corin
 impl Point {
     fn distance(self) -> f64 {
         return sqrt(self.x * self.x + self.y * self.y)
@@ -544,7 +544,7 @@ impl Point {
 ### `Self`
 Current type
 
-```sapphire
+```corin
 impl Point {
     fn new() -> Self {
         return Self { x: 0, y: 0 }
@@ -555,7 +555,7 @@ impl Point {
 ### `super`
 Parent class/module
 
-```sapphire
+```corin
 class Child: Parent {
     fn method(self) {
         super.method()
@@ -566,7 +566,7 @@ class Child: Parent {
 ### `this`
 Alternative to self
 
-```sapphire
+```corin
 class MyClass {
     fn method(this) {
         print(this.value)
@@ -579,7 +579,7 @@ class MyClass {
 ### `true` / `false`
 Boolean literals
 
-```sapphire
+```corin
 let x = true
 let y = false
 ```
@@ -587,7 +587,7 @@ let y = false
 ### `null` / `nil` / `none`
 Null value
 
-```sapphire
+```corin
 let x = null
 let y: Option<i64> = None
 ```
@@ -595,7 +595,7 @@ let y: Option<i64> = None
 ### `inf`
 Infinity
 
-```sapphire
+```corin
 let x = inf
 let y = -inf
 ```
@@ -603,7 +603,7 @@ let y = -inf
 ### `nan`
 Not a number
 
-```sapphire
+```corin
 let x = nan
 ```
 
@@ -612,7 +612,7 @@ let x = nan
 ### `and` / `or` / `not`
 Logical operators
 
-```sapphire
+```corin
 if x > 0 and y > 0:
     print("both positive")
 
@@ -626,7 +626,7 @@ if not x:
 ### `in`
 Membership test
 
-```sapphire
+```corin
 if item in collection:
     print("found")
 ```
@@ -634,7 +634,7 @@ if item in collection:
 ### `is`
 Identity test
 
-```sapphire
+```corin
 if x is None:
     print("x is None")
 ```
@@ -642,7 +642,7 @@ if x is None:
 ### `as`
 Type cast
 
-```sapphire
+```corin
 let x = 42 as f64
 let y = value as String
 ```
@@ -650,7 +650,7 @@ let y = value as String
 ### `typeof`
 Get type
 
-```sapphire
+```corin
 let t = typeof(x)
 print(t)
 ```
@@ -658,7 +658,7 @@ print(t)
 ### `sizeof`
 Get size
 
-```sapphire
+```corin
 let size = sizeof(i64)  // 8 bytes
 ```
 
@@ -667,7 +667,7 @@ let size = sizeof(i64)  // 8 bytes
 ### `with`
 Context manager
 
-```sapphire
+```corin
 with File.open("data.txt") as f:
     let content = f.read()
 ```
@@ -675,7 +675,7 @@ with File.open("data.txt") as f:
 ### `defer`
 Defer execution
 
-```sapphire
+```corin
 fn process() {
     let file = open("data.txt")
     defer file.close()
@@ -687,7 +687,7 @@ fn process() {
 ### `guard`
 Early return
 
-```sapphire
+```corin
 fn process(x: Option<i64>) {
     guard let value = x else {
         return
@@ -701,7 +701,7 @@ fn process(x: Option<i64>) {
 ### `macro`
 Define macro
 
-```sapphire
+```corin
 macro! debug(expr) {
     print(f"[DEBUG] {expr}")
 }
@@ -710,7 +710,7 @@ macro! debug(expr) {
 ### `quote`
 Quote code
 
-```sapphire
+```corin
 let code = quote! {
     let x = 42
 }
@@ -719,7 +719,7 @@ let code = quote! {
 ### `unquote`
 Unquote code
 
-```sapphire
+```corin
 let expr = parse_expr()
 let code = quote! {
     let x = unquote!(expr)
@@ -731,7 +731,7 @@ let code = quote! {
 ### `test`
 Test function
 
-```sapphire
+```corin
 #[test]
 fn test_addition() {
     assert_eq!(2 + 2, 4)
@@ -741,7 +741,7 @@ fn test_addition() {
 ### `assert`
 Assertion
 
-```sapphire
+```corin
 assert(x > 0)
 assert_eq!(x, 42)
 assert_ne!(x, 0)
@@ -750,7 +750,7 @@ assert_ne!(x, 0)
 ### `debug_assert`
 Debug-only assertion
 
-```sapphire
+```corin
 debug_assert!(x > 0)
 ```
 

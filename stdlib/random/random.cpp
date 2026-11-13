@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Random {
 
@@ -151,55 +151,55 @@ int64_t CryptoRandom::uniform_int(int64_t min, int64_t max) {
 
 } // namespace Random
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
-    void sapphire_random_seed(uint64_t seed) {
-        sapphire::stdlib::Random::random_seed(seed);
+    void corin_random_seed(uint64_t seed) {
+        corin::stdlib::Random::random_seed(seed);
     }
     
-    void sapphire_random_seed_random() {
-        sapphire::stdlib::Random::random_seed_random();
+    void corin_random_seed_random() {
+        corin::stdlib::Random::random_seed_random();
     }
     
-    double sapphire_random_uniform() {
-        return sapphire::stdlib::Random::random_uniform();
+    double corin_random_uniform() {
+        return corin::stdlib::Random::random_uniform();
     }
     
-    double sapphire_random_uniform_range(double min, double max) {
-        return sapphire::stdlib::Random::random_uniform_range(min, max);
+    double corin_random_uniform_range(double min, double max) {
+        return corin::stdlib::Random::random_uniform_range(min, max);
     }
     
-    int64_t sapphire_random_int(int64_t min, int64_t max) {
-        return sapphire::stdlib::Random::random_int(min, max);
+    int64_t corin_random_int(int64_t min, int64_t max) {
+        return corin::stdlib::Random::random_int(min, max);
     }
     
-    double sapphire_random_normal() {
-        return sapphire::stdlib::Random::random_normal();
+    double corin_random_normal() {
+        return corin::stdlib::Random::random_normal();
     }
     
-    double sapphire_random_normal_params(double mean, double stddev) {
-        return sapphire::stdlib::Random::random_normal_params(mean, stddev);
+    double corin_random_normal_params(double mean, double stddev) {
+        return corin::stdlib::Random::random_normal_params(mean, stddev);
     }
     
-    bool sapphire_random_boolean() {
-        return sapphire::stdlib::Random::random_boolean();
+    bool corin_random_boolean() {
+        return corin::stdlib::Random::random_boolean();
     }
     
-    bool sapphire_random_boolean_prob(double probability) {
-        return sapphire::stdlib::Random::random_boolean(probability);
+    bool corin_random_boolean_prob(double probability) {
+        return corin::stdlib::Random::random_boolean(probability);
     }
     
-    uint64_t sapphire_crypto_random_uint64() {
-        return sapphire::stdlib::Random::CryptoRandom::uint64();
+    uint64_t corin_crypto_random_uint64() {
+        return corin::stdlib::Random::CryptoRandom::uint64();
     }
     
-    double sapphire_crypto_random_uniform() {
-        return sapphire::stdlib::Random::CryptoRandom::uniform();
+    double corin_crypto_random_uniform() {
+        return corin::stdlib::Random::CryptoRandom::uniform();
     }
     
-    int64_t sapphire_crypto_random_int(int64_t min, int64_t max) {
-        return sapphire::stdlib::Random::CryptoRandom::uniform_int(min, max);
+    int64_t corin_crypto_random_int(int64_t min, int64_t max) {
+        return corin::stdlib::Random::CryptoRandom::uniform_int(min, max);
     }
 }

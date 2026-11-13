@@ -8,7 +8,7 @@
 #include <cmath>
 #include <stdexcept>
 
-namespace Sapphire {
+namespace Corin {
 namespace Security {
 
 static uint64_t now_ms() {
@@ -781,4 +781,4 @@ std::string EducationalPlatform::get_tutorial(const std::string& topic) const {
 }
 
 } // namespace Security
-} // namespace Sapphire
+} // namespace Corin

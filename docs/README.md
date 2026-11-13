@@ -1,10 +1,10 @@
-# Sapphire Website
+# Corin Website
 
-Official website for the Sapphire programming language, hosted on GitHub Pages.
+Official website for the Corin programming language, hosted on GitHub Pages.
 
 ## 🌐 Live Site
 
-Visit: [https://velo4705.github.io/sapphire-lang](https://velo4705.github.io/sapphire-lang)
+Visit: [https://velo4705.github.io/corin-lang](https://velo4705.github.io/corin-lang)
 
 ## 📁 Structure
 
@@ -114,7 +114,7 @@ Edit `style.css` to change colors, fonts, or layout:
 
 ## 📄 License
 
-MIT License - Same as Sapphire language
+MIT License - Same as Corin language
 
 ## 🤝 Contributing
 
@@ -126,9 +126,9 @@ To contribute to the website:
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/velo4705/sapphire-lang/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/velo4705/sapphire-lang/discussions)
+- **Issues**: [GitHub Issues](https://github.com/velo4705/corin-lang/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/velo4705/corin-lang/discussions)
 
 ---
 
-Made with 💎 by the Sapphire community
+Made with 💎 by the Corin community

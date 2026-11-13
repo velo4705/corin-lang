@@ -1,4 +1,4 @@
-# Sapphire Performance Strategy
+# Corin Performance Strategy
 
 ## Performance Goals (Realistic & Achievable)
 
@@ -21,7 +21,7 @@
 Assembly language IS the machine code (or nearly direct mapping to it). No high-level language can be faster than assembly because:
 
 1. **Assembly is the baseline** - it's what everything compiles down to
-2. **Compilers generate assembly** - Sapphire → LLVM IR → Assembly → Machine Code
+2. **Compilers generate assembly** - Corin → LLVM IR → Assembly → Machine Code
 3. **Best case: Match assembly** - through excellent optimization
 
 ### What We CAN Achieve
@@ -37,7 +37,7 @@ Assembly language IS the machine code (or nearly direct mapping to it). No high-
 ```
 Performance Tier List:
 #1: C, Assembly (baseline - impossible to beat)
-#2: Sapphire (GOAL - second-fastest language)
+#2: Corin (GOAL - second-fastest language)
 S-Tier: C++, Rust (match or exceed these)
 A-Tier: Go, Java (JIT), C# (JIT)
 B-Tier: JavaScript (V8), LuaJIT
@@ -104,13 +104,13 @@ D-Tier: Python (CPython), Ruby
 
 ```bash
 # Benchmark suite (to be implemented)
-./sapp bench --compare=cpp,rust,go
-./sapp bench --profile
-./sapp bench --report
+./corin bench --compare=cpp,rust,go
+./corin bench --profile
+./corin bench --report
 
 # Example output:
 # Benchmark: fibonacci(40)
-# Sapphire:  0.85s
+# Corin:  0.85s
 # C++:       0.82s  (4% faster)
 # Rust:      0.83s  (2% faster)
 # Go:        1.20s  (41% slower)
@@ -145,29 +145,29 @@ D-Tier: Python (CPython), Ruby
 
 ```bash
 # Development (fast compilation)
-sapp build --opt=0 main.spp
+corin build --opt=0 main.corin
 
 # Balanced (default)
-sapp build --opt=2 main.spp
+corin build --opt=2 main.corin
 
 # Maximum performance
-sapp build --opt=3 --lto main.spp
+corin build --opt=3 --lto main.corin
 
 # Profile-guided optimization
-sapp build --opt=3 --pgo main.spp
+corin build --opt=3 --pgo main.corin
 ```
 
 ## Performance Features
 
 ### Compile-Time Computation
-```sapphire
+```corin
 # Computed at compile time, zero runtime cost
 const FACTORIAL_10 = comptime factorial(10)
 const LOOKUP_TABLE = comptime generate_table()
 ```
 
 ### Inline Assembly
-```sapphire
+```corin
 # For critical hot paths
 fn fast_multiply(a: i64, b: i64) -> i64:
     unsafe:
@@ -179,7 +179,7 @@ fn fast_multiply(a: i64, b: i64) -> i64:
 ```
 
 ### SIMD Vectorization
-```sapphire
+```corin
 # Auto-vectorized by compiler
 @vectorize
 fn process_array(data: []f32) -> []f32:
@@ -187,7 +187,7 @@ fn process_array(data: []f32) -> []f32:
 ```
 
 ### Zero-Cost Abstractions
-```sapphire
+```corin
 # Generic function - monomorphized at compile time
 fn max<T: Comparable>(a: T, b: T) -> T:
     return a if a > b else b
@@ -215,7 +215,7 @@ let y = max(1.5, 2.5)    # Compiled as max_f64
 
 ## Conclusion
 
-Sapphire's performance goal is to be the **second-fastest programming language** (after C/Assembly) while providing superior developer experience. We achieve this through:
+Corin's performance goal is to be the **second-fastest programming language** (after C/Assembly) while providing superior developer experience. We achieve this through:
 
 1. **Native compilation** via LLVM
 2. **Zero-cost abstractions** through compile-time optimization
@@ -226,4 +226,4 @@ Sapphire's performance goal is to be the **second-fastest programming language**
 
 The result: A language that's faster than C++ and Rust, easier to write than both, with safety features and syntax clarity from Python.
 
-**Bottom line:** Sapphire will be the second-fastest language available, only behind C and the assembly it compiles to. Fast enough to replace C++ in performance-critical applications while being significantly easier to use.
+**Bottom line:** Corin will be the second-fastest language available, only behind C and the assembly it compiles to. Fast enough to replace C++ in performance-critical applications while being significantly easier to use.

@@ -1,8 +1,8 @@
-# Snake Games - Sapphire + SDL2
+# Snake Games - Corin + SDL2
 
-Two versions of the classic Snake game built with Sapphire and SDL2.
+Two versions of the classic Snake game built with Corin and SDL2.
 
-## 🐍 game_snake.spp - Classic Version
+## 🐍 game_snake.corin - Classic Version
 
 Simple, clean implementation of Snake.
 
@@ -25,7 +25,7 @@ Simple, clean implementation of Snake.
 
 ---
 
-## 🐍✨ game_snake_enhanced.spp - Enhanced Version
+## 🐍✨ game_snake_enhanced.corin - Enhanced Version
 
 Full-featured Snake with growing tail and better visuals.
 
@@ -90,7 +90,7 @@ Full-featured Snake with growing tail and better visuals.
 ```
 
 ### Tail Management (Enhanced)
-The tail is simulated using individual variables (t1x, t1y, t2x, t2y, etc.) since Sapphire doesn't have arrays yet. Each frame:
+The tail is simulated using individual variables (t1x, t1y, t2x, t2y, etc.) since Corin doesn't have arrays yet. Each frame:
 1. Shift all tail segments (t20 ← t19 ← ... ← t2 ← t1)
 2. Set t1 to old head position
 3. Move head to new position
@@ -103,13 +103,13 @@ The tail is simulated using individual variables (t1x, t1y, t2x, t2y, etc.) sinc
 ## Code Highlights
 
 ### Direction Buffering
-```sapphire
+```corin
 // Buffer next direction to prevent double-tap issues
 let next_dx = 1
 let next_dy = 0
 
 // In input handling:
-if sapphire_sdl2_is_key_down(window, 80) {  // Left
+if corin_sdl2_is_key_down(window, 80) {  // Left
     if snake_dx != 1 {  // Can't reverse
         next_dx = 0 - 1
         next_dy = 0
@@ -122,22 +122,22 @@ snake_dy = next_dy
 ```
 
 ### Gradient Tail Colors
-```sapphire
+```corin
 // Darker segments at the back
 if tail_length >= 20 {
-    sapphire_sdl2_fill_rect(window, px, py, size, size, 0, 100, 0)
+    corin_sdl2_fill_rect(window, px, py, size, size, 0, 100, 0)
 }
 // Brighter segments near head
 if tail_length >= 1 {
-    sapphire_sdl2_fill_rect(window, px, py, size, size, 0, 255, 0)
+    corin_sdl2_fill_rect(window, px, py, size, size, 0, 255, 0)
 }
 ```
 
 ### Pulsing Food Animation
-```sapphire
+```corin
 let pulse = (frame % 30) / 30
 let food_brightness = 200 + pulse * 55
-sapphire_sdl2_fill_rect(window, x, y, w, h, food_brightness, 0, 0)
+corin_sdl2_fill_rect(window, x, y, w, h, food_brightness, 0, 0)
 ```
 
 ## Tips for Playing
@@ -151,31 +151,31 @@ sapphire_sdl2_fill_rect(window, x, y, w, h, food_brightness, 0, 0)
 ## Modifying the Games
 
 ### Change Grid Size
-```sapphire
+```corin
 let grid_size = 25  // Try 15, 20, 30, etc.
 let cell_size = 32  // Adjust to fit window
 ```
 
 ### Change Speed
-```sapphire
+```corin
 let move_delay = 8  // Lower = faster (min: 1)
 ```
 
 ### Change Colors
-```sapphire
+```corin
 // Background
-sapphire_sdl2_clear(window, 15, 15, 25)  // RGB
+corin_sdl2_clear(window, 15, 15, 25)  // RGB
 
 // Snake
-sapphire_sdl2_fill_rect(window, x, y, w, h, 0, 255, 50)  // Green
+corin_sdl2_fill_rect(window, x, y, w, h, 0, 255, 50)  // Green
 
 // Food
-sapphire_sdl2_fill_rect(window, x, y, w, h, 255, 0, 0)  // Red
+corin_sdl2_fill_rect(window, x, y, w, h, 255, 0, 0)  // Red
 ```
 
 ### Add More Tail Segments
 In enhanced version, add more variables:
-```sapphire
+```corin
 let t21x = 0
 let t21y = 0
 // ... and update the shift logic
@@ -225,6 +225,6 @@ Both versions run at **60 FPS** with smooth gameplay:
 
 ---
 
-**Built with**: Sapphire Programming Language + SDL2  
+**Built with**: Corin Programming Language + SDL2  
 **Performance**: Native C-level speed  
 **Platform**: Linux (X11/Wayland)

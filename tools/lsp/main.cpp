@@ -11,7 +11,7 @@
 #include "../../src/parser/parser.h"
 #include "../../src/parser/stmt.h"
 
-namespace sapphire {
+namespace corin {
 namespace lsp {
 
 /**
@@ -298,7 +298,7 @@ public:
     void run() {
         running_ = true;
         
-        std::cerr << "Sapphire LSP Server starting...\n";
+        std::cerr << "Corin LSP Server starting...\n";
         
         while (running_) {
             // Read Content-Length header
@@ -390,10 +390,10 @@ public:
 };
 
 } // namespace lsp
-} // namespace sapphire
+} // namespace corin
 
 int main() {
-    sapphire::lsp::LSPServer server;
+    corin::lsp::LSPServer server;
     server.run();
     return 0;
 }

@@ -1,6 +1,6 @@
 #include "glut.h"
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -98,63 +98,63 @@ void GLUTContext::wire_torus(double innerRadius, double outerRadius, int sides, 
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    void sapphire_glut_init(int* argc, char** argv) {
-        sapphire::stdlib::graphics::GLUTContext::init(argc, argv);
+    void corin_glut_init(int* argc, char** argv) {
+        corin::stdlib::graphics::GLUTContext::init(argc, argv);
     }
     
-    void sapphire_glut_init_display_mode(unsigned int mode) {
-        sapphire::stdlib::graphics::GLUTContext::init_display_mode(mode);
+    void corin_glut_init_display_mode(unsigned int mode) {
+        corin::stdlib::graphics::GLUTContext::init_display_mode(mode);
     }
     
-    void sapphire_glut_init_window_size(int width, int height) {
-        sapphire::stdlib::graphics::GLUTContext::init_window_size(width, height);
+    void corin_glut_init_window_size(int width, int height) {
+        corin::stdlib::graphics::GLUTContext::init_window_size(width, height);
     }
     
-    void sapphire_glut_init_window_position(int x, int y) {
-        sapphire::stdlib::graphics::GLUTContext::init_window_position(x, y);
+    void corin_glut_init_window_position(int x, int y) {
+        corin::stdlib::graphics::GLUTContext::init_window_position(x, y);
     }
     
-    int sapphire_glut_create_window(const char* title) {
-        return sapphire::stdlib::graphics::GLUTContext::create_window(title);
+    int corin_glut_create_window(const char* title) {
+        return corin::stdlib::graphics::GLUTContext::create_window(title);
     }
     
-    void sapphire_glut_main_loop() {
-        sapphire::stdlib::graphics::GLUTContext::main_loop();
+    void corin_glut_main_loop() {
+        corin::stdlib::graphics::GLUTContext::main_loop();
     }
     
-    void sapphire_glut_post_redisplay() {
-        sapphire::stdlib::graphics::GLUTContext::post_redisplay();
+    void corin_glut_post_redisplay() {
+        corin::stdlib::graphics::GLUTContext::post_redisplay();
     }
     
-    void sapphire_glut_swap_buffers() {
-        sapphire::stdlib::graphics::GLUTContext::swap_buffers();
+    void corin_glut_swap_buffers() {
+        corin::stdlib::graphics::GLUTContext::swap_buffers();
     }
     
-    void sapphire_glut_solid_sphere(double radius, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUTContext::solid_sphere(radius, slices, stacks);
+    void corin_glut_solid_sphere(double radius, int slices, int stacks) {
+        corin::stdlib::graphics::GLUTContext::solid_sphere(radius, slices, stacks);
     }
     
-    void sapphire_glut_wire_sphere(double radius, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUTContext::wire_sphere(radius, slices, stacks);
+    void corin_glut_wire_sphere(double radius, int slices, int stacks) {
+        corin::stdlib::graphics::GLUTContext::wire_sphere(radius, slices, stacks);
     }
     
-    void sapphire_glut_solid_cube(double size) {
-        sapphire::stdlib::graphics::GLUTContext::solid_cube(size);
+    void corin_glut_solid_cube(double size) {
+        corin::stdlib::graphics::GLUTContext::solid_cube(size);
     }
     
-    void sapphire_glut_wire_cube(double size) {
-        sapphire::stdlib::graphics::GLUTContext::wire_cube(size);
+    void corin_glut_wire_cube(double size) {
+        corin::stdlib::graphics::GLUTContext::wire_cube(size);
     }
     
-    void sapphire_glut_solid_torus(double innerRadius, double outerRadius, int sides, int rings) {
-        sapphire::stdlib::graphics::GLUTContext::solid_torus(innerRadius, outerRadius, sides, rings);
+    void corin_glut_solid_torus(double innerRadius, double outerRadius, int sides, int rings) {
+        corin::stdlib::graphics::GLUTContext::solid_torus(innerRadius, outerRadius, sides, rings);
     }
     
-    void sapphire_glut_wire_torus(double innerRadius, double outerRadius, int sides, int rings) {
-        sapphire::stdlib::graphics::GLUTContext::wire_torus(innerRadius, outerRadius, sides, rings);
+    void corin_glut_wire_torus(double innerRadius, double outerRadius, int sides, int rings) {
+        corin::stdlib::graphics::GLUTContext::wire_torus(innerRadius, outerRadius, sides, rings);
     }
 }

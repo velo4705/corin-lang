@@ -3,7 +3,7 @@
 #include <cassert>
 #include <vector>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_sorting() {
     std::cout << "Testing sorting algorithms..." << std::endl;
@@ -123,15 +123,15 @@ void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
     int arr[] = {5, 2, 8, 1, 9};
-    sapphire_quick_sort_int(arr, 5);
+    corin_quick_sort_int(arr, 5);
     assert(arr[0] == 1 && arr[4] == 9);
     
     int sorted[] = {1, 3, 5, 7, 9};
-    assert(sapphire_binary_search_int(sorted, 5, 5) == 2);
+    assert(corin_binary_search_int(sorted, 5, 5) == 2);
     
-    assert(sapphire_fibonacci(10) == 55);
+    assert(corin_fibonacci(10) == 55);
     
-    assert(sapphire_edit_distance("hello", "hallo") == 1);
+    assert(corin_edit_distance("hello", "hallo") == 1);
     
     std::cout << "  ✓ C API functions" << std::endl;
 }

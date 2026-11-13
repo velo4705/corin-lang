@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_color() {
     std::cout << "Testing Color..." << std::endl;
@@ -57,18 +57,18 @@ void test_ppm_export() {
 void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
-    void* canvas = sapphire_canvas_create(100, 100);
+    void* canvas = corin_canvas_create(100, 100);
     assert(canvas != nullptr);
     
-    sapphire_canvas_clear(canvas, 255, 255, 255);
-    sapphire_canvas_fill_rect(canvas, 10, 10, 30, 30);
-    sapphire_canvas_draw_line(canvas, 0, 0, 100, 100);
-    sapphire_canvas_draw_circle(canvas, 50, 50, 20);
+    corin_canvas_clear(canvas, 255, 255, 255);
+    corin_canvas_fill_rect(canvas, 10, 10, 30, 30);
+    corin_canvas_draw_line(canvas, 0, 0, 100, 100);
+    corin_canvas_draw_circle(canvas, 50, 50, 20);
     
-    bool saved = sapphire_canvas_save_ppm(canvas, "test_c_api.ppm");
+    bool saved = corin_canvas_save_ppm(canvas, "test_c_api.ppm");
     assert(saved);
     
-    sapphire_canvas_destroy(canvas);
+    corin_canvas_destroy(canvas);
     
     std::cout << "  ✓ C API functions (test_c_api.ppm created)" << std::endl;
 }

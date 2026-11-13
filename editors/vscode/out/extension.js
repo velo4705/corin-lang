@@ -6,13 +6,13 @@ const vscode_1 = require("vscode");
 const node_1 = require("vscode-languageclient/node");
 let client;
 function activate(context) {
-    console.log('Sapphire extension is now active!');
+    console.log('Corin extension is now active!');
     // Get LSP configuration
-    const config = vscode_1.workspace.getConfiguration('sapphire');
+    const config = vscode_1.workspace.getConfiguration('corin');
     const lspEnabled = config.get('lsp.enabled', true);
     if (lspEnabled) {
         // Path to LSP server executable
-        const lspPath = config.get('lsp.path', '/usr/local/bin/sapphire-lsp');
+        const lspPath = config.get('lsp.path', '/usr/local/bin/corin-lsp');
         // Server options
         const serverOptions = {
             command: lspPath,
@@ -21,21 +21,21 @@ function activate(context) {
         };
         // Client options
         const clientOptions = {
-            documentSelector: [{ scheme: 'file', language: 'sapphire' }],
+            documentSelector: [{ scheme: 'file', language: 'corin' }],
             synchronize: {
-                fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.spp')
+                fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.corin')
             }
         };
         // Create the language client
-        client = new node_1.LanguageClient('sapphireLSP', 'Sapphire Language Server', serverOptions, clientOptions);
+        client = new node_1.LanguageClient('corinLSP', 'Corin Language Server', serverOptions, clientOptions);
         // Start the client (and server)
         client.start();
-        console.log('Sapphire LSP client started');
+        console.log('Corin LSP client started');
     }
     // Register debug adapter
-    const debugProvider = new SapphireDebugConfigurationProvider();
-    context.subscriptions.push(vscode_1.debug.registerDebugConfigurationProvider('sapphire', debugProvider));
-    console.log('Sapphire debug adapter registered');
+    const debugProvider = new CorinDebugConfigurationProvider();
+    context.subscriptions.push(vscode_1.debug.registerDebugConfigurationProvider('corin', debugProvider));
+    console.log('Corin debug adapter registered');
 }
 function deactivate() {
     if (!client) {
@@ -44,15 +44,15 @@ function deactivate() {
     return client.stop();
 }
 /**
- * Debug configuration provider for Sapphire
+ * Debug configuration provider for Corin
  */
-class SapphireDebugConfigurationProvider {
+class CorinDebugConfigurationProvider {
     resolveDebugConfiguration(folder, config, token) {
         // If launch.json is missing or empty
         if (!config.type && !config.request && !config.name) {
-            const editor = vscode_1.workspace.textDocuments.find(doc => doc.languageId === 'sapphire');
+            const editor = vscode_1.workspace.textDocuments.find(doc => doc.languageId === 'corin');
             if (editor) {
-                config.type = 'sapphire';
+                config.type = 'corin';
                 config.name = 'Launch';
                 config.request = 'launch';
                 config.program = editor.fileName;

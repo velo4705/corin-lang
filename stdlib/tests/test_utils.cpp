@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_string_conversion() {
     std::cout << "Testing string conversion..." << std::endl;
@@ -145,19 +145,19 @@ void test_hash() {
 void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
-    const char* upper = sapphire_utils_to_upper("hello");
+    const char* upper = corin_utils_to_upper("hello");
     assert(std::string(upper) == "HELLO");
     
-    const char* lower = sapphire_utils_to_lower("WORLD");
+    const char* lower = corin_utils_to_lower("WORLD");
     assert(std::string(lower) == "world");
     
-    assert(sapphire_utils_to_int("123") == 123);
-    assert(sapphire_utils_to_double("3.14") == 3.14);
+    assert(corin_utils_to_int("123") == 123);
+    assert(corin_utils_to_double("3.14") == 3.14);
     
-    assert(sapphire_utils_starts_with("hello", "hel"));
-    assert(sapphire_utils_ends_with("hello", "llo"));
+    assert(corin_utils_starts_with("hello", "hel"));
+    assert(corin_utils_ends_with("hello", "llo"));
     
-    int r = sapphire_utils_random_int(1, 100);
+    int r = corin_utils_random_int(1, 100);
     assert(r >= 1 && r <= 100);
     
     std::cout << "  ✓ C API functions" << std::endl;

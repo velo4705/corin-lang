@@ -1,24 +1,24 @@
-# Sapphire Examples
+# Corin Examples
 
-This directory contains example programs demonstrating Sapphire's features.
+This directory contains example programs demonstrating Corin's features.
 
 ## ✅ Working Examples (Current v1.0-beta.6)
 
 These examples work with the current parser and have been verified:
 
-### `hello.spp` - Hello World
+### `hello.corin` - Hello World
 ```bash
-./sapp examples/hello.spp
+./corin examples/hello.corin
 ```
 Output:
 ```
-Hello, Sapphire!
+Hello, Corin!
 Hello, World!
 ```
 
-### `simple.spp` - Basic variables and arithmetic
+### `simple.corin` - Basic variables and arithmetic
 ```bash
-./sapp examples/simple.spp
+./corin examples/simple.corin
 ```
 Output:
 ```
@@ -26,9 +26,9 @@ Output:
 30
 ```
 
-### `showcase.spp` - Working language features
+### `showcase.corin` - Working language features
 ```bash
-./sapp examples/showcase.spp
+./corin examples/showcase.corin
 ```
 Output:
 ```
@@ -42,13 +42,13 @@ true
 78.539750
 ```
 
-### `data_science_simple.spp` - Basic data processing
+### `data_science_simple.corin` - Basic data processing
 ```bash
-./sapp examples/data_science_simple.spp
+./corin examples/data_science_simple.corin
 ```
 Output:
 ```
-=== Sapphire Data Science Demo ===
+=== Corin Data Science Demo ===
 
 Mean:
 10.000000
@@ -64,9 +64,9 @@ true
 ✓ Data analysis complete!
 ```
 
-### `test_basic.spp` - Basic operations
+### `test_basic.corin` - Basic operations
 ```bash
-./sapp examples/test_basic.spp
+./corin examples/test_basic.corin
 ```
 Output:
 ```
@@ -79,9 +79,9 @@ true
 4.200000
 ```
 
-### `test_arithmetic.spp` - Arithmetic operations
+### `test_arithmetic.corin` - Arithmetic operations
 ```bash
-./sapp examples/test_arithmetic.spp
+./corin examples/test_arithmetic.corin
 ```
 Output:
 ```
@@ -91,9 +91,9 @@ Output:
 2.000000
 ```
 
-### `test_comparison.spp` - Comparison operators
+### `test_comparison.corin` - Comparison operators
 ```bash
-./sapp examples/test_comparison.spp
+./corin examples/test_comparison.corin
 ```
 Output:
 ```
@@ -103,27 +103,27 @@ false
 true
 ```
 
-### `file_io_example.spp` - File I/O simulation
+### `file_io_example.corin` - File I/O simulation
 ```bash
-./sapp examples/file_io_example.spp
+./corin examples/file_io_example.corin
 ```
 Demonstrates file operations concepts (reading, writing, CSV, JSON).
 
-### `user_input_example.spp` - User input simulation
+### `user_input_example.corin` - User input simulation
 ```bash
-./sapp examples/user_input_example.spp
+./corin examples/user_input_example.corin
 ```
 Demonstrates user input validation and processing.
 
-### `system_programming_example.spp` - System programming simulation
+### `system_programming_example.corin` - System programming simulation
 ```bash
-./sapp examples/system_programming_example.spp
+./corin examples/system_programming_example.corin
 ```
 Demonstrates system-level operations (processes, memory, CPU, disk).
 
-### `directives_example.spp` - Directives simulation
+### `directives_example.corin` - Directives simulation
 ```bash
-./sapp examples/directives_example.spp
+./corin examples/directives_example.corin
 ```
 Demonstrates compiler directives and optimization concepts.
 
@@ -138,22 +138,22 @@ All 24 examples pass! ✅
 
 These examples demonstrate planned features for future versions. They will not run yet but show the direction of the language:
 
-- **`data_science.spp`** - ML and data analysis (requires: imports, classes, async)
-- **`advanced_features.spp`** - Advanced language features
-- **`advanced_types.spp`** - Dependent types, higher-kinded types
-- **`macros.spp`** - Macro system
-- **`jit_compilation.spp`** - JIT compilation features
-- **`mobile_example.spp`** - Mobile platform directives
-- **`platform_directives.spp`** - Platform-specific code
-- **`cli_tool.spp`** - CLI application (requires: imports, modules)
-- **`complete_cli_tool.spp`** - Full CLI tool
-- **`concurrent_example.spp`** - Concurrency (requires: Thread API)
-- **`json_example.spp`** - JSON processing (requires: imports)
-- **`web_server.spp`** - HTTP server (requires: imports)
-- **`microservice.spp`** - Microservice example
-- **`systems_programming.spp`** - Systems programming
+- **`data_science.corin`** - ML and data analysis (requires: imports, classes, async)
+- **`advanced_features.corin`** - Advanced language features
+- **`advanced_types.corin`** - Dependent types, higher-kinded types
+- **`macros.corin`** - Macro system
+- **`jit_compilation.corin`** - JIT compilation features
+- **`mobile_example.corin`** - Mobile platform directives
+- **`platform_directives.corin`** - Platform-specific code
+- **`cli_tool.corin`** - CLI application (requires: imports, modules)
+- **`complete_cli_tool.corin`** - Full CLI tool
+- **`concurrent_example.corin`** - Concurrency (requires: Thread API)
+- **`json_example.corin`** - JSON processing (requires: imports)
+- **`web_server.corin`** - HTTP server (requires: imports)
+- **`microservice.corin`** - Microservice example
+- **`systems_programming.corin`** - Systems programming
 
-These are documentation examples showing the vision for Sapphire's future capabilities.
+These are documentation examples showing the vision for Corin's future capabilities.
 
 ## Current Parser Limitations
 
@@ -272,7 +272,7 @@ Features being implemented for v1.0-beta.6:
 
 For now, stick to the supported features:
 
-```sapphire
+```corin
 # This works!
 let x = 10
 let y = 20
@@ -283,7 +283,7 @@ let is_greater = x > 5
 print(is_greater)
 ```
 
-```sapphire
+```corin
 # This doesn't work yet
 if x > 5:
     print("Greater")  # Parser doesn't support if/else yet
@@ -293,14 +293,14 @@ if x > 5:
 
 Test a specific example:
 ```bash
-./sapp examples/hello.spp
+./corin examples/hello.corin
 ```
 
 Test all working examples:
 ```bash
-for file in examples/hello.spp examples/simple.spp examples/showcase.spp; do
+for file in examples/hello.corin examples/simple.corin examples/showcase.corin; do
     echo "Testing: $file"
-    ./sapp "$file"
+    ./corin "$file"
     echo ""
 done
 ```
@@ -309,7 +309,7 @@ done
 
 When adding new examples:
 
-1. Test with current parser: `./sapp your_example.spp`
+1. Test with current parser: `./corin your_example.corin`
 2. If it uses future features, add a note at the top
 3. Consider creating a simplified version that works now
 4. Update this README

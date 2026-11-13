@@ -1,6 +1,6 @@
 #include "base64.h"
 
-namespace sapphire {
+namespace corin {
 namespace base64 {
 
 static const std::string base64_chars = 
@@ -57,4 +57,4 @@ std::string decode(const std::string& encoded) {
 }
 
 } // namespace base64
-} // namespace sapphire
+} // namespace corin

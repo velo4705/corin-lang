@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_TYPE_CHECKER_H
-#define SAPPHIRE_TYPE_CHECKER_H
+#ifndef CORIN_TYPE_CHECKER_H
+#define CORIN_TYPE_CHECKER_H
 
 #include "../parser/expr.h"
 #include "../parser/stmt.h"
@@ -10,7 +10,7 @@
 #include <stdexcept>
 #include "../error/exception.h"
 
-namespace sapphire {
+namespace corin {
 
 class TypeChecker : public ExprVisitor, public StmtVisitor {
 private:
@@ -86,6 +86,6 @@ public:
     void visitClassDecl(ClassDecl& stmt) override;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TYPE_CHECKER_H
+#endif // CORIN_TYPE_CHECKER_H

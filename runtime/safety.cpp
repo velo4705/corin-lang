@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 // Poison pattern for freed memory
@@ -196,7 +196,7 @@ bool SafetyChecker::is_poisoned(void* ptr, size_t size) {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
@@ -204,32 +204,32 @@ bool SafetyChecker::is_poisoned(void* ptr, size_t size) {
 
 extern "C" {
 
-bool sapphire_is_valid_pointer(void* ptr) {
-    return sapphire::runtime::SafetyChecker::is_valid_pointer(ptr);
+bool corin_is_valid_pointer(void* ptr) {
+    return corin::runtime::SafetyChecker::is_valid_pointer(ptr);
 }
 
-bool sapphire_is_freed(void* ptr) {
-    return sapphire::runtime::SafetyChecker::is_freed(ptr);
+bool corin_is_freed(void* ptr) {
+    return corin::runtime::SafetyChecker::is_freed(ptr);
 }
 
-void sapphire_check_bounds(size_t index, size_t length) {
-    sapphire::runtime::SafetyChecker::check_bounds(index, length);
+void corin_check_bounds(size_t index, size_t length) {
+    corin::runtime::SafetyChecker::check_bounds(index, length);
 }
 
-void sapphire_check_type(void* ptr, uint64_t expected_type) {
-    sapphire::runtime::SafetyChecker::check_type(ptr, expected_type);
+void corin_check_type(void* ptr, uint64_t expected_type) {
+    corin::runtime::SafetyChecker::check_type(ptr, expected_type);
 }
 
-void* sapphire_check_null(void* ptr) {
-    return sapphire::runtime::SafetyChecker::check_null(ptr);
+void* corin_check_null(void* ptr) {
+    return corin::runtime::SafetyChecker::check_null(ptr);
 }
 
-void* sapphire_check_use_after_free(void* ptr) {
-    return sapphire::runtime::SafetyChecker::check_use_after_free(ptr);
+void* corin_check_use_after_free(void* ptr) {
+    return corin::runtime::SafetyChecker::check_use_after_free(ptr);
 }
 
-void sapphire_mark_freed(void* ptr) {
-    sapphire::runtime::SafetyChecker::mark_freed(ptr);
+void corin_mark_freed(void* ptr) {
+    corin::runtime::SafetyChecker::mark_freed(ptr);
 }
 
 } // extern "C"

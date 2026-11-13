@@ -5,7 +5,7 @@
 #include <chrono>
 #include <random>
 
-namespace Sapphire {
+namespace Corin {
 namespace Database {
 
 // ─── DbValue helpers ────────────────────────────────────────────────────────
@@ -601,4 +601,4 @@ DocumentCollection* doc_collection(Connection* conn, const std::string& name) {
 void doc_collection_destroy(DocumentCollection* c) { delete c; }
 
 } // namespace Database
-} // namespace Sapphire
+} // namespace Corin

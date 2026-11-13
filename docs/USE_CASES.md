@@ -1,10 +1,10 @@
-# Sapphire Use Cases
+# Corin Use Cases
 ## One Language for Every Domain
 
 ### 🌐 Web Development (Full-Stack)
 
 #### Frontend (WASM)
-```sapphire
+```corin
 # Compiles to WebAssembly
 import web::{dom, events, fetch}
 
@@ -25,7 +25,7 @@ class TodoApp:
 ```
 
 #### Backend (Web Server)
-```sapphire
+```corin
 import http::{Server, Request, Response, Router}
 import db::{postgres, query}
 
@@ -52,7 +52,7 @@ async fn main():
 ### ⚙️ Systems Programming
 
 #### Operating System Components
-```sapphire
+```corin
 import sys::{memory, process, syscall}
 
 # Low-level memory management
@@ -82,7 +82,7 @@ class NetworkDriver:
 ```
 
 #### Kernel Module
-```sapphire
+```corin
 @kernel_module
 module filesystem:
     fn mount(device: str, mountpoint: str) -> Result<(), Error>:
@@ -94,7 +94,7 @@ module filesystem:
 
 ### 🎮 Game Development
 
-```sapphire
+```corin
 import game::{Engine, Sprite, Physics, Input}
 
 class Player:
@@ -131,7 +131,7 @@ async fn main():
 
 ### 📊 Data Science & Machine Learning
 
-```sapphire
+```corin
 import ml::{tensor, nn, optim}
 import data::{DataFrame, Series}
 
@@ -180,7 +180,7 @@ async fn train_model():
 
 ### 🔧 DevOps & Infrastructure
 
-```sapphire
+```corin
 import cloud::{aws, docker, k8s}
 import infra::{terraform, ansible}
 
@@ -233,7 +233,7 @@ fn deploy_application():
 
 ### 📱 Mobile Development
 
-```sapphire
+```corin
 import mobile::{ui, navigation, storage}
 
 @screen
@@ -271,7 +271,7 @@ async fn main():
 
 ### 🔐 Blockchain & Cryptography
 
-```sapphire
+```corin
 import crypto::{hash, signature, encryption}
 import blockchain::{Block, Transaction, Consensus}
 
@@ -319,7 +319,7 @@ class Token:
 
 ### 🧪 Scientific Computing
 
-```sapphire
+```corin
 import sci::{numpy, scipy, matplotlib}
 import parallel::{mpi, cuda}
 
@@ -351,7 +351,7 @@ fn simulate_physics(particles: List<Particle>) -> List<Particle>:
 
 ### 🤖 IoT & Embedded Systems
 
-```sapphire
+```corin
 import embedded::{gpio, i2c, spi, uart}
 import rtos::{Task, Mutex, Queue}
 
@@ -381,7 +381,7 @@ async fn sensor_task():
 
 ### 🔬 Bioinformatics
 
-```sapphire
+```corin
 import bio::{sequence, alignment, phylogeny}
 
 fn analyze_genome(fasta_file: str) -> Analysis:
@@ -401,7 +401,7 @@ fn analyze_genome(fasta_file: str) -> Analysis:
 
 ### 🎵 Audio/Video Processing
 
-```sapphire
+```corin
 import media::{audio, video, codec}
 
 async fn process_video(input: str, output: str):
@@ -423,7 +423,7 @@ async fn process_video(input: str, output: str):
 
 ### 🌍 GIS & Mapping
 
-```sapphire
+```corin
 import geo::{Point, Polygon, Map}
 import spatial::{distance, intersection}
 

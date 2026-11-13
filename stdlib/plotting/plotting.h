@@ -5,7 +5,7 @@
 #include <memory>
 #include <map>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Plotting {
 
@@ -228,51 +228,51 @@ public:
 
 } // namespace Plotting
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire integration
+// C API for Corin integration
 extern "C" {
     // Plot creation and management
-    void* sapphire_plot_create(int width, int height, int chart_type);
-    void sapphire_plot_destroy(void* plot);
+    void* corin_plot_create(int width, int height, int chart_type);
+    void corin_plot_destroy(void* plot);
     
     // Data functions
-    void sapphire_plot_add_line(void* plot, double* x_data, double* y_data, 
+    void corin_plot_add_line(void* plot, double* x_data, double* y_data, 
                                int data_size, const char* label, 
                                double r, double g, double b);
-    void sapphire_plot_add_scatter(void* plot, double* x_data, double* y_data,
+    void corin_plot_add_scatter(void* plot, double* x_data, double* y_data,
                                   int data_size, const char* label,
                                   double r, double g, double b, int marker_style);
-    void sapphire_plot_add_bar(void* plot, double* x_data, double* y_data,
+    void corin_plot_add_bar(void* plot, double* x_data, double* y_data,
                               int data_size, const char* label,
                               double r, double g, double b);
-    void sapphire_plot_add_histogram(void* plot, double* data, int data_size,
+    void corin_plot_add_histogram(void* plot, double* data, int data_size,
                                     int bins, const char* label,
                                     double r, double g, double b);
     
     // Styling functions
-    void sapphire_plot_set_title(void* plot, const char* title);
-    void sapphire_plot_set_xlabel(void* plot, const char* label);
-    void sapphire_plot_set_ylabel(void* plot, const char* label);
-    void sapphire_plot_set_xlim(void* plot, double min_val, double max_val);
-    void sapphire_plot_set_ylim(void* plot, double min_val, double max_val);
-    void sapphire_plot_show_grid(void* plot, bool show);
-    void sapphire_plot_show_legend(void* plot, bool show);
+    void corin_plot_set_title(void* plot, const char* title);
+    void corin_plot_set_xlabel(void* plot, const char* label);
+    void corin_plot_set_ylabel(void* plot, const char* label);
+    void corin_plot_set_xlim(void* plot, double min_val, double max_val);
+    void corin_plot_set_ylim(void* plot, double min_val, double max_val);
+    void corin_plot_show_grid(void* plot, bool show);
+    void corin_plot_show_legend(void* plot, bool show);
     
     // Rendering functions
-    void sapphire_plot_show(void* plot);
-    void sapphire_plot_save_png(void* plot, const char* filename, int dpi);
-    void sapphire_plot_save_svg(void* plot, const char* filename);
-    void sapphire_plot_save_pdf(void* plot, const char* filename);
+    void corin_plot_show(void* plot);
+    void corin_plot_save_png(void* plot, const char* filename, int dpi);
+    void corin_plot_save_svg(void* plot, const char* filename);
+    void corin_plot_save_pdf(void* plot, const char* filename);
     
     // Convenience functions
-    void* sapphire_quick_plot(double* y_data, int data_size, const char* title);
-    void* sapphire_quick_scatter(double* x_data, double* y_data, int data_size, const char* title);
-    void* sapphire_quick_histogram(double* data, int data_size, int bins, const char* title);
+    void* corin_quick_plot(double* y_data, int data_size, const char* title);
+    void* corin_quick_scatter(double* x_data, double* y_data, int data_size, const char* title);
+    void* corin_quick_histogram(double* data, int data_size, int bins, const char* title);
     
     // Subplot functions
-    void* sapphire_subplot_grid_create(int rows, int cols);
-    void* sapphire_subplot_get(void* grid, int row, int col);
-    void sapphire_subplot_grid_show(void* grid);
-    void sapphire_subplot_grid_save_png(void* grid, const char* filename, int dpi);
+    void* corin_subplot_grid_create(int rows, int cols);
+    void* corin_subplot_get(void* grid, int row, int col);
+    void corin_subplot_grid_show(void* grid);
+    void corin_subplot_grid_save_png(void* grid, const char* filename, int dpi);
 }

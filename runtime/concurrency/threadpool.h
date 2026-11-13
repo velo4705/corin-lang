@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_RUNTIME_THREADPOOL_H
-#define SAPPHIRE_RUNTIME_THREADPOOL_H
+#ifndef CORIN_RUNTIME_THREADPOOL_H
+#define CORIN_RUNTIME_THREADPOOL_H
 
 #include <vector>
 #include <queue>
@@ -10,7 +10,7 @@
 #include <future>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -77,6 +77,6 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_RUNTIME_THREADPOOL_H
+#endif // CORIN_RUNTIME_THREADPOOL_H

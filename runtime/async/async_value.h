@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_ASYNC_VALUE_H
-#define SAPPHIRE_ASYNC_VALUE_H
+#ifndef CORIN_ASYNC_VALUE_H
+#define CORIN_ASYNC_VALUE_H
 
 #include "future.h"
 #include <variant>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 
 // Forward declaration of Value type
 // This will be defined in interpreter.h
@@ -40,6 +40,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_ASYNC_VALUE_H
+#endif // CORIN_ASYNC_VALUE_H

@@ -4,7 +4,7 @@
 #include <cctype>
 #include <cstring>
 
-namespace Sapphire {
+namespace Corin {
 namespace REST {
 
 // ===== RouteGenerator =====
@@ -458,7 +458,7 @@ std::string ApiDocGenerator::generate_html() const {
 }
 
 } // namespace REST
-} // namespace Sapphire
+} // namespace Corin
 
 
 // ===== C API =====
@@ -469,51 +469,51 @@ static std::string g_rest_last_string;
 
 // RouteGenerator
 void* rest_router_create(const char* prefix) {
-    return new Sapphire::REST::RouteGenerator(prefix ? prefix : "/api/v1");
+    return new Corin::REST::RouteGenerator(prefix ? prefix : "/api/v1");
 }
 void rest_router_destroy(void* router) {
-    delete static_cast<Sapphire::REST::RouteGenerator*>(router);
+    delete static_cast<Corin::REST::RouteGenerator*>(router);
 }
 void rest_router_generate_crud(void* router, const char* model_name) {
-    static_cast<Sapphire::REST::RouteGenerator*>(router)->generate_crud(model_name);
+    static_cast<Corin::REST::RouteGenerator*>(router)->generate_crud(model_name);
 }
 void rest_router_add_custom(void* router, const char* method, const char* path,
                              const char* handler, int auth_required) {
-    static_cast<Sapphire::REST::RouteGenerator*>(router)->add_custom(
+    static_cast<Corin::REST::RouteGenerator*>(router)->add_custom(
         method, path, handler, auth_required != 0);
 }
 void rest_router_require_auth(void* router, const char* model_name, int required) {
-    static_cast<Sapphire::REST::RouteGenerator*>(router)->require_auth(model_name, required != 0);
+    static_cast<Corin::REST::RouteGenerator*>(router)->require_auth(model_name, required != 0);
 }
 int rest_router_route_count(void* router) {
-    return static_cast<Sapphire::REST::RouteGenerator*>(router)->route_count();
+    return static_cast<Corin::REST::RouteGenerator*>(router)->route_count();
 }
 const char* rest_router_route_table(void* router) {
-    g_rest_last_string = static_cast<Sapphire::REST::RouteGenerator*>(router)->route_table();
+    g_rest_last_string = static_cast<Corin::REST::RouteGenerator*>(router)->route_table();
     return g_rest_last_string.c_str();
 }
 const char* rest_router_get_prefix(void* router) {
-    g_rest_last_string = static_cast<Sapphire::REST::RouteGenerator*>(router)->prefix();
+    g_rest_last_string = static_cast<Corin::REST::RouteGenerator*>(router)->prefix();
     return g_rest_last_string.c_str();
 }
 
 // RequestValidator
 void* rest_validator_create() {
-    return new Sapphire::REST::RequestValidator();
+    return new Corin::REST::RequestValidator();
 }
 void rest_validator_destroy(void* validator) {
-    delete static_cast<Sapphire::REST::RequestValidator*>(validator);
+    delete static_cast<Corin::REST::RequestValidator*>(validator);
 }
 void rest_validator_add_rule(void* validator, const char* schema,
                               const char* field, const char* type,
                               int required, int min_len, int max_len) {
-    Sapphire::REST::ValidationRule rule;
+    Corin::REST::ValidationRule rule;
     rule.field      = field;
     rule.type       = type ? type : "string";
     rule.required   = required != 0;
     rule.min_length = min_len;
     rule.max_length = max_len;
-    static_cast<Sapphire::REST::RequestValidator*>(validator)->add_rule(schema, rule);
+    static_cast<Corin::REST::RequestValidator*>(validator)->add_rule(schema, rule);
 }
 int rest_validator_validate(void* validator, const char* schema,
                              const char* json_body, char* error_buf, int buf_size) {
@@ -527,10 +527,10 @@ int rest_validator_validate(void* validator, const char* schema,
         if (eq != std::string::npos)
             data[token.substr(0, eq)] = token.substr(eq + 1);
     }
-    std::vector<Sapphire::REST::ValidationError> errors;
-    bool valid = static_cast<Sapphire::REST::RequestValidator*>(validator)->validate(schema, data, errors);
+    std::vector<Corin::REST::ValidationError> errors;
+    bool valid = static_cast<Corin::REST::RequestValidator*>(validator)->validate(schema, data, errors);
     if (!valid && error_buf && buf_size > 0) {
-        auto* v = static_cast<Sapphire::REST::RequestValidator*>(validator);
+        auto* v = static_cast<Corin::REST::RequestValidator*>(validator);
         std::string err_json = v->errors_to_json(errors);
         strncpy(error_buf, err_json.c_str(), buf_size - 1);
         error_buf[buf_size - 1] = '\0';
@@ -538,98 +538,98 @@ int rest_validator_validate(void* validator, const char* schema,
     return valid ? 1 : 0;
 }
 int rest_validator_has_schema(void* validator, const char* schema) {
-    return static_cast<Sapphire::REST::RequestValidator*>(validator)->has_schema(schema) ? 1 : 0;
+    return static_cast<Corin::REST::RequestValidator*>(validator)->has_schema(schema) ? 1 : 0;
 }
 int rest_validator_schema_count(void* validator) {
-    return static_cast<Sapphire::REST::RequestValidator*>(validator)->schema_count();
+    return static_cast<Corin::REST::RequestValidator*>(validator)->schema_count();
 }
 
 // ResponseFormatter
 void* rest_formatter_create(const char* version) {
-    auto* f = new Sapphire::REST::ResponseFormatter();
+    auto* f = new Corin::REST::ResponseFormatter();
     if (version) f->set_version(version);
     return f;
 }
 void rest_formatter_destroy(void* formatter) {
-    delete static_cast<Sapphire::REST::ResponseFormatter*>(formatter);
+    delete static_cast<Corin::REST::ResponseFormatter*>(formatter);
 }
 const char* rest_formatter_success(void* formatter, const char* data, int status_code) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->success(data ? data : "", status_code);
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->success(data ? data : "", status_code);
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_created(void* formatter, const char* data) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->created(data ? data : "");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->created(data ? data : "");
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_error(void* formatter, const char* message, int status_code) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->error(message ? message : "", status_code);
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->error(message ? message : "", status_code);
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_not_found(void* formatter, const char* resource) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->not_found(resource ? resource : "Resource");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->not_found(resource ? resource : "Resource");
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_unauthorized(void* formatter, const char* message) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->unauthorized(message ? message : "Unauthorized");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->unauthorized(message ? message : "Unauthorized");
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_forbidden(void* formatter, const char* message) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->forbidden(message ? message : "Forbidden");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->forbidden(message ? message : "Forbidden");
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_validation_error(void* formatter, const char* errors_json) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->validation_error(errors_json ? errors_json : "[]");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->validation_error(errors_json ? errors_json : "[]");
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_paginated(void* formatter, const char* data,
                                       int page, int per_page, int total) {
-    Sapphire::REST::PaginationMeta meta;
+    Corin::REST::PaginationMeta meta;
     meta.page        = page;
     meta.per_page    = per_page;
     meta.total       = total;
     meta.total_pages = (per_page > 0) ? (total + per_page - 1) / per_page : 0;
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->paginated(data ? data : "[]", meta);
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->paginated(data ? data : "[]", meta);
     return g_rest_last_string.c_str();
 }
 const char* rest_formatter_pretty(void* formatter, const char* json) {
-    g_rest_last_string = static_cast<Sapphire::REST::ResponseFormatter*>(formatter)->pretty(json ? json : "");
+    g_rest_last_string = static_cast<Corin::REST::ResponseFormatter*>(formatter)->pretty(json ? json : "");
     return g_rest_last_string.c_str();
 }
 
 // ApiDocGenerator
 void* rest_docs_create(const char* title, const char* version) {
-    return new Sapphire::REST::ApiDocGenerator(title ? title : "API", version ? version : "1.0.0");
+    return new Corin::REST::ApiDocGenerator(title ? title : "API", version ? version : "1.0.0");
 }
 void rest_docs_destroy(void* docs) {
-    delete static_cast<Sapphire::REST::ApiDocGenerator*>(docs);
+    delete static_cast<Corin::REST::ApiDocGenerator*>(docs);
 }
 void rest_docs_add_endpoint(void* docs, const char* method, const char* path,
                              const char* summary, int auth_required) {
-    Sapphire::REST::EndpointDoc doc;
+    Corin::REST::EndpointDoc doc;
     doc.method       = method ? method : "GET";
     doc.path         = path ? path : "/";
     doc.summary      = summary ? summary : "";
     doc.auth_required = auth_required != 0;
-    static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->add_endpoint(doc);
+    static_cast<Corin::REST::ApiDocGenerator*>(docs)->add_endpoint(doc);
 }
 void rest_docs_from_router(void* docs, void* router) {
-    auto routes = static_cast<Sapphire::REST::RouteGenerator*>(router)->get_routes();
-    static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->from_routes(routes);
+    auto routes = static_cast<Corin::REST::RouteGenerator*>(router)->get_routes();
+    static_cast<Corin::REST::ApiDocGenerator*>(docs)->from_routes(routes);
 }
 const char* rest_docs_openapi(void* docs) {
-    g_rest_last_string = static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->generate_openapi();
+    g_rest_last_string = static_cast<Corin::REST::ApiDocGenerator*>(docs)->generate_openapi();
     return g_rest_last_string.c_str();
 }
 const char* rest_docs_markdown(void* docs) {
-    g_rest_last_string = static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->generate_markdown();
+    g_rest_last_string = static_cast<Corin::REST::ApiDocGenerator*>(docs)->generate_markdown();
     return g_rest_last_string.c_str();
 }
 const char* rest_docs_html(void* docs) {
-    g_rest_last_string = static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->generate_html();
+    g_rest_last_string = static_cast<Corin::REST::ApiDocGenerator*>(docs)->generate_html();
     return g_rest_last_string.c_str();
 }
 int rest_docs_endpoint_count(void* docs) {
-    return static_cast<Sapphire::REST::ApiDocGenerator*>(docs)->endpoint_count();
+    return static_cast<Corin::REST::ApiDocGenerator*>(docs)->endpoint_count();
 }
 
 } // extern "C"

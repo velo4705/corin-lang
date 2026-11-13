@@ -1,10 +1,10 @@
-# Tutorial 1: Getting Started with Sapphire
+# Tutorial 1: Getting Started with Corin
 
-Welcome to Sapphire! This tutorial will help you write your first Sapphire program.
+Welcome to Corin! This tutorial will help you write your first Corin program.
 
-## What is Sapphire?
+## What is Corin?
 
-Sapphire is a high-performance programming language designed to be:
+Corin is a high-performance programming language designed to be:
 - **Fast** - Second only to C/Assembly in speed
 - **Multi-purpose** - Great for algorithms, GUIs, OS development, and HPC
 - **Easy to learn** - Clean syntax similar to Python and modern languages
@@ -18,28 +18,28 @@ Sapphire is a high-performance programming language designed to be:
 
 ### Quick Install
 ```bash
-git clone https://github.com/sapphiredev/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/corindev/corin-lang.git
+cd corin-lang
 ./install.sh
 ```
 
 This will install:
-- `sapp` - Sapphire compiler
-- `spm` - Sapphire package manager
-- `sapphire-fmt` - Code formatter
+- `corin` - Corin compiler
+- `spm` - Corin package manager
+- `corin-fmt` - Code formatter
 
 ### Verify Installation
 ```bash
-sapp --version
+corin --version
 ```
 
 ## Your First Program
 
 ### Hello, World!
 
-Create a file called `hello.spp`:
+Create a file called `hello.corin`:
 
-```sapphire
+```corin
 fn main() {
     println("Hello, World!")
 }
@@ -48,7 +48,7 @@ fn main() {
 ### Run Your Program
 
 ```bash
-sapp hello.spp
+corin hello.corin
 ```
 
 You should see:
@@ -58,7 +58,7 @@ Hello, World!
 
 ### How It Works
 
-1. `fn main()` - Every Sapphire program starts with a `main` function
+1. `fn main()` - Every Corin program starts with a `main` function
 2. `println()` - Prints text to the console with a newline
 3. `"Hello, World!"` - A string (text) in quotes
 
@@ -66,9 +66,9 @@ Hello, World!
 
 ### Printing Text
 
-```sapphire
+```corin
 fn main() {
-    println("Welcome to Sapphire!")
+    println("Welcome to Corin!")
     println("This is line 2")
     println("This is line 3")
 }
@@ -76,7 +76,7 @@ fn main() {
 
 ### Printing Without Newline
 
-```sapphire
+```corin
 fn main() {
     print("Hello, ")
     print("World!")
@@ -91,7 +91,7 @@ Hello, World!
 
 ### Printing Numbers
 
-```sapphire
+```corin
 fn main() {
     println(42)
     println(3.14)
@@ -110,7 +110,7 @@ true
 
 Comments help explain your code:
 
-```sapphire
+```corin
 // This is a single-line comment
 
 /*
@@ -127,7 +127,7 @@ fn main() {
 
 Variables store data:
 
-```sapphire
+```corin
 fn main() {
     // Declare a variable
     let name = "Alice"
@@ -143,9 +143,9 @@ fn main() {
 
 ### Variable Types
 
-Sapphire has automatic type inference, but you can specify types:
+Corin has automatic type inference, but you can specify types:
 
-```sapphire
+```corin
 fn main() {
     let name: str = "Bob"
     let age: int = 30
@@ -163,7 +163,7 @@ fn main() {
 
 By default, variables are immutable (can't be changed). Use `mut` for mutable variables:
 
-```sapphire
+```corin
 fn main() {
     let x = 5
     // x = 10  // Error! x is immutable
@@ -176,7 +176,7 @@ fn main() {
 
 ## Basic Math
 
-```sapphire
+```corin
 fn main() {
     let a = 10
     let b = 3
@@ -191,7 +191,7 @@ fn main() {
 
 ## String Concatenation
 
-```sapphire
+```corin
 fn main() {
     let first_name = "John"
     let last_name = "Doe"
@@ -206,7 +206,7 @@ fn main() {
 
 Get input from the user:
 
-```sapphire
+```corin
 fn main() {
     print("What is your name? ")
     let name = input()
@@ -230,7 +230,7 @@ Hello, Alice! You are 25 years old.
 ### Exercise 2: Calculator
 Write a program that adds two numbers:
 
-```sapphire
+```corin
 fn main() {
     let a = 15
     let b = 27
@@ -242,7 +242,7 @@ fn main() {
 ### Exercise 3: Temperature Converter
 Convert Celsius to Fahrenheit:
 
-```sapphire
+```corin
 fn main() {
     let celsius = 25.0
     let fahrenheit = (celsius * 9.0 / 5.0) + 32.0
@@ -253,7 +253,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. Forgetting Quotes Around Strings
-```sapphire
+```corin
 // Wrong:
 let name = Alice  // Error!
 
@@ -262,7 +262,7 @@ let name = "Alice"
 ```
 
 ### 2. Trying to Change Immutable Variables
-```sapphire
+```corin
 // Wrong:
 let x = 5
 x = 10  // Error!
@@ -273,7 +273,7 @@ x = 10  // OK
 ```
 
 ### 3. Missing Parentheses in Function Calls
-```sapphire
+```corin
 // Wrong:
 println "Hello"  // Error!
 
@@ -284,7 +284,7 @@ println("Hello")
 ## Summary
 
 In this tutorial, you learned:
-- ✅ How to install Sapphire
+- ✅ How to install Corin
 - ✅ How to write and run your first program
 - ✅ How to print output
 - ✅ How to use variables

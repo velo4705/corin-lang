@@ -4,7 +4,7 @@
 #include <string>
 #include <cstring>
 
-using namespace Sapphire::MathX;
+using namespace Corin::MathX;
 
 static std::string g_mathx_last_string;
 

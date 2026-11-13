@@ -1,6 +1,6 @@
 #include "expr.h"
 
-namespace sapphire {
+namespace corin {
 
 void LiteralExpr::accept(ExprVisitor& visitor) {
     visitor.visitLiteralExpr(*this);
@@ -82,4 +82,4 @@ void FStringExpr::accept(ExprVisitor& visitor) {
     visitor.visitFStringExpr(*this);
 }
 
-} // namespace sapphire
+} // namespace corin

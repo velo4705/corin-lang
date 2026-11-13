@@ -1,9 +1,9 @@
-#ifndef SAPPHIRE_STDLIB_GLUT_H
-#define SAPPHIRE_STDLIB_GLUT_H
+#ifndef CORIN_STDLIB_GLUT_H
+#define CORIN_STDLIB_GLUT_H
 
 #include <GL/glut.h>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -52,40 +52,40 @@ public:
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for code generation
 extern "C" {
     // Initialization
-    void sapphire_glut_init(int* argc, char** argv);
-    void sapphire_glut_init_display_mode(unsigned int mode);
-    void sapphire_glut_init_window_size(int width, int height);
-    void sapphire_glut_init_window_position(int x, int y);
-    int sapphire_glut_create_window(const char* title);
+    void corin_glut_init(int* argc, char** argv);
+    void corin_glut_init_display_mode(unsigned int mode);
+    void corin_glut_init_window_size(int width, int height);
+    void corin_glut_init_window_position(int x, int y);
+    int corin_glut_create_window(const char* title);
     
     // Main loop
-    void sapphire_glut_main_loop();
-    void sapphire_glut_post_redisplay();
+    void corin_glut_main_loop();
+    void corin_glut_post_redisplay();
     
     // Window management
-    void sapphire_glut_swap_buffers();
+    void corin_glut_swap_buffers();
     
     // Utility shapes
-    void sapphire_glut_solid_sphere(double radius, int slices, int stacks);
-    void sapphire_glut_wire_sphere(double radius, int slices, int stacks);
-    void sapphire_glut_solid_cube(double size);
-    void sapphire_glut_wire_cube(double size);
-    void sapphire_glut_solid_torus(double innerRadius, double outerRadius, int sides, int rings);
-    void sapphire_glut_wire_torus(double innerRadius, double outerRadius, int sides, int rings);
+    void corin_glut_solid_sphere(double radius, int slices, int stacks);
+    void corin_glut_wire_sphere(double radius, int slices, int stacks);
+    void corin_glut_solid_cube(double size);
+    void corin_glut_wire_cube(double size);
+    void corin_glut_solid_torus(double innerRadius, double outerRadius, int sides, int rings);
+    void corin_glut_wire_torus(double innerRadius, double outerRadius, int sides, int rings);
 }
 
 // GLUT Constants
-#define SAPPHIRE_GLUT_RGB 0x0000
-#define SAPPHIRE_GLUT_RGBA 0x0000
-#define SAPPHIRE_GLUT_SINGLE 0x0000
-#define SAPPHIRE_GLUT_DOUBLE 0x0002
-#define SAPPHIRE_GLUT_DEPTH 0x0010
-#define SAPPHIRE_GLUT_STENCIL 0x0020
-#define SAPPHIRE_GLUT_MULTISAMPLE 0x0080
+#define CORIN_GLUT_RGB 0x0000
+#define CORIN_GLUT_RGBA 0x0000
+#define CORIN_GLUT_SINGLE 0x0000
+#define CORIN_GLUT_DOUBLE 0x0002
+#define CORIN_GLUT_DEPTH 0x0010
+#define CORIN_GLUT_STENCIL 0x0020
+#define CORIN_GLUT_MULTISAMPLE 0x0080
 
-#endif // SAPPHIRE_STDLIB_GLUT_H
+#endif // CORIN_STDLIB_GLUT_H

@@ -4,7 +4,7 @@
 #include <cassert>
 #include <cstring>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 // Test counters
 int tests_passed = 0;
@@ -77,7 +77,7 @@ TEST(use_after_free_detection) {
     std::cout << "  Testing use-after-free detection..." << std::endl;
     
     // Allocate memory
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     
     // Should be valid initially
@@ -91,8 +91,8 @@ TEST(use_after_free_detection) {
     assert(SafetyChecker::is_freed(ptr));
     EXPECT_THROW(SafetyChecker::check_use_after_free(ptr), UseAfterFreeError);
     
-    // Note: Don't call sapphire_free() after mark_freed() as it would be a double-free
-    // In real usage, mark_freed() is called inside sapphire_free()
+    // Note: Don't call corin_free() after mark_freed() as it would be a double-free
+    // In real usage, mark_freed() is called inside corin_free()
     
     std::cout << "  Use-after-free detection working correctly" << std::endl;
 }
@@ -105,7 +105,7 @@ TEST(double_free_detection) {
     std::cout << "  Testing double-free detection..." << std::endl;
     
     // Allocate memory
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     
     // First free should work
@@ -114,7 +114,7 @@ TEST(double_free_detection) {
     // Second free should throw
     EXPECT_THROW(SafetyChecker::mark_freed(ptr), DoubleFreeError);
     
-    // Note: Don't call sapphire_free() after mark_freed()
+    // Note: Don't call corin_free() after mark_freed()
     
     std::cout << "  Double-free detection working correctly" << std::endl;
 }
@@ -148,7 +148,7 @@ TEST(type_mismatch_detection) {
     std::cout << "  Testing type mismatch detection..." << std::endl;
     
     // Allocate with type ID 1
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     
     // Same type should not throw
@@ -159,7 +159,7 @@ TEST(type_mismatch_detection) {
     EXPECT_THROW(SafetyChecker::check_type(ptr, 999), TypeMismatchError);
     
     // Clean up
-    sapphire_free(ptr);
+    corin_free(ptr);
     
     std::cout << "  Type mismatch detection working correctly" << std::endl;
 }
@@ -172,7 +172,7 @@ TEST(memory_poisoning) {
     std::cout << "  Testing memory poisoning..." << std::endl;
     
     // Allocate memory
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     
     // Write some data
@@ -188,7 +188,7 @@ TEST(memory_poisoning) {
     assert(SafetyChecker::is_poisoned(ptr, 64));
     
     // Clean up
-    sapphire_free(ptr);
+    corin_free(ptr);
     
     std::cout << "  Memory poisoning working correctly" << std::endl;
 }
@@ -210,12 +210,12 @@ TEST(pointer_validation) {
     assert(!SafetyChecker::is_valid_pointer(reinterpret_cast<void*>(0x1001)));
     
     // Valid heap pointer
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     assert(SafetyChecker::is_valid_pointer(ptr));
     
     // Clean up
-    sapphire_free(ptr);
+    corin_free(ptr);
     
     std::cout << "  Pointer validation working correctly" << std::endl;
 }
@@ -228,7 +228,7 @@ TEST(safe_ptr_wrapper) {
     std::cout << "  Testing SafePtr wrapper..." << std::endl;
     
     // Allocate an integer
-    int* raw_ptr = static_cast<int*>(sapphire_allocate(sizeof(int), 1));
+    int* raw_ptr = static_cast<int*>(corin_allocate(sizeof(int), 1));
     *raw_ptr = 42;
     
     // Wrap in SafePtr
@@ -239,7 +239,7 @@ TEST(safe_ptr_wrapper) {
     assert(safe_ptr.get() == raw_ptr);
     
     // Clean up
-    sapphire_free(raw_ptr);
+    corin_free(raw_ptr);
     
     std::cout << "  SafePtr wrapper working correctly" << std::endl;
 }
@@ -266,13 +266,13 @@ TEST(safe_ptr_freed) {
     std::cout << "  Testing SafePtr with freed memory..." << std::endl;
     
     // Allocate and free
-    int* ptr = static_cast<int*>(sapphire_allocate(sizeof(int), 1));
+    int* ptr = static_cast<int*>(corin_allocate(sizeof(int), 1));
     SafetyChecker::mark_freed(ptr);
     
     // Should throw in constructor
     EXPECT_THROW(SafePtr<int> safe_ptr(ptr), UseAfterFreeError);
     
-    // Note: Don't call sapphire_free() after mark_freed()
+    // Note: Don't call corin_free() after mark_freed()
     
     std::cout << "  SafePtr freed memory detection working correctly" << std::endl;
 }
@@ -285,35 +285,35 @@ TEST(c_api) {
     std::cout << "  Testing C API..." << std::endl;
     
     // Allocate memory
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     assert(ptr != nullptr);
     
     // Test is_valid_pointer
-    assert(sapphire_is_valid_pointer(ptr));
-    assert(!sapphire_is_valid_pointer(nullptr));
+    assert(corin_is_valid_pointer(ptr));
+    assert(!corin_is_valid_pointer(nullptr));
     
     // Test is_freed
-    assert(!sapphire_is_freed(ptr));
-    sapphire_mark_freed(ptr);
-    assert(sapphire_is_freed(ptr));
+    assert(!corin_is_freed(ptr));
+    corin_mark_freed(ptr);
+    assert(corin_is_freed(ptr));
     
     // Test check_bounds
-    EXPECT_NO_THROW(sapphire_check_bounds(5, 10));
-    EXPECT_THROW(sapphire_check_bounds(10, 10), BufferOverflowError);
+    EXPECT_NO_THROW(corin_check_bounds(5, 10));
+    EXPECT_THROW(corin_check_bounds(10, 10), BufferOverflowError);
     
     // Allocate another pointer for type checking
-    void* ptr2 = sapphire_allocate(64, 1);
+    void* ptr2 = corin_allocate(64, 1);
     
     // Test check_type
-    EXPECT_NO_THROW(sapphire_check_type(ptr2, 1));
-    EXPECT_THROW(sapphire_check_type(ptr2, 2), TypeMismatchError);
+    EXPECT_NO_THROW(corin_check_type(ptr2, 1));
+    EXPECT_THROW(corin_check_type(ptr2, 2), TypeMismatchError);
     
     // Test check_null
-    EXPECT_NO_THROW(sapphire_check_null(ptr2));
-    EXPECT_THROW(sapphire_check_null(nullptr), NullPointerError);
+    EXPECT_NO_THROW(corin_check_null(ptr2));
+    EXPECT_THROW(corin_check_null(nullptr), NullPointerError);
     
     // Clean up ptr2 only (ptr was already marked freed)
-    sapphire_free(ptr2);
+    corin_free(ptr2);
     
     std::cout << "  C API working correctly" << std::endl;
 }
@@ -381,7 +381,7 @@ TEST(error_messages) {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Memory Safety Tests\n";
+    std::cout << "Corin Memory Safety Tests\n";
     std::cout << "================================================================================\n\n";
     
     // Initialize allocator

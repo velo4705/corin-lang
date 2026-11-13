@@ -1,10 +1,10 @@
-# Getting Started with Sapphire
+# Getting Started with Corin
 
-Welcome to Sapphire! This guide will help you get up and running in 15 minutes.
+Welcome to Corin! This guide will help you get up and running in 15 minutes.
 
-## What is Sapphire?
+## What is Corin?
 
-Sapphire is a modern programming language that combines:
+Corin is a modern programming language that combines:
 - 🐍 Python's clean syntax
 - ⚡ C++'s performance
 - 🦀 Rust's safety
@@ -24,11 +24,11 @@ Sapphire is a modern programming language that combines:
 
 ```bash
 # First time setup (run once)
-bash <(curl -s https://raw.githubusercontent.com/velo4705/sapphire-lang/main/scripts/setup_git_ssh.sh)
+bash <(curl -s https://raw.githubusercontent.com/velo4705/corin-lang/main/scripts/setup_git_ssh.sh)
 
 # Clone and build
-git clone git@github.com:velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone git@github.com:velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
@@ -36,38 +36,38 @@ make quick
 
 ```bash
 # Clone and build
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
 **Having authentication issues?** See [Git Setup Guide](GIT_SETUP.md) for detailed help.
 
-This creates the `sapp` compiler.
+This creates the `corin` compiler.
 
 ## Your First Program
 
-Create a file called `hello.spp`:
+Create a file called `hello.corin`:
 
-```sapphire
-# Hello World in Sapphire
-print("Hello, Sapphire!")
+```corin
+# Hello World in Corin
+print("Hello, Corin!")
 ```
 
 Run it:
 
 ```bash
-./sapp hello.spp
+./corin hello.corin
 ```
 
 Output:
 ```
-Hello, Sapphire!
+Hello, Corin!
 ```
 
 ## Using the Package Manager
 
-Sapphire comes with `spm`, a package manager for creating and managing projects.
+Corin comes with `spm`, a package manager for creating and managing projects.
 
 ### Create a New Project
 
@@ -81,7 +81,7 @@ This creates:
 my-project/
   spm.toml          # Project configuration
   src/
-    main.spp        # Main source file
+    main.corin        # Main source file
   tests/            # Test files
   docs/             # Documentation
 ```
@@ -103,7 +103,7 @@ my-project/
 
 ### Variables
 
-```sapphire
+```corin
 let x = 42
 let name = "Alice"
 let pi = 3.14159
@@ -111,7 +111,7 @@ let pi = 3.14159
 
 ### Functions
 
-```sapphire
+```corin
 fn add(a: int, b: int) -> int {
     return a + b
 }
@@ -122,7 +122,7 @@ print(result)  # 30
 
 ### Control Flow
 
-```sapphire
+```corin
 # If statements
 if x > 10 {
     print("x is big")
@@ -140,7 +140,7 @@ while i < 5 {
 
 ### Data Structures
 
-```sapphire
+```corin
 # Arrays (Vec)
 let numbers = Vec::new()
 numbers.push(1)
@@ -158,11 +158,11 @@ let greeting = "Hello, " + "World!"
 
 ## Standard Library
 
-Sapphire includes a rich standard library:
+Corin includes a rich standard library:
 
 ### String Operations
 
-```sapphire
+```corin
 let text = "Hello, World!"
 let upper = text.to_upper()
 let parts = text.split(", ")
@@ -170,7 +170,7 @@ let parts = text.split(", ")
 
 ### File I/O
 
-```sapphire
+```corin
 # Write to file
 File::write_all("data.txt", "Hello, File!")
 
@@ -181,7 +181,7 @@ print(content)
 
 ### Math Functions
 
-```sapphire
+```corin
 let x = Math::sqrt(16.0)    # 4.0
 let y = Math::sin(Math::PI)  # 0.0
 let z = Math::pow(2.0, 3.0)  # 8.0
@@ -189,7 +189,7 @@ let z = Math::pow(2.0, 3.0)  # 8.0
 
 ### JSON
 
-```sapphire
+```corin
 # Parse JSON
 let json = JSON::parse('{"name": "Alice", "age": 30}')
 print(json["name"])  # Alice
@@ -203,11 +203,11 @@ print(obj.serialize())
 
 ## Concurrency
 
-Sapphire has built-in concurrency support:
+Corin has built-in concurrency support:
 
 ### Threads
 
-```sapphire
+```corin
 # Spawn a thread
 let t = Thread::spawn(|| {
     print("Hello from thread!")
@@ -217,7 +217,7 @@ t.join()
 
 ### Channels
 
-```sapphire
+```corin
 # Create a channel
 let ch = Channel::new()
 
@@ -233,7 +233,7 @@ print(value)  # 42
 
 ### Thread Pool
 
-```sapphire
+```corin
 # Create a thread pool
 let pool = ThreadPool::new(4)
 
@@ -265,8 +265,8 @@ let result = future.get()
 
 ```bash
 # Compiler
-./sapp program.spp              # Run program
-./sapp compile program.spp      # Compile to LLVM IR
+./corin program.corin              # Run program
+./corin compile program.corin      # Compile to LLVM IR
 
 # Package Manager
 ./spm init <name>               # Create new project
@@ -278,13 +278,13 @@ let result = future.get()
 ./spm fmt                       # Format code
 
 # Tools
-./sapphire-fmt file.spp         # Format code
-./sapphire-fmt --check file.spp # Check formatting
+./corin-fmt file.corin         # Format code
+./corin-fmt --check file.corin # Check formatting
 ```
 
 ### Syntax Cheat Sheet
 
-```sapphire
+```corin
 # Comments
 # This is a comment
 
@@ -319,4 +319,4 @@ let channel = Channel::new()
 let pool = ThreadPool::new(4)
 ```
 
-Welcome to Sapphire! Happy coding! 💎
+Welcome to Corin! Happy coding! 💎

@@ -7,7 +7,7 @@
 #include <iostream>
 #include <unistd.h>
 
-namespace sapphire {
+namespace corin {
 
 // ── ANSI colours (disabled if not a tty) ──────────────────────────────────
 static inline bool use_color() {
@@ -15,13 +15,13 @@ static inline bool use_color() {
     if (cached < 0) cached = isatty(fileno(stderr)) ? 1 : 0;
     return cached == 1;
 }
-#define C_RESET  (sapphire::use_color() ? "\033[0m"     : "")
-#define C_BOLD   (sapphire::use_color() ? "\033[1m"     : "")
-#define C_RED    (sapphire::use_color() ? "\033[1;31m"  : "")
-#define C_YELLOW (sapphire::use_color() ? "\033[1;33m"  : "")
-#define C_CYAN   (sapphire::use_color() ? "\033[1;36m"  : "")
-#define C_BLUE   (sapphire::use_color() ? "\033[1;34m"  : "")
-#define C_DIM    (sapphire::use_color() ? "\033[2m"     : "")
+#define C_RESET  (corin::use_color() ? "\033[0m"     : "")
+#define C_BOLD   (corin::use_color() ? "\033[1m"     : "")
+#define C_RED    (corin::use_color() ? "\033[1;31m"  : "")
+#define C_YELLOW (corin::use_color() ? "\033[1;33m"  : "")
+#define C_CYAN   (corin::use_color() ? "\033[1;36m"  : "")
+#define C_BLUE   (corin::use_color() ? "\033[1;34m"  : "")
+#define C_DIM    (corin::use_color() ? "\033[2m"     : "")
 
 // ── Split source into lines ────────────────────────────────────────────────
 static inline std::vector<std::string> split_lines(const std::string& src) {
@@ -37,13 +37,13 @@ static inline std::vector<std::string> split_lines(const std::string& src) {
 // Produces output like:
 //
 //   error[E201]: undefined variable 'foo'
-//    --> script.spp:12:5
+//    --> script.corin:12:5
 //     |
 //  12 |     x = foo + 1
 //     |         ^^^ not defined here
 //     |
 //     = note: check the spelling, or make sure the variable is defined before use
-//     = see:  https://sapphire-lang.org/errors/E201
+//     = see:  https://corin-lang.org/errors/E201
 //
 class ErrorFormatter {
 public:
@@ -117,8 +117,8 @@ public:
         std::cerr << "\n";
     }
 
-    // Convenience: print from a SapphireException
-    static void print(const SapphireException& e,
+    // Convenience: print from a CorinException
+    static void print(const CorinException& e,
                       const std::string& source_text = "",
                       const std::string& error_code_str = "") {
         print(error_code_str,
@@ -137,4 +137,4 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin

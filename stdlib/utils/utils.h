@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_STDLIB_UTILS_H
-#define SAPPHIRE_STDLIB_UTILS_H
+#ifndef CORIN_STDLIB_UTILS_H
+#define CORIN_STDLIB_UTILS_H
 
 #include <string>
 #include <vector>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -78,27 +78,27 @@ namespace Utils {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for code generation
 extern "C" {
-    const char* sapphire_utils_to_string_int(int value);
-    const char* sapphire_utils_to_string_double(double value);
-    int sapphire_utils_to_int(const char* str);
-    double sapphire_utils_to_double(const char* str);
+    const char* corin_utils_to_string_int(int value);
+    const char* corin_utils_to_string_double(double value);
+    int corin_utils_to_int(const char* str);
+    double corin_utils_to_double(const char* str);
     
-    const char* sapphire_utils_to_upper(const char* str);
-    const char* sapphire_utils_to_lower(const char* str);
-    const char* sapphire_utils_trim(const char* str);
+    const char* corin_utils_to_upper(const char* str);
+    const char* corin_utils_to_lower(const char* str);
+    const char* corin_utils_trim(const char* str);
     
-    bool sapphire_utils_starts_with(const char* str, const char* prefix);
-    bool sapphire_utils_ends_with(const char* str, const char* suffix);
-    bool sapphire_utils_contains(const char* str, const char* substring);
+    bool corin_utils_starts_with(const char* str, const char* prefix);
+    bool corin_utils_ends_with(const char* str, const char* suffix);
+    bool corin_utils_contains(const char* str, const char* substring);
     
-    int sapphire_utils_random_int(int min, int max);
-    double sapphire_utils_random_double(double min, double max);
+    int corin_utils_random_int(int min, int max);
+    double corin_utils_random_double(double min, double max);
     
-    uint32_t sapphire_utils_hash_string(const char* str);
+    uint32_t corin_utils_hash_string(const char* str);
 }
 
-#endif // SAPPHIRE_STDLIB_UTILS_H
+#endif // CORIN_STDLIB_UTILS_H

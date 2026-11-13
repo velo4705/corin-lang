@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Error {
 
@@ -71,28 +71,28 @@ void StackTrace::print() const {
 }
 
 //=============================================================================
-// SapphireError Implementation
+// CorinError Implementation
 //=============================================================================
 
-SapphireError::SapphireError(const std::string& msg, const std::string& code) 
+CorinError::CorinError(const std::string& msg, const std::string& code) 
     : message(msg), error_code(code) {}
 
-SapphireError::SapphireError(const std::string& msg, const StackTrace& trace, const std::string& code) 
+CorinError::CorinError(const std::string& msg, const StackTrace& trace, const std::string& code) 
     : message(msg), error_code(code), stack_trace(trace) {}
 
-const char* SapphireError::what() const noexcept {
+const char* CorinError::what() const noexcept {
     return message.c_str();
 }
 
-void SapphireError::add_suggestion(const std::string& suggestion) {
+void CorinError::add_suggestion(const std::string& suggestion) {
     suggestions.push_back(suggestion);
 }
 
-void SapphireError::set_suggestions(const std::vector<std::string>& suggestions) {
+void CorinError::set_suggestions(const std::vector<std::string>& suggestions) {
     this->suggestions = suggestions;
 }
 
-std::string SapphireError::format_error() const {
+std::string CorinError::format_error() const {
     std::stringstream ss;
     
     // Error header
@@ -118,7 +118,7 @@ std::string SapphireError::format_error() const {
     return ss.str();
 }
 
-void SapphireError::print_error() const {
+void CorinError::print_error() const {
     std::cerr << format_error() << std::endl;
 }
 
@@ -126,11 +126,11 @@ void SapphireError::print_error() const {
 // ErrorHandler Implementation
 //=============================================================================
 
-std::function<void(const SapphireError&)> ErrorHandler::error_callback = nullptr;
+std::function<void(const CorinError&)> ErrorHandler::error_callback = nullptr;
 bool ErrorHandler::show_stack_traces = true;
 bool ErrorHandler::show_suggestions = true;
 
-void ErrorHandler::set_error_callback(std::function<void(const SapphireError&)> callback) {
+void ErrorHandler::set_error_callback(std::function<void(const CorinError&)> callback) {
     error_callback = callback;
 }
 
@@ -142,13 +142,13 @@ void ErrorHandler::enable_suggestions(bool enable) {
     show_suggestions = enable;
 }
 
-void ErrorHandler::handle_error(const SapphireError& error) {
+void ErrorHandler::handle_error(const CorinError& error) {
     if (error_callback) {
         error_callback(error);
     } else {
         // Default error handling
         std::cerr << "\n" << std::string(60, '=') << "\n";
-        std::cerr << "SAPPHIRE ERROR\n";
+        std::cerr << "CORIN ERROR\n";
         std::cerr << std::string(60, '=') << "\n";
         
         std::cerr << "Message: " << error.get_message() << "\n";
@@ -178,7 +178,7 @@ void ErrorHandler::report_error(const std::string& message, const std::string& f
         trace.add_frame("(unknown)", file, line);
     }
     
-    SapphireError error(message, trace);
+    CorinError error(message, trace);
     handle_error(error);
 }
 
@@ -207,29 +207,29 @@ std::unique_ptr<StackTrace> create_stack_trace() {
     return std::make_unique<StackTrace>();
 }
 
-std::unique_ptr<SapphireError> create_error(const std::string& message, const std::string& code) {
-    return std::make_unique<SapphireError>(message, code);
+std::unique_ptr<CorinError> create_error(const std::string& message, const std::string& code) {
+    return std::make_unique<CorinError>(message, code);
 }
 
 } // namespace Error
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API Implementation
 //=============================================================================
 
-using namespace sapphire::stdlib::Error;
+using namespace corin::stdlib::Error;
 
 extern "C" {
     static thread_local char g_error_string_buffer[8192];
     static void (*g_error_callback)(const char*) = nullptr;
     
-    void sapphire_error_set_callback(void (*callback)(const char* message)) {
+    void corin_error_set_callback(void (*callback)(const char* message)) {
         g_error_callback = callback;
         
         if (callback) {
-            ErrorHandler::set_error_callback([](const SapphireError& error) {
+            ErrorHandler::set_error_callback([](const CorinError& error) {
                 g_error_callback(error.format_error().c_str());
             });
         } else {
@@ -237,18 +237,18 @@ extern "C" {
         }
     }
     
-    void sapphire_error_enable_stack_traces(bool enable) {
+    void corin_error_enable_stack_traces(bool enable) {
         ErrorHandler::enable_stack_traces(enable);
     }
     
-    void sapphire_error_report(const char* message, const char* file, size_t line) {
+    void corin_error_report(const char* message, const char* file, size_t line) {
         if (!message) return;
         
         std::string file_str = file ? file : "";
         ErrorHandler::report_error(message, file_str, line);
     }
     
-    void sapphire_stack_push_frame(const char* function, const char* file, size_t line) {
+    void corin_stack_push_frame(const char* function, const char* file, size_t line) {
         if (!function) return;
         
         std::string func_str = function;
@@ -256,11 +256,11 @@ extern "C" {
         ErrorHandler::push_frame(func_str, file_str, line);
     }
     
-    void sapphire_stack_pop_frame() {
+    void corin_stack_pop_frame() {
         ErrorHandler::pop_frame();
     }
     
-    const char* sapphire_stack_get_trace() {
+    const char* corin_stack_get_trace() {
         StackTrace trace = ErrorHandler::capture_stack_trace();
         std::string trace_str = trace.to_string();
         

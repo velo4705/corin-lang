@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -108,105 +108,105 @@ uint32_t SDL2Window::get_ticks() {
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    void* sapphire_sdl2_create_window(const char* title, int width, int height) {
+    void* corin_sdl2_create_window(const char* title, int width, int height) {
         try {
-            return new sapphire::stdlib::graphics::SDL2Window(title, width, height);
+            return new corin::stdlib::graphics::SDL2Window(title, width, height);
         } catch (...) {
             return nullptr;
         }
     }
     
-    void sapphire_sdl2_destroy_window(void* window) {
+    void corin_sdl2_destroy_window(void* window) {
         if (window) {
-            delete static_cast<sapphire::stdlib::graphics::SDL2Window*>(window);
+            delete static_cast<corin::stdlib::graphics::SDL2Window*>(window);
         }
     }
     
-    void sapphire_sdl2_show_window(void* window) {
+    void corin_sdl2_show_window(void* window) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->show();
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->show();
         }
     }
     
-    void sapphire_sdl2_hide_window(void* window) {
+    void corin_sdl2_hide_window(void* window) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->hide();
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->hide();
         }
     }
     
-    bool sapphire_sdl2_should_close(void* window) {
+    bool corin_sdl2_should_close(void* window) {
         if (window) {
-            return static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->should_close();
+            return static_cast<corin::stdlib::graphics::SDL2Window*>(window)->should_close();
         }
         return true;
     }
     
-    int sapphire_sdl2_get_width(void* window) {
+    int corin_sdl2_get_width(void* window) {
         if (window) {
-            return static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->width();
+            return static_cast<corin::stdlib::graphics::SDL2Window*>(window)->width();
         }
         return 0;
     }
     
-    int sapphire_sdl2_get_height(void* window) {
+    int corin_sdl2_get_height(void* window) {
         if (window) {
-            return static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->height();
+            return static_cast<corin::stdlib::graphics::SDL2Window*>(window)->height();
         }
         return 0;
     }
     
-    void sapphire_sdl2_poll_events(void* window) {
+    void corin_sdl2_poll_events(void* window) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->poll_events();
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->poll_events();
         }
     }
     
-    bool sapphire_sdl2_is_key_down(void* window, int64_t scancode) {
+    bool corin_sdl2_is_key_down(void* window, int64_t scancode) {
         if (window) {
-            return static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->is_key_down(static_cast<int>(scancode));
+            return static_cast<corin::stdlib::graphics::SDL2Window*>(window)->is_key_down(static_cast<int>(scancode));
         }
         return false;
     }
     
-    void sapphire_sdl2_clear(void* window, uint8_t r, uint8_t g, uint8_t b) {
+    void corin_sdl2_clear(void* window, uint8_t r, uint8_t g, uint8_t b) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->clear(r, g, b);
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->clear(r, g, b);
         }
     }
     
-    void sapphire_sdl2_present(void* window) {
+    void corin_sdl2_present(void* window) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->present();
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->present();
         }
     }
     
-    void sapphire_sdl2_fill_rect(void* window, int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b) {
+    void corin_sdl2_fill_rect(void* window, int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->fill_rect(x, y, w, h, r, g, b);
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->fill_rect(x, y, w, h, r, g, b);
         }
     }
     
-    void sapphire_sdl2_draw_line(void* window, int x1, int y1, int x2, int y2, uint8_t r, uint8_t g, uint8_t b) {
+    void corin_sdl2_draw_line(void* window, int x1, int y1, int x2, int y2, uint8_t r, uint8_t g, uint8_t b) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->draw_line(x1, y1, x2, y2, r, g, b);
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->draw_line(x1, y1, x2, y2, r, g, b);
         }
     }
     
-    void sapphire_sdl2_draw_point(void* window, int x, int y, uint8_t r, uint8_t g, uint8_t b) {
+    void corin_sdl2_draw_point(void* window, int x, int y, uint8_t r, uint8_t g, uint8_t b) {
         if (window) {
-            static_cast<sapphire::stdlib::graphics::SDL2Window*>(window)->draw_point(x, y, r, g, b);
+            static_cast<corin::stdlib::graphics::SDL2Window*>(window)->draw_point(x, y, r, g, b);
         }
     }
     
-    void sapphire_sdl2_delay(uint32_t ms) {
-        sapphire::stdlib::graphics::SDL2Window::delay(ms);
+    void corin_sdl2_delay(uint32_t ms) {
+        corin::stdlib::graphics::SDL2Window::delay(ms);
     }
     
-    uint32_t sapphire_sdl2_get_ticks() {
-        return sapphire::stdlib::graphics::SDL2Window::get_ticks();
+    uint32_t corin_sdl2_get_ticks() {
+        return corin::stdlib::graphics::SDL2Window::get_ticks();
     }
 }

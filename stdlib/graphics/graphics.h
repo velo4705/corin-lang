@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_STDLIB_GRAPHICS_H
-#define SAPPHIRE_STDLIB_GRAPHICS_H
+#ifndef CORIN_STDLIB_GRAPHICS_H
+#define CORIN_STDLIB_GRAPHICS_H
 
 #include <cstdint>
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -87,20 +87,20 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for code generation
 extern "C" {
-    void* sapphire_canvas_create(uint32_t width, uint32_t height);
-    void sapphire_canvas_destroy(void* canvas);
-    void sapphire_canvas_clear(void* canvas, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_canvas_draw_pixel(void* canvas, int x, int y, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_canvas_draw_line(void* canvas, double x1, double y1, double x2, double y2);
-    void sapphire_canvas_draw_rect(void* canvas, double x, double y, double w, double h);
-    void sapphire_canvas_fill_rect(void* canvas, double x, double y, double w, double h);
-    void sapphire_canvas_draw_circle(void* canvas, double x, double y, double r);
-    void sapphire_canvas_fill_circle(void* canvas, double x, double y, double r);
-    bool sapphire_canvas_save_ppm(void* canvas, const char* filename);
+    void* corin_canvas_create(uint32_t width, uint32_t height);
+    void corin_canvas_destroy(void* canvas);
+    void corin_canvas_clear(void* canvas, uint8_t r, uint8_t g, uint8_t b);
+    void corin_canvas_draw_pixel(void* canvas, int x, int y, uint8_t r, uint8_t g, uint8_t b);
+    void corin_canvas_draw_line(void* canvas, double x1, double y1, double x2, double y2);
+    void corin_canvas_draw_rect(void* canvas, double x, double y, double w, double h);
+    void corin_canvas_fill_rect(void* canvas, double x, double y, double w, double h);
+    void corin_canvas_draw_circle(void* canvas, double x, double y, double r);
+    void corin_canvas_fill_circle(void* canvas, double x, double y, double r);
+    bool corin_canvas_save_ppm(void* canvas, const char* filename);
 }
 
-#endif // SAPPHIRE_STDLIB_GRAPHICS_H
+#endif // CORIN_STDLIB_GRAPHICS_H

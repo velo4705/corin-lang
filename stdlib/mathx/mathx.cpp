@@ -1,4 +1,4 @@
-// mathx.cpp - M16 Mathematical Computing for Sapphire
+// mathx.cpp - M16 Mathematical Computing for Corin
 #include "mathx.h"
 #include <cmath>
 #include <algorithm>
@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <cassert>
 
-namespace Sapphire {
+namespace Corin {
 namespace MathX {
 
 // ===== Number Theory =====
@@ -554,4 +554,4 @@ std::vector<double> stat_linear_regression(const std::vector<double>& x, const s
 }
 
 } // namespace MathX
-} // namespace Sapphire
+} // namespace Corin

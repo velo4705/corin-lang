@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 // Static members
@@ -338,7 +338,7 @@ size_t LeakDetector::leak_count() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
@@ -346,52 +346,52 @@ size_t LeakDetector::leak_count() {
 
 extern "C" {
 
-void sapphire_profiler_enable() {
-    sapphire::runtime::MemoryProfiler::enable();
+void corin_profiler_enable() {
+    corin::runtime::MemoryProfiler::enable();
 }
 
-void sapphire_profiler_disable() {
-    sapphire::runtime::MemoryProfiler::disable();
+void corin_profiler_disable() {
+    corin::runtime::MemoryProfiler::disable();
 }
 
-bool sapphire_profiler_is_enabled() {
-    return sapphire::runtime::MemoryProfiler::is_enabled();
+bool corin_profiler_is_enabled() {
+    return corin::runtime::MemoryProfiler::is_enabled();
 }
 
-void sapphire_profiler_track_allocation(void* ptr, size_t size, uint64_t type_id) {
-    if (sapphire::runtime::MemoryProfiler::is_enabled()) {
-        sapphire::runtime::AllocationTracker::track_allocation(ptr, size, type_id);
+void corin_profiler_track_allocation(void* ptr, size_t size, uint64_t type_id) {
+    if (corin::runtime::MemoryProfiler::is_enabled()) {
+        corin::runtime::AllocationTracker::track_allocation(ptr, size, type_id);
     }
 }
 
-void sapphire_profiler_track_free(void* ptr) {
-    if (sapphire::runtime::MemoryProfiler::is_enabled()) {
-        sapphire::runtime::AllocationTracker::track_free(ptr);
+void corin_profiler_track_free(void* ptr) {
+    if (corin::runtime::MemoryProfiler::is_enabled()) {
+        corin::runtime::AllocationTracker::track_free(ptr);
     }
 }
 
-size_t sapphire_profiler_total_allocated() {
-    return sapphire::runtime::AllocationTracker::total_allocated();
+size_t corin_profiler_total_allocated() {
+    return corin::runtime::AllocationTracker::total_allocated();
 }
 
-size_t sapphire_profiler_current_usage() {
-    return sapphire::runtime::AllocationTracker::current_usage();
+size_t corin_profiler_current_usage() {
+    return corin::runtime::AllocationTracker::current_usage();
 }
 
-size_t sapphire_profiler_leak_count() {
-    return sapphire::runtime::AllocationTracker::leak_count();
+size_t corin_profiler_leak_count() {
+    return corin::runtime::AllocationTracker::leak_count();
 }
 
-void sapphire_profiler_print_stats() {
-    sapphire::runtime::MemoryProfiler::print_stats();
+void corin_profiler_print_stats() {
+    corin::runtime::MemoryProfiler::print_stats();
 }
 
-void sapphire_profiler_print_leaks() {
-    sapphire::runtime::MemoryProfiler::print_leaks();
+void corin_profiler_print_leaks() {
+    corin::runtime::MemoryProfiler::print_leaks();
 }
 
-void sapphire_profiler_reset() {
-    sapphire::runtime::MemoryProfiler::reset();
+void corin_profiler_reset() {
+    corin::runtime::MemoryProfiler::reset();
 }
 
 } // extern "C"

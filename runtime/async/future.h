@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_FUTURE_H
-#define SAPPHIRE_FUTURE_H
+#ifndef CORIN_FUTURE_H
+#define CORIN_FUTURE_H
 
 #include <memory>
 #include <functional>
@@ -8,7 +8,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace sapphire {
+namespace corin {
 
 // Forward declaration
 template<typename T>
@@ -160,6 +160,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_FUTURE_H
+#endif // CORIN_FUTURE_H

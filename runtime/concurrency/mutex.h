@@ -1,9 +1,9 @@
-#ifndef SAPPHIRE_RUNTIME_MUTEX_H
-#define SAPPHIRE_RUNTIME_MUTEX_H
+#ifndef CORIN_RUNTIME_MUTEX_H
+#define CORIN_RUNTIME_MUTEX_H
 
 #include <mutex>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -51,6 +51,6 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_RUNTIME_MUTEX_H
+#endif // CORIN_RUNTIME_MUTEX_H

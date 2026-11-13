@@ -4,7 +4,7 @@
 #include <vector>
 #include <fstream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace IO {
 
@@ -60,34 +60,34 @@ std::string csv_to_string(const CSVData* data);
 
 } // namespace IO
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // CSV Data lifecycle
-    void* sapphire_csv_create();
-    void sapphire_csv_destroy(void* csv_data);
+    void* corin_csv_create();
+    void corin_csv_destroy(void* csv_data);
     
     // File operations
-    void* sapphire_csv_read_file(const char* filename, bool has_headers);
-    bool sapphire_csv_write_file(const char* filename, void* csv_data);
+    void* corin_csv_read_file(const char* filename, bool has_headers);
+    bool corin_csv_write_file(const char* filename, void* csv_data);
     
     // String operations
-    void* sapphire_csv_parse_string(const char* content, bool has_headers);
-    const char* sapphire_csv_to_string(void* csv_data);
+    void* corin_csv_parse_string(const char* content, bool has_headers);
+    const char* corin_csv_to_string(void* csv_data);
     
     // Data access
-    int64_t sapphire_csv_row_count(void* csv_data);
-    int64_t sapphire_csv_col_count(void* csv_data);
-    const char* sapphire_csv_get(void* csv_data, int64_t row, int64_t col);
-    void sapphire_csv_set(void* csv_data, int64_t row, int64_t col, const char* value);
+    int64_t corin_csv_row_count(void* csv_data);
+    int64_t corin_csv_col_count(void* csv_data);
+    const char* corin_csv_get(void* csv_data, int64_t row, int64_t col);
+    void corin_csv_set(void* csv_data, int64_t row, int64_t col, const char* value);
     
     // Headers
-    const char* sapphire_csv_get_header(void* csv_data, int64_t col);
-    void sapphire_csv_set_header(void* csv_data, int64_t col, const char* value);
-    bool sapphire_csv_has_headers(void* csv_data);
+    const char* corin_csv_get_header(void* csv_data, int64_t col);
+    void corin_csv_set_header(void* csv_data, int64_t col, const char* value);
+    bool corin_csv_has_headers(void* csv_data);
     
     // Row operations
-    void sapphire_csv_add_row(void* csv_data);
-    void sapphire_csv_clear(void* csv_data);
+    void corin_csv_add_row(void* csv_data);
+    void corin_csv_clear(void* csv_data);
 }

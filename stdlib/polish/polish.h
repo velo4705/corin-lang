@@ -2,7 +2,7 @@
 #include <string>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Polish {
 
 // ===== Profiler =====
@@ -78,7 +78,7 @@ int    memtrack_alloc_count();
 std::string memtrack_report();
 
 } // namespace Polish
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

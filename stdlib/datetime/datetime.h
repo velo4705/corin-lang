@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STDLIB_DATETIME_H
-#define SAPPHIRE_STDLIB_DATETIME_H
+#ifndef CORIN_STDLIB_DATETIME_H
+#define CORIN_STDLIB_DATETIME_H
 
 #include <ctime>
 #include <chrono>
 #include <string>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -84,15 +84,15 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for code generation
 extern "C" {
-    int64_t sapphire_instant_now_ms();
-    int64_t sapphire_duration_to_ms(int64_t duration);
-    double sapphire_duration_to_seconds(int64_t duration);
-    double sapphire_duration_to_minutes(int64_t duration);
-    double sapphire_duration_to_hours(int64_t duration);
+    int64_t corin_instant_now_ms();
+    int64_t corin_duration_to_ms(int64_t duration);
+    double corin_duration_to_seconds(int64_t duration);
+    double corin_duration_to_minutes(int64_t duration);
+    double corin_duration_to_hours(int64_t duration);
 }
 
-#endif // SAPPHIRE_STDLIB_DATETIME_H
+#endif // CORIN_STDLIB_DATETIME_H

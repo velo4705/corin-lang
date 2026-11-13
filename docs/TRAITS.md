@@ -13,7 +13,7 @@ Traits define shared behavior across types. They're similar to interfaces in Jav
 
 ## Defining Traits
 
-```sapphire
+```corin
 trait Drawable:
     fn draw(self) -> str
     fn area(self) -> float
@@ -33,7 +33,7 @@ Traits define method signatures that implementing types must provide.
 
 ### Standalone Implementation
 
-```sapphire
+```corin
 class Circle:
     fn __init__(self, r):
         self.radius = r
@@ -50,7 +50,7 @@ impl Drawable for Circle:
 
 A type can implement multiple traits:
 
-```sapphire
+```corin
 impl Drawable for Circle:
     fn draw(self) -> str:
         return "Circle"
@@ -76,7 +76,7 @@ impl Comparable for Circle:
 
 Once a trait is implemented, you can call its methods on instances:
 
-```sapphire
+```corin
 let c = Circle(5.0)
 print(c.draw())        # "Circle"
 print(c.area())        # 78.54
@@ -89,7 +89,7 @@ print(c.to_string())   # "Circle"
 
 Use traits as constraints on generic functions:
 
-```sapphire
+```corin
 # Any type that implements Drawable can be passed
 fn print_drawable(item):
     print("Drawing:", item.draw())
@@ -108,10 +108,10 @@ print_drawable(r)
 
 ## Built-in Traits
 
-Sapphire provides several built-in traits:
+Corin provides several built-in traits:
 
 ### Numeric
-```sapphire
+```corin
 trait Numeric:
     fn add(self, other: Self) -> Self
     fn sub(self, other: Self) -> Self
@@ -120,7 +120,7 @@ trait Numeric:
 Implemented by: `int`, `float`
 
 ### Comparable
-```sapphire
+```corin
 trait Comparable:
     fn compare(self, other: Self) -> int
 ```
@@ -128,7 +128,7 @@ trait Comparable:
 Implemented by: `int`, `float`, `str`
 
 ### Eq
-```sapphire
+```corin
 trait Eq:
     fn equals(self, other: Self) -> bool
 ```
@@ -136,7 +136,7 @@ trait Eq:
 Implemented by: `int`, `float`, `str`, `bool`
 
 ### Iterable
-```sapphire
+```corin
 trait Iterable:
     fn iter(self) -> List<T>
 ```
@@ -149,7 +149,7 @@ Implemented by: `List`, `str`
 
 ### Example 1: Shape Hierarchy
 
-```sapphire
+```corin
 trait Shape:
     fn area(self) -> float
     fn perimeter(self) -> float
@@ -189,7 +189,7 @@ print_shape_info(r)
 
 ### Example 2: Serialization
 
-```sapphire
+```corin
 trait Serializable:
     fn to_json(self) -> str
     fn from_json(json: str) -> Self
@@ -209,7 +209,7 @@ impl Serializable for User:
 
 ### Example 3: Multiple Traits
 
-```sapphire
+```corin
 trait Display:
     fn display(self) -> str
 
@@ -248,7 +248,7 @@ let p2 = p.clone()
 
 ### Trait Inheritance
 
-```sapphire
+```corin
 trait Shape:
     fn area(self) -> float
 
@@ -258,7 +258,7 @@ trait ColoredShape: Shape:
 
 ### Default Methods
 
-```sapphire
+```corin
 trait Greetable:
     fn name(self) -> str
     
@@ -268,7 +268,7 @@ trait Greetable:
 
 ### Associated Types
 
-```sapphire
+```corin
 trait Container:
     type Item
     fn get(self, index: int) -> Item
@@ -277,7 +277,7 @@ trait Container:
 
 ### Where Clauses
 
-```sapphire
+```corin
 fn complex<T, U>(a: T, b: U) -> T
     where T: Drawable + Clone,
           U: Comparable:
@@ -287,7 +287,7 @@ fn complex<T, U>(a: T, b: U) -> T
 
 ### Trait Objects
 
-```sapphire
+```corin
 fn draw_all(shapes: List<dyn Drawable>):
     for shape in shapes:
         print(shape.draw())
@@ -299,7 +299,7 @@ fn draw_all(shapes: List<dyn Drawable>):
 
 ### 1. Small, Focused Traits
 
-```sapphire
+```corin
 # Good - single responsibility
 trait Drawable:
     fn draw(self) -> str
@@ -346,8 +346,8 @@ impl Drawable for Circle {
 }
 ```
 
-### Sapphire Traits
-```sapphire
+### Corin Traits
+```corin
 trait Drawable:
     fn draw(self) -> str
 
@@ -356,7 +356,7 @@ impl Drawable for Circle:
         return "Circle"
 ```
 
-Similar concepts, but Sapphire uses Python-style syntax.
+Similar concepts, but Corin uses Python-style syntax.
 
 ---
 
@@ -374,7 +374,7 @@ Trait method dispatch:
 
 ### Pattern 1: Polymorphic Collections
 
-```sapphire
+```corin
 trait Animal:
     fn speak(self) -> str
 
@@ -401,7 +401,7 @@ fn make_sounds(animals):
 
 ### Pattern 2: Builder Pattern
 
-```sapphire
+```corin
 trait Builder:
     fn build(self) -> Self
 
@@ -421,7 +421,7 @@ let config = Config().add_setting("debug", true).build()
 
 ### Pattern 3: Strategy Pattern
 
-```sapphire
+```corin
 trait SortStrategy:
     fn sort(self, items) -> list
 

@@ -9,7 +9,7 @@
 #include <optional>
 #include <chrono>
 
-namespace Sapphire {
+namespace Corin {
 namespace Database {
 
 // Forward declarations
@@ -385,7 +385,7 @@ private:
 };
 
 } // namespace Database
-} // namespace Sapphire
+} // namespace Corin
 
 // C API for compiler integration
 extern "C" {

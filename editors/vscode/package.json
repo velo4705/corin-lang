@@ -1,12 +1,12 @@
 {
-  "name": "sapphire-lang",
-  "displayName": "Sapphire Language Support",
-  "description": "Language support for Sapphire programming language",
+  "name": "corin-lang",
+  "displayName": "Corin Language Support",
+  "description": "Language support for Corin programming language",
   "version": "1.0.0-beta.8",
-  "publisher": "sapphire-lang",
+  "publisher": "corin-lang",
   "repository": {
     "type": "git",
-    "url": "https://github.com/velo4705/sapphire-lang"
+    "url": "https://github.com/velo4705/corin-lang"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -15,7 +15,7 @@
     "Programming Languages"
   ],
   "keywords": [
-    "sapphire",
+    "corin",
     "programming language",
     "syntax highlighting"
   ],
@@ -23,34 +23,34 @@
   "contributes": {
     "languages": [
       {
-        "id": "sapphire",
+        "id": "corin",
         "aliases": [
-          "Sapphire",
-          "sapphire"
+          "Corin",
+          "corin"
         ],
         "extensions": [
-          ".spp"
+          ".corin"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "sapphire",
-        "scopeName": "source.sapphire",
-        "path": "./syntaxes/sapphire.tmLanguage.json"
+        "language": "corin",
+        "scopeName": "source.corin",
+        "path": "./syntaxes/corin.tmLanguage.json"
       }
     ],
     "breakpoints": [
       {
-        "language": "sapphire"
+        "language": "corin"
       }
     ],
     "debuggers": [
       {
-        "type": "sapphire",
-        "label": "Sapphire Debug",
-        "program": "./sapphire-debug",
+        "type": "corin",
+        "label": "Corin Debug",
+        "program": "./corin-debug",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
@@ -60,7 +60,7 @@
             "properties": {
               "program": {
                 "type": "string",
-                "description": "Absolute path to a Sapphire file.",
+                "description": "Absolute path to a Corin file.",
                 "default": "${file}"
               },
               "stopOnEntry": {
@@ -73,21 +73,21 @@
         },
         "initialConfigurations": [
           {
-            "type": "sapphire",
+            "type": "corin",
             "request": "launch",
-            "name": "Debug Sapphire Program",
+            "name": "Debug Corin Program",
             "program": "${file}",
             "stopOnEntry": false
           }
         ],
         "configurationSnippets": [
           {
-            "label": "Sapphire: Launch",
-            "description": "A new configuration for debugging a Sapphire program",
+            "label": "Corin: Launch",
+            "description": "A new configuration for debugging a Corin program",
             "body": {
-              "type": "sapphire",
+              "type": "corin",
               "request": "launch",
-              "name": "Debug Sapphire Program",
+              "name": "Debug Corin Program",
               "program": "^\"\\${file}\"",
               "stopOnEntry": false
             }
@@ -97,22 +97,22 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Sapphire",
+      "title": "Corin",
       "properties": {
-        "sapphire.lsp.enabled": {
+        "corin.lsp.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable Language Server Protocol support"
         },
-        "sapphire.lsp.path": {
+        "corin.lsp.path": {
           "type": "string",
-          "default": "/usr/local/bin/sapphire-lsp",
-          "description": "Path to sapphire-lsp executable"
+          "default": "/usr/local/bin/corin-lsp",
+          "description": "Path to corin-lsp executable"
         },
-        "sapphire.debug.path": {
+        "corin.debug.path": {
           "type": "string",
-          "default": "sapphire-debug",
-          "description": "Path to sapphire-debug executable"
+          "default": "corin-debug",
+          "description": "Path to corin-debug executable"
         }
       }
     }

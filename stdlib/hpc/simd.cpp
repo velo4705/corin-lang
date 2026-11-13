@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace SIMD {
 
@@ -357,47 +357,47 @@ namespace Parallel {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
-    void sapphire_simd_add_f32(const float* a, const float* b, float* result, size_t size) {
-        sapphire::stdlib::SIMD::add_arrays_f32(a, b, result, size);
+    void corin_simd_add_f32(const float* a, const float* b, float* result, size_t size) {
+        corin::stdlib::SIMD::add_arrays_f32(a, b, result, size);
     }
     
-    void sapphire_simd_mul_f32(const float* a, const float* b, float* result, size_t size) {
-        sapphire::stdlib::SIMD::mul_arrays_f32(a, b, result, size);
+    void corin_simd_mul_f32(const float* a, const float* b, float* result, size_t size) {
+        corin::stdlib::SIMD::mul_arrays_f32(a, b, result, size);
     }
     
-    float sapphire_simd_dot_f32(const float* a, const float* b, size_t size) {
-        return sapphire::stdlib::SIMD::dot_product_f32(a, b, size);
+    float corin_simd_dot_f32(const float* a, const float* b, size_t size) {
+        return corin::stdlib::SIMD::dot_product_f32(a, b, size);
     }
     
-    void sapphire_simd_matmul_f32(const float* a, const float* b, float* result, int n) {
-        sapphire::stdlib::SIMD::matrix_multiply_f32(a, b, result, n);
+    void corin_simd_matmul_f32(const float* a, const float* b, float* result, int n) {
+        corin::stdlib::SIMD::matrix_multiply_f32(a, b, result, n);
     }
     
-    float sapphire_simd_sum_f32(const float* arr, size_t size) {
-        return sapphire::stdlib::SIMD::sum_f32(arr, size);
+    float corin_simd_sum_f32(const float* arr, size_t size) {
+        return corin::stdlib::SIMD::sum_f32(arr, size);
     }
     
-    void* sapphire_memory_aligned_alloc(size_t alignment, size_t size) {
-        return sapphire::stdlib::Memory::aligned_alloc(alignment, size);
+    void* corin_memory_aligned_alloc(size_t alignment, size_t size) {
+        return corin::stdlib::Memory::aligned_alloc(alignment, size);
     }
     
-    void sapphire_memory_aligned_free(void* ptr) {
-        sapphire::stdlib::Memory::aligned_free(ptr);
+    void corin_memory_aligned_free(void* ptr) {
+        corin::stdlib::Memory::aligned_free(ptr);
     }
     
-    void sapphire_memory_prefetch(const void* addr) {
-        sapphire::stdlib::Memory::prefetch(addr);
+    void corin_memory_prefetch(const void* addr) {
+        corin::stdlib::Memory::prefetch(addr);
     }
     
-    void sapphire_memory_fence() {
-        sapphire::stdlib::Memory::memory_fence();
+    void corin_memory_fence() {
+        corin::stdlib::Memory::memory_fence();
     }
     
-    void sapphire_parallel_add_f32(const float* a, const float* b, float* result, size_t size, int threads) {
-        sapphire::stdlib::SIMD::parallel_add_f32(a, b, result, size, threads);
+    void corin_parallel_add_f32(const float* a, const float* b, float* result, size_t size, int threads) {
+        corin::stdlib::SIMD::parallel_add_f32(a, b, result, size, threads);
     }
 }

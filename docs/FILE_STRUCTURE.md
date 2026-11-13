@@ -1,7 +1,7 @@
-# Sapphire Project File Structure
+# Corin Project File Structure
 
 ```
-sapphire/
+corin/
 │
 ├── README.md                      # Project overview
 ├── LICENSE                        # License file
@@ -97,63 +97,63 @@ sapphire/
 │
 ├── stdlib/                        # Standard library
 │   ├── core/                      # Core types
-│   │   ├── int.spp
-│   │   ├── float.spp
-│   │   ├── string.spp
-│   │   ├── bool.spp
-│   │   └── option.spp
+│   │   ├── int.corin
+│   │   ├── float.corin
+│   │   ├── string.corin
+│   │   ├── bool.corin
+│   │   └── option.corin
 │   │
 │   ├── collections/               # Data structures
-│   │   ├── list.spp
-│   │   ├── dict.spp
-│   │   ├── set.spp
-│   │   ├── queue.spp
-│   │   └── heap.spp
+│   │   ├── list.corin
+│   │   ├── dict.corin
+│   │   ├── set.corin
+│   │   ├── queue.corin
+│   │   └── heap.corin
 │   │
 │   ├── io/                        # Input/Output
-│   │   ├── file.spp
-│   │   ├── stream.spp
-│   │   ├── reader.spp
-│   │   └── writer.spp
+│   │   ├── file.corin
+│   │   ├── stream.corin
+│   │   ├── reader.corin
+│   │   └── writer.corin
 │   │
 │   ├── async/                     # Async primitives
-│   │   ├── future.spp
-│   │   ├── promise.spp
-│   │   ├── task.spp
-│   │   └── runtime.spp
+│   │   ├── future.corin
+│   │   ├── promise.corin
+│   │   ├── task.corin
+│   │   └── runtime.corin
 │   │
 │   ├── sync/                      # Synchronization
-│   │   ├── mutex.spp
-│   │   ├── rwlock.spp
-│   │   ├── channel.spp
-│   │   └── atomic.spp
+│   │   ├── mutex.corin
+│   │   ├── rwlock.corin
+│   │   ├── channel.corin
+│   │   └── atomic.corin
 │   │
 │   ├── net/                       # Networking
-│   │   ├── tcp.spp
-│   │   ├── udp.spp
-│   │   ├── http.spp
-│   │   └── websocket.spp
+│   │   ├── tcp.corin
+│   │   ├── udp.corin
+│   │   ├── http.corin
+│   │   └── websocket.corin
 │   │
 │   ├── json/                      # JSON support
-│   │   ├── parser.spp
-│   │   ├── serializer.spp
-│   │   └── value.spp
+│   │   ├── parser.corin
+│   │   ├── serializer.corin
+│   │   └── value.corin
 │   │
 │   ├── crypto/                    # Cryptography
-│   │   ├── hash.spp
-│   │   ├── aes.spp
-│   │   ├── rsa.spp
-│   │   └── jwt.spp
+│   │   ├── hash.corin
+│   │   ├── aes.corin
+│   │   ├── rsa.corin
+│   │   └── jwt.corin
 │   │
 │   ├── test/                      # Testing framework
-│   │   ├── assert.spp
-│   │   ├── suite.spp
-│   │   └── mock.spp
+│   │   ├── assert.corin
+│   │   ├── suite.corin
+│   │   └── mock.corin
 │   │
 │   └── sys/                       # System interface
-│       ├── process.spp
-│       ├── signal.spp
-│       └── env.spp
+│       ├── process.corin
+│       ├── signal.corin
+│       └── env.corin
 │
 ├── runtime/                       # Runtime C/C++ code
 │   ├── gc/                        # GC implementation
@@ -196,22 +196,22 @@ sapphire/
 │       └── style.cpp
 │
 ├── examples/                      # Example programs
-│   ├── hello.spp                  # Hello World
-│   ├── fibonacci.spp              # Recursion example
-│   ├── showcase.spp               # Feature showcase
-│   ├── advanced_features.spp      # Advanced patterns
-│   ├── web_server.spp             # Web application
-│   ├── systems_programming.spp    # Systems code
-│   ├── data_science.spp           # ML/Data science
-│   ├── microservice.spp           # Microservices
-│   ├── cli_tool.spp               # CLI application
+│   ├── hello.corin                  # Hello World
+│   ├── fibonacci.corin              # Recursion example
+│   ├── showcase.corin               # Feature showcase
+│   ├── advanced_features.corin      # Advanced patterns
+│   ├── web_server.corin             # Web application
+│   ├── systems_programming.corin    # Systems code
+│   ├── data_science.corin           # ML/Data science
+│   ├── microservice.corin           # Microservices
+│   ├── cli_tool.corin               # CLI application
 │   ├── game/                      # Game example
-│   │   ├── main.spp
-│   │   ├── player.spp
-│   │   └── enemy.spp
+│   │   ├── main.corin
+│   │   ├── player.corin
+│   │   └── enemy.corin
 │   └── blockchain/                # Blockchain example
-│       ├── chain.spp
-│       └── transaction.spp
+│       ├── chain.corin
+│       └── transaction.corin
 │
 ├── tests/                         # Test suite
 │   ├── unit/                      # Unit tests
@@ -226,35 +226,35 @@ sapphire/
 │   │   └── test_stdlib.cpp
 │   │
 │   ├── e2e/                       # End-to-end tests
-│   │   ├── test_hello_world.spp
-│   │   ├── test_fibonacci.spp
-│   │   └── test_web_server.spp
+│   │   ├── test_hello_world.corin
+│   │   ├── test_fibonacci.corin
+│   │   └── test_web_server.corin
 │   │
 │   └── benchmarks/                # Performance benchmarks
-│       ├── bench_fibonacci.spp
-│       ├── bench_sorting.spp
-│       └── bench_http.spp
+│       ├── bench_fibonacci.corin
+│       ├── bench_sorting.corin
+│       └── bench_http.corin
 │
 ├── libs/                          # Third-party libraries
 │   ├── web/                       # Web framework
-│   │   ├── router.spp
-│   │   ├── middleware.spp
-│   │   └── template.spp
+│   │   ├── router.corin
+│   │   ├── middleware.corin
+│   │   └── template.corin
 │   │
 │   ├── db/                        # Database drivers
-│   │   ├── postgres.spp
-│   │   ├── mysql.spp
-│   │   └── sqlite.spp
+│   │   ├── postgres.corin
+│   │   ├── mysql.corin
+│   │   └── sqlite.corin
 │   │
 │   ├── ml/                        # Machine learning
-│   │   ├── tensor.spp
-│   │   ├── nn.spp
-│   │   └── optim.spp
+│   │   ├── tensor.corin
+│   │   ├── nn.corin
+│   │   └── optim.corin
 │   │
 │   └── gui/                       # GUI framework
-│       ├── window.spp
-│       ├── widget.spp
-│       └── layout.spp
+│       ├── window.corin
+│       ├── widget.corin
+│       └── layout.corin
 │
 ├── scripts/                       # Build/utility scripts
 │   ├── build.sh                   # Build script
@@ -268,14 +268,14 @@ sapphire/
 │   │   ├── package.json
 │   │   ├── extension.ts
 │   │   └── syntaxes/
-│   │       └── sapphire.tmLanguage.json
+│   │       └── corin.tmLanguage.json
 │   │
 │   ├── intellij/                  # IntelliJ plugin
 │   │   └── plugin.xml
 │   │
 │   └── vim/                       # Vim plugin
 │       └── syntax/
-│           └── sapphire.vim
+│           └── corin.vim
 │
 ├── website/                       # Official website
 │   ├── index.html
@@ -293,10 +293,10 @@ sapphire/
 ## Key Directories Explained
 
 ### `/src` - Compiler Implementation
-The heart of Sapphire. Written in C++20 for performance.
+The heart of Corin. Written in C++20 for performance.
 
 ### `/stdlib` - Standard Library
-Core functionality written in Sapphire itself (self-hosted where possible).
+Core functionality written in Corin itself (self-hosted where possible).
 
 ### `/runtime` - Runtime System
 Low-level C/C++ code for GC, scheduler, and FFI.
@@ -321,16 +321,16 @@ Syntax highlighting, autocomplete, debugging for popular editors.
 ```
 build/
 ├── bin/
-│   ├── sapphire              # Main compiler
+│   ├── corin              # Main compiler
 │   ├── spm                   # Package manager
-│   ├── sapphire-lsp          # Language server
-│   └── sapphire-debug        # Debugger
+│   ├── corin-lsp          # Language server
+│   └── corin-debug        # Debugger
 ├── lib/
-│   ├── libsapphire_runtime.so
-│   ├── libsapphire_gc.so
-│   └── libsapphire_std.so
+│   ├── libcorin_runtime.so
+│   ├── libcorin_gc.so
+│   └── libcorin_std.so
 └── include/
-    └── sapphire/
+    └── corin/
         ├── runtime.h
         └── ffi.h
 ```
@@ -340,14 +340,14 @@ build/
 ```
 /usr/local/
 ├── bin/
-│   ├── sapphire
+│   ├── corin
 │   └── spm
 ├── lib/
-│   └── sapphire/
+│   └── corin/
 │       ├── stdlib/
 │       └── runtime/
 └── share/
-    └── sapphire/
+    └── corin/
         ├── docs/
         └── examples/
 ```

@@ -1,12 +1,12 @@
 # Platform Directives
 
-Sapphire provides platform-specific directives for writing code that targets multiple platforms from a single codebase.
+Corin provides platform-specific directives for writing code that targets multiple platforms from a single codebase.
 
 ## Available Directives
 
 ### Platform Detection
 
-```sapphire
+```corin
 #[ios]        // iOS devices
 #[android]    // Android devices
 #[mobile]     // iOS or Android
@@ -20,7 +20,7 @@ Sapphire provides platform-specific directives for writing code that targets mul
 
 Write platform-specific implementations:
 
-```sapphire
+```corin
 #[ios]
 fn get_platform() -> String {
     return "iOS"
@@ -41,7 +41,7 @@ fn get_platform() -> String {
 
 Execute code only on specific platforms:
 
-```sapphire
+```corin
 fn main() {
     #[mobile]
     {
@@ -64,7 +64,7 @@ fn main() {
 
 #### Camera
 
-```sapphire
+```corin
 #[mobile]
 fn take_photo() {
     let camera = Camera.new()
@@ -75,7 +75,7 @@ fn take_photo() {
 
 #### GPS/Location
 
-```sapphire
+```corin
 #[mobile]
 fn get_location() {
     let gps = GPS.new()
@@ -86,7 +86,7 @@ fn get_location() {
 
 #### Sensors
 
-```sapphire
+```corin
 #[mobile]
 fn read_sensors() {
     // Accelerometer
@@ -105,19 +105,19 @@ fn read_sensors() {
 
 #### Notifications
 
-```sapphire
+```corin
 #[mobile]
 fn send_notification() {
     let notif = Notification.new()
     notif.title = "Hello"
-    notif.body = "Message from Sapphire"
+    notif.body = "Message from Corin"
     notif.send()
 }
 ```
 
 #### Haptics/Vibration
 
-```sapphire
+```corin
 #[mobile]
 fn vibrate() {
     Haptics.vibrate(duration: 100)
@@ -127,7 +127,7 @@ fn vibrate() {
 
 #### Storage
 
-```sapphire
+```corin
 #[mobile]
 fn use_storage() {
     let storage = Storage.new()
@@ -140,7 +140,7 @@ fn use_storage() {
 
 #### Browser APIs
 
-```sapphire
+```corin
 #[web]
 fn use_browser() {
     let window = Window.current()
@@ -153,7 +153,7 @@ fn use_browser() {
 
 #### Local Storage
 
-```sapphire
+```corin
 #[web]
 fn use_storage() {
     let storage = LocalStorage.new()
@@ -168,10 +168,10 @@ fn use_storage() {
 
 Build UIs that work across all platforms:
 
-```sapphire
+```corin
 fn build_ui() -> Widget {
     return Column([
-        Text("Hello, Sapphire!"),
+        Text("Hello, Corin!"),
         Button("Click Me", on_click: handle_click),
         Image("logo.png"),
         TextField(placeholder: "Enter text")
@@ -239,7 +239,7 @@ spm run
 
 4. **Handle missing features gracefully**: Not all APIs are available on all platforms
 
-```sapphire
+```corin
 fn use_camera() {
     #[mobile]
     {
@@ -257,8 +257,8 @@ fn use_camera() {
 ## Examples
 
 See the `examples/` directory:
-- `mobile_example.spp` - Mobile app with native APIs
-- `platform_directives.spp` - Platform-specific code patterns
+- `mobile_example.corin` - Mobile app with native APIs
+- `platform_directives.corin` - Platform-specific code patterns
 
 ## Platform Support Matrix
 

@@ -7,7 +7,7 @@
 #include <cassert>
 #include <cmath>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 int tests_passed = 0;
 int tests_failed = 0;
@@ -319,7 +319,7 @@ TEST(math_constants) {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Standard Library Tests\n";
+    std::cout << "Corin Standard Library Tests\n";
     std::cout << "================================================================================\n\n";
     
     // String tests

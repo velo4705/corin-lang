@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_SAFETY_H
-#define SAPPHIRE_SAFETY_H
+#ifndef CORIN_SAFETY_H
+#define CORIN_SAFETY_H
 
 #include "allocator.h"
 #include <stdexcept>
 #include <string>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -72,7 +72,7 @@ public:
 /**
  * Safety Checker
  * 
- * Provides memory safety checks for Sapphire runtime.
+ * Provides memory safety checks for Corin runtime.
  */
 class SafetyChecker {
 public:
@@ -131,30 +131,30 @@ private:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Check if pointer is valid
-    bool sapphire_is_valid_pointer(void* ptr);
+    bool corin_is_valid_pointer(void* ptr);
     
     // Check if pointer was freed
-    bool sapphire_is_freed(void* ptr);
+    bool corin_is_freed(void* ptr);
     
     // Check array bounds
-    void sapphire_check_bounds(size_t index, size_t length);
+    void corin_check_bounds(size_t index, size_t length);
     
     // Check type
-    void sapphire_check_type(void* ptr, uint64_t expected_type);
+    void corin_check_type(void* ptr, uint64_t expected_type);
     
     // Check null
-    void* sapphire_check_null(void* ptr);
+    void* corin_check_null(void* ptr);
     
     // Check use-after-free
-    void* sapphire_check_use_after_free(void* ptr);
+    void* corin_check_use_after_free(void* ptr);
     
     // Mark as freed
-    void sapphire_mark_freed(void* ptr);
+    void corin_mark_freed(void* ptr);
 }
 
-#endif // SAPPHIRE_SAFETY_H
+#endif // CORIN_SAFETY_H

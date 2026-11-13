@@ -1,6 +1,6 @@
 # Data Science Quick Start Guide
 
-**Get started with data science in Sapphire in 5 minutes!**
+**Get started with data science in Corin in 5 minutes!**
 
 ---
 
@@ -33,7 +33,7 @@ Choose from:
 
 ## Example: Statistical Analysis
 
-```sapphire
+```corin
 import system
 
 // Your data
@@ -59,7 +59,7 @@ print("Variance:", variance)
 
 ## Example: Machine Learning
 
-```sapphire
+```corin
 import system
 
 // Training data
@@ -103,7 +103,7 @@ print("Predicted price:", prediction)
 
 ## Example: Time Series
 
-```sapphire
+```corin
 import system
 
 // Stock prices
@@ -134,7 +134,7 @@ print("Next day forecast:", forecast)
 
 ### Quick Compile
 ```bash
-./sapp compile myprogram.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll
+./corin compile myprogram.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll
 llc myprogram.ll -filetype=obj -o myprogram.o
 gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread
 ./myprogram
@@ -142,7 +142,7 @@ gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread
 
 ### One-liner
 ```bash
-./sapp compile myprogram.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll && llc myprogram.ll -filetype=obj -o myprogram.o && gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread && ./myprogram
+./corin compile myprogram.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll && llc myprogram.ll -filetype=obj -o myprogram.o && gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread && ./myprogram
 ```
 
 ---
@@ -150,13 +150,13 @@ gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread
 ## Common Patterns
 
 ### Calculate Mean
-```sapphire
+```corin
 let sum = val1 + val2 + val3 + val4
 let mean = sum / 4
 ```
 
 ### Calculate Variance
-```sapphire
+```corin
 let d1 = val1 - mean
 let d2 = val2 - mean
 let d3 = val3 - mean
@@ -164,7 +164,7 @@ let variance = (d1 * d1 + d2 * d2 + d3 * d3) / 3
 ```
 
 ### Calculate Correlation
-```sapphire
+```corin
 let cov = (dx1 * dy1 + dx2 * dy2 + dx3 * dy3) / n
 let var_x = (dx1 * dx1 + dx2 * dx2 + dx3 * dx3) / n
 let var_y = (dy1 * dy1 + dy2 * dy2 + dy3 * dy3) / n
@@ -172,13 +172,13 @@ let var_y = (dy1 * dy1 + dy2 * dy2 + dy3 * dy3) / n
 ```
 
 ### Moving Average
-```sapphire
+```corin
 let ma3 = (val1 + val2 + val3) / 3
 let ma5 = (val1 + val2 + val3 + val4 + val5) / 5
 ```
 
 ### Linear Regression
-```sapphire
+```corin
 // y = mx + b
 let m = covariance / variance_x
 let b = mean_y - (m * mean_x)
@@ -190,7 +190,7 @@ let prediction = (m * x_new) + b
 ## Performance Tips
 
 ### Use Integer Math When Possible
-```sapphire
+```corin
 // Faster
 let result = (a * 100) / b  // Percentage as integer
 
@@ -199,7 +199,7 @@ let result = (a / b) * 100.0
 ```
 
 ### Minimize Loops
-```sapphire
+```corin
 // Better: Unroll small loops
 let sum = val1 + val2 + val3 + val4
 
@@ -211,7 +211,7 @@ while i < 4:
 ```
 
 ### Batch Operations
-```sapphire
+```corin
 // Calculate all statistics in one pass
 let sum = 0
 let sum_sq = 0
@@ -225,22 +225,22 @@ let variance = (sum_sq / n) - (mean * mean)
 ## Available Functions
 
 ### System Library
-```sapphire
+```corin
 import system
 
 // Timing
-sapphire_system_timestamp_ms()  // Milliseconds
-sapphire_system_timestamp_us()  // Microseconds
-sapphire_system_timestamp_ns()  // Nanoseconds
-sapphire_system_sleep_ms(ms)    // Sleep
+corin_system_timestamp_ms()  // Milliseconds
+corin_system_timestamp_us()  // Microseconds
+corin_system_timestamp_ns()  // Nanoseconds
+corin_system_sleep_ms(ms)    // Sleep
 
 // Memory
-sapphire_system_allocate(size)  // Allocate
-sapphire_system_free(ptr)       // Free
+corin_system_allocate(size)  // Allocate
+corin_system_free(ptr)       // Free
 
 // System Info
-sapphire_system_cpu_count()     // CPU cores
-sapphire_system_cpu_arch()      // Architecture
+corin_system_cpu_count()     // CPU cores
+corin_system_cpu_arch()      // Architecture
 ```
 
 ---
@@ -275,7 +275,7 @@ sapphire_system_cpu_arch()      // Architecture
 ls -lh myprogram.ll
 
 # Check for errors
-./sapp compile myprogram.spp
+./corin compile myprogram.corin
 ```
 
 ### Runtime Errors
@@ -290,9 +290,9 @@ print("x =", x, "y =", y)
 ### Performance Issues
 ```bash
 # Measure execution time
-let start = sapphire_system_timestamp_us()
+let start = corin_system_timestamp_us()
 // ... your code
-let end = sapphire_system_timestamp_us()
+let end = corin_system_timestamp_us()
 print("Time:", end - start, "us")
 ```
 
@@ -306,12 +306,12 @@ print("Time:", end - start, "us")
 - `SYSTEM_LIBRARY_COMPLETE.md` - System functions
 
 ### Examples
-- `data_science_demo.spp` - Statistical analysis
-- `ml_simple.spp` - Machine learning
-- `time_series_simple.spp` - Time series
+- `data_science_demo.corin` - Statistical analysis
+- `ml_simple.corin` - Machine learning
+- `time_series_simple.corin` - Time series
 
 ### Community
-- GitHub: [sapphire-lang](https://github.com/velo4705/sapphire-lang)
+- GitHub: [corin-lang](https://github.com/velo4705/corin-lang)
 - Issues: Report bugs and request features
 - Discussions: Ask questions
 
@@ -331,5 +331,5 @@ print("Time:", end - start, "us")
 
 ---
 
-**Happy data science with Sapphire!** 📊💎
+**Happy data science with Corin!** 📊💎
 

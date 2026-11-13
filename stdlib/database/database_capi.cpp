@@ -5,7 +5,7 @@
 #include <map>
 #include <sstream>
 
-using namespace Sapphire::Database;
+using namespace Corin::Database;
 
 static std::string g_db_str_buf;
 

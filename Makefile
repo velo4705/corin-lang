@@ -1,4 +1,4 @@
-# Sapphire Makefile
+# Corin Makefile
 # Quick build system (use CMake for full build)
 
 CXX = g++
@@ -18,8 +18,7 @@ else
     LLVM_STATUS = "⚠ LLVM not found - code generation disabled"
 endif
 
-TARGET = sapp
-ALIAS = sapphire
+TARGET = corin
 SRCDIR = src
 OBJDIR = build/obj
 
@@ -298,12 +297,12 @@ test-runtime: test-allocator test-gc test-safety test-refcount test-ownership te
 	@echo "================================================================================";
 
 help:
-	@echo "Sapphire Build System"
+	@echo "Corin Build System"
 	@echo ""
 	@echo "Targets:"
 	@echo "  make quick      - Quick build (no CMake)"
 	@echo "  make spm        - Build package manager"
-	@echo "  make run        - Build and run hello.spp"
+	@echo "  make run        - Build and run hello.corin"
 	@echo "  make clean      - Clean build artifacts"
 	@echo ""
 	@echo "Status:"
@@ -312,23 +311,23 @@ help:
 	@echo "For full build, use: ./scripts/build.sh"
 
 spm:
-	@echo "Building spm (Sapphire Package Manager)..."
+	@echo "Building spm (Corin Package Manager)..."
 	@mkdir -p build/spm
 	$(CXX) -std=c++20 -Wall -Wextra -O2 \
 		tools/spm/main.cpp \
 		-o spm
 	@echo "✓ Build complete: ./spm"
 
-sapphire-fmt:
-	@echo "Building sapphire-fmt (Code Formatter)..."
+corin-fmt:
+	@echo "Building corin-fmt (Code Formatter)..."
 	$(CXX) -std=c++20 -Wall -Wextra -O2 \
 		tools/fmt/main.cpp \
 		src/formatter/formatter.cpp \
-		-o sapphire-fmt
-	@echo "✓ Build complete: ./sapphire-fmt"
+		-o corin-fmt
+	@echo "✓ Build complete: ./corin-fmt"
 
-sapphire-lsp:
-	@echo "Building sapphire-lsp (Language Server)..."
+corin-lsp:
+	@echo "Building corin-lsp (Language Server)..."
 	$(CXX) -std=c++20 -Wall -Wextra -O2 -I./src \
 		tools/lsp/main.cpp \
 		src/lexer/lexer.cpp \
@@ -337,23 +336,21 @@ sapphire-lsp:
 		src/parser/expr.cpp \
 		src/parser/stmt.cpp \
 		src/types/type.cpp \
-		-o sapphire-lsp
-	@echo "✓ Build complete: ./sapphire-lsp"
+		-o corin-lsp
+	@echo "✓ Build complete: ./corin-lsp"
 
-sapphire-debug:
-	@echo "Building sapphire-debug (Debug Adapter)..."
+corin-debug:
+	@echo "Building corin-debug (Debug Adapter)..."
 	$(CXX) -std=c++20 -Wall -Wextra -O2 \
 		tools/debug/main.cpp \
-		-o sapphire-debug
-	@echo "✓ Build complete: ./sapphire-debug"
+		-o corin-debug
+	@echo "✓ Build complete: ./corin-debug"
 
-tools: spm sapphire-fmt sapphire-lsp sapphire-debug
+tools: spm corin-fmt corin-lsp corin-debug
 	@echo "✓ All tools built successfully!"
 
 quick: $(TARGET)
-	@ln -sf $(TARGET) $(ALIAS)
 	@echo "✓ Build complete: ./$(TARGET)"
-	@echo "  Alias created: ./$(ALIAS) -> ./$(TARGET)"
 	@echo ""
 	@echo "$(LLVM_STATUS)"
 
@@ -383,11 +380,11 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)/runtime
 
 run: quick
-	@echo "Running examples/hello.spp..."
-	@./sapp examples/hello.spp
+	@echo "Running examples/hello.corin..."
+	@./corin examples/hello.corin
 
 clean:
-	rm -rf $(OBJDIR) $(TARGET) $(ALIAS)
+	rm -rf $(OBJDIR) $(TARGET)
 	rm -rf build/
 
 

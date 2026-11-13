@@ -5,7 +5,7 @@
 #include <string>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Collections {
 
@@ -83,30 +83,30 @@ std::string hashmap_get_string(HashMap* map, const std::string& key);
 
 } // namespace Collections
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // HashMap lifecycle
-    void* sapphire_hashmap_create();
-    void* sapphire_hashmap_create_with_capacity(int64_t capacity);
-    void sapphire_hashmap_destroy(void* map);
+    void* corin_hashmap_create();
+    void* corin_hashmap_create_with_capacity(int64_t capacity);
+    void corin_hashmap_destroy(void* map);
     
     // Core operations
-    bool sapphire_hashmap_set_int(void* map, const char* key, int64_t value);
-    int64_t sapphire_hashmap_get_int(void* map, const char* key);
+    bool corin_hashmap_set_int(void* map, const char* key, int64_t value);
+    int64_t corin_hashmap_get_int(void* map, const char* key);
     
-    bool sapphire_hashmap_set_double(void* map, const char* key, double value);
-    double sapphire_hashmap_get_double(void* map, const char* key);
+    bool corin_hashmap_set_double(void* map, const char* key, double value);
+    double corin_hashmap_get_double(void* map, const char* key);
     
-    bool sapphire_hashmap_set_string(void* map, const char* key, const char* value);
-    const char* sapphire_hashmap_get_string(void* map, const char* key);
+    bool corin_hashmap_set_string(void* map, const char* key, const char* value);
+    const char* corin_hashmap_get_string(void* map, const char* key);
     
-    bool sapphire_hashmap_remove(void* map, const char* key);
-    bool sapphire_hashmap_contains(void* map, const char* key);
+    bool corin_hashmap_remove(void* map, const char* key);
+    bool corin_hashmap_contains(void* map, const char* key);
     
     // Utility functions
-    int64_t sapphire_hashmap_size(void* map);
-    bool sapphire_hashmap_empty(void* map);
-    void sapphire_hashmap_clear(void* map);
+    int64_t corin_hashmap_size(void* map);
+    bool corin_hashmap_empty(void* map);
+    void corin_hashmap_clear(void* map);
 }

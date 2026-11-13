@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_VULKAN_H
-#define SAPPHIRE_STDLIB_VULKAN_H
+#ifndef CORIN_STDLIB_VULKAN_H
+#define CORIN_STDLIB_VULKAN_H
 
 #include <vulkan/vulkan.h>
 #include <SDL2/SDL.h>
@@ -7,12 +7,12 @@
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
 /**
- * Vulkan Graphics Library for Sapphire
+ * Vulkan Graphics Library for Corin
  * 
  * Provides Vulkan API for high-performance 3D graphics.
  * This is a simplified wrapper - for full control, use the C++ implementation directly.
@@ -89,23 +89,23 @@ private:
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire code generation
+// C API for Corin code generation
 extern "C" {
     // Context management
-    void* sapphire_vulkan_create_context(const char* title, int width, int height);
-    void sapphire_vulkan_destroy_context(void* context);
-    bool sapphire_vulkan_init(void* context);
+    void* corin_vulkan_create_context(const char* title, int width, int height);
+    void corin_vulkan_destroy_context(void* context);
+    bool corin_vulkan_init(void* context);
     
     // Rendering
-    void sapphire_vulkan_begin_frame(void* context);
-    void sapphire_vulkan_end_frame(void* context);
-    void sapphire_vulkan_draw_triangle(void* context);
+    void corin_vulkan_begin_frame(void* context);
+    void corin_vulkan_end_frame(void* context);
+    void corin_vulkan_draw_triangle(void* context);
     
     // Window management
-    bool sapphire_vulkan_should_close(void* context);
-    void sapphire_vulkan_poll_events(void* context);
+    bool corin_vulkan_should_close(void* context);
+    void corin_vulkan_poll_events(void* context);
 }
 
-#endif // SAPPHIRE_STDLIB_VULKAN_H
+#endif // CORIN_STDLIB_VULKAN_H

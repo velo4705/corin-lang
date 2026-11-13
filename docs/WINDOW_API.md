@@ -1,14 +1,14 @@
-# Sapphire Window API
+# Corin Window API
 
 Built-in window and graphics support for creating interactive applications and games.
 
 ## Overview
 
-Sapphire provides built-in functions for creating windows, handling keyboard input, and rendering graphics. These functions are compiled directly into native code with SDL2 backend.
+Corin provides built-in functions for creating windows, handling keyboard input, and rendering graphics. These functions are compiled directly into native code with SDL2 backend.
 
 ## Quick Start
 
-```sapphire
+```corin
 # Create a simple window
 let window = window_create("My App", 800, 600)
 window_show(window)
@@ -42,7 +42,7 @@ Creates a new window (hidden by default).
 **Returns:** Window handle (opaque pointer)
 
 **Example:**
-```sapphire
+```corin
 let window = window_create("Pong", 800, 600)
 ```
 
@@ -50,7 +50,7 @@ let window = window_create("Pong", 800, 600)
 Makes the window visible on screen.
 
 **Example:**
-```sapphire
+```corin
 window_show(window)
 ```
 
@@ -60,7 +60,7 @@ Processes window events (close, keyboard, etc.). Must be called every frame.
 **Returns:** `true` if window is still open, `false` if user closed it
 
 **Example:**
-```sapphire
+```corin
 let running = window_poll_events(window)
 ```
 
@@ -68,7 +68,7 @@ let running = window_poll_events(window)
 Closes and destroys the window. Call when done.
 
 **Example:**
-```sapphire
+```corin
 window_destroy(window)
 ```
 
@@ -81,7 +81,7 @@ Clears the window with a solid color.
 - `r, g, b` - RGB color values (0-255)
 
 **Example:**
-```sapphire
+```corin
 window_clear(window, 0, 0, 0)  # Black background
 ```
 
@@ -94,7 +94,7 @@ Draws a filled rectangle.
 - `r, g, b` - RGB color values (0-255)
 
 **Example:**
-```sapphire
+```corin
 window_fill_rect(window, 100, 100, 50, 50, 255, 0, 0)  # Red square
 ```
 
@@ -102,7 +102,7 @@ window_fill_rect(window, 100, 100, 50, 50, 255, 0, 0)  # Red square
 Displays the rendered frame. Call after all drawing is done.
 
 **Example:**
-```sapphire
+```corin
 window_present(window)
 ```
 
@@ -117,7 +117,7 @@ Checks if a key is currently pressed.
 **Returns:** `true` if key is pressed, `false` otherwise
 
 **Example:**
-```sapphire
+```corin
 if window_is_key_down(window, 26):  # W key
     player_y = player_y - 5
 ```
@@ -128,7 +128,7 @@ if window_is_key_down(window, 26):  # W key
 Pauses execution for the specified time. Useful for frame rate control.
 
 **Example:**
-```sapphire
+```corin
 delay(16)  # ~60 FPS (1000ms / 60 = 16.67ms)
 ```
 
@@ -136,7 +136,7 @@ delay(16)  # ~60 FPS (1000ms / 60 = 16.67ms)
 
 SDL2 scancodes for common keys:
 
-```sapphire
+```corin
 # Letters
 let KEY_A = 4
 let KEY_B = 5
@@ -160,7 +160,7 @@ For complete list, see: [SDL_scancode.h](https://wiki.libsdl.org/SDL2/SDL_Scanco
 
 ## Complete Example: Bouncing Ball
 
-```sapphire
+```corin
 # Bouncing ball demo
 let window = window_create("Bouncing Ball", 800, 600)
 window_show(window)
@@ -203,7 +203,7 @@ window_destroy(window)
 
 Standard pattern for interactive applications:
 
-```sapphire
+```corin
 # Setup
 let window = window_create("Game", 800, 600)
 window_show(window)
@@ -244,8 +244,8 @@ window_destroy(window)
 Window programs require SDL2 libraries at link time:
 
 ```bash
-# Compile Sapphire to LLVM IR
-./sapp compile game.spp 2>/dev/null > game.ll
+# Compile Corin to LLVM IR
+./corin compile game.corin 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o
@@ -286,14 +286,14 @@ brew install sdl2 sdl2_ttf
 ## Examples
 
 See `examples/challenges/round3_field_level/` for complete examples:
-- `test_window.spp` - Basic window test
-- `pong_simple.spp` - Complete Pong game
+- `test_window.corin` - Basic window test
+- `pong_simple.corin` - Complete Pong game
 - `pong_game.cpp` - C++ reference implementation
 
 ## Limitations
 
 Current limitations:
-- No text rendering from Sapphire (use C++ wrapper)
+- No text rendering from Corin (use C++ wrapper)
 - No image loading (future feature)
 - No audio support (future feature)
 - Fixed to SDL2 backend (no alternative renderers)
@@ -305,7 +305,7 @@ Planned features:
 - Audio playback
 - Mouse input
 - Gamepad support
-- Text rendering from Sapphire
+- Text rendering from Corin
 - 3D graphics (OpenGL integration)
 
 ---

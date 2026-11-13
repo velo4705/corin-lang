@@ -1,4 +1,4 @@
-# Directives in Sapphire
+# Directives in Corin
 
 Complete guide to compiler directives, attributes, and annotations.
 
@@ -6,7 +6,7 @@ Complete guide to compiler directives, attributes, and annotations.
 
 ### Target Platform
 
-```sapphire
+```corin
 // Compile only for specific platform
 #[ios]
 fn ios_specific_function() {
@@ -36,7 +36,7 @@ fn mobile_specific_function() {
 
 ### Architecture
 
-```sapphire
+```corin
 #[x86_64]
 fn x86_specific() { }
 
@@ -49,7 +49,7 @@ fn wasm_specific() { }
 
 ### Operating System
 
-```sapphire
+```corin
 #[linux]
 fn linux_only() { }
 
@@ -68,7 +68,7 @@ fn unix_only() {  // Linux, macOS, BSD
 
 ### Inline
 
-```sapphire
+```corin
 // Always inline
 #[inline(always)]
 fn fast_function() {
@@ -90,7 +90,7 @@ fn maybe_inline() {
 
 ### Optimization Level
 
-```sapphire
+```corin
 // Optimize for speed
 #[optimize(speed)]
 fn hot_path() {
@@ -112,7 +112,7 @@ fn debug_code() {
 
 ### Loop Optimization
 
-```sapphire
+```corin
 #[unroll]
 fn process_array(arr: [i64; 4]) {
     // Loop will be unrolled
@@ -136,7 +136,7 @@ fn sum_array(arr: Vec<f64>) -> f64 {
 
 ### Alignment
 
-```sapphire
+```corin
 // Align to 16 bytes
 #[align(16)]
 type AlignedStruct {
@@ -153,7 +153,7 @@ type PackedStruct {
 
 ### Memory Layout
 
-```sapphire
+```corin
 // C-compatible layout
 #[repr(C)]
 type CStruct {
@@ -172,7 +172,7 @@ type Wrapper {
 
 ### Unsafe
 
-```sapphire
+```corin
 // Mark unsafe function
 #[unsafe]
 fn raw_pointer_access(ptr: *mut u8) {
@@ -189,7 +189,7 @@ fn safe_wrapper() {
 
 ### Bounds Checking
 
-```sapphire
+```corin
 // Disable bounds checking (unsafe!)
 #[no_bounds_check]
 fn fast_array_access(arr: Vec<i64>, idx: usize) -> i64 {
@@ -201,7 +201,7 @@ fn fast_array_access(arr: Vec<i64>, idx: usize) -> i64 {
 
 ### Thread Safety
 
-```sapphire
+```corin
 // Mark as thread-safe
 #[thread_safe]
 type SafeCounter {
@@ -223,7 +223,7 @@ type SyncableData {
 
 ### Async
 
-```sapphire
+```corin
 // Async function
 #[async]
 fn fetch_data() -> String {
@@ -242,7 +242,7 @@ let result = async {
 
 ### Test
 
-```sapphire
+```corin
 // Mark as test function
 #[test]
 fn test_addition() {
@@ -274,7 +274,7 @@ fn slow_test() {
 
 ### Doc Comments
 
-```sapphire
+```corin
 /// This is a documentation comment
 /// 
 /// # Examples
@@ -295,7 +295,7 @@ fn internal_function() { }
 
 ## Deprecation
 
-```sapphire
+```corin
 // Mark as deprecated
 #[deprecated]
 fn old_function() {
@@ -315,7 +315,7 @@ fn legacy_code() { }
 
 ### Feature Flags
 
-```sapphire
+```corin
 // Compile only if feature enabled
 #[cfg(feature: "advanced")]
 fn advanced_feature() {
@@ -335,7 +335,7 @@ fn full_version() { }
 
 ### Debug/Release
 
-```sapphire
+```corin
 #[cfg(debug)]
 fn debug_only() {
     print("Debug mode")
@@ -351,7 +351,7 @@ fn release_only() {
 
 ### Auto-Implement Traits
 
-```sapphire
+```corin
 // Automatically implement traits
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 type Point {
@@ -371,7 +371,7 @@ type User {
 
 ### Macro Definition
 
-```sapphire
+```corin
 // Define macro
 #[macro]
 fn debug(expr) {
@@ -395,7 +395,7 @@ fn route(attr: TokenStream, item: TokenStream) -> TokenStream {
 
 ### Hot/Cold Paths
 
-```sapphire
+```corin
 // Mark as hot path (frequently executed)
 #[hot]
 fn inner_loop() {
@@ -411,7 +411,7 @@ fn error_handler() {
 
 ### Likely/Unlikely
 
-```sapphire
+```corin
 fn process(value: i64) {
     #[likely]
     if value > 0 {
@@ -429,7 +429,7 @@ fn process(value: i64) {
 
 ### External Linking
 
-```sapphire
+```corin
 // Link to C library
 #[link(name: "m")]
 extern "C" {
@@ -447,7 +447,7 @@ extern { }
 
 ### Symbol Export
 
-```sapphire
+```corin
 // Export symbol
 #[export]
 fn public_api() { }
@@ -465,7 +465,7 @@ fn private_function() { }
 
 ### User-Defined Directives
 
-```sapphire
+```corin
 // Define custom directive
 #[directive]
 fn logged(func) {
@@ -486,7 +486,7 @@ fn my_function(x: i64) -> i64 {
 
 ### Directive with Parameters
 
-```sapphire
+```corin
 #[directive]
 fn retry(func, max_attempts: i64 = 3) {
     return |args| {
@@ -513,7 +513,7 @@ fn unreliable_operation() {
 
 ### Warnings
 
-```sapphire
+```corin
 // Allow specific warning
 #[allow(unused_variables)]
 fn test() {
@@ -533,7 +533,7 @@ fn public_api() { }
 
 ### Lints
 
-```sapphire
+```corin
 // Disable lint
 #[allow(clippy::too_many_arguments)]
 fn complex_function(a, b, c, d, e, f, g, h) { }
@@ -547,7 +547,7 @@ fn strict_code() { }
 
 ### Conditional Compilation
 
-```sapphire
+```corin
 // Compile only in tests
 #[cfg(test)]
 mod tests {
@@ -562,7 +562,7 @@ fn x86_optimized() { }
 
 ### Build Scripts
 
-```sapphire
+```corin
 // Run at build time
 #[build_script]
 fn generate_code() {
@@ -574,7 +574,7 @@ fn generate_code() {
 
 ### Cross-Platform Code
 
-```sapphire
+```corin
 #[cfg(unix)]
 fn get_path_separator() -> char {
     return '/'
@@ -588,7 +588,7 @@ fn get_path_separator() -> char {
 
 ### Performance-Critical Code
 
-```sapphire
+```corin
 #[inline(always)]
 #[optimize(speed)]
 #[vectorize]
@@ -603,7 +603,7 @@ fn dot_product(a: Vec<f64>, b: Vec<f64>) -> f64 {
 
 ### API with Deprecation
 
-```sapphire
+```corin
 #[deprecated(since: "2.0.0", note: "Use new_api instead")]
 fn old_api(x: i64) -> i64 {
     return new_api(x)
@@ -626,7 +626,7 @@ fn new_api(x: i64) -> i64 {
 
 ## Example Code
 
-See [examples/directives_example.spp](../examples/directives_example.spp) for a complete working example.
+See [examples/directives_example.corin](../examples/directives_example.corin) for a complete working example.
 
 ## See Also
 

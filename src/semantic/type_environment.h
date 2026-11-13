@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_TYPE_ENVIRONMENT_H
-#define SAPPHIRE_TYPE_ENVIRONMENT_H
+#ifndef CORIN_TYPE_ENVIRONMENT_H
+#define CORIN_TYPE_ENVIRONMENT_H
 
 #include "../types/type.h"
 #include <map>
@@ -7,7 +7,7 @@
 #include <memory>
 #include <stdexcept>
 
-namespace sapphire {
+namespace corin {
 
 class TypeEnvironment : public std::enable_shared_from_this<TypeEnvironment> {
 private:
@@ -47,6 +47,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TYPE_ENVIRONMENT_H
+#endif // CORIN_TYPE_ENVIRONMENT_H

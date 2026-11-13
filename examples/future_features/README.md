@@ -1,32 +1,32 @@
 # Future Features Examples
 
-This directory contains examples demonstrating features that are planned but not yet fully implemented in Sapphire.
+This directory contains examples demonstrating features that are planned but not yet fully implemented in Corin.
 
 ---
 
 ## Why These Examples Are Here
 
-These examples showcase advanced features and syntax that will be available in future versions of Sapphire. They are kept separate from the main examples directory to maintain a 100% pass rate for the test suite.
+These examples showcase advanced features and syntax that will be available in future versions of Corin. They are kept separate from the main examples directory to maintain a 100% pass rate for the test suite.
 
 ---
 
 ## Features Demonstrated
 
 ### 1. Inline Lambda Syntax
-```sapphire
+```corin
 let doubled = some_value.map(fn(x) { return x * 2 })
 ```
 **Status:** Planned for v1.1.0
 
 ### 2. Advanced Generics
-```sapphire
+```corin
 fn generic_function<T>(value: T) -> T:
     return value
 ```
 **Status:** Planned for v1.1.0
 
 ### 3. Full Macro System
-```sapphire
+```corin
 macro repeat(n, body):
     for i in range(n):
         body
@@ -42,7 +42,7 @@ macro repeat(n, body):
 **Status:** Planned for v1.2.0
 
 ### 5. Platform-Specific Features
-```sapphire
+```corin
 #[ios]
 fn ios_specific():
     pass
@@ -58,54 +58,54 @@ fn android_specific():
 ## Files in This Directory
 
 ### Advanced Language Features
-- advanced_features.spp
-- advanced_types.spp
-- generics_test.spp
-- jit_compilation.spp
-- macros.spp
+- advanced_features.corin
+- advanced_types.corin
+- generics_test.corin
+- jit_compilation.corin
+- macros.corin
 
 ### CLI and Tools
-- cli_tool.spp
-- complete_cli_tool.spp
+- cli_tool.corin
+- complete_cli_tool.corin
 
 ### Data Science
-- data_science.spp
+- data_science.corin
 
 ### Documentation
-- documented_example.spp
+- documented_example.corin
 
 ### Microservices
-- microservice.spp
-- web_server.spp
+- microservice.corin
+- web_server.corin
 
 ### Mobile Development
-- mobile_example.spp
-- platform_directives.spp
+- mobile_example.corin
+- platform_directives.corin
 
 ### Modules and Packages
-- modules_ecommerce.spp
-- modules_library_system.spp
-- modules_simple_examples.spp
+- modules_ecommerce.corin
+- modules_library_system.corin
+- modules_simple_examples.corin
 
 ### OOP Examples
-- oop_algorithms.spp
-- oop_data_structures.spp
-- oop_design_patterns.spp
-- oop_game_dev.spp
-- oop_modules_banking.spp
-- oop_simple_examples.spp
+- oop_algorithms.corin
+- oop_data_structures.corin
+- oop_design_patterns.corin
+- oop_game_dev.corin
+- oop_modules_banking.corin
+- oop_simple_examples.corin
 
 ### Error Handling
-- option_result_combined.spp
-- option_test.spp
-- try_operator_comprehensive.spp
+- option_result_combined.corin
+- option_test.corin
+- try_operator_comprehensive.corin
 
 ### System Programming
-- os_development.spp
-- systems_programming.spp
+- os_development.corin
+- systems_programming.corin
 
 ### Traits
-- traits_basic.spp
+- traits_basic.corin
 
 ---
 
@@ -135,10 +135,10 @@ These examples may have parse errors or runtime errors. To test them:
 
 ```bash
 # Test individual file
-./sapp examples/future_features/advanced_features.spp
+./corin examples/future_features/advanced_features.corin
 
 # Some may work partially
-./sapp examples/future_features/macros.spp
+./corin examples/future_features/macros.corin
 ```
 
 ---
@@ -158,7 +158,7 @@ If you'd like to help implement these features:
 ## Notes
 
 - These examples are kept for reference and planning
-- They demonstrate the vision for Sapphire
+- They demonstrate the vision for Corin
 - Some may work partially
 - They will be moved back when features are complete
 

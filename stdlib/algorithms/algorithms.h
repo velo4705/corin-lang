@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_ALGORITHMS_H
-#define SAPPHIRE_STDLIB_ALGORITHMS_H
+#ifndef CORIN_STDLIB_ALGORITHMS_H
+#define CORIN_STDLIB_ALGORITHMS_H
 
 #include <vector>
 #include <functional>
@@ -7,7 +7,7 @@
 #include <string>
 #include <cstddef>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -129,15 +129,15 @@ namespace Algorithms {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
-    void sapphire_quick_sort_int(int* arr, int size);
-    void sapphire_merge_sort_int(int* arr, int size);
-    int sapphire_binary_search_int(const int* arr, int size, int target);
-    int64_t sapphire_fibonacci(int n);
-    int sapphire_edit_distance(const char* s1, const char* s2);
+    void corin_quick_sort_int(int* arr, int size);
+    void corin_merge_sort_int(int* arr, int size);
+    int corin_binary_search_int(const int* arr, int size, int target);
+    int64_t corin_fibonacci(int n);
+    int corin_edit_distance(const char* s1, const char* s2);
 }
 
-#endif // SAPPHIRE_STDLIB_ALGORITHMS_H
+#endif // CORIN_STDLIB_ALGORITHMS_H

@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-using namespace Sapphire::Ecosystem;
+using namespace Corin::Ecosystem;
 
 static std::string g_eco_str_buf;
 
@@ -142,9 +142,9 @@ int eco_pkgmgr_install(const char* name, const char* version_range) {
 }
 const char* eco_pkgmgr_install_message() {
     // Expose the last install message (stored in ecosystem.cpp)
-    g_eco_str_buf = Sapphire::Ecosystem::pkgmgr_installed_version(""); // placeholder
+    g_eco_str_buf = Corin::Ecosystem::pkgmgr_installed_version(""); // placeholder
     // Re-run a dummy to get the message — just return the last installed list summary
-    auto list = Sapphire::Ecosystem::pkgmgr_list_installed();
+    auto list = Corin::Ecosystem::pkgmgr_list_installed();
     g_eco_str_buf = list.empty() ? "No packages installed" : "Installed: " + list.back();
     return g_eco_str_buf.c_str();
 }

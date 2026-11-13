@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_SIMD_H
-#define SAPPHIRE_STDLIB_SIMD_H
+#ifndef CORIN_STDLIB_SIMD_H
+#define CORIN_STDLIB_SIMD_H
 
 #include <cstdint>
 #include <cstring>
@@ -7,7 +7,7 @@
 #include <vector>
 #include <thread>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -127,25 +127,25 @@ namespace Parallel {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // SIMD operations
-    void sapphire_simd_add_f32(const float* a, const float* b, float* result, size_t size);
-    void sapphire_simd_mul_f32(const float* a, const float* b, float* result, size_t size);
-    float sapphire_simd_dot_f32(const float* a, const float* b, size_t size);
-    void sapphire_simd_matmul_f32(const float* a, const float* b, float* result, int n);
-    float sapphire_simd_sum_f32(const float* arr, size_t size);
+    void corin_simd_add_f32(const float* a, const float* b, float* result, size_t size);
+    void corin_simd_mul_f32(const float* a, const float* b, float* result, size_t size);
+    float corin_simd_dot_f32(const float* a, const float* b, size_t size);
+    void corin_simd_matmul_f32(const float* a, const float* b, float* result, int n);
+    float corin_simd_sum_f32(const float* arr, size_t size);
     
     // Memory operations
-    void* sapphire_memory_aligned_alloc(size_t alignment, size_t size);
-    void sapphire_memory_aligned_free(void* ptr);
-    void sapphire_memory_prefetch(const void* addr);
-    void sapphire_memory_fence();
+    void* corin_memory_aligned_alloc(size_t alignment, size_t size);
+    void corin_memory_aligned_free(void* ptr);
+    void corin_memory_prefetch(const void* addr);
+    void corin_memory_fence();
     
     // Parallel operations
-    void sapphire_parallel_add_f32(const float* a, const float* b, float* result, size_t size, int threads);
+    void corin_parallel_add_f32(const float* a, const float* b, float* result, size_t size, int threads);
 }
 
-#endif // SAPPHIRE_STDLIB_SIMD_H
+#endif // CORIN_STDLIB_SIMD_H

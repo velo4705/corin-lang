@@ -2,7 +2,7 @@
 # Run core language tests only (no window/display or web tests)
 # Use run_advanced_tests.sh for window/web/gui tests
 
-SAPP="./sapp"
+CORIN="./corin"
 PASS=0
 FAIL=0
 SKIP=0
@@ -57,7 +57,7 @@ run_test() {
         fi
     done
 
-    output=$(timeout 10s "$SAPP" "$file" 2>&1)
+    output=$(timeout 10s "$CORIN" "$file" 2>&1)
     exit_code=$?
 
     if [ $exit_code -eq 124 ]; then
@@ -79,8 +79,8 @@ run_test() {
     fi
 }
 
-echo "=== Running examples/*.spp (core tests only) ==="
-for f in examples/*.spp; do
+echo "=== Running examples/*.corin (core tests only) ==="
+for f in examples/*.corin; do
     run_test "$f"
 done
 

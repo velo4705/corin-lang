@@ -1,0 +1,178 @@
+%YAML 1.2
+---
+name: Corin
+file_extensions: [corin]
+scope: source.corin
+
+contexts:
+  main:
+    - include: doc-comments
+    - include: comments
+    - include: decorators
+    - include: keywords
+    - include: fstrings
+    - include: strings
+    - include: numbers
+    - include: class-names
+    - include: functions
+    - include: operators
+    - include: constants
+
+  # ── Doc comments ──────────────────────────────────────────────────────
+  doc-comments:
+    - match: '///.*$'
+      scope: comment.line.documentation.corin
+    - match: '#!.*$'
+      scope: comment.line.documentation.corin
+
+  # ── Comments ──────────────────────────────────────────────────────────
+  comments:
+    - match: '#(?!!)[^\n]*$'
+      scope: comment.line.number-sign.corin
+
+  # ── Decorators ────────────────────────────────────────────────────────
+  decorators:
+    - match: '@[a-zA-Z_][a-zA-Z0-9_]*'
+      scope: entity.name.function.decorator.corin
+
+  # ── Keywords ──────────────────────────────────────────────────────────
+  keywords:
+    - match: \b(if|else|elif|for|while|break|continue|return|match|case|default|in|pass|del)\b
+      scope: keyword.control.corin
+    - match: \b(fn|class|trait|impl|macro|enum)\b
+      scope: keyword.declaration.corin
+    - match: \b(import|from|as|let|var|const)\b
+      scope: keyword.other.corin
+    - match: \b(async|await|chan|go|select)\b
+      scope: keyword.control.async.corin
+    - match: \b(try|catch|finally|throw|raise)\b
+      scope: keyword.control.exception.corin
+    - match: \b(pub|priv|static|mut|owned|where|dyn|Self)\b
+      scope: storage.modifier.corin
+    - match: \b(int|float|double|str|bool|void|any|list|dict|tuple|set|bytes|char)\b
+      scope: storage.type.corin
+
+  # ── Constants ─────────────────────────────────────────────────────────
+  constants:
+    - match: \b(true|false|none|None|Some|Ok|Err)\b
+      scope: constant.language.corin
+
+  # ── F-strings ─────────────────────────────────────────────────────────
+  fstrings:
+    - match: 'f"'
+      scope: string.interpolated.corin punctuation.definition.string.begin.corin
+      push: fstring-double-body
+    - match: "f'"
+      scope: string.interpolated.corin punctuation.definition.string.begin.corin
+      push: fstring-single-body
+
+  fstring-double-body:
+    - meta_scope: string.interpolated.corin
+    - match: '"'
+      scope: punctuation.definition.string.end.corin
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.interpolation.begin.corin
+      push: interpolation
+    - match: '\\.'
+      scope: constant.character.escape.corin
+
+  fstring-single-body:
+    - meta_scope: string.interpolated.corin
+    - match: "'"
+      scope: punctuation.definition.string.end.corin
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.interpolation.begin.corin
+      push: interpolation
+    - match: '\\.'
+      scope: constant.character.escape.corin
+
+  interpolation:
+    - meta_scope: meta.interpolation.corin
+    - match: '\}'
+      scope: punctuation.section.interpolation.end.corin
+      pop: true
+    - include: main
+
+  # ── Strings ───────────────────────────────────────────────────────────
+  strings:
+    - match: '"""'
+      scope: punctuation.definition.string.begin.corin
+      push: triple-string-body
+    - match: '"'
+      scope: punctuation.definition.string.begin.corin
+      push: double-string-body
+    - match: "'"
+      scope: punctuation.definition.string.begin.corin
+      push: single-string-body
+
+  triple-string-body:
+    - meta_scope: string.quoted.triple.corin
+    - match: '"""'
+      scope: punctuation.definition.string.end.corin
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.corin
+
+  double-string-body:
+    - meta_scope: string.quoted.double.corin
+    - match: '"'
+      scope: punctuation.definition.string.end.corin
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.corin
+
+  single-string-body:
+    - meta_scope: string.quoted.single.corin
+    - match: "'"
+      scope: punctuation.definition.string.end.corin
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.corin
+
+  # ── Numbers ───────────────────────────────────────────────────────────
+  numbers:
+    - match: '\b0[xX][0-9a-fA-F_]+\b'
+      scope: constant.numeric.hex.corin
+    - match: '\b0[bB][01_]+\b'
+      scope: constant.numeric.binary.corin
+    - match: '\b0[oO][0-7_]+\b'
+      scope: constant.numeric.octal.corin
+    - match: '\b[0-9][0-9_]*\.[0-9][0-9_]*([eE][+-]?[0-9]+)?\b'
+      scope: constant.numeric.float.corin
+    - match: '\b[0-9][0-9_]*\b'
+      scope: constant.numeric.integer.corin
+
+  # ── Class / type names ────────────────────────────────────────────────
+  class-names:
+    - match: '\b(class|trait|impl|enum)\s+([A-Za-z_][A-Za-z0-9_]*)'
+      captures:
+        1: keyword.declaration.corin
+        2: entity.name.type.corin
+    - match: '\b[A-Z][a-zA-Z0-9_]*\b'
+      scope: entity.name.type.corin
+
+  # ── Functions ─────────────────────────────────────────────────────────
+  functions:
+    - match: '\b(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)'
+      captures:
+        1: keyword.declaration.corin
+        2: entity.name.function.corin
+    - match: '\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()'
+      scope: entity.name.function.corin
+
+  # ── Operators ─────────────────────────────────────────────────────────
+  operators:
+    - match: '=>'
+      scope: keyword.operator.arrow.corin
+    - match: '->'
+      scope: keyword.operator.arrow.corin
+    - match: '<-'
+      scope: keyword.operator.channel.corin
+    - match: '\*\*'
+      scope: keyword.operator.corin
+    - match: '==|!=|<=|>=|&&|\|\||\+=|-=|\*=|/=|%='
+      scope: keyword.operator.corin
+    - match: '[+\-*/%<>!&|^~=?]'
+      scope: keyword.operator.corin

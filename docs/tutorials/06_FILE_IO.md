@@ -1,12 +1,12 @@
 # Tutorial 6: File I/O
 
-Learn how to read from and write to files in Sapphire.
+Learn how to read from and write to files in Corin.
 
 ## Reading Files
 
 ### Read Entire File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -18,7 +18,7 @@ fn main() {
 
 ### Read File Line by Line
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -32,7 +32,7 @@ fn main() {
 
 ### Read with Error Handling
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -51,7 +51,7 @@ fn main() {
 
 ### Write String to File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -64,7 +64,7 @@ fn main() {
 
 ### Append to File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -77,7 +77,7 @@ fn main() {
 
 ### Write Lines
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -96,7 +96,7 @@ fn main() {
 
 ### Check if File Exists
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -110,7 +110,7 @@ fn main() {
 
 ### Delete File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -123,7 +123,7 @@ fn main() {
 
 ### Copy File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -134,7 +134,7 @@ fn main() {
 
 ### Move/Rename File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -145,7 +145,7 @@ fn main() {
 
 ### Get File Size
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -158,7 +158,7 @@ fn main() {
 
 ### Join Paths
 
-```sapphire
+```corin
 import Path from "stdlib/io"
 
 fn main() {
@@ -169,7 +169,7 @@ fn main() {
 
 ### Get File Name
 
-```sapphire
+```corin
 import Path from "stdlib/io"
 
 fn main() {
@@ -188,7 +188,7 @@ fn main() {
 
 ### Absolute Path
 
-```sapphire
+```corin
 import Path from "stdlib/io"
 
 fn main() {
@@ -202,7 +202,7 @@ fn main() {
 
 ### List Directory
 
-```sapphire
+```corin
 import Dir from "stdlib/io"
 
 fn main() {
@@ -216,7 +216,7 @@ fn main() {
 
 ### Create Directory
 
-```sapphire
+```corin
 import Dir from "stdlib/io"
 
 fn main() {
@@ -231,7 +231,7 @@ fn main() {
 
 ### Remove Directory
 
-```sapphire
+```corin
 import Dir from "stdlib/io"
 
 fn main() {
@@ -245,7 +245,7 @@ fn main() {
 
 ### Check if Directory Exists
 
-```sapphire
+```corin
 import Dir from "stdlib/io"
 
 fn main() {
@@ -261,7 +261,7 @@ fn main() {
 
 ### Read Binary File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -272,7 +272,7 @@ fn main() {
 
 ### Write Binary File
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -286,7 +286,7 @@ fn main() {
 
 ### Read CSV
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -301,7 +301,7 @@ fn main() {
 
 ### Write CSV
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -326,7 +326,7 @@ fn main() {
 
 ### Read JSON
 
-```sapphire
+```corin
 import File from "stdlib/io"
 import JSON from "stdlib/json"
 
@@ -341,7 +341,7 @@ fn main() {
 
 ### Write JSON
 
-```sapphire
+```corin
 import File from "stdlib/io"
 import JSON from "stdlib/json"
 
@@ -363,7 +363,7 @@ fn main() {
 ### Exercise 1: Line Counter
 Count lines in a file:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn count_lines(filename: str) -> int {
@@ -380,7 +380,7 @@ fn main() {
 ### Exercise 2: Word Frequency
 Count word frequency in a file:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn word_frequency(filename: str) -> {str: int} {
@@ -414,7 +414,7 @@ fn main() {
 ### Exercise 3: File Backup
 Create a backup of a file:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 import DateTime from "stdlib/datetime"
 
@@ -439,7 +439,7 @@ fn main() {
 ### Exercise 4: Log File Analyzer
 Analyze log files:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn analyze_logs(filename: str) {
@@ -471,7 +471,7 @@ fn main() {
 ### Exercise 5: File Merger
 Merge multiple files:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn merge_files(input_files: [str], output_file: str) {
@@ -498,7 +498,7 @@ fn main() {
 ### Exercise 6: Configuration File Reader
 Read configuration from a file:
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn read_config(filename: str) -> {str: str} {
@@ -537,7 +537,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. Not Handling File Not Found
-```sapphire
+```corin
 // Wrong:
 let content = File.read("missing.txt")  // May crash!
 
@@ -551,19 +551,19 @@ try {
 ```
 
 ### 2. Forgetting to Close Files
-```sapphire
+```corin
 // Wrong (in languages that require manual closing):
 let file = File.open("example.txt")
 let content = file.read()
 // Forgot to close!
 
-// Correct (Sapphire handles this automatically):
+// Correct (Corin handles this automatically):
 let content = File.read("example.txt")
 // File is automatically closed
 ```
 
 ### 3. Wrong Path Separators
-```sapphire
+```corin
 // Wrong (hardcoded separators):
 let path = "folder\\subfolder\\file.txt"  // Windows only
 

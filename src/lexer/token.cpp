@@ -1,7 +1,7 @@
 #include "token.h"
 #include <map>
 
-namespace sapphire {
+namespace corin {
 
 std::string tokenTypeToString(TokenType type) {
     static const std::map<TokenType, std::string> typeNames = {
@@ -116,4 +116,4 @@ std::ostream& operator<<(std::ostream& os, const Token& token) {
     return os;
 }
 
-} // namespace sapphire
+} // namespace corin

@@ -58,13 +58,13 @@
 #include "../stdlib/ecosystem/ecosystem.h"
 
 // Stubs for legacy database dispatch (old M4-era placeholders, never called at runtime)
-inline void* sapphire_postgresql_create() { return nullptr; }
-inline int   sapphire_postgresql_connect(void*, const char*) { return 0; }
-inline char* sapphire_postgresql_query(void*, const char*) { static char e[]=""; return e; }
-inline void* sapphire_mysql_create() { return nullptr; }
-inline int   sapphire_mysql_connect(void*, const char*) { return 0; }
-inline char* sapphire_mysql_query(void*, const char*) { static char e[]=""; return e; }
-inline void  sapphire_database_free_result(char*) {}
+inline void* corin_postgresql_create() { return nullptr; }
+inline int   corin_postgresql_connect(void*, const char*) { return 0; }
+inline char* corin_postgresql_query(void*, const char*) { static char e[]=""; return e; }
+inline void* corin_mysql_create() { return nullptr; }
+inline int   corin_mysql_connect(void*, const char*) { return 0; }
+inline char* corin_mysql_query(void*, const char*) { static char e[]=""; return e; }
+inline void  corin_database_free_result(char*) {}
 inline void* orm_model_create(const char*) { return nullptr; }
 inline void  orm_model_add_field(void*, const char*, const char*) {}
 inline void  orm_model_add_string_field(void*, const char*, int) {}
@@ -82,7 +82,7 @@ inline const char* orm_model_get_create_sql(void*) { return ""; }
 #include "../stdlib/os/os.h"
 #include "../stdlib/fs/fs.h"
 
-namespace sapphire {
+namespace corin {
 
 // Environment implementation
 
@@ -236,7 +236,7 @@ void Interpreter::interpret(std::vector<std::unique_ptr<Stmt>>& statements) {
     } catch (const ReturnException& e) {
         // Top-level return is ignored
         (void)e;
-    } catch (SapphireException& e) {
+    } catch (CorinException& e) {
         // Attach stack trace
         for (const auto& frame : call_stack) {
             e.addStackFrame(frame);
@@ -268,7 +268,7 @@ void Interpreter::throwException(const std::string& type, const std::string& mes
     } else if (type == "RuntimeError" || type.empty()) {
         throw RuntimeError(full_message);
     } else {
-        throw SapphireException(full_message, type);
+        throw CorinException(full_message, type);
     }
 }
 
@@ -2188,7 +2188,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
         // ===== MILESTONE 1: DYNAMIC ARRAYS =====
         } else if (func_name == "__builtin_array_create__") {
             // Create a new dynamic array
-            void* array = sapphire_array_create();
+            void* array = corin_array_create();
             // Store as a raw pointer wrapped as an int (this is a temporary solution)
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(array));
             return;
@@ -2202,11 +2202,11 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* array = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             
             if (std::holds_alternative<int>(arguments[1])) {
-                sapphire_array_push_int(array, std::get<int>(arguments[1]));
+                corin_array_push_int(array, std::get<int>(arguments[1]));
             } else if (std::holds_alternative<double>(arguments[1])) {
-                sapphire_array_push_double(array, std::get<double>(arguments[1]));
+                corin_array_push_double(array, std::get<double>(arguments[1]));
             } else if (std::holds_alternative<std::string>(arguments[1])) {
-                sapphire_array_push_string(array, std::get<std::string>(arguments[1]).c_str());
+                corin_array_push_string(array, std::get<std::string>(arguments[1]).c_str());
             }
             
             last_value = nullptr;
@@ -2222,7 +2222,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             int index = std::get<int>(arguments[1]);
             
             // For now, assume integer arrays - we'll need type information later
-            last_value = static_cast<int>(sapphire_array_get_int(array, index));
+            last_value = static_cast<int>(corin_array_get_int(array, index));
             return;
             
         } else if (func_name == "__builtin_array_size__") {
@@ -2232,7 +2232,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* array = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            last_value = static_cast<int>(sapphire_array_size(array));
+            last_value = static_cast<int>(corin_array_size(array));
             return;
             
         // ===== MILESTONE 1: MATH LIBRARY =====
@@ -2242,7 +2242,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = sapphire_math_sqrt(x);
+            last_value = corin_math_sqrt(x);
             return;
             
         } else if (func_name == "__builtin_math_pow__") {
@@ -2253,7 +2253,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
             double y = std::holds_alternative<int>(arguments[1]) ? 
                       std::get<int>(arguments[1]) : std::get<double>(arguments[1]);
-            last_value = sapphire_math_pow(x, y);
+            last_value = corin_math_pow(x, y);
             return;
             
         } else if (func_name == "__builtin_math_sin__") {
@@ -2262,7 +2262,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = sapphire_math_sin(x);
+            last_value = corin_math_sin(x);
             return;
             
         } else if (func_name == "__builtin_math_cos__") {
@@ -2271,7 +2271,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = sapphire_math_cos(x);
+            last_value = corin_math_cos(x);
             return;
             
         } else if (func_name == "__builtin_math_abs__") {
@@ -2280,7 +2280,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = sapphire_math_abs(x);
+            last_value = corin_math_abs(x);
             return;
             
         } else if (func_name == "__builtin_math_floor__") {
@@ -2289,7 +2289,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = static_cast<int>(sapphire_math_floor(x));
+            last_value = static_cast<int>(corin_math_floor(x));
             return;
             
         } else if (func_name == "__builtin_math_ceil__") {
@@ -2298,21 +2298,21 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             double x = std::holds_alternative<int>(arguments[0]) ? 
                       std::get<int>(arguments[0]) : std::get<double>(arguments[0]);
-            last_value = sapphire_math_ceil(x);
+            last_value = corin_math_ceil(x);
             return;
             
         } else if (func_name == "__builtin_math_pi__") {
             if (arguments.size() != 0) {
                 throw TypeError("math_pi() requires 0 arguments");
             }
-            last_value = sapphire_math_pi();
+            last_value = corin_math_pi();
             return;
             
         } else if (func_name == "__builtin_math_e__") {
             if (arguments.size() != 0) {
                 throw TypeError("math_e() requires 0 arguments");
             }
-            last_value = sapphire_math_e();
+            last_value = corin_math_e();
             return;
 
         } else if (func_name == "__builtin_math_atan2__") {
@@ -2343,7 +2343,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
         // ===== MILESTONE 1: CSV I/O =====
         } else if (func_name == "__builtin_csv_create__") {
             // Create a new CSV data structure
-            void* csv = sapphire_csv_create();
+            void* csv = corin_csv_create();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(csv));
             return;
             
@@ -2353,7 +2353,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             std::string filename = std::get<std::string>(arguments[0]);
-            void* csv = sapphire_csv_read_file(filename.c_str(), true);
+            void* csv = corin_csv_read_file(filename.c_str(), true);
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(csv));
             return;
             
@@ -2363,7 +2363,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* csv = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            last_value = static_cast<int>(sapphire_csv_row_count(csv));
+            last_value = static_cast<int>(corin_csv_row_count(csv));
             return;
             
         } else if (func_name == "__builtin_csv_get__") {
@@ -2375,7 +2375,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             int row = std::get<int>(arguments[1]);
             int col = std::get<int>(arguments[2]);
             
-            const char* value = sapphire_csv_get(csv, row, col);
+            const char* value = corin_csv_get(csv, row, col);
             last_value = std::string(value ? value : "");
             return;
             
@@ -2386,7 +2386,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             std::string json_text = std::get<std::string>(arguments[0]);
-            void* json_value = sapphire_json_parse(json_text.c_str());
+            void* json_value = corin_json_parse(json_text.c_str());
             if (json_value == nullptr) {
                 throw RuntimeError("Failed to parse JSON string");
             }
@@ -2401,7 +2401,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* json_value = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             bool pretty = arguments.size() > 1 ? std::get<bool>(arguments[1]) : false;
             
-            const char* json_string = sapphire_json_stringify(json_value, pretty);
+            const char* json_string = corin_json_stringify(json_value, pretty);
             last_value = std::string(json_string ? json_string : "null");
             return;
             
@@ -2410,7 +2410,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("json_create_object() requires 0 arguments");
             }
             
-            void* json_object = sapphire_json_create_object();
+            void* json_object = corin_json_create_object();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(json_object));
             return;
             
@@ -2419,7 +2419,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("json_create_array() requires 0 arguments");
             }
             
-            void* json_array = sapphire_json_create_array();
+            void* json_array = corin_json_create_array();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(json_array));
             return;
             
@@ -2431,7 +2431,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* json_object = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string key = std::get<std::string>(arguments[1]);
             
-            void* result = sapphire_json_object_get(json_object, key.c_str());
+            void* result = corin_json_object_get(json_object, key.c_str());
             if (result == nullptr) {
                 last_value = nullptr;
             } else {
@@ -2447,23 +2447,23 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* json_object = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string key = std::get<std::string>(arguments[1]);
             
-            // Convert Sapphire value to JSON value
+            // Convert Corin value to JSON value
             void* json_value = nullptr;
             if (std::holds_alternative<std::nullptr_t>(arguments[2])) {
-                json_value = sapphire_json_create_null();
+                json_value = corin_json_create_null();
             } else if (std::holds_alternative<bool>(arguments[2])) {
-                json_value = sapphire_json_create_bool(std::get<bool>(arguments[2]));
+                json_value = corin_json_create_bool(std::get<bool>(arguments[2]));
             } else if (std::holds_alternative<int>(arguments[2])) {
-                json_value = sapphire_json_create_number(static_cast<double>(std::get<int>(arguments[2])));
+                json_value = corin_json_create_number(static_cast<double>(std::get<int>(arguments[2])));
             } else if (std::holds_alternative<double>(arguments[2])) {
-                json_value = sapphire_json_create_number(std::get<double>(arguments[2]));
+                json_value = corin_json_create_number(std::get<double>(arguments[2]));
             } else if (std::holds_alternative<std::string>(arguments[2])) {
-                json_value = sapphire_json_create_string(std::get<std::string>(arguments[2]).c_str());
+                json_value = corin_json_create_string(std::get<std::string>(arguments[2]).c_str());
             } else {
                 throw TypeError("Unsupported value type for JSON");
             }
             
-            sapphire_json_object_set(json_object, key.c_str(), json_value);
+            corin_json_object_set(json_object, key.c_str(), json_value);
             last_value = arguments[2];
             return;
             
@@ -2475,19 +2475,19 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* json_array = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             void* json_value = nullptr;
             if (std::holds_alternative<std::nullptr_t>(arguments[1])) {
-                json_value = sapphire_json_create_null();
+                json_value = corin_json_create_null();
             } else if (std::holds_alternative<bool>(arguments[1])) {
-                json_value = sapphire_json_create_bool(std::get<bool>(arguments[1]));
+                json_value = corin_json_create_bool(std::get<bool>(arguments[1]));
             } else if (std::holds_alternative<int>(arguments[1])) {
-                json_value = sapphire_json_create_number(static_cast<double>(std::get<int>(arguments[1])));
+                json_value = corin_json_create_number(static_cast<double>(std::get<int>(arguments[1])));
             } else if (std::holds_alternative<double>(arguments[1])) {
-                json_value = sapphire_json_create_number(std::get<double>(arguments[1]));
+                json_value = corin_json_create_number(std::get<double>(arguments[1]));
             } else if (std::holds_alternative<std::string>(arguments[1])) {
-                json_value = sapphire_json_create_string(std::get<std::string>(arguments[1]).c_str());
+                json_value = corin_json_create_string(std::get<std::string>(arguments[1]).c_str());
             } else {
                 throw TypeError("Unsupported value type for json_push");
             }
-            sapphire_json_array_push(json_array, json_value);
+            corin_json_array_push(json_array, json_value);
             last_value = nullptr;
             return;
 
@@ -2497,7 +2497,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("json_size() requires 1 argument (json_value)");
             }
             void* json_value = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            int64_t size = sapphire_json_array_size(json_value);
+            int64_t size = corin_json_array_size(json_value);
             last_value = static_cast<int>(size);
             return;
 
@@ -2509,14 +2509,14 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             std::string json_text = std::get<std::string>(arguments[0]);
 
             {
-                auto parsed = sapphire::stdlib::JSON::parse_json(json_text);
+                auto parsed = corin::stdlib::JSON::parse_json(json_text);
                 if (!parsed) {
                     throw RuntimeError("Failed to parse JSON string");
                 }
 
-                std::function<Value(const std::shared_ptr<sapphire::stdlib::JSON::JSONValue>&)> toNative;
-                toNative = [&](const std::shared_ptr<sapphire::stdlib::JSON::JSONValue>& jv) -> Value {
-                    using namespace sapphire::stdlib::JSON;
+                std::function<Value(const std::shared_ptr<corin::stdlib::JSON::JSONValue>&)> toNative;
+                toNative = [&](const std::shared_ptr<corin::stdlib::JSON::JSONValue>& jv) -> Value {
+                    using namespace corin::stdlib::JSON;
                     if (!jv || jv->is_null()) return Value{nullptr};
                     if (jv->is_bool()) return jv->as_bool();
                     if (jv->is_number()) {
@@ -2554,9 +2554,9 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             {
                 bool pretty = arguments.size() > 1 ? std::get<bool>(arguments[1]) : false;
 
-                std::function<std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(const Value&)> toJson;
-                toJson = [&](const Value& val) -> std::shared_ptr<sapphire::stdlib::JSON::JSONValue> {
-                    using namespace sapphire::stdlib::JSON;
+                std::function<std::shared_ptr<corin::stdlib::JSON::JSONValue>(const Value&)> toJson;
+                toJson = [&](const Value& val) -> std::shared_ptr<corin::stdlib::JSON::JSONValue> {
+                    using namespace corin::stdlib::JSON;
                     if (std::holds_alternative<std::nullptr_t>(val)) return create_json_null();
                     if (std::holds_alternative<bool>(val)) return create_json_bool(std::get<bool>(val));
                     if (std::holds_alternative<int>(val)) return create_json_number(static_cast<double>(std::get<int>(val)));
@@ -2585,7 +2585,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 if (!json_val) {
                     throw RuntimeError("Failed to convert value to JSON");
                 }
-                std::string json_str = sapphire::stdlib::JSON::stringify_json(json_val, pretty);
+                std::string json_str = corin::stdlib::JSON::stringify_json(json_val, pretty);
                 last_value = json_str;
             }
             return;
@@ -2597,7 +2597,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             uint64_t seed = static_cast<uint64_t>(std::get<int>(arguments[0]));
-            sapphire_random_seed(seed);
+            corin_random_seed(seed);
             last_value = nullptr;
             return;
             
@@ -2607,11 +2607,11 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             if (arguments.size() == 0) {
-                last_value = sapphire_random_uniform();
+                last_value = corin_random_uniform();
             } else if (arguments.size() == 2) {
                 double min = std::get<double>(arguments[0]);
                 double max = std::get<double>(arguments[1]);
-                last_value = sapphire_random_uniform_range(min, max);
+                last_value = corin_random_uniform_range(min, max);
             } else {
                 throw TypeError("random() requires 0 or 2 arguments");
             }
@@ -2624,7 +2624,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             int64_t min = static_cast<int64_t>(std::get<int>(arguments[0]));
             int64_t max = static_cast<int64_t>(std::get<int>(arguments[1]));
-            last_value = static_cast<int>(sapphire_random_int(min, max));
+            last_value = static_cast<int>(corin_random_int(min, max));
             return;
             
         } else if (func_name == "__builtin_random_normal__") {
@@ -2633,11 +2633,11 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             if (arguments.size() == 0) {
-                last_value = sapphire_random_normal();
+                last_value = corin_random_normal();
             } else if (arguments.size() == 2) {
                 double mean = std::get<double>(arguments[0]);
                 double stddev = std::get<double>(arguments[1]);
-                last_value = sapphire_random_normal_params(mean, stddev);
+                last_value = corin_random_normal_params(mean, stddev);
             } else {
                 throw TypeError("random_normal() requires 0 or 2 arguments");
             }
@@ -2649,10 +2649,10 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             if (arguments.size() == 0) {
-                last_value = sapphire_random_boolean();
+                last_value = corin_random_boolean();
             } else {
                 double probability = std::get<double>(arguments[0]);
-                last_value = sapphire_random_boolean_prob(probability);
+                last_value = corin_random_boolean_prob(probability);
             }
             return;
             
@@ -2661,7 +2661,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("crypto_random() requires 0 arguments");
             }
             
-            last_value = sapphire_crypto_random_uniform();
+            last_value = corin_crypto_random_uniform();
             return;
             
         } else if (func_name == "__builtin_crypto_random_int__") {
@@ -2671,7 +2671,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             int64_t min = static_cast<int64_t>(std::get<int>(arguments[0]));
             int64_t max = static_cast<int64_t>(std::get<int>(arguments[1]));
-            last_value = static_cast<int>(sapphire_crypto_random_int(min, max));
+            last_value = static_cast<int>(corin_crypto_random_int(min, max));
             return;
             
         // ===== MILESTONE 3: DATA VISUALIZATION =====
@@ -2684,7 +2684,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             int width = arguments.size() > 1 ? std::get<int>(arguments[1]) : 800;
             int height = arguments.size() > 2 ? std::get<int>(arguments[2]) : 600;
             
-            void* plot = sapphire_plot_create(width, height, chart_type);
+            void* plot = corin_plot_create(width, height, chart_type);
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(plot));
             return;
             
@@ -2721,7 +2721,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             double g = arguments.size() > 5 ? std::get<double>(arguments[5]) : 0.0;
             double b = arguments.size() > 6 ? std::get<double>(arguments[6]) : 1.0;
             
-            sapphire_plot_add_line(plot, x_data.data(), y_data.data(), 
+            corin_plot_add_line(plot, x_data.data(), y_data.data(), 
                                   static_cast<int>(std::min(x_data.size(), y_data.size())), 
                                   label.c_str(), r, g, b);
             last_value = nullptr;
@@ -2761,7 +2761,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             double b = arguments.size() > 6 ? std::get<double>(arguments[6]) : 0.0;
             int marker = arguments.size() > 7 ? std::get<int>(arguments[7]) : 1;
             
-            sapphire_plot_add_scatter(plot, x_data.data(), y_data.data(), 
+            corin_plot_add_scatter(plot, x_data.data(), y_data.data(), 
                                      static_cast<int>(std::min(x_data.size(), y_data.size())), 
                                      label.c_str(), r, g, b, marker);
             last_value = nullptr;
@@ -2793,7 +2793,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             double g = arguments.size() > 5 ? std::get<double>(arguments[5]) : 0.5;
             double b = arguments.size() > 6 ? std::get<double>(arguments[6]) : 0.0;
             
-            sapphire_plot_add_histogram(plot, data.data(), static_cast<int>(data.size()), 
+            corin_plot_add_histogram(plot, data.data(), static_cast<int>(data.size()), 
                                        bins, label.c_str(), r, g, b);
             last_value = nullptr;
             return;
@@ -2806,7 +2806,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* plot = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string title = std::get<std::string>(arguments[1]);
             
-            sapphire_plot_set_title(plot, title.c_str());
+            corin_plot_set_title(plot, title.c_str());
             last_value = nullptr;
             return;
             
@@ -2818,7 +2818,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* plot = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string label = std::get<std::string>(arguments[1]);
             
-            sapphire_plot_set_xlabel(plot, label.c_str());
+            corin_plot_set_xlabel(plot, label.c_str());
             last_value = nullptr;
             return;
             
@@ -2830,7 +2830,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* plot = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string label = std::get<std::string>(arguments[1]);
             
-            sapphire_plot_set_ylabel(plot, label.c_str());
+            corin_plot_set_ylabel(plot, label.c_str());
             last_value = nullptr;
             return;
             
@@ -2840,7 +2840,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* plot = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            sapphire_plot_show(plot);
+            corin_plot_show(plot);
             last_value = nullptr;
             return;
             
@@ -2852,7 +2852,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* plot = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string filename = std::get<std::string>(arguments[1]);
             
-            sapphire_plot_save_svg(plot, filename.c_str());
+            corin_plot_save_svg(plot, filename.c_str());
             last_value = nullptr;
             return;
             
@@ -2876,7 +2876,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             std::string title = arguments.size() > 1 ? std::get<std::string>(arguments[1]) : "";
             
-            void* plot = sapphire_quick_plot(y_data.data(), static_cast<int>(y_data.size()), title.c_str());
+            void* plot = corin_quick_plot(y_data.data(), static_cast<int>(y_data.size()), title.c_str());
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(plot));
             return;
             
@@ -2908,7 +2908,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             std::string title = arguments.size() > 2 ? std::get<std::string>(arguments[2]) : "";
             
-            void* plot = sapphire_quick_scatter(x_data.data(), y_data.data(), 
+            void* plot = corin_quick_scatter(x_data.data(), y_data.data(), 
                                               static_cast<int>(std::min(x_data.size(), y_data.size())), 
                                               title.c_str());
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(plot));
@@ -2935,7 +2935,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             int bins = arguments.size() > 1 ? std::get<int>(arguments[1]) : 20;
             std::string title = arguments.size() > 2 ? std::get<std::string>(arguments[2]) : "";
             
-            void* plot = sapphire_quick_histogram(data.data(), static_cast<int>(data.size()), 
+            void* plot = corin_quick_histogram(data.data(), static_cast<int>(data.size()), 
                                                 bins, title.c_str());
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(plot));
             return;
@@ -3297,7 +3297,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             int port = std::get<int>(arguments[0]);
-            void* server = sapphire_websocket_server_create(port);
+            void* server = corin_websocket_server_create(port);
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(server));
             return;
             
@@ -3308,7 +3308,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* server = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            int result = sapphire_websocket_server_start(server);
+            int result = corin_websocket_server_start(server);
             last_value = (result == 1);
             return;
             
@@ -3319,7 +3319,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* server = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            sapphire_websocket_server_stop(server);
+            corin_websocket_server_stop(server);
             last_value = nullptr;
             return;
             
@@ -3331,7 +3331,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* server = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string text = std::get<std::string>(arguments[1]);
-            sapphire_websocket_server_broadcast_text(server, text.c_str());
+            corin_websocket_server_broadcast_text(server, text.c_str());
             last_value = nullptr;
             return;
             
@@ -3343,7 +3343,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* server = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string data = std::get<std::string>(arguments[1]);
-            sapphire_websocket_server_broadcast_binary(server, 
+            corin_websocket_server_broadcast_binary(server, 
                 reinterpret_cast<const uint8_t*>(data.c_str()), data.length());
             last_value = nullptr;
             return;
@@ -3355,7 +3355,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* server = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            int count = sapphire_websocket_server_connection_count(server);
+            int count = corin_websocket_server_connection_count(server);
             last_value = count;
             return;
             
@@ -3365,7 +3365,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("websocket_client_create() requires 0 arguments");
             }
             
-            void* client = sapphire_websocket_client_create();
+            void* client = corin_websocket_client_create();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(client));
             return;
             
@@ -3377,7 +3377,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* client = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string url = std::get<std::string>(arguments[1]);
-            int result = sapphire_websocket_client_connect(client, url.c_str());
+            int result = corin_websocket_client_connect(client, url.c_str());
             last_value = (result == 1);
             return;
             
@@ -3388,7 +3388,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* client = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            sapphire_websocket_client_disconnect(client);
+            corin_websocket_client_disconnect(client);
             last_value = nullptr;
             return;
             
@@ -3400,7 +3400,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* client = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string text = std::get<std::string>(arguments[1]);
-            int result = sapphire_websocket_client_send_text(client, text.c_str());
+            int result = corin_websocket_client_send_text(client, text.c_str());
             last_value = (result == 1);
             return;
             
@@ -3412,7 +3412,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* client = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string data = std::get<std::string>(arguments[1]);
-            int result = sapphire_websocket_client_send_binary(client, 
+            int result = corin_websocket_client_send_binary(client, 
                 reinterpret_cast<const uint8_t*>(data.c_str()), data.length());
             last_value = (result == 1);
             return;
@@ -3424,7 +3424,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             void* client = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
-            int result = sapphire_websocket_client_is_connected(client);
+            int result = corin_websocket_client_is_connected(client);
             last_value = (result == 1);
             return;
             
@@ -3435,10 +3435,10 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             }
             
             std::string data = std::get<std::string>(arguments[0]);
-            char* encoded = sapphire_websocket_base64_encode(
+            char* encoded = corin_websocket_base64_encode(
                 reinterpret_cast<const uint8_t*>(data.c_str()), data.length());
             last_value = std::string(encoded);
-            sapphire_websocket_free_string(encoded);
+            corin_websocket_free_string(encoded);
             return;
             
         } else if (func_name == "__builtin_websocket_base64_decode__") {
@@ -3449,9 +3449,9 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             std::string encoded = std::get<std::string>(arguments[0]);
             int size;
-            uint8_t* decoded = sapphire_websocket_base64_decode(encoded.c_str(), &size);
+            uint8_t* decoded = corin_websocket_base64_decode(encoded.c_str(), &size);
             last_value = std::string(reinterpret_cast<char*>(decoded), size);
-            sapphire_websocket_free_data(decoded);
+            corin_websocket_free_data(decoded);
             return;
             
         // ===== TEMPLATE ENGINE =====
@@ -3461,7 +3461,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("html_template_engine_create() requires 0 arguments");
             }
             
-            void* engine = sapphire_html_template_engine_create();
+            void* engine = corin_html_template_engine_create();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(engine));
             return;
             
@@ -3496,10 +3496,10 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 pos = semi_pos + 1;
             }
             
-            char* result = sapphire_html_template_render(engine, template_str.c_str(), 
+            char* result = corin_html_template_render(engine, template_str.c_str(), 
                 keys.data(), values.data(), keys.size());
             last_value = std::string(result);
-            sapphire_html_template_free_string(result);
+            corin_html_template_free_string(result);
             return;
             
         // ===== DATABASE DRIVERS =====
@@ -3509,7 +3509,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("postgresql_create() requires 0 arguments");
             }
             
-            void* conn = sapphire_postgresql_create();
+            void* conn = corin_postgresql_create();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(conn));
             return;
             
@@ -3521,7 +3521,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* conn = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string conn_str = std::get<std::string>(arguments[1]);
-            int result = sapphire_postgresql_connect(conn, conn_str.c_str());
+            int result = corin_postgresql_connect(conn, conn_str.c_str());
             last_value = (result == 1);
             return;
             
@@ -3533,9 +3533,9 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* conn = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string query = std::get<std::string>(arguments[1]);
-            char* result = sapphire_postgresql_query(conn, query.c_str());
+            char* result = corin_postgresql_query(conn, query.c_str());
             last_value = std::string(result);
-            sapphire_database_free_result(result);
+            corin_database_free_result(result);
             return;
             
         } else if (func_name == "__builtin_mysql_create__") {
@@ -3544,7 +3544,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 throw TypeError("mysql_create() requires 0 arguments");
             }
             
-            void* conn = sapphire_mysql_create();
+            void* conn = corin_mysql_create();
             last_value = static_cast<int>(reinterpret_cast<intptr_t>(conn));
             return;
             
@@ -3556,7 +3556,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* conn = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string conn_str = std::get<std::string>(arguments[1]);
-            int result = sapphire_mysql_connect(conn, conn_str.c_str());
+            int result = corin_mysql_connect(conn, conn_str.c_str());
             last_value = (result == 1);
             return;
             
@@ -3568,9 +3568,9 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             
             void* conn = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             std::string query = std::get<std::string>(arguments[1]);
-            char* result = sapphire_mysql_query(conn, query.c_str());
+            char* result = corin_mysql_query(conn, query.c_str());
             last_value = std::string(result);
-            sapphire_database_free_result(result);
+            corin_database_free_result(result);
             return;
 
         // ===== ORM FRAMEWORK =====
@@ -3590,19 +3590,19 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             if (type == "string") orm_model_add_string_field(model, name.c_str(), 255);
             else if (type == "int") orm_model_add_int_field(model, name.c_str());
             else if (type == "text") {
-                auto* m = static_cast<Sapphire::ORM::Model*>(model);
+                auto* m = static_cast<Corin::ORM::Model*>(model);
                 m->add_text_field(name);
             } else if (type == "float" || type == "double") {
-                auto* m = static_cast<Sapphire::ORM::Model*>(model);
+                auto* m = static_cast<Corin::ORM::Model*>(model);
                 m->add_double_field(name);
             } else if (type == "bool") {
-                auto* m = static_cast<Sapphire::ORM::Model*>(model);
+                auto* m = static_cast<Corin::ORM::Model*>(model);
                 m->add_bool_field(name);
             } else if (type == "datetime") {
-                auto* m = static_cast<Sapphire::ORM::Model*>(model);
+                auto* m = static_cast<Corin::ORM::Model*>(model);
                 m->add_datetime_field(name);
             } else if (type == "json") {
-                auto* m = static_cast<Sapphire::ORM::Model*>(model);
+                auto* m = static_cast<Corin::ORM::Model*>(model);
                 m->add_json_field(name);
             } else {
                 orm_model_add_string_field(model, name.c_str(), 255);
@@ -3639,10 +3639,10 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             } else if (std::holds_alternative<int>(arguments[2])) {
                 orm_record_set_int(record, field.c_str(), std::get<int>(arguments[2]));
             } else if (std::holds_alternative<double>(arguments[2])) {
-                auto* r = static_cast<Sapphire::ORM::Record*>(record);
+                auto* r = static_cast<Corin::ORM::Record*>(record);
                 r->set(field, std::get<double>(arguments[2]));
             } else if (std::holds_alternative<bool>(arguments[2])) {
-                auto* r = static_cast<Sapphire::ORM::Record*>(record);
+                auto* r = static_cast<Corin::ORM::Record*>(record);
                 r->set(field, std::get<bool>(arguments[2]));
             }
             last_value = nullptr;
@@ -3689,7 +3689,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             if (arguments.size() != 2) throw TypeError("orm_query_offset() requires 2 arguments (query, offset)");
             void* query = reinterpret_cast<void*>(static_cast<intptr_t>(std::get<int>(arguments[0])));
             int off = std::get<int>(arguments[1]);
-            static_cast<Sapphire::ORM::QueryBuilder*>(query)->offset(off);
+            static_cast<Corin::ORM::QueryBuilder*>(query)->offset(off);
             last_value = nullptr;
             return;
 
@@ -3702,7 +3702,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
                 std::string dir = std::get<std::string>(arguments[2]);
                 asc = (dir != "desc" && dir != "DESC");
             }
-            static_cast<Sapphire::ORM::QueryBuilder*>(query)->order_by(field, asc);
+            static_cast<Corin::ORM::QueryBuilder*>(query)->order_by(field, asc);
             last_value = nullptr;
             return;
 
@@ -7320,7 +7320,7 @@ void Interpreter::visitCallExpr(CallExpr& expr) {
             void* h = gl3d_mesh_cylinder(_gf(0), _gf(1), _gi(2));
             last_value = h ? static_cast<int>(reinterpret_cast<intptr_t>(h)) : 0; return;
         } else if (fn == "__builtin_gl3d_mesh_terrain__") {
-            // arg0 = Sapphire list of floats, arg1 = subdiv, arg2 = size, arg3 = hscale
+            // arg0 = Corin list of floats, arg1 = subdiv, arg2 = size, arg3 = hscale
             std::vector<float> hdata;
             if (std::holds_alternative<std::shared_ptr<ArrayValue>>(arguments[0])) {
                 auto& arr = std::get<std::shared_ptr<ArrayValue>>(arguments[0])->elements;
@@ -9538,7 +9538,7 @@ void Interpreter::visitTryStmt(TryStmt& stmt) {
         for (auto& s : stmt.try_body) {
             s->accept(*this);
         }
-    } catch (const SapphireException& ex) {
+    } catch (const CorinException& ex) {
         bool handled = false;
         
         for (auto& clause : stmt.catch_clauses) {
@@ -12402,4 +12402,4 @@ std::shared_ptr<Function> Interpreter::findTraitMethod(const std::string& type_n
     return nullptr;
 }
 
-} // namespace sapphire
+} // namespace corin

@@ -6,7 +6,7 @@
 #include <functional>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace DApp {
 
 // ===== Wallet =====
@@ -138,7 +138,7 @@ struct EventLog {
 };
 
 } // namespace DApp
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

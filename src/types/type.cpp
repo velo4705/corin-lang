@@ -1,8 +1,8 @@
 #include "type.h"
 
-namespace sapphire {
+namespace corin {
 
 // Initialize static member
 int TypeVariable::next_id = 0;
 
-} // namespace sapphire
+} // namespace corin

@@ -1,12 +1,12 @@
-# Graphics Support in Sapphire
+# Graphics Support in Corin
 
-Sapphire provides comprehensive graphics capabilities for 2D and 3D applications.
+Corin provides comprehensive graphics capabilities for 2D and 3D applications.
 
 ## Quick Start
 
 ### 2D Graphics (SDL2) - Ready Now!
 
-```sapphire
+```corin
 # Create a simple 2D game
 let window = window_create("My Game", 800, 600)
 window_show(window)
@@ -31,7 +31,7 @@ window_destroy(window)
 
 **Compile:**
 ```bash
-./sapp compile game.spp 2>/dev/null > game.ll
+./corin compile game.corin 2>/dev/null > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o stdlib/gui/window.cpp -o game -lSDL2 -lSDL2_ttf -lstdc++
 ./game
@@ -99,7 +99,7 @@ clang game.o stdlib/gui/window.cpp -o game -lSDL2 -lSDL2_ttf -lstdc++
 
 ## Working Example: Pong Game
 
-A complete 2-player Pong game in pure Sapphire:
+A complete 2-player Pong game in pure Corin:
 
 ```bash
 ./examples/challenges/round3_field_level/run_pong.sh
@@ -113,13 +113,13 @@ A complete 2-player Pong game in pure Sapphire:
 - Window closing with ESC or X button
 - First to 10 points wins
 
-**Code:** `examples/challenges/round3_field_level/pong_simple.spp`
+**Code:** `examples/challenges/round3_field_level/pong_simple.corin`
 
 ## Architecture
 
 ### How It Works
 
-1. **Sapphire Code** → Built-in functions like `window_create()`
+1. **Corin Code** → Built-in functions like `window_create()`
 2. **LLVM Codegen** → Declares external C functions
 3. **C++ Library** → Implements functions using SDL2/OpenGL
 4. **Linker** → Combines everything into native executable
@@ -129,9 +129,9 @@ A complete 2-player Pong game in pure Sapphire:
 Window functions are compiled as external C calls:
 
 ```llvm
-declare ptr @sapphire_window_create(ptr, i64, i64)
-declare void @sapphire_window_show(ptr)
-declare i1 @sapphire_window_poll_events(ptr)
+declare ptr @corin_window_create(ptr, i64, i64)
+declare void @corin_window_show(ptr)
+declare i1 @corin_window_poll_events(ptr)
 ```
 
 Then linked with the C++ implementation at compile time.
@@ -255,13 +255,13 @@ brew install freeglut
 ## Best Practices
 
 ### Frame Rate Control
-```sapphire
+```corin
 # Target 60 FPS
 delay(16)  # 1000ms / 60 = 16.67ms
 ```
 
 ### Game Loop Pattern
-```sapphire
+```corin
 while not_done:
     # 1. Handle events
     window_poll_events(window)
@@ -279,7 +279,7 @@ while not_done:
 ```
 
 ### Resource Cleanup
-```sapphire
+```corin
 # Always destroy window when done
 window_destroy(window)
 ```
@@ -288,7 +288,7 @@ window_destroy(window)
 
 ### Window doesn't close
 Use `window_should_close()` to check if user clicked X:
-```sapphire
+```corin
 if window_should_close(window):
     # Exit game loop
 ```

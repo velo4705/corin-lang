@@ -3,7 +3,7 @@
 #include <cstring>
 #include <stdexcept>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Collections {
 
@@ -258,52 +258,52 @@ void array_set_string(DynamicArray* array, size_t index, const char* value) {
 
 } // namespace Collections
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
-    void* sapphire_array_create() {
-        return sapphire::stdlib::Collections::create_array(sizeof(int64_t));
+    void* corin_array_create() {
+        return corin::stdlib::Collections::create_array(sizeof(int64_t));
     }
     
-    void* sapphire_array_create_typed(int64_t element_size) {
-        return sapphire::stdlib::Collections::create_array((size_t)element_size);
+    void* corin_array_create_typed(int64_t element_size) {
+        return corin::stdlib::Collections::create_array((size_t)element_size);
     }
     
-    void sapphire_array_destroy(void* array) {
+    void corin_array_destroy(void* array) {
         if (array) {
-            sapphire::stdlib::Collections::destroy_array(
-                (sapphire::stdlib::Collections::DynamicArray*)array);
+            corin::stdlib::Collections::destroy_array(
+                (corin::stdlib::Collections::DynamicArray*)array);
         }
     }
     
     // Integer operations
-    void sapphire_array_push_int(void* array, int64_t value) {
+    void corin_array_push_int(void* array, int64_t value) {
         if (array) {
-            sapphire::stdlib::Collections::array_push_int(
-                (sapphire::stdlib::Collections::DynamicArray*)array, value);
+            corin::stdlib::Collections::array_push_int(
+                (corin::stdlib::Collections::DynamicArray*)array, value);
         }
     }
     
-    int64_t sapphire_array_get_int(void* array, int64_t index) {
+    int64_t corin_array_get_int(void* array, int64_t index) {
         if (array && index >= 0) {
-            return sapphire::stdlib::Collections::array_get_int(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index);
+            return corin::stdlib::Collections::array_get_int(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index);
         }
         return 0;
     }
     
-    void sapphire_array_set_int(void* array, int64_t index, int64_t value) {
+    void corin_array_set_int(void* array, int64_t index, int64_t value) {
         if (array && index >= 0) {
-            sapphire::stdlib::Collections::array_set_int(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
+            corin::stdlib::Collections::array_set_int(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
         }
     }
     
-    int64_t sapphire_array_pop_int(void* array) {
+    int64_t corin_array_pop_int(void* array) {
         if (array) {
-            auto* arr = (sapphire::stdlib::Collections::DynamicArray*)array;
-            void* element = sapphire::stdlib::Collections::array_pop(arr);
+            auto* arr = (corin::stdlib::Collections::DynamicArray*)array;
+            void* element = corin::stdlib::Collections::array_pop(arr);
             if (element) {
                 int64_t value = *(int64_t*)element;
                 free(element);
@@ -314,32 +314,32 @@ extern "C" {
     }
     
     // Double operations
-    void sapphire_array_push_double(void* array, double value) {
+    void corin_array_push_double(void* array, double value) {
         if (array) {
-            sapphire::stdlib::Collections::array_push_double(
-                (sapphire::stdlib::Collections::DynamicArray*)array, value);
+            corin::stdlib::Collections::array_push_double(
+                (corin::stdlib::Collections::DynamicArray*)array, value);
         }
     }
     
-    double sapphire_array_get_double(void* array, int64_t index) {
+    double corin_array_get_double(void* array, int64_t index) {
         if (array && index >= 0) {
-            return sapphire::stdlib::Collections::array_get_double(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index);
+            return corin::stdlib::Collections::array_get_double(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index);
         }
         return 0.0;
     }
     
-    void sapphire_array_set_double(void* array, int64_t index, double value) {
+    void corin_array_set_double(void* array, int64_t index, double value) {
         if (array && index >= 0) {
-            sapphire::stdlib::Collections::array_set_double(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
+            corin::stdlib::Collections::array_set_double(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
         }
     }
     
-    double sapphire_array_pop_double(void* array) {
+    double corin_array_pop_double(void* array) {
         if (array) {
-            auto* arr = (sapphire::stdlib::Collections::DynamicArray*)array;
-            void* element = sapphire::stdlib::Collections::array_pop(arr);
+            auto* arr = (corin::stdlib::Collections::DynamicArray*)array;
+            void* element = corin::stdlib::Collections::array_pop(arr);
             if (element) {
                 double value = *(double*)element;
                 free(element);
@@ -350,32 +350,32 @@ extern "C" {
     }
     
     // String operations
-    void sapphire_array_push_string(void* array, const char* value) {
+    void corin_array_push_string(void* array, const char* value) {
         if (array) {
-            sapphire::stdlib::Collections::array_push_string(
-                (sapphire::stdlib::Collections::DynamicArray*)array, value);
+            corin::stdlib::Collections::array_push_string(
+                (corin::stdlib::Collections::DynamicArray*)array, value);
         }
     }
     
-    const char* sapphire_array_get_string(void* array, int64_t index) {
+    const char* corin_array_get_string(void* array, int64_t index) {
         if (array && index >= 0) {
-            return sapphire::stdlib::Collections::array_get_string(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index);
+            return corin::stdlib::Collections::array_get_string(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index);
         }
         return nullptr;
     }
     
-    void sapphire_array_set_string(void* array, int64_t index, const char* value) {
+    void corin_array_set_string(void* array, int64_t index, const char* value) {
         if (array && index >= 0) {
-            sapphire::stdlib::Collections::array_set_string(
-                (sapphire::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
+            corin::stdlib::Collections::array_set_string(
+                (corin::stdlib::Collections::DynamicArray*)array, (size_t)index, value);
         }
     }
     
-    const char* sapphire_array_pop_string(void* array) {
+    const char* corin_array_pop_string(void* array) {
         if (array) {
-            auto* arr = (sapphire::stdlib::Collections::DynamicArray*)array;
-            void* element = sapphire::stdlib::Collections::array_pop(arr);
+            auto* arr = (corin::stdlib::Collections::DynamicArray*)array;
+            void* element = corin::stdlib::Collections::array_pop(arr);
             if (element) {
                 const char* value = *(const char**)element;
                 free(element);
@@ -386,33 +386,33 @@ extern "C" {
     }
     
     // Utility functions
-    int64_t sapphire_array_size(void* array) {
+    int64_t corin_array_size(void* array) {
         if (array) {
-            return (int64_t)sapphire::stdlib::Collections::array_size(
-                (sapphire::stdlib::Collections::DynamicArray*)array);
+            return (int64_t)corin::stdlib::Collections::array_size(
+                (corin::stdlib::Collections::DynamicArray*)array);
         }
         return 0;
     }
     
-    int64_t sapphire_array_capacity(void* array) {
+    int64_t corin_array_capacity(void* array) {
         if (array) {
-            return (int64_t)sapphire::stdlib::Collections::array_capacity(
-                (sapphire::stdlib::Collections::DynamicArray*)array);
+            return (int64_t)corin::stdlib::Collections::array_capacity(
+                (corin::stdlib::Collections::DynamicArray*)array);
         }
         return 0;
     }
     
-    void sapphire_array_clear(void* array) {
+    void corin_array_clear(void* array) {
         if (array) {
-            sapphire::stdlib::Collections::array_clear(
-                (sapphire::stdlib::Collections::DynamicArray*)array);
+            corin::stdlib::Collections::array_clear(
+                (corin::stdlib::Collections::DynamicArray*)array);
         }
     }
     
-    bool sapphire_array_empty(void* array) {
+    bool corin_array_empty(void* array) {
         if (array) {
-            return sapphire::stdlib::Collections::array_empty(
-                (sapphire::stdlib::Collections::DynamicArray*)array);
+            return corin::stdlib::Collections::array_empty(
+                (corin::stdlib::Collections::DynamicArray*)array);
         }
         return true;
     }

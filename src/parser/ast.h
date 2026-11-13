@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_AST_H
-#define SAPPHIRE_AST_H
+#ifndef CORIN_AST_H
+#define CORIN_AST_H
 
 #include <memory>
 #include <vector>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 
 // Base AST node
 class ASTNode {
@@ -62,6 +62,6 @@ public:
     std::vector<std::unique_ptr<Stmt>> body;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_AST_H
+#endif // CORIN_AST_H

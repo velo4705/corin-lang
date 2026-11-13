@@ -1,20 +1,20 @@
-# Sapphire Command Name
+# Corin Command Name
 
 ## Why Two Names?
 
-Sapphire provides **two commands** for flexibility:
+Corin provides **two commands** for flexibility:
 
-### `sapp` (Primary - 4 characters)
+### `corin` (Primary - 4 characters)
 - **Short and fast to type**
-- Stands for "Sapphire App" or "Sapphire Compiler"
+- Stands for "Corin App" or "Corin Compiler"
 - Similar to: `rustc`, `javac`, `clang`
 - Recommended for daily use
 
-### `sapphire` (Alias - 8 characters)
+### `corin` (Alias - 8 characters)
 - **Full name for clarity**
 - Better for documentation and tutorials
 - Self-documenting in scripts
-- Alias/symlink to `sapp`
+- Alias/symlink to `corin`
 
 ## Usage
 
@@ -22,14 +22,14 @@ Both commands work identically:
 
 ```bash
 # Using short name (recommended)
-sapp hello.spp
-sapp --version
-sapp --help
+corin hello.corin
+corin --version
+corin --help
 
 # Using full name (also works)
-sapphire hello.spp
-sapphire --version
-sapphire --help
+corin hello.corin
+corin --version
+corin --help
 ```
 
 ## Comparison with Other Languages
@@ -42,7 +42,7 @@ sapphire --help
 | Go | `go` | - | Very short |
 | Java | `javac` | - | Java Compiler |
 | C/C++ | `gcc`, `clang` | - | Short names |
-| **Sapphire** | **`sapp`** | **`sapphire`** | Best of both! |
+| **Corin** | **`corin`** | **`corin`** | Best of both! |
 
 ## Installation
 
@@ -53,8 +53,8 @@ When installed system-wide, both commands are available:
 sudo make install
 
 # Both work
-sapp myprogram.spp
-sapphire myprogram.spp
+corin myprogram.corin
+corin myprogram.corin
 ```
 
 ## In Scripts
@@ -62,17 +62,17 @@ sapphire myprogram.spp
 For scripts and documentation, you can use either:
 
 ```bash
-#!/usr/bin/env sapp
+#!/usr/bin/env corin
 # Short and clear
 
-#!/usr/bin/env sapphire  
+#!/usr/bin/env corin  
 # Self-documenting
 ```
 
 ## Recommendation
 
-- **Daily use**: Use `sapp` (faster to type)
-- **Documentation**: Use `sapphire` (clearer)
+- **Daily use**: Use `corin` (faster to type)
+- **Documentation**: Use `corin` (clearer)
 - **Scripts**: Either works, choose based on preference
 
 The choice is yours! 💎

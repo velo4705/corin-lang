@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_EXCEPTION_H
-#define SAPPHIRE_EXCEPTION_H
+#ifndef CORIN_EXCEPTION_H
+#define CORIN_EXCEPTION_H
 
 #include <exception>
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 // Stack frame information for better error reporting
 struct StackFrame {
@@ -23,8 +23,8 @@ struct StackFrame {
     }
 };
 
-// Base exception class for all Sapphire exceptions
-class SapphireException : public std::exception {
+// Base exception class for all Corin exceptions
+class CorinException : public std::exception {
 protected:
     std::string message;
     std::string type_name;
@@ -35,10 +35,10 @@ protected:
     std::string suggestion;
     
 public:
-    SapphireException(const std::string& msg, const std::string& type)
+    CorinException(const std::string& msg, const std::string& type)
         : message(msg), type_name(type), line_number(-1), column_number(-1) {}
     
-    SapphireException(const std::string& msg, const std::string& type, 
+    CorinException(const std::string& msg, const std::string& type, 
                      const std::string& file, int line, int col = -1)
         : message(msg), type_name(type), line_number(line), column_number(col), file_name(file) {}
     
@@ -96,79 +96,79 @@ public:
 
 // Built-in exception types
 
-class RuntimeError : public SapphireException {
+class RuntimeError : public CorinException {
 public:
     explicit RuntimeError(const std::string& msg) 
-        : SapphireException(msg, "RuntimeError") {}
+        : CorinException(msg, "RuntimeError") {}
         
     RuntimeError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "RuntimeError", file, line, col) {}
+        : CorinException(msg, "RuntimeError", file, line, col) {}
 };
 
-class DivisionByZeroError : public SapphireException {
+class DivisionByZeroError : public CorinException {
 public:
     explicit DivisionByZeroError(const std::string& msg) 
-        : SapphireException(msg, "DivisionByZeroError") {}
+        : CorinException(msg, "DivisionByZeroError") {}
         
     DivisionByZeroError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "DivisionByZeroError", file, line, col) {}
+        : CorinException(msg, "DivisionByZeroError", file, line, col) {}
 };
 
-class FileNotFoundError : public SapphireException {
+class FileNotFoundError : public CorinException {
 public:
     explicit FileNotFoundError(const std::string& msg) 
-        : SapphireException(msg, "FileNotFoundError") {}
+        : CorinException(msg, "FileNotFoundError") {}
         
     FileNotFoundError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "FileNotFoundError", file, line, col) {}
+        : CorinException(msg, "FileNotFoundError", file, line, col) {}
 };
 
-class IndexError : public SapphireException {
+class IndexError : public CorinException {
 public:
     explicit IndexError(const std::string& msg) 
-        : SapphireException(msg, "IndexError") {}
+        : CorinException(msg, "IndexError") {}
         
     IndexError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "IndexError", file, line, col) {}
+        : CorinException(msg, "IndexError", file, line, col) {}
 };
 
-class TypeError : public SapphireException {
+class TypeError : public CorinException {
 public:
     explicit TypeError(const std::string& msg) 
-        : SapphireException(msg, "TypeError") {}
+        : CorinException(msg, "TypeError") {}
         
     TypeError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "TypeError", file, line, col) {}
+        : CorinException(msg, "TypeError", file, line, col) {}
 };
 
-class ValueError : public SapphireException {
+class ValueError : public CorinException {
 public:
     explicit ValueError(const std::string& msg) 
-        : SapphireException(msg, "ValueError") {}
+        : CorinException(msg, "ValueError") {}
         
     ValueError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "ValueError", file, line, col) {}
+        : CorinException(msg, "ValueError", file, line, col) {}
 };
 
-class PermissionError : public SapphireException {
+class PermissionError : public CorinException {
 public:
     explicit PermissionError(const std::string& msg)
-        : SapphireException(msg, "PermissionError") {}
+        : CorinException(msg, "PermissionError") {}
         
     PermissionError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "PermissionError", file, line, col) {}
+        : CorinException(msg, "PermissionError", file, line, col) {}
 };
 
 // JSON-specific errors
-class JSONParseError : public SapphireException {
+class JSONParseError : public CorinException {
 public:
     explicit JSONParseError(const std::string& msg)
-        : SapphireException(msg, "JSONParseError") {}
+        : CorinException(msg, "JSONParseError") {}
         
     JSONParseError(const std::string& msg, const std::string& file, int line, int col = -1)
-        : SapphireException(msg, "JSONParseError", file, line, col) {}
+        : CorinException(msg, "JSONParseError", file, line, col) {}
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_EXCEPTION_H
+#endif // CORIN_EXCEPTION_H

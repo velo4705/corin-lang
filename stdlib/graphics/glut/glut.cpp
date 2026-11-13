@@ -1,6 +1,6 @@
 #include "glut.h"
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -166,169 +166,169 @@ int GLUT::get_time() {
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    void sapphire_glut_init() {
+    void corin_glut_init() {
         int argc = 0;
         char* argv[] = {nullptr};
-        sapphire::stdlib::graphics::GLUT::init(&argc, argv);
+        corin::stdlib::graphics::GLUT::init(&argc, argv);
     }
     
-    void sapphire_glut_init_display_mode(unsigned int mode) {
-        sapphire::stdlib::graphics::GLUT::init_display_mode(mode);
+    void corin_glut_init_display_mode(unsigned int mode) {
+        corin::stdlib::graphics::GLUT::init_display_mode(mode);
     }
     
-    void sapphire_glut_init_window_size(int width, int height) {
-        sapphire::stdlib::graphics::GLUT::init_window_size(width, height);
+    void corin_glut_init_window_size(int width, int height) {
+        corin::stdlib::graphics::GLUT::init_window_size(width, height);
     }
     
-    void sapphire_glut_init_window_position(int x, int y) {
-        sapphire::stdlib::graphics::GLUT::init_window_position(x, y);
+    void corin_glut_init_window_position(int x, int y) {
+        corin::stdlib::graphics::GLUT::init_window_position(x, y);
     }
     
-    int sapphire_glut_create_window(const char* title) {
-        return sapphire::stdlib::graphics::GLUT::create_window(title);
+    int corin_glut_create_window(const char* title) {
+        return corin::stdlib::graphics::GLUT::create_window(title);
     }
     
-    void sapphire_glut_main_loop() {
-        sapphire::stdlib::graphics::GLUT::main_loop();
+    void corin_glut_main_loop() {
+        corin::stdlib::graphics::GLUT::main_loop();
     }
     
-    void sapphire_glut_post_redisplay() {
-        sapphire::stdlib::graphics::GLUT::post_redisplay();
+    void corin_glut_post_redisplay() {
+        corin::stdlib::graphics::GLUT::post_redisplay();
     }
     
-    void sapphire_glut_set_window(int win) {
-        sapphire::stdlib::graphics::GLUT::set_window(win);
+    void corin_glut_set_window(int win) {
+        corin::stdlib::graphics::GLUT::set_window(win);
     }
     
-    int sapphire_glut_get_window() {
-        return sapphire::stdlib::graphics::GLUT::get_window();
+    int corin_glut_get_window() {
+        return corin::stdlib::graphics::GLUT::get_window();
     }
     
-    void sapphire_glut_set_window_title(const char* title) {
-        sapphire::stdlib::graphics::GLUT::set_window_title(title);
+    void corin_glut_set_window_title(const char* title) {
+        corin::stdlib::graphics::GLUT::set_window_title(title);
     }
     
-    void sapphire_glut_set_icon_title(const char* title) {
-        sapphire::stdlib::graphics::GLUT::set_icon_title(title);
+    void corin_glut_set_icon_title(const char* title) {
+        corin::stdlib::graphics::GLUT::set_icon_title(title);
     }
     
-    void sapphire_glut_position_window(int x, int y) {
-        sapphire::stdlib::graphics::GLUT::position_window(x, y);
+    void corin_glut_position_window(int x, int y) {
+        corin::stdlib::graphics::GLUT::position_window(x, y);
     }
     
-    void sapphire_glut_reshape_window(int width, int height) {
-        sapphire::stdlib::graphics::GLUT::reshape_window(width, height);
+    void corin_glut_reshape_window(int width, int height) {
+        corin::stdlib::graphics::GLUT::reshape_window(width, height);
     }
     
-    void sapphire_glut_full_screen() {
-        sapphire::stdlib::graphics::GLUT::full_screen();
+    void corin_glut_full_screen() {
+        corin::stdlib::graphics::GLUT::full_screen();
     }
     
-    void sapphire_glut_pop_window() {
-        sapphire::stdlib::graphics::GLUT::pop_window();
+    void corin_glut_pop_window() {
+        corin::stdlib::graphics::GLUT::pop_window();
     }
     
-    void sapphire_glut_push_window() {
-        sapphire::stdlib::graphics::GLUT::push_window();
+    void corin_glut_push_window() {
+        corin::stdlib::graphics::GLUT::push_window();
     }
     
-    void sapphire_glut_show_window() {
-        sapphire::stdlib::graphics::GLUT::show_window();
+    void corin_glut_show_window() {
+        corin::stdlib::graphics::GLUT::show_window();
     }
     
-    void sapphire_glut_hide_window() {
-        sapphire::stdlib::graphics::GLUT::hide_window();
+    void corin_glut_hide_window() {
+        corin::stdlib::graphics::GLUT::hide_window();
     }
     
-    void sapphire_glut_iconify_window() {
-        sapphire::stdlib::graphics::GLUT::iconify_window();
+    void corin_glut_iconify_window() {
+        corin::stdlib::graphics::GLUT::iconify_window();
     }
     
-    void sapphire_glut_destroy_window(int win) {
-        sapphire::stdlib::graphics::GLUT::destroy_window(win);
+    void corin_glut_destroy_window(int win) {
+        corin::stdlib::graphics::GLUT::destroy_window(win);
     }
     
-    void sapphire_glut_swap_buffers() {
-        sapphire::stdlib::graphics::GLUT::swap_buffers();
+    void corin_glut_swap_buffers() {
+        corin::stdlib::graphics::GLUT::swap_buffers();
     }
     
-    void sapphire_glut_solid_sphere(double radius, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUT::solid_sphere(radius, slices, stacks);
+    void corin_glut_solid_sphere(double radius, int slices, int stacks) {
+        corin::stdlib::graphics::GLUT::solid_sphere(radius, slices, stacks);
     }
     
-    void sapphire_glut_solid_cube(double size) {
-        sapphire::stdlib::graphics::GLUT::solid_cube(size);
+    void corin_glut_solid_cube(double size) {
+        corin::stdlib::graphics::GLUT::solid_cube(size);
     }
     
-    void sapphire_glut_solid_cone(double base, double height, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUT::solid_cone(base, height, slices, stacks);
+    void corin_glut_solid_cone(double base, double height, int slices, int stacks) {
+        corin::stdlib::graphics::GLUT::solid_cone(base, height, slices, stacks);
     }
     
-    void sapphire_glut_solid_torus(double inner_radius, double outer_radius, int sides, int rings) {
-        sapphire::stdlib::graphics::GLUT::solid_torus(inner_radius, outer_radius, sides, rings);
+    void corin_glut_solid_torus(double inner_radius, double outer_radius, int sides, int rings) {
+        corin::stdlib::graphics::GLUT::solid_torus(inner_radius, outer_radius, sides, rings);
     }
     
-    void sapphire_glut_solid_teapot(double size) {
-        sapphire::stdlib::graphics::GLUT::solid_teapot(size);
+    void corin_glut_solid_teapot(double size) {
+        corin::stdlib::graphics::GLUT::solid_teapot(size);
     }
     
-    void sapphire_glut_solid_octahedron() {
-        sapphire::stdlib::graphics::GLUT::solid_octahedron();
+    void corin_glut_solid_octahedron() {
+        corin::stdlib::graphics::GLUT::solid_octahedron();
     }
     
-    void sapphire_glut_solid_dodecahedron() {
-        sapphire::stdlib::graphics::GLUT::solid_dodecahedron();
+    void corin_glut_solid_dodecahedron() {
+        corin::stdlib::graphics::GLUT::solid_dodecahedron();
     }
     
-    void sapphire_glut_solid_icosahedron() {
-        sapphire::stdlib::graphics::GLUT::solid_icosahedron();
+    void corin_glut_solid_icosahedron() {
+        corin::stdlib::graphics::GLUT::solid_icosahedron();
     }
     
-    void sapphire_glut_solid_tetrahedron() {
-        sapphire::stdlib::graphics::GLUT::solid_tetrahedron();
+    void corin_glut_solid_tetrahedron() {
+        corin::stdlib::graphics::GLUT::solid_tetrahedron();
     }
     
-    void sapphire_glut_wire_sphere(double radius, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUT::wire_sphere(radius, slices, stacks);
+    void corin_glut_wire_sphere(double radius, int slices, int stacks) {
+        corin::stdlib::graphics::GLUT::wire_sphere(radius, slices, stacks);
     }
     
-    void sapphire_glut_wire_cube(double size) {
-        sapphire::stdlib::graphics::GLUT::wire_cube(size);
+    void corin_glut_wire_cube(double size) {
+        corin::stdlib::graphics::GLUT::wire_cube(size);
     }
     
-    void sapphire_glut_wire_cone(double base, double height, int slices, int stacks) {
-        sapphire::stdlib::graphics::GLUT::wire_cone(base, height, slices, stacks);
+    void corin_glut_wire_cone(double base, double height, int slices, int stacks) {
+        corin::stdlib::graphics::GLUT::wire_cone(base, height, slices, stacks);
     }
     
-    void sapphire_glut_wire_torus(double inner_radius, double outer_radius, int sides, int rings) {
-        sapphire::stdlib::graphics::GLUT::wire_torus(inner_radius, outer_radius, sides, rings);
+    void corin_glut_wire_torus(double inner_radius, double outer_radius, int sides, int rings) {
+        corin::stdlib::graphics::GLUT::wire_torus(inner_radius, outer_radius, sides, rings);
     }
     
-    void sapphire_glut_wire_teapot(double size) {
-        sapphire::stdlib::graphics::GLUT::wire_teapot(size);
+    void corin_glut_wire_teapot(double size) {
+        corin::stdlib::graphics::GLUT::wire_teapot(size);
     }
     
-    void sapphire_glut_wire_octahedron() {
-        sapphire::stdlib::graphics::GLUT::wire_octahedron();
+    void corin_glut_wire_octahedron() {
+        corin::stdlib::graphics::GLUT::wire_octahedron();
     }
     
-    void sapphire_glut_wire_dodecahedron() {
-        sapphire::stdlib::graphics::GLUT::wire_dodecahedron();
+    void corin_glut_wire_dodecahedron() {
+        corin::stdlib::graphics::GLUT::wire_dodecahedron();
     }
     
-    void sapphire_glut_wire_icosahedron() {
-        sapphire::stdlib::graphics::GLUT::wire_icosahedron();
+    void corin_glut_wire_icosahedron() {
+        corin::stdlib::graphics::GLUT::wire_icosahedron();
     }
     
-    void sapphire_glut_wire_tetrahedron() {
-        sapphire::stdlib::graphics::GLUT::wire_tetrahedron();
+    void corin_glut_wire_tetrahedron() {
+        corin::stdlib::graphics::GLUT::wire_tetrahedron();
     }
     
-    int sapphire_glut_get_time() {
-        return sapphire::stdlib::graphics::GLUT::get_time();
+    int corin_glut_get_time() {
+        return corin::stdlib::graphics::GLUT::get_time();
     }
 }

@@ -4,7 +4,7 @@
 #include <cstring>
 #include <iomanip>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace JSON {
 
@@ -428,27 +428,27 @@ std::shared_ptr<JSONValue> create_json_object() {
 
 } // namespace JSON
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
     static thread_local char g_json_string_buffer[16384];
     
-    void* sapphire_json_parse(const char* json_text) {
+    void* corin_json_parse(const char* json_text) {
         if (!json_text) return nullptr;
         
-        auto result = sapphire::stdlib::JSON::parse_json(json_text);
+        auto result = corin::stdlib::JSON::parse_json(json_text);
         if (result) {
-            return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+            return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
         }
         return nullptr;
     }
     
-    const char* sapphire_json_stringify(void* json_value, bool pretty) {
+    const char* corin_json_stringify(void* json_value, bool pretty) {
         if (!json_value) return nullptr;
         
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
-        std::string result = sapphire::stdlib::JSON::stringify_json(*value_ptr, pretty);
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
+        std::string result = corin::stdlib::JSON::stringify_json(*value_ptr, pretty);
         
         strncpy(g_json_string_buffer, result.c_str(), sizeof(g_json_string_buffer) - 1);
         g_json_string_buffer[sizeof(g_json_string_buffer) - 1] = '\0';
@@ -456,97 +456,97 @@ extern "C" {
         return g_json_string_buffer;
     }
     
-    void sapphire_json_destroy(void* json_value) {
+    void corin_json_destroy(void* json_value) {
         if (json_value) {
-            delete (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+            delete (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         }
     }
     
     // JSON creation functions
-    void* sapphire_json_create_null() {
-        auto result = sapphire::stdlib::JSON::create_json_null();
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+    void* corin_json_create_null() {
+        auto result = corin::stdlib::JSON::create_json_null();
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
-    void* sapphire_json_create_bool(bool value) {
-        auto result = sapphire::stdlib::JSON::create_json_bool(value);
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+    void* corin_json_create_bool(bool value) {
+        auto result = corin::stdlib::JSON::create_json_bool(value);
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
-    void* sapphire_json_create_number(double value) {
-        auto result = sapphire::stdlib::JSON::create_json_number(value);
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+    void* corin_json_create_number(double value) {
+        auto result = corin::stdlib::JSON::create_json_number(value);
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
-    void* sapphire_json_create_string(const char* value) {
+    void* corin_json_create_string(const char* value) {
         if (!value) return nullptr;
-        auto result = sapphire::stdlib::JSON::create_json_string(value);
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+        auto result = corin::stdlib::JSON::create_json_string(value);
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
-    void* sapphire_json_create_array() {
-        auto result = sapphire::stdlib::JSON::create_json_array();
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+    void* corin_json_create_array() {
+        auto result = corin::stdlib::JSON::create_json_array();
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
-    void* sapphire_json_create_object() {
-        auto result = sapphire::stdlib::JSON::create_json_object();
-        return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(result);
+    void* corin_json_create_object() {
+        auto result = corin::stdlib::JSON::create_json_object();
+        return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(result);
     }
     
     // Type checking functions
-    bool sapphire_json_is_null(void* json_value) {
+    bool corin_json_is_null(void* json_value) {
         if (!json_value) return true;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_null();
     }
     
-    bool sapphire_json_is_bool(void* json_value) {
+    bool corin_json_is_bool(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_bool();
     }
     
-    bool sapphire_json_is_number(void* json_value) {
+    bool corin_json_is_number(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_number();
     }
     
-    bool sapphire_json_is_string(void* json_value) {
+    bool corin_json_is_string(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_string();
     }
     
-    bool sapphire_json_is_array(void* json_value) {
+    bool corin_json_is_array(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_array();
     }
     
-    bool sapphire_json_is_object(void* json_value) {
+    bool corin_json_is_object(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_object();
     }
     
     // Value access functions
-    bool sapphire_json_get_bool(void* json_value) {
+    bool corin_json_get_bool(void* json_value) {
         if (!json_value) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_bool() ? (*value_ptr)->as_bool() : false;
     }
     
-    double sapphire_json_get_number(void* json_value) {
+    double corin_json_get_number(void* json_value) {
         if (!json_value) return 0.0;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_number() ? (*value_ptr)->as_number() : 0.0;
     }
     
-    const char* sapphire_json_get_string(void* json_value) {
+    const char* corin_json_get_string(void* json_value) {
         if (!json_value) return nullptr;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         if ((*value_ptr)->is_string()) {
             const std::string& str = (*value_ptr)->as_string();
             strncpy(g_json_string_buffer, str.c_str(), sizeof(g_json_string_buffer) - 1);
@@ -557,59 +557,59 @@ extern "C" {
     }
     
     // Array operations
-    int64_t sapphire_json_array_size(void* json_value) {
+    int64_t corin_json_array_size(void* json_value) {
         if (!json_value) return 0;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         return (*value_ptr)->is_array() ? (int64_t)(*value_ptr)->as_array().size() : 0;
     }
     
-    void* sapphire_json_array_get(void* json_value, int64_t index) {
+    void* corin_json_array_get(void* json_value, int64_t index) {
         if (!json_value || index < 0) return nullptr;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         if ((*value_ptr)->is_array()) {
             const auto& array = (*value_ptr)->as_array();
             if ((size_t)index < array.size()) {
-                return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(array[index]);
+                return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(array[index]);
             }
         }
         return nullptr;
     }
     
-    void sapphire_json_array_push(void* json_value, void* element) {
+    void corin_json_array_push(void* json_value, void* element) {
         if (!json_value || !element) return;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
-        auto* element_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)element;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
+        auto* element_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)element;
         if ((*value_ptr)->is_array()) {
             (*value_ptr)->as_array().push_back(*element_ptr);
         }
     }
     
     // Object operations
-    void* sapphire_json_object_get(void* json_value, const char* key) {
+    void* corin_json_object_get(void* json_value, const char* key) {
         if (!json_value || !key) return nullptr;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         if ((*value_ptr)->is_object()) {
             const auto& object = (*value_ptr)->as_object();
             auto it = object.find(key);
             if (it != object.end()) {
-                return new std::shared_ptr<sapphire::stdlib::JSON::JSONValue>(it->second);
+                return new std::shared_ptr<corin::stdlib::JSON::JSONValue>(it->second);
             }
         }
         return nullptr;
     }
     
-    void sapphire_json_object_set(void* json_value, const char* key, void* element) {
+    void corin_json_object_set(void* json_value, const char* key, void* element) {
         if (!json_value || !key || !element) return;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
-        auto* element_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)element;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
+        auto* element_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)element;
         if ((*value_ptr)->is_object()) {
             (*value_ptr)->as_object()[key] = *element_ptr;
         }
     }
     
-    bool sapphire_json_object_has(void* json_value, const char* key) {
+    bool corin_json_object_has(void* json_value, const char* key) {
         if (!json_value || !key) return false;
-        auto* value_ptr = (std::shared_ptr<sapphire::stdlib::JSON::JSONValue>*)json_value;
+        auto* value_ptr = (std::shared_ptr<corin::stdlib::JSON::JSONValue>*)json_value;
         if ((*value_ptr)->is_object()) {
             const auto& object = (*value_ptr)->as_object();
             return object.find(key) != object.end();

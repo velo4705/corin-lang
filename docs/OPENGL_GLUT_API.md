@@ -1,6 +1,6 @@
-# OpenGL and GLUT API Reference for Sapphire
+# OpenGL and GLUT API Reference for Corin
 
-Built-in OpenGL and GLUT functions for 3D graphics in Sapphire.
+Built-in OpenGL and GLUT functions for 3D graphics in Corin.
 
 ## Status
 
@@ -19,7 +19,7 @@ Sets the clear color for the color buffer.
 - `r, g, b, a` - Red, green, blue, alpha values (0.0 to 1.0)
 
 **Example:**
-```sapphire
+```corin
 gl_clear_color(0, 0, 0, 1)  # Black background
 ```
 
@@ -34,7 +34,7 @@ Clears buffers to preset values.
 - `GL_DEPTH_BUFFER_BIT = 256`
 
 **Example:**
-```sapphire
+```corin
 let GL_COLOR_BUFFER_BIT = 16384
 gl_clear(GL_COLOR_BUFFER_BIT)
 ```
@@ -54,7 +54,7 @@ Begins drawing primitives.
 - `GL_QUADS = 7`
 
 **Example:**
-```sapphire
+```corin
 let GL_TRIANGLES = 4
 gl_begin(GL_TRIANGLES)
 ```
@@ -63,7 +63,7 @@ gl_begin(GL_TRIANGLES)
 Ends drawing primitives.
 
 **Example:**
-```sapphire
+```corin
 gl_end()
 ```
 
@@ -74,7 +74,7 @@ Specifies a vertex position.
 - `x, y, z` - Vertex coordinates
 
 **Example:**
-```sapphire
+```corin
 gl_vertex3f(0, 1, 0)
 ```
 
@@ -85,7 +85,7 @@ Sets the current color.
 - `r, g, b` - Red, green, blue values (0.0 to 1.0)
 
 **Example:**
-```sapphire
+```corin
 gl_color3f(1, 0, 0)  # Red
 ```
 
@@ -98,7 +98,7 @@ Translates the current matrix.
 - `x, y, z` - Translation amounts
 
 **Example:**
-```sapphire
+```corin
 gl_translatef(0, 0, 0 - 5)  # Move back 5 units
 ```
 
@@ -110,7 +110,7 @@ Rotates the current matrix.
 - `x, y, z` - Rotation axis
 
 **Example:**
-```sapphire
+```corin
 gl_rotatef(45, 0, 1, 0)  # Rotate 45° around Y axis
 ```
 
@@ -127,7 +127,7 @@ Specifies which matrix is the current matrix.
 - `GL_PROJECTION = 5889`
 
 **Example:**
-```sapphire
+```corin
 let GL_PROJECTION = 5889
 gl_matrix_mode(GL_PROJECTION)
 ```
@@ -136,7 +136,7 @@ gl_matrix_mode(GL_PROJECTION)
 Replaces the current matrix with the identity matrix.
 
 **Example:**
-```sapphire
+```corin
 gl_load_identity()
 ```
 
@@ -158,7 +158,7 @@ Sets the initial display mode.
 - `GLUT_DEPTH = 16`
 
 **Example:**
-```sapphire
+```corin
 let GLUT_DOUBLE = 2
 let GLUT_RGB = 0
 let GLUT_DEPTH = 16
@@ -172,7 +172,7 @@ Sets the initial window size.
 - `width, height` - Window dimensions in pixels
 
 **Example:**
-```sapphire
+```corin
 glut_init_window_size(800, 600)
 ```
 
@@ -185,7 +185,7 @@ Creates a window with the specified title.
 **Returns:** Window ID (integer)
 
 **Example:**
-```sapphire
+```corin
 let window = glut_create_window("My 3D App")
 ```
 
@@ -195,7 +195,7 @@ let window = glut_create_window("My 3D App")
 Swaps the front and back buffers (for double buffering).
 
 **Example:**
-```sapphire
+```corin
 glut_swap_buffers()
 ```
 
@@ -210,7 +210,7 @@ Draws a solid sphere.
 - `stacks` - Number of subdivisions along Z axis
 
 **Example:**
-```sapphire
+```corin
 glut_solid_sphere(1, 30, 30)
 ```
 
@@ -223,7 +223,7 @@ Draws a wireframe sphere.
 - `stacks` - Number of subdivisions along Z axis
 
 **Example:**
-```sapphire
+```corin
 glut_wire_sphere(1, 20, 20)
 ```
 
@@ -231,10 +231,10 @@ glut_wire_sphere(1, 20, 20)
 
 ## Complete Example: Rotating Triangle
 
-```sapphire
+```corin
 # OpenGL/GLUT Triangle Example (Conceptual)
 # Note: This shows the API, but GLUT main loop requires callbacks
-# which aren't yet supported in Sapphire
+# which aren't yet supported in Corin
 
 # Constants
 let GL_COLOR_BUFFER_BIT = 16384
@@ -280,8 +280,8 @@ glut_swap_buffers()
 
 ### With OpenGL
 ```bash
-# Compile Sapphire to LLVM IR
-./sapp compile program.spp 2>/dev/null > program.ll
+# Compile Corin to LLVM IR
+./corin compile program.corin 2>/dev/null > program.ll
 
 # Compile to object file
 llc -filetype=obj program.ll -o program.o
@@ -295,8 +295,8 @@ clang program.o -o program -lGL -lGLU -lstdc++
 
 ### With GLUT
 ```bash
-# Compile Sapphire to LLVM IR
-./sapp compile program.spp 2>/dev/null > program.ll
+# Compile Corin to LLVM IR
+./corin compile program.corin 2>/dev/null > program.ll
 
 # Compile to object file
 llc -filetype=obj program.ll -o program.o
@@ -313,14 +313,14 @@ clang program.o -o program -lglut -lGL -lGLU -lstdc++
 ## OpenGL Constants Reference
 
 ### Buffer Bits
-```sapphire
+```corin
 let GL_COLOR_BUFFER_BIT = 16384
 let GL_DEPTH_BUFFER_BIT = 256
 let GL_STENCIL_BUFFER_BIT = 1024
 ```
 
 ### Primitive Types
-```sapphire
+```corin
 let GL_POINTS = 0
 let GL_LINES = 1
 let GL_LINE_LOOP = 2
@@ -332,14 +332,14 @@ let GL_QUADS = 7
 ```
 
 ### Matrix Modes
-```sapphire
+```corin
 let GL_MODELVIEW = 5888
 let GL_PROJECTION = 5889
 let GL_TEXTURE = 5890
 ```
 
 ### GLUT Display Modes
-```sapphire
+```corin
 let GLUT_RGB = 0
 let GLUT_RGBA = 0
 let GLUT_SINGLE = 0
@@ -415,7 +415,7 @@ Wait for Vulkan support (or use C++ for now).
 ## Examples
 
 ### Simple Triangle (OpenGL)
-See: `examples/test_opengl.spp`
+See: `examples/test_opengl.corin`
 
 ### Black Hole Simulation (OpenGL)
 See: `examples/challenges/round3_field_level/blackhole_opengl.cpp` (C++ reference)
@@ -425,6 +425,6 @@ See: `examples/challenges/round3_field_level/blackhole_glut.cpp` (C++ reference)
 
 ---
 
-**Status**: OpenGL and GLUT fully integrated into Sapphire compiler!  
+**Status**: OpenGL and GLUT fully integrated into Corin compiler!  
 **Date**: March 8, 2026  
-**Version**: Sapphire v1.0 with Full Graphics Support
+**Version**: Corin v1.0 with Full Graphics Support

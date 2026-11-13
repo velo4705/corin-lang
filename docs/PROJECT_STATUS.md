@@ -1,4 +1,4 @@
-# Sapphire Project Status
+# Corin Project Status
 
 **Last Updated**: February 24, 2026  
 **Version**: 0.3.0-alpha  
@@ -96,7 +96,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
 
 ## Community
 
-- GitHub: https://github.com/velo4705/sapphire-lang
+- GitHub: https://github.com/velo4705/corin-lang
 - Issues: Report bugs and request features
 - Discussions: Ask questions and share ideas
 

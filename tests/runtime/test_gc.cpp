@@ -4,7 +4,7 @@
 #include <cassert>
 #include <vector>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 void test_gc_initialization() {
     std::cout << "Test: GC Initialization... ";
@@ -35,34 +35,34 @@ void test_gc_collect() {
     std::cout.flush();
     
     // Allocate some objects
-    void* ptr1 = sapphire_allocate(64, 1);
-    void* ptr2 = sapphire_allocate(128, 2);
-    void* ptr3 = sapphire_allocate(256, 3);
+    void* ptr1 = corin_allocate(64, 1);
+    void* ptr2 = corin_allocate(128, 2);
+    void* ptr3 = corin_allocate(256, 3);
     std::cout << "Objects allocated... ";
     std::cout.flush();
     
     // Add as roots so they're not collected
-    sapphire_gc_add_root(ptr1);
-    sapphire_gc_add_root(ptr2);
-    sapphire_gc_add_root(ptr3);
+    corin_gc_add_root(ptr1);
+    corin_gc_add_root(ptr2);
+    corin_gc_add_root(ptr3);
     std::cout << "Roots added... ";
     std::cout.flush();
     
     // Run GC
-    sapphire_gc_collect();
+    corin_gc_collect();
     std::cout << "GC collected... ";
     std::cout.flush();
     
     // Check statistics
-    assert(sapphire_gc_collections() == 1);
+    assert(corin_gc_collections() == 1);
     assert(global_gc->stats().objects_marked >= 3);
     std::cout << "Stats checked... ";
     std::cout.flush();
     
     // Remove roots (but don't free - let shutdown handle it)
-    sapphire_gc_remove_root(ptr1);
-    sapphire_gc_remove_root(ptr2);
-    sapphire_gc_remove_root(ptr3);
+    corin_gc_remove_root(ptr1);
+    corin_gc_remove_root(ptr2);
+    corin_gc_remove_root(ptr3);
     std::cout << "Roots removed... ";
     std::cout.flush();
     
@@ -84,14 +84,14 @@ void test_gc_mark_phase() {
     init_gc(global_allocator);
     
     // Allocate objects
-    void* ptr1 = sapphire_allocate(64, 1);
-    void* ptr2 = sapphire_allocate(64, 2);
+    void* ptr1 = corin_allocate(64, 1);
+    void* ptr2 = corin_allocate(64, 2);
     
     // Add one as root
-    sapphire_gc_add_root(ptr1);
+    corin_gc_add_root(ptr1);
     
     // Run GC
-    sapphire_gc_collect();
+    corin_gc_collect();
     
     // Check that root was marked
     ObjectHeader* header1 = Allocator::get_header(ptr1);
@@ -100,7 +100,7 @@ void test_gc_mark_phase() {
     // Check statistics
     assert(global_gc->stats().objects_marked >= 1);
     
-    sapphire_gc_remove_root(ptr1);
+    corin_gc_remove_root(ptr1);
     shutdown_gc();
     shutdown_allocator();
     
@@ -119,9 +119,9 @@ void test_gc_threshold() {
     // Allocate until GC triggers
     std::vector<void*> ptrs;
     for (int i = 0; i < 100; i++) {
-        void* ptr = sapphire_allocate(64, i);
+        void* ptr = corin_allocate(64, i);
         ptrs.push_back(ptr);
-        sapphire_gc_add_root(ptr);
+        corin_gc_add_root(ptr);
     }
     
     // GC should have run
@@ -129,7 +129,7 @@ void test_gc_threshold() {
     
     // Clean up
     for (void* ptr : ptrs) {
-        sapphire_gc_remove_root(ptr);
+        corin_gc_remove_root(ptr);
     }
     
     shutdown_gc();
@@ -145,18 +145,18 @@ void test_gc_statistics() {
     init_gc(global_allocator);
     
     // Initial state
-    assert(sapphire_gc_collections() == 0);
+    assert(corin_gc_collections() == 0);
     
     // Run GC
-    sapphire_gc_collect();
-    assert(sapphire_gc_collections() == 1);
+    corin_gc_collect();
+    assert(corin_gc_collections() == 1);
     
     // Run again
-    sapphire_gc_collect();
-    assert(sapphire_gc_collections() == 2);
+    corin_gc_collect();
+    assert(corin_gc_collections() == 2);
     
     // Check pause time (might be 0 if very fast)
-    size_t pause = sapphire_gc_last_pause_us();
+    size_t pause = corin_gc_last_pause_us();
     // Just check it's not crazy long
     assert(pause < 1000000);  // Should be < 1 second
     
@@ -173,23 +173,23 @@ void test_gc_roots() {
     init_gc(global_allocator);
     
     // Allocate object
-    void* ptr = sapphire_allocate(64, 1);
+    void* ptr = corin_allocate(64, 1);
     
     // Add as root
-    sapphire_gc_add_root(ptr);
+    corin_gc_add_root(ptr);
     
     // Run GC - should not collect
-    sapphire_gc_collect();
+    corin_gc_collect();
     
     // Object should still be valid
     ObjectHeader* header = Allocator::get_header(ptr);
     assert(header->type_id == 1);
     
     // Remove root
-    sapphire_gc_remove_root(ptr);
+    corin_gc_remove_root(ptr);
     
     // Run GC again - now it can be collected
-    sapphire_gc_collect();
+    corin_gc_collect();
     
     shutdown_gc();
     shutdown_allocator();
@@ -208,22 +208,22 @@ void test_gc_multiple_cycles() {
         // Allocate some objects
         std::vector<void*> ptrs;
         for (int j = 0; j < 10; j++) {
-            void* ptr = sapphire_allocate(64, j);
+            void* ptr = corin_allocate(64, j);
             ptrs.push_back(ptr);
-            sapphire_gc_add_root(ptr);
+            corin_gc_add_root(ptr);
         }
         
         // Run GC
-        sapphire_gc_collect();
+        corin_gc_collect();
         
         // Clean up roots
         for (void* ptr : ptrs) {
-            sapphire_gc_remove_root(ptr);
+            corin_gc_remove_root(ptr);
         }
     }
     
     // Should have run 10 collections
-    assert(sapphire_gc_collections() == 10);
+    assert(corin_gc_collections() == 10);
     
     shutdown_gc();
     shutdown_allocator();
@@ -240,15 +240,15 @@ void test_gc_pause_time() {
     // Allocate many objects
     std::vector<void*> ptrs;
     for (int i = 0; i < 1000; i++) {
-        void* ptr = sapphire_allocate(64, i);
+        void* ptr = corin_allocate(64, i);
         ptrs.push_back(ptr);
-        sapphire_gc_add_root(ptr);
+        corin_gc_add_root(ptr);
     }
     
     // Run GC and measure pause time
-    sapphire_gc_collect();
+    corin_gc_collect();
     
-    size_t pause = sapphire_gc_last_pause_us();
+    size_t pause = corin_gc_last_pause_us();
     std::cout << "(" << pause << "μs) ";
     
     // Should be reasonably fast
@@ -258,7 +258,7 @@ void test_gc_pause_time() {
     
     // Clean up
     for (void* ptr : ptrs) {
-        sapphire_gc_remove_root(ptr);
+        corin_gc_remove_root(ptr);
     }
     
     shutdown_gc();
@@ -269,7 +269,7 @@ void test_gc_pause_time() {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Garbage Collector Tests\n";
+    std::cout << "Corin Garbage Collector Tests\n";
     std::cout << "================================================================================\n\n";
     
     test_gc_initialization();

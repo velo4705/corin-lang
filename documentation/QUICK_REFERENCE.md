@@ -1,12 +1,12 @@
-# Sapphire System Programming - Quick Reference
+# Corin System Programming - Quick Reference
 
-**Fast reference for OS and embedded development in Sapphire**
+**Fast reference for OS and embedded development in Corin**
 
 ---
 
 ## Import System Library
 
-```sapphire
+```corin
 import system
 ```
 
@@ -15,45 +15,45 @@ import system
 ## System Functions
 
 ### Process
-```sapphire
-let pid = sapphire_system_get_pid()
-sapphire_system_exit(0)
+```corin
+let pid = corin_system_get_pid()
+corin_system_exit(0)
 ```
 
 ### Memory
-```sapphire
-let ptr = sapphire_system_allocate(1024)
-sapphire_system_free(ptr)
-let page_size = sapphire_system_page_size()
+```corin
+let ptr = corin_system_allocate(1024)
+corin_system_free(ptr)
+let page_size = corin_system_page_size()
 ```
 
 ### File System
-```sapphire
-let exists = sapphire_system_file_exists("/path/to/file")
-let dir_exists = sapphire_system_directory_exists("/path/to/dir")
-sapphire_system_create_directory("/path/to/dir")
-let cwd = sapphire_system_get_cwd()
+```corin
+let exists = corin_system_file_exists("/path/to/file")
+let dir_exists = corin_system_directory_exists("/path/to/dir")
+corin_system_create_directory("/path/to/dir")
+let cwd = corin_system_get_cwd()
 ```
 
 ### Environment
-```sapphire
-let home = sapphire_system_get_env("HOME")
-let user = sapphire_system_get_username()
-let host = sapphire_system_get_hostname()
+```corin
+let home = corin_system_get_env("HOME")
+let user = corin_system_get_username()
+let host = corin_system_get_hostname()
 ```
 
 ### System Info
-```sapphire
-let cpu_count = sapphire_system_cpu_count()
-let cpu_arch = sapphire_system_cpu_arch()
+```corin
+let cpu_count = corin_system_cpu_count()
+let cpu_arch = corin_system_cpu_arch()
 ```
 
 ### Timing
-```sapphire
-let ms = sapphire_system_timestamp_ms()
-let us = sapphire_system_timestamp_us()
-let ns = sapphire_system_timestamp_ns()
-sapphire_system_sleep_ms(100)
+```corin
+let ms = corin_system_timestamp_ms()
+let us = corin_system_timestamp_us()
+let ns = corin_system_timestamp_ns()
+corin_system_sleep_ms(100)
 ```
 
 ---
@@ -61,33 +61,33 @@ sapphire_system_sleep_ms(100)
 ## Common Patterns
 
 ### Measure Execution Time
-```sapphire
-let start = sapphire_system_timestamp_ns()
+```corin
+let start = corin_system_timestamp_ns()
 // ... your code ...
-let end = sapphire_system_timestamp_ns()
+let end = corin_system_timestamp_ns()
 print("Time:", end - start, "ns")
 ```
 
 ### Real-Time Control Loop
-```sapphire
+```corin
 let cycle_count = 0
 while cycle_count < 100:
-    let cycle_start = sapphire_system_timestamp_ns()
+    let cycle_start = corin_system_timestamp_ns()
     
     // ... control logic ...
     
-    let cycle_end = sapphire_system_timestamp_ns()
+    let cycle_end = corin_system_timestamp_ns()
     let cycle_time = (cycle_end - cycle_start) / 1000
     
     if cycle_time > 1000:
         print("[WARN] Deadline miss:", cycle_time, "us")
     
-    sapphire_system_sleep_ms(100)
+    corin_system_sleep_ms(100)
     cycle_count = cycle_count + 1
 ```
 
 ### Data Buffering
-```sapphire
+```corin
 let BUFFER_SIZE = 10
 let buffer_index = 0
 let data_sum = 0
@@ -105,7 +105,7 @@ while running:
 ```
 
 ### State Machine
-```sapphire
+```corin
 let STATE_IDLE = 0
 let STATE_ACTIVE = 1
 let STATE_ERROR = 2
@@ -134,7 +134,7 @@ while running:
 
 ### Quick Compile
 ```bash
-./sapp compile program.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll
+./corin compile program.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll
 llc program.ll -filetype=obj -o program.o
 gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread
 ./program
@@ -142,7 +142,7 @@ gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread
 
 ### One-Liner
 ```bash
-./sapp compile program.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll && llc program.ll -filetype=obj -o program.o && gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread && ./program
+./corin compile program.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll && llc program.ll -filetype=obj -o program.o && gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread && ./program
 ```
 
 ---
@@ -164,16 +164,16 @@ gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread
 ## Example Programs
 
 ### Minimal System Program
-```sapphire
+```corin
 import system
 
-print("Hello from Sapphire!")
-let pid = sapphire_system_get_pid()
+print("Hello from Corin!")
+let pid = corin_system_get_pid()
 print("PID:", pid)
 ```
 
 ### Temperature Controller
-```sapphire
+```corin
 import system
 
 let TARGET_TEMP = 22
@@ -189,12 +189,12 @@ while cycle_count < 30:
         heater_on = 0
     
     print("Temp:", current_temp, "Heater:", heater_on)
-    sapphire_system_sleep_ms(100)
+    corin_system_sleep_ms(100)
     cycle_count = cycle_count + 1
 ```
 
 ### IoT Sensor Node
-```sapphire
+```corin
 import system
 
 let BUFFER_SIZE = 5
@@ -203,7 +203,7 @@ let temp_sum = 0
 
 print("[BOOT] IoT Sensor Node")
 
-let temp_buffer = sapphire_system_allocate(BUFFER_SIZE * 8)
+let temp_buffer = corin_system_allocate(BUFFER_SIZE * 8)
 
 while cycle_count < 25:
     let temp = 25 + cycle_count % 5
@@ -216,10 +216,10 @@ while cycle_count < 25:
         buffer_index = 0
         temp_sum = 0
     
-    sapphire_system_sleep_ms(200)
+    corin_system_sleep_ms(200)
     cycle_count = cycle_count + 1
 
-sapphire_system_free(temp_buffer)
+corin_system_free(temp_buffer)
 ```
 
 ---
@@ -235,39 +235,39 @@ sapphire_system_free(temp_buffer)
 - `EMBEDDED_COMPLETE.md` - Complete embedded summary
 
 ### Examples
-- `system_demo.spp` - System capabilities
-- `kernel_hello.spp` - Kernel initialization
-- `process_monitor.spp` - Process monitoring
-- `embedded_demo.spp` - Temperature controller
-- `iot_sensor_node.spp` - IoT sensor node
+- `system_demo.corin` - System capabilities
+- `kernel_hello.corin` - Kernel initialization
+- `process_monitor.corin` - Process monitoring
+- `embedded_demo.corin` - Temperature controller
+- `iot_sensor_node.corin` - IoT sensor node
 
 ---
 
 ## Performance Tips
 
 ### 1. Use Nanosecond Timing
-```sapphire
-let start = sapphire_system_timestamp_ns()  // Most precise
+```corin
+let start = corin_system_timestamp_ns()  // Most precise
 ```
 
 ### 2. Minimize Allocations
-```sapphire
+```corin
 // Allocate once, reuse
-let buffer = sapphire_system_allocate(1024)
+let buffer = corin_system_allocate(1024)
 // ... use buffer many times ...
-sapphire_system_free(buffer)
+corin_system_free(buffer)
 ```
 
 ### 3. Check Cycle Time
-```sapphire
+```corin
 let cycle_time_us = (cycle_end - cycle_start) / 1000
 if cycle_time_us > 1000:
     print("[WARN] Slow cycle:", cycle_time_us, "us")
 ```
 
 ### 4. Use Fixed Sample Rates
-```sapphire
-sapphire_system_sleep_ms(100)  // Consistent timing
+```corin
+corin_system_sleep_ms(100)  // Consistent timing
 ```
 
 ---

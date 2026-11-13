@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <complex>
 
-namespace Sapphire {
+namespace Corin {
 namespace MathX {
 
 // ===== Number Theory =====
@@ -102,7 +102,7 @@ double stat_correlation(const std::vector<double>& x, const std::vector<double>&
 std::vector<double> stat_linear_regression(const std::vector<double>& x, const std::vector<double>& y); // [slope, intercept]
 
 } // namespace MathX
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

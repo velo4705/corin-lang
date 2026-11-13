@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <algorithm>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 // Static members
@@ -224,7 +224,7 @@ void OwnershipTracker::clear() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
@@ -232,48 +232,48 @@ void OwnershipTracker::clear() {
 
 extern "C" {
 
-void sapphire_set_owner(void* ptr, uint64_t owner_id) {
-    sapphire::runtime::OwnershipTracker::set_owner(ptr, owner_id);
+void corin_set_owner(void* ptr, uint64_t owner_id) {
+    corin::runtime::OwnershipTracker::set_owner(ptr, owner_id);
 }
 
-uint64_t sapphire_get_owner(void* ptr) {
-    return sapphire::runtime::OwnershipTracker::get_owner(ptr);
+uint64_t corin_get_owner(void* ptr) {
+    return corin::runtime::OwnershipTracker::get_owner(ptr);
 }
 
-bool sapphire_is_owner(void* ptr, uint64_t owner_id) {
-    return sapphire::runtime::OwnershipTracker::is_owner(ptr, owner_id);
+bool corin_is_owner(void* ptr, uint64_t owner_id) {
+    return corin::runtime::OwnershipTracker::is_owner(ptr, owner_id);
 }
 
-void sapphire_mark_moved(void* ptr) {
-    sapphire::runtime::OwnershipTracker::mark_moved(ptr);
+void corin_mark_moved(void* ptr) {
+    corin::runtime::OwnershipTracker::mark_moved(ptr);
 }
 
-bool sapphire_is_moved(void* ptr) {
-    return sapphire::runtime::OwnershipTracker::is_moved(ptr);
+bool corin_is_moved(void* ptr) {
+    return corin::runtime::OwnershipTracker::is_moved(ptr);
 }
 
-void sapphire_transfer_ownership(void* ptr, uint64_t new_owner) {
-    sapphire::runtime::OwnershipTracker::transfer_ownership(ptr, new_owner);
+void corin_transfer_ownership(void* ptr, uint64_t new_owner) {
+    corin::runtime::OwnershipTracker::transfer_ownership(ptr, new_owner);
 }
 
-void sapphire_mark_shared(void* ptr) {
-    sapphire::runtime::OwnershipTracker::mark_shared(ptr);
+void corin_mark_shared(void* ptr) {
+    corin::runtime::OwnershipTracker::mark_shared(ptr);
 }
 
-bool sapphire_is_shared(void* ptr) {
-    return sapphire::runtime::OwnershipTracker::is_shared(ptr);
+bool corin_is_shared(void* ptr) {
+    return corin::runtime::OwnershipTracker::is_shared(ptr);
 }
 
-void sapphire_check_ownership(void* ptr, uint64_t owner_id) {
-    sapphire::runtime::OwnershipTracker::check_ownership(ptr, owner_id);
+void corin_check_ownership(void* ptr, uint64_t owner_id) {
+    corin::runtime::OwnershipTracker::check_ownership(ptr, owner_id);
 }
 
-void sapphire_check_not_moved(void* ptr) {
-    sapphire::runtime::OwnershipTracker::check_not_moved(ptr);
+void corin_check_not_moved(void* ptr) {
+    corin::runtime::OwnershipTracker::check_not_moved(ptr);
 }
 
-uint64_t sapphire_current_thread_id() {
-    return sapphire::runtime::OwnershipTracker::current_thread_id();
+uint64_t corin_current_thread_id() {
+    return corin::runtime::OwnershipTracker::current_thread_id();
 }
 
 } // extern "C"

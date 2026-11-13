@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-using namespace Sapphire::DApp;
+using namespace Corin::DApp;
 
 extern "C" {
 
@@ -258,12 +258,12 @@ const char* dapp_abi_encode_call(const char* fn_name, const char* args_json) {
         }
         if (!cur.empty()) args.push_back(cur);
     }
-    g_dapp_last_string = Sapphire::DApp::abi_encode_call(fn_name ? fn_name : "", args);
+    g_dapp_last_string = Corin::DApp::abi_encode_call(fn_name ? fn_name : "", args);
     return g_dapp_last_string.c_str();
 }
 
 const char* dapp_abi_selector(const char* fn_sig) {
-    g_dapp_last_string = Sapphire::DApp::abi_function_selector(fn_sig ? fn_sig : "");
+    g_dapp_last_string = Corin::DApp::abi_function_selector(fn_sig ? fn_sig : "");
     return g_dapp_last_string.c_str();
 }
 

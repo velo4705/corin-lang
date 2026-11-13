@@ -1,4 +1,4 @@
-// advancedcrypto.cpp - M15 Advanced Cryptography for Sapphire
+// advancedcrypto.cpp - M15 Advanced Cryptography for Corin
 // Simulation-quality implementations for educational/demo purposes.
 // NOT production cryptography.
 
@@ -12,7 +12,7 @@
 #include <numeric>
 #include <cmath>
 
-namespace Sapphire {
+namespace Corin {
 namespace AdvancedCrypto {
 
 // ===== Utility =====
@@ -950,5 +950,5 @@ std::string ot_receiver_extract(const std::string& receiver_state_hex,
 }
 
 } // namespace AdvancedCrypto
-} // namespace Sapphire
+} // namespace Corin
 

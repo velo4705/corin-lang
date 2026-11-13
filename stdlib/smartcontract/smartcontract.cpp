@@ -7,7 +7,7 @@
 #include <chrono>
 #include <cstring>
 
-namespace Sapphire {
+namespace Corin {
 namespace SmartContract {
 
 // ===== StackValue helpers =====
@@ -499,4 +499,4 @@ Bytecode ContractBuilder::compile() const {
 }
 
 } // namespace SmartContract
-} // namespace Sapphire
+} // namespace Corin

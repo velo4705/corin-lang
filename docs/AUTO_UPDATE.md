@@ -1,18 +1,18 @@
 # Auto-Update System
 
-Sapphire includes a built-in auto-update system to keep your installation up-to-date.
+Corin includes a built-in auto-update system to keep your installation up-to-date.
 
 ## Quick Commands
 
 ```bash
 # Check for updates
-sapp --check-updates
+corin --check-updates
 
 # Update to latest version
-sapp --update
+corin --update
 
 # Check current version
-sapp --version
+corin --version
 ```
 
 ## How It Works
@@ -22,23 +22,23 @@ The auto-update system:
 2. Fetches the latest changes from GitHub
 3. Stashes any local modifications
 4. Pulls the latest code
-5. Rebuilds Sapphire automatically
+5. Rebuilds Corin automatically
 
 ## Installation
 
 ### One-Line Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash
 ```
 
-This installs Sapphire with auto-update support enabled.
+This installs Corin with auto-update support enabled.
 
 ### Manual Install
 
 ```bash
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
@@ -47,7 +47,7 @@ make quick
 ### Automatic Update
 
 ```bash
-sapp --update
+corin --update
 ```
 
 This will:
@@ -59,7 +59,7 @@ This will:
 ### Check for Updates
 
 ```bash
-sapp --check-updates
+corin --check-updates
 ```
 
 This checks if updates are available without installing them.
@@ -69,23 +69,23 @@ This checks if updates are available without installing them.
 If auto-update fails, you can update manually:
 
 ```bash
-cd sapphire-lang
+cd corin-lang
 git pull origin main
 make quick
 ```
 
 ## System Installation
 
-To install Sapphire system-wide (accessible from anywhere):
+To install Corin system-wide (accessible from anywhere):
 
 ```bash
-sudo cp sapp /usr/local/bin/
-sudo cp sapphire /usr/local/bin/
+sudo cp corin /usr/local/bin/
+sudo cp corin /usr/local/bin/
 sudo cp spm /usr/local/bin/
-sudo cp sapphire-fmt /usr/local/bin/
+sudo cp corin-fmt /usr/local/bin/
 ```
 
-Then you can run `sapp` from any directory.
+Then you can run `corin` from any directory.
 
 ## Update Frequency
 
@@ -101,7 +101,7 @@ We recommend checking for updates:
 If you get this error, reinstall using the one-line installer:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash
 ```
 
 ### "Update failed"
@@ -109,7 +109,7 @@ curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install
 Try manually:
 
 ```bash
-cd sapphire-lang
+cd corin-lang
 git stash
 git pull origin main
 make quick
@@ -130,7 +130,7 @@ git --version
 Check your current version:
 
 ```bash
-sapp --version
+corin --version
 ```
 
 View changelog:
@@ -144,7 +144,7 @@ cat CHANGELOG.md
 If an update causes issues, rollback to previous version:
 
 ```bash
-cd sapphire-lang
+cd corin-lang
 git log --oneline  # Find previous commit
 git checkout <commit-hash>
 make quick
@@ -152,14 +152,14 @@ make quick
 
 ## Automatic Update Checks
 
-Sapphire can check for updates automatically on startup (coming in v1.1):
+Corin can check for updates automatically on startup (coming in v1.1):
 
 ```bash
 # Enable auto-check (future feature)
-sapp config set auto-update-check true
+corin config set auto-update-check true
 
 # Disable auto-check
-sapp config set auto-update-check false
+corin config set auto-update-check false
 ```
 
 ## Release Channels
@@ -196,10 +196,10 @@ For automated deployments:
 
 ```bash
 # In your CI/CD pipeline
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
-./sapp --version
+./corin --version
 ```
 
 ## References

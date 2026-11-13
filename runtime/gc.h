@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_GC_H
-#define SAPPHIRE_GC_H
+#ifndef CORIN_GC_H
+#define CORIN_GC_H
 
 #include "allocator.h"
 #include <vector>
@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <csetjmp>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -39,7 +39,7 @@ struct GCStats {
 /**
  * Garbage Collector
  * 
- * Mark-and-sweep garbage collector for Sapphire.
+ * Mark-and-sweep garbage collector for Corin.
  * 
  * Algorithm:
  * 1. Mark Phase: Trace from roots, mark all reachable objects
@@ -136,20 +136,20 @@ void init_gc(Allocator* allocator);
 void shutdown_gc();
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Trigger garbage collection
-    void sapphire_gc_collect();
+    void corin_gc_collect();
     
     // Get GC statistics
-    size_t sapphire_gc_collections();
-    size_t sapphire_gc_last_pause_us();
+    size_t corin_gc_collections();
+    size_t corin_gc_last_pause_us();
     
     // Add/remove roots
-    void sapphire_gc_add_root(void* ptr);
-    void sapphire_gc_remove_root(void* ptr);
+    void corin_gc_add_root(void* ptr);
+    void corin_gc_remove_root(void* ptr);
 }
 
-#endif // SAPPHIRE_GC_H
+#endif // CORIN_GC_H

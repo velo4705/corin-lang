@@ -7,9 +7,9 @@
 namespace fs = std::filesystem;
 
 void print_help() {
-    std::cout << "sapphire fmt - Code Formatter\n\n";
+    std::cout << "corin fmt - Code Formatter\n\n";
     std::cout << "USAGE:\n";
-    std::cout << "    sapphire fmt [OPTIONS] <FILE>\n\n";
+    std::cout << "    corin fmt [OPTIONS] <FILE>\n\n";
     std::cout << "OPTIONS:\n";
     std::cout << "    --check        Check if file is formatted (don't modify)\n";
     std::cout << "    --indent <n>   Set indent size (default: 4)\n";
@@ -53,10 +53,10 @@ int main(int argc, char** argv) {
         return 1;
     }
     
-    sapphire::FormatOptions options;
+    corin::FormatOptions options;
     options.indent_size = indent_size;
     
-    sapphire::Formatter formatter(options);
+    corin::Formatter formatter(options);
     
     if (check_only) {
         // Read original file

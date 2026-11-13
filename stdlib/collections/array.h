@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Collections {
 
@@ -59,34 +59,34 @@ void array_set_string(DynamicArray* array, size_t index, const char* value);
 
 } // namespace Collections
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // Array lifecycle
-    void* sapphire_array_create();
-    void* sapphire_array_create_typed(int64_t element_size);
-    void sapphire_array_destroy(void* array);
+    void* corin_array_create();
+    void* corin_array_create_typed(int64_t element_size);
+    void corin_array_destroy(void* array);
     
     // Core operations
-    void sapphire_array_push_int(void* array, int64_t value);
-    int64_t sapphire_array_get_int(void* array, int64_t index);
-    void sapphire_array_set_int(void* array, int64_t index, int64_t value);
-    int64_t sapphire_array_pop_int(void* array);
+    void corin_array_push_int(void* array, int64_t value);
+    int64_t corin_array_get_int(void* array, int64_t index);
+    void corin_array_set_int(void* array, int64_t index, int64_t value);
+    int64_t corin_array_pop_int(void* array);
     
-    void sapphire_array_push_double(void* array, double value);
-    double sapphire_array_get_double(void* array, int64_t index);
-    void sapphire_array_set_double(void* array, int64_t index, double value);
-    double sapphire_array_pop_double(void* array);
+    void corin_array_push_double(void* array, double value);
+    double corin_array_get_double(void* array, int64_t index);
+    void corin_array_set_double(void* array, int64_t index, double value);
+    double corin_array_pop_double(void* array);
     
-    void sapphire_array_push_string(void* array, const char* value);
-    const char* sapphire_array_get_string(void* array, int64_t index);
-    void sapphire_array_set_string(void* array, int64_t index, const char* value);
-    const char* sapphire_array_pop_string(void* array);
+    void corin_array_push_string(void* array, const char* value);
+    const char* corin_array_get_string(void* array, int64_t index);
+    void corin_array_set_string(void* array, int64_t index, const char* value);
+    const char* corin_array_pop_string(void* array);
     
     // Utility functions
-    int64_t sapphire_array_size(void* array);
-    int64_t sapphire_array_capacity(void* array);
-    void sapphire_array_clear(void* array);
-    bool sapphire_array_empty(void* array);
+    int64_t corin_array_size(void* array);
+    int64_t corin_array_capacity(void* array);
+    void corin_array_clear(void* array);
+    bool corin_array_empty(void* array);
 }

@@ -4,7 +4,7 @@
 #include <random>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Random {
 
@@ -68,29 +68,29 @@ public:
 
 } // namespace Random
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // Seeding
-    void sapphire_random_seed(uint64_t seed);
-    void sapphire_random_seed_random();
+    void corin_random_seed(uint64_t seed);
+    void corin_random_seed_random();
     
     // Uniform distribution
-    double sapphire_random_uniform();
-    double sapphire_random_uniform_range(double min, double max);
-    int64_t sapphire_random_int(int64_t min, int64_t max);
+    double corin_random_uniform();
+    double corin_random_uniform_range(double min, double max);
+    int64_t corin_random_int(int64_t min, int64_t max);
     
     // Normal distribution
-    double sapphire_random_normal();
-    double sapphire_random_normal_params(double mean, double stddev);
+    double corin_random_normal();
+    double corin_random_normal_params(double mean, double stddev);
     
     // Boolean
-    bool sapphire_random_boolean();
-    bool sapphire_random_boolean_prob(double probability);
+    bool corin_random_boolean();
+    bool corin_random_boolean_prob(double probability);
     
     // Cryptographic random
-    uint64_t sapphire_crypto_random_uint64();
-    double sapphire_crypto_random_uniform();
-    int64_t sapphire_crypto_random_int(int64_t min, int64_t max);
+    uint64_t corin_crypto_random_uint64();
+    double corin_crypto_random_uniform();
+    int64_t corin_crypto_random_int(int64_t min, int64_t max);
 }

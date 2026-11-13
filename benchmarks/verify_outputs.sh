@@ -30,7 +30,7 @@ test_algorithm() {
     echo -n "  Running... "
     
     # Run and capture output (filter out parse errors)
-    local actual=$(./sapp "$file" 2>/dev/null | grep -E '^[0-9]+' | tail -1)
+    local actual=$(./corin "$file" 2>/dev/null | grep -E '^[0-9]+' | tail -1)
     
     echo "Done"
     echo "  Expected: $expected"
@@ -52,31 +52,31 @@ echo ""
 
 test_algorithm \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.spp" \
+    "benchmarks/algorithms/fibonacci_dp.corin" \
     "55" \
     "Time: O(n), Space: O(n)"
 
 test_algorithm \
     "Matrix Multiplication" \
-    "benchmarks/algorithms/matrix_multiply.spp" \
+    "benchmarks/algorithms/matrix_multiply.corin" \
     "621" \
     "Time: O(n³), Space: O(n²)"
 
 test_algorithm \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.spp" \
+    "benchmarks/algorithms/hash_operations.corin" \
     "3802" \
     "Time: O(1) avg, Space: O(n)"
 
 test_algorithm \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.spp" \
+    "benchmarks/algorithms/string_operations.corin" \
     "181" \
     "Time: O(n), Space: O(n)"
 
 test_algorithm \
     "Sorting (Bubble Sort)" \
-    "benchmarks/algorithms/sorting_benchmark.spp" \
+    "benchmarks/algorithms/sorting_benchmark.corin" \
     "441" \
     "Time: O(n²), Space: O(1)"
 
@@ -93,7 +93,7 @@ if [ $FAILED -eq 0 ]; then
     echo -e "${GREEN}✓ All tests passed!${NC}"
     echo ""
     echo "All algorithm outputs verified correctly."
-    echo "Sapphire maintains correct algorithmic behavior."
+    echo "Corin maintains correct algorithmic behavior."
     exit 0
 else
     echo -e "${RED}✗ Some tests failed!${NC}"

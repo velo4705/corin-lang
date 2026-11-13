@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_FILE_H
-#define SAPPHIRE_STDLIB_FILE_H
+#ifndef CORIN_STDLIB_FILE_H
+#define CORIN_STDLIB_FILE_H
 
 #include "../core/string.h"
 #include "../core/vec.h"
@@ -8,7 +8,7 @@
 #include <vector>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -74,27 +74,27 @@ private:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // File operations
-    const char* sapphire_file_read(const char* path);
-    void sapphire_file_write(const char* path, const char* content);
-    int sapphire_file_exists(const char* path);
-    void sapphire_file_delete(const char* path);
-    void sapphire_file_copy(const char* source, const char* destination);
-    size_t sapphire_file_size(const char* path);
+    const char* corin_file_read(const char* path);
+    void corin_file_write(const char* path, const char* content);
+    int corin_file_exists(const char* path);
+    void corin_file_delete(const char* path);
+    void corin_file_copy(const char* source, const char* destination);
+    size_t corin_file_size(const char* path);
     
     // Directory operations
-    int sapphire_dir_exists(const char* path);
-    void sapphire_dir_create(const char* path);
-    void sapphire_dir_remove(const char* path);
+    int corin_dir_exists(const char* path);
+    void corin_dir_create(const char* path);
+    void corin_dir_remove(const char* path);
     
     // Path operations
-    const char* sapphire_path_join(const char* part1, const char* part2);
-    const char* sapphire_path_basename(const char* path);
-    const char* sapphire_path_dirname(const char* path);
+    const char* corin_path_join(const char* part1, const char* part2);
+    const char* corin_path_basename(const char* path);
+    const char* corin_path_dirname(const char* path);
 }
 
-#endif // SAPPHIRE_STDLIB_FILE_H
+#endif // CORIN_STDLIB_FILE_H

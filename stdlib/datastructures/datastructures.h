@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_DATASTRUCTURES_H
-#define SAPPHIRE_STDLIB_DATASTRUCTURES_H
+#ifndef CORIN_STDLIB_DATASTRUCTURES_H
+#define CORIN_STDLIB_DATASTRUCTURES_H
 
 #include <vector>
 #include <queue>
@@ -8,7 +8,7 @@
 #include <unordered_set>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -199,6 +199,6 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_DATASTRUCTURES_H
+#endif // CORIN_STDLIB_DATASTRUCTURES_H

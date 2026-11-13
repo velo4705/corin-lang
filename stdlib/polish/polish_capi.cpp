@@ -2,7 +2,7 @@
 #include "polish.h"
 #include <cstring>
 
-using namespace Sapphire::Polish;
+using namespace Corin::Polish;
 
 static std::string g_polish_str_buf;
 

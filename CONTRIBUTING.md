@@ -1,11 +1,11 @@
-# Contributing to Sapphire
+# Contributing to Corin
 
-Thank you for your interest in contributing to Sapphire! This project aims to combine the best features from all major programming languages.
+Thank you for your interest in contributing to Corin! This project aims to combine the best features from all major programming languages.
 
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/sapphire-lang.git`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/corin-lang.git`
 3. Create a branch: `git checkout -b feature/your-feature`
 4. Make your changes
 5. Run tests: `make test`
@@ -24,7 +24,7 @@ Thank you for your interest in contributing to Sapphire! This project aims to co
 ### Building
 ```bash
 make build
-./sapphire examples/hello.spp
+./corin examples/hello.corin
 ```
 
 ## Project Structure

@@ -1,4 +1,4 @@
-# Sapphire Standard Library
+# Corin Standard Library
 
 ## Core Modules
 

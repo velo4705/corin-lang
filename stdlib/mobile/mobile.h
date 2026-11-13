@@ -5,7 +5,7 @@
 #include <functional>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Mobile {
 
 // ===== Enums =====
@@ -211,7 +211,7 @@ private:
 };
 
 } // namespace Mobile
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

@@ -1,6 +1,6 @@
-# Sapphire Debug Adapter Protocol (DAP)
+# Corin Debug Adapter Protocol (DAP)
 
-The Sapphire Debug Adapter provides debugging capabilities for Sapphire code.
+The Corin Debug Adapter provides debugging capabilities for Corin code.
 
 ## Features
 
@@ -13,7 +13,7 @@ The Sapphire Debug Adapter provides debugging capabilities for Sapphire code.
 ## Building
 
 ```bash
-make sapphire-debug
+make corin-debug
 ```
 
 ## Usage
@@ -22,18 +22,18 @@ The debug adapter communicates over stdin/stdout using the Debug Adapter Protoco
 
 ### With VSCode
 
-1. Install the Sapphire VSCode extension from `editors/vscode/`
-2. Open a `.spp` file
+1. Install the Corin VSCode extension from `editors/vscode/`
+2. Open a `.corin` file
 3. Set breakpoints by clicking in the gutter
 4. Press F5 or click "Run and Debug"
-5. Select "Debug Sapphire Program"
+5. Select "Debug Corin Program"
 
 ### Manual Testing
 
 You can test the debug adapter manually:
 
 ```bash
-echo 'Content-Length: 50\r\n\r\n{"type":"request","command":"initialize","seq":1}' | ./sapphire-debug
+echo 'Content-Length: 50\r\n\r\n{"type":"request","command":"initialize","seq":1}' | ./corin-debug
 ```
 
 ## Architecture

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run Sapphire test suite
+# Run Corin test suite
 
 set -e
 

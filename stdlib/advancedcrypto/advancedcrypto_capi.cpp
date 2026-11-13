@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstring>
 
-using namespace Sapphire::AdvancedCrypto;
+using namespace Corin::AdvancedCrypto;
 
 static std::string g_advcrypto_last_string;
 

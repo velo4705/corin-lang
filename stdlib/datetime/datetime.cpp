@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 Instant Instant::now() {
@@ -49,27 +49,27 @@ std::string DateTime::to_string() const {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    int64_t sapphire_instant_now_ms() {
-        return sapphire::stdlib::Instant::now().to_milliseconds();
+    int64_t corin_instant_now_ms() {
+        return corin::stdlib::Instant::now().to_milliseconds();
     }
     
-    int64_t sapphire_duration_to_ms(int64_t duration) {
+    int64_t corin_duration_to_ms(int64_t duration) {
         return duration;
     }
     
-    double sapphire_duration_to_seconds(int64_t duration) {
+    double corin_duration_to_seconds(int64_t duration) {
         return duration / 1000.0;
     }
     
-    double sapphire_duration_to_minutes(int64_t duration) {
+    double corin_duration_to_minutes(int64_t duration) {
         return duration / 60000.0;
     }
     
-    double sapphire_duration_to_hours(int64_t duration) {
+    double corin_duration_to_hours(int64_t duration) {
         return duration / 3600000.0;
     }
 }

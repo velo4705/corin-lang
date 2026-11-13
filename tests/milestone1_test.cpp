@@ -9,7 +9,7 @@
 #include "stdlib/math/math.h"
 #include "stdlib/io/csv.h"
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_dynamic_arrays() {
     std::cout << "Testing Dynamic Arrays..." << std::endl;
@@ -142,42 +142,42 @@ void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
     // Test array C API
-    void* array = sapphire_array_create();
+    void* array = corin_array_create();
     assert(array != nullptr);
     
-    sapphire_array_push_int(array, 100);
-    sapphire_array_push_int(array, 200);
-    sapphire_array_push_int(array, 300);
+    corin_array_push_int(array, 100);
+    corin_array_push_int(array, 200);
+    corin_array_push_int(array, 300);
     
-    assert(sapphire_array_size(array) == 3);
-    assert(sapphire_array_get_int(array, 0) == 100);
-    assert(sapphire_array_get_int(array, 1) == 200);
-    assert(sapphire_array_get_int(array, 2) == 300);
+    assert(corin_array_size(array) == 3);
+    assert(corin_array_get_int(array, 0) == 100);
+    assert(corin_array_get_int(array, 1) == 200);
+    assert(corin_array_get_int(array, 2) == 300);
     
-    sapphire_array_destroy(array);
+    corin_array_destroy(array);
     
     // Test math C API
-    assert(std::abs(sapphire_math_sqrt(16.0) - 4.0) < 0.001);
-    assert(std::abs(sapphire_math_sin(sapphire_math_pi() / 2.0) - 1.0) < 0.001);
-    assert(std::abs(sapphire_math_exp(1.0) - sapphire_math_e()) < 0.001);
+    assert(std::abs(corin_math_sqrt(16.0) - 4.0) < 0.001);
+    assert(std::abs(corin_math_sin(corin_math_pi() / 2.0) - 1.0) < 0.001);
+    assert(std::abs(corin_math_exp(1.0) - corin_math_e()) < 0.001);
     
     // Test CSV C API
-    void* csv = sapphire_csv_create();
+    void* csv = corin_csv_create();
     assert(csv != nullptr);
     
-    sapphire_csv_set_header(csv, 0, "Name");
-    sapphire_csv_set_header(csv, 1, "Value");
+    corin_csv_set_header(csv, 0, "Name");
+    corin_csv_set_header(csv, 1, "Value");
     
-    sapphire_csv_add_row(csv);
-    sapphire_csv_set(csv, 0, 0, "Test");
-    sapphire_csv_set(csv, 0, 1, "123");
+    corin_csv_add_row(csv);
+    corin_csv_set(csv, 0, 0, "Test");
+    corin_csv_set(csv, 0, 1, "123");
     
-    assert(sapphire_csv_row_count(csv) == 1);
-    assert(sapphire_csv_col_count(csv) == 2);
-    assert(std::string(sapphire_csv_get(csv, 0, 0)) == "Test");
-    assert(std::string(sapphire_csv_get(csv, 0, 1)) == "123");
+    assert(corin_csv_row_count(csv) == 1);
+    assert(corin_csv_col_count(csv) == 2);
+    assert(std::string(corin_csv_get(csv, 0, 0)) == "Test");
+    assert(std::string(corin_csv_get(csv, 0, 1)) == "123");
     
-    sapphire_csv_destroy(csv);
+    corin_csv_destroy(csv);
     
     std::cout << "✓ C API tests passed" << std::endl;
 }

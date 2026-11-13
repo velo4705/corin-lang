@@ -1,8 +1,8 @@
-# Sapphire 💎
+# Corin 💎
 
 A modern programming language that's as fast as C and as easy as Python.
 
-```sapphire
+```corin
 fn main() {
     let numbers = [1, 2, 3, 4, 5]
     for num in numbers {
@@ -15,7 +15,7 @@ fn main() {
 **Safe.** Memory safety without garbage collection overhead.  
 **Simple.** Clean syntax that feels natural.
 
-**Website**: https://velo4705.github.io/sapphire-lang
+**Website**: https://velo4705.github.io/corin-lang
 
 ---
 
@@ -24,34 +24,34 @@ fn main() {
 ### Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash
 ```
 
 Or build from source:
 
 ```bash
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
-./sapp examples/hello.spp
+./corin examples/hello.corin
 ```
 
 ### Hello World
 
-```sapphire
+```corin
 fn main() {
-    println("Hello, Sapphire! 💎")
+    println("Hello, Corin! 💎")
 }
 ```
 
 Run it:
 ```bash
-sapp hello.spp
+corin hello.corin
 ```
 
 ---
 
-## Why Sapphire?
+## Why Corin?
 
 **Performance** - Second only to C/Assembly. Faster than Rust and C++ in many benchmarks.
 
@@ -103,7 +103,7 @@ sapp hello.spp
 
 ### Variables and Types
 
-```sapphire
+```corin
 fn main() {
     let x = 10              // Type inference
     let mut y = 20          // Mutable variable
@@ -115,7 +115,7 @@ fn main() {
 
 ### Control Flow
 
-```sapphire
+```corin
 fn main() {
     let score = 85
     
@@ -135,7 +135,7 @@ fn main() {
 
 ### Functions
 
-```sapphire
+```corin
 fn add(a: int, b: int) -> int {
     return a + b
 }
@@ -148,7 +148,7 @@ fn main() {
 
 ### File I/O
 
-```sapphire
+```corin
 import File from "stdlib/io"
 
 fn main() {
@@ -161,7 +161,7 @@ fn main() {
 
 ### HTTP Server
 
-```sapphire
+```corin
 import HTTP from "stdlib/http"
 
 fn main() {
@@ -177,7 +177,7 @@ fn main() {
 
 ### Decorators
 
-```sapphire
+```corin
 # Built-in @cache decorator for memoization
 @cache
 fn fibonacci(n: int) -> int {
@@ -230,11 +230,11 @@ More examples in [examples/](examples/)
 
 ## Tools
 
-**sapp** - Compiler and interpreter
+**corin** - Compiler and interpreter
 ```bash
-sapp hello.spp              # Run program
-sapp --compile hello.spp    # Compile to binary
-sapp --version              # Show version
+corin hello.corin              # Run program
+corin --compile hello.corin    # Compile to binary
+corin --version              # Show version
 ```
 
 **spm** - Package manager
@@ -245,28 +245,28 @@ spm test                    # Run tests
 spm run                     # Run project
 ```
 
-**sapphire-fmt** - Code formatter
+**corin-fmt** - Code formatter
 ```bash
-sapphire-fmt file.spp       # Format file
-sapphire-fmt --check .      # Check formatting
+corin-fmt file.corin       # Format file
+corin-fmt --check .      # Check formatting
 ```
 
-**sapphire-lsp** - Language Server Protocol
+**corin-lsp** - Language Server Protocol
 ```bash
 # Used by IDEs for auto-completion, go-to-definition, etc.
 # VSCode extension available in editors/vscode/
 ```
 
-**sapphire-debug** - Debug Adapter Protocol
+**corin-debug** - Debug Adapter Protocol
 ```bash
 # Used by IDEs for breakpoint debugging
 # Integrated with VSCode extension
 ```
 
-**sapphire-doc** - Documentation generator
+**corin-doc** - Documentation generator
 ```bash
-sapphire-doc file.spp       # Generate docs for one file
-sapphire-doc examples/      # Generate docs for directory
+corin-doc file.corin       # Generate docs for one file
+corin-doc examples/      # Generate docs for directory
 ```
 
 **spm-registry** - Package registry client
@@ -290,7 +290,7 @@ spm-registry search query   # Search for packages
 
 Install:
 ```bash
-code --install-extension editors/vscode/sapphire-lang.vsix
+code --install-extension editors/vscode/corin-lang.vsix
 ```
 
 ---
@@ -306,7 +306,7 @@ code --install-extension editors/vscode/sapphire-lang.vsix
 
 ## System Programming & OS Development
 
-Sapphire includes a comprehensive system library for OS-level programming:
+Corin includes a comprehensive system library for OS-level programming:
 
 ### System Library Features
 - **Process Management**: Get PID, spawn processes, exit
@@ -319,29 +319,29 @@ Sapphire includes a comprehensive system library for OS-level programming:
 
 ### Quick Example
 
-```sapphire
+```corin
 import system
 
 print("System Information:")
-let pid = sapphire_system_get_pid()
-let cpu_count = sapphire_system_cpu_count()
-let cpu_arch = sapphire_system_cpu_arch()
+let pid = corin_system_get_pid()
+let cpu_count = corin_system_cpu_count()
+let cpu_arch = corin_system_cpu_arch()
 
 print("PID:", pid)
 print("CPUs:", cpu_count)
 print("Architecture:", cpu_arch)
 
 // High-precision timing
-let start = sapphire_system_timestamp_ns()
+let start = corin_system_timestamp_ns()
 // ... your code ...
-let end = sapphire_system_timestamp_ns()
+let end = corin_system_timestamp_ns()
 print("Elapsed:", end - start, "ns")
 ```
 
 ### Working Examples
-- `system_demo.spp` - System capabilities demo
-- `kernel_hello.spp` - Kernel-style initialization
-- `process_monitor.spp` - Process monitoring tool
+- `system_demo.corin` - System capabilities demo
+- `kernel_hello.corin` - Kernel-style initialization
+- `process_monitor.corin` - Process monitoring tool
 
 **Documentation:**
 - [System Library Complete Guide](SYSTEM_LIBRARY_COMPLETE.md)
@@ -353,33 +353,33 @@ print("Elapsed:", end - start, "ns")
 
 ## Game Development
 
-Sapphire supports 2D game development with SDL2:
+Corin supports 2D game development with SDL2:
 
 ### Working Pong Game
 
-```sapphire
+```corin
 import graphics.sdl2
 
-let window = sapphire_sdl2_create_window("Pong", 800, 600)
-sapphire_sdl2_show_window(window)
+let window = corin_sdl2_create_window("Pong", 800, 600)
+corin_sdl2_show_window(window)
 
 // Game loop
-while !sapphire_sdl2_should_close(window):
-    sapphire_sdl2_poll_events(window)
+while !corin_sdl2_should_close(window):
+    corin_sdl2_poll_events(window)
     
     // Clear screen
-    sapphire_sdl2_clear(window, 0, 0, 0)
+    corin_sdl2_clear(window, 0, 0, 0)
     
     // Draw paddles and ball
-    sapphire_sdl2_fill_rect(window, p1x, p1y, 20, 100, 255, 255, 255)
-    sapphire_sdl2_fill_rect(window, p2x, p2y, 20, 100, 255, 255, 255)
-    sapphire_sdl2_fill_rect(window, bx, by, 15, 15, 255, 255, 0)
+    corin_sdl2_fill_rect(window, p1x, p1y, 20, 100, 255, 255, 255)
+    corin_sdl2_fill_rect(window, p2x, p2y, 20, 100, 255, 255, 255)
+    corin_sdl2_fill_rect(window, bx, by, 15, 15, 255, 255, 0)
     
     // Present
-    sapphire_sdl2_present(window)
-    sapphire_sdl2_delay(16)  // 60 FPS
+    corin_sdl2_present(window)
+    corin_sdl2_delay(16)  // 60 FPS
 
-sapphire_sdl2_destroy_window(window)
+corin_sdl2_destroy_window(window)
 ```
 
 ### Play the Demo
@@ -404,7 +404,7 @@ sapphire_sdl2_destroy_window(window)
 
 ## Use Cases
 
-Build anything with Sapphire:
+Build anything with Corin:
 
 - **Web applications** (frontend & backend)
 - **System utilities and tools**
@@ -436,9 +436,9 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Community
 
-- **GitHub**: [velo4705/sapphire-lang](https://github.com/velo4705/sapphire-lang)
-- **Issues**: [Report bugs](https://github.com/velo4705/sapphire-lang/issues)
-- **Discussions**: [Ask questions](https://github.com/velo4705/sapphire-lang/discussions)
+- **GitHub**: [velo4705/corin-lang](https://github.com/velo4705/corin-lang)
+- **Issues**: [Report bugs](https://github.com/velo4705/corin-lang/issues)
+- **Discussions**: [Ask questions](https://github.com/velo4705/corin-lang/discussions)
 
 ---
 
@@ -450,8 +450,8 @@ MIT License - see [LICENSE](LICENSE)
 
 <div align="center">
 
-**Made with 💎 by the Sapphire community**
+**Made with 💎 by the Corin community**
 
-[⭐ Star](https://github.com/velo4705/sapphire-lang) · [🐛 Report Bug](https://github.com/velo4705/sapphire-lang/issues) · [� Request Feature](https://github.com/velo4705/sapphire-lang/issues)
+[⭐ Star](https://github.com/velo4705/corin-lang) · [🐛 Report Bug](https://github.com/velo4705/corin-lang/issues) · [� Request Feature](https://github.com/velo4705/corin-lang/issues)
 
 </div>

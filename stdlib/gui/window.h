@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STDLIB_WINDOW_H
-#define SAPPHIRE_STDLIB_WINDOW_H
+#ifndef CORIN_STDLIB_WINDOW_H
+#define CORIN_STDLIB_WINDOW_H
 
 #include <string>
 #include <cstdint>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -68,32 +68,32 @@ bool init_gui();
 void quit_gui();
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for code generation
 extern "C" {
-    bool sapphire_gui_init();
-    void sapphire_gui_quit();
+    bool corin_gui_init();
+    void corin_gui_quit();
     
-    void* sapphire_window_create(const char* title, int width, int height);
-    void sapphire_window_destroy(void* window);
-    void sapphire_window_show(void* window);
-    void sapphire_window_close(void* window);
-    bool sapphire_window_is_open(void* window);
-    bool sapphire_window_poll_events(void* window);
+    void* corin_window_create(const char* title, int width, int height);
+    void corin_window_destroy(void* window);
+    void corin_window_show(void* window);
+    void corin_window_close(void* window);
+    bool corin_window_is_open(void* window);
+    bool corin_window_poll_events(void* window);
     
-    void sapphire_window_clear(void* window, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_window_present(void* window);
-    void sapphire_window_draw_text(void* window, const char* text, int x, int y, int size,
+    void corin_window_clear(void* window, uint8_t r, uint8_t g, uint8_t b);
+    void corin_window_present(void* window);
+    void corin_window_draw_text(void* window, const char* text, int x, int y, int size,
                                    uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_window_fill_rect(void* window, int x, int y, int w, int h,
+    void corin_window_fill_rect(void* window, int x, int y, int w, int h,
                                    uint8_t r, uint8_t g, uint8_t b);
     
     // Keyboard functions
-    bool sapphire_window_is_key_down(void* window, int keycode);
+    bool corin_window_is_key_down(void* window, int keycode);
     
     // Window state
-    bool sapphire_window_should_close(void* window);
+    bool corin_window_should_close(void* window);
 }
 
-#endif // SAPPHIRE_STDLIB_WINDOW_H
+#endif // CORIN_STDLIB_WINDOW_H

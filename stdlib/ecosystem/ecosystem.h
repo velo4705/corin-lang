@@ -4,7 +4,7 @@
 #include <map>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Ecosystem {
 
 // ===== Semver =====
@@ -116,7 +116,7 @@ int         fmt_count_chars(const std::string& code);
 std::string fmt_apply(const std::string& code, const FormatOptions& opts);
 
 } // namespace Ecosystem
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

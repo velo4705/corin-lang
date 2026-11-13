@@ -1,4 +1,4 @@
-# Sapphire API Reference
+# Corin API Reference
 
 Complete reference for language features and standard library.
 
@@ -45,7 +45,7 @@ Complete reference for language features and standard library.
 
 ### Syntax
 
-```sapphire
+```corin
 match <value>:
     <pattern1> => <expression1>
     <pattern2> => <expression2>
@@ -54,7 +54,7 @@ match <value>:
 
 ### Example
 
-```sapphire
+```corin
 fn classify(n):
     return match n:
         0 => "zero"
@@ -84,7 +84,7 @@ print(classify(5))  # "other"
 
 ### Defining Traits
 
-```sapphire
+```corin
 trait Drawable:
     fn draw(self) -> str
     fn area(self) -> float
@@ -92,7 +92,7 @@ trait Drawable:
 
 ### Implementing Traits
 
-```sapphire
+```corin
 class Circle:
     fn __init__(self, r):
         self.radius = r
@@ -106,7 +106,7 @@ impl Drawable for Circle:
 
 ### Using Trait Methods
 
-```sapphire
+```corin
 let c = Circle(5.0)
 print(c.draw())   # Calls trait method
 print(c.area())   # Calls trait method
@@ -144,8 +144,8 @@ int64_t ms = instant->timestamp_ms();
 int64_t sec = instant->timestamp_sec();
 ```
 
-```sapphire
-// Sapphire API
+```corin
+// Corin API
 let now = DateTime.now()
 let timestamp = now.timestamp_ms()
 ```
@@ -188,10 +188,10 @@ int second = time->second();
 ### C API
 
 ```c
-void* sapphire_instant_now();
-int64_t sapphire_instant_timestamp_ms(void* instant);
-void* sapphire_date_create(int year, int month, int day);
-void* sapphire_time_create(int hour, int minute, int second);
+void* corin_instant_now();
+int64_t corin_instant_timestamp_ms(void* instant);
+void* corin_date_create(int year, int month, int day);
+void* corin_time_create(int hour, int minute, int second);
 ```
 
 ---
@@ -989,7 +989,7 @@ int main() {
         window.poll_events();
         
         window.clear(0, 0, 0);
-        window.draw_text("Hello, Sapphire!", 250, 250, 48, 255, 255, 255);
+        window.draw_text("Hello, Corin!", 250, 250, 48, 255, 255, 255);
         window.fill_rect(100, 100, 50, 50, 255, 0, 0);
         window.present();
     }
@@ -1017,7 +1017,7 @@ Full blockchain implementation with PoW/PoS consensus, transactions, Merkle tree
 
 ### Chain
 
-```sapphire
+```corin
 import Blockchain from "stdlib/blockchain"
 
 let chain = Blockchain.Chain(difficulty: 3, consensus: "PoW")
@@ -1071,7 +1071,7 @@ Four-phase security toolkit: vulnerability scanning, web security testing, malwa
 
 ### VulnScanner
 
-```sapphire
+```corin
 import Security from "stdlib/security"
 
 let scanner = Security.VulnScanner()
@@ -1127,7 +1127,7 @@ Full networking stack: TCP/UDP sockets, DNS, SMTP, FTP, SSH, packet capture, mon
 
 ### TCP
 
-```sapphire
+```corin
 import Network from "stdlib/network"
 
 let sock = Network.tcp_socket()
@@ -1195,7 +1195,7 @@ Full OS development toolkit: bootloader, kernel, memory management, scheduler, s
 
 ### Bootloader
 
-```sapphire
+```corin
 import OS from "stdlib/os"
 
 let boot = OS.Bootloader("disk.img")
@@ -1261,7 +1261,7 @@ Advanced mathematics: number theory, linear algebra, symbolic math, and statisti
 
 ### Number Theory
 
-```sapphire
+```corin
 import MathX from "stdlib/mathx"
 
 println(MathX.is_prime(97))                    # true
@@ -1282,7 +1282,7 @@ println(MathX.sieve(50))                       # primes up to 50
 
 ### Linear Algebra
 
-```sapphire
+```corin
 let a = MathX.mat_identity(3)
 let b = MathX.mat_create(3, 3)
 MathX.mat_set(b, 0, 0, 2.0)
@@ -1302,7 +1302,7 @@ println(MathX.mat_to_string(c))
 
 ### Symbolic Math
 
-```sapphire
+```corin
 let x = MathX.sym_var("x")
 let expr = MathX.sym_add(MathX.sym_mul(x, x), MathX.sym_num(3.0))  # x^2 + 3
 let deriv = MathX.sym_diff(expr, "x")   # 2x
@@ -1333,7 +1333,7 @@ Developer tooling: profiler, benchmarking, structured logging, stack traces, and
 
 ### Profiler
 
-```sapphire
+```corin
 import Polish from "stdlib/polish"
 
 Polish.profiler_start("render")
@@ -1349,7 +1349,7 @@ println(Polish.profiler_report())
 
 ### Benchmark
 
-```sapphire
+```corin
 let bench = Polish.bench_create("sort", iterations: 1000)
 for _ in 0..1000 {
     bench.iter_start()
@@ -1365,7 +1365,7 @@ println(bench.report())
 
 ### Logger
 
-```sapphire
+```corin
 Polish.logger_set_level(2)   # INFO
 Polish.logger_enable_timestamps(true)
 Polish.logger_log(2, "app", "Server started")
@@ -1400,7 +1400,7 @@ Package management toolchain: semantic versioning, manifests, registry, package 
 
 ### Semver
 
-```sapphire
+```corin
 import Ecosystem from "stdlib/ecosystem"
 
 let v = Ecosystem.semver_parse("1.4.2-beta.1")
@@ -1441,12 +1441,12 @@ println(next.to_string())   # "1.5.0"
 
 ### Template Engine
 
-```sapphire
+```corin
 let vars = Ecosystem.tmpl_vars()
 vars.set("name", "Alice")
-vars.set("lang", "Sapphire")
+vars.set("lang", "Corin")
 let out = Ecosystem.tmpl_render("Hello {{name}}, welcome to {{lang}}!", vars)
-println(out)   # "Hello Alice, welcome to Sapphire!"
+println(out)   # "Hello Alice, welcome to Corin!"
 ```
 
 - `tmpl_render(template, vars)` — `{{variable}}` substitution
@@ -1479,7 +1479,7 @@ First-class connectors to real databases. Supports MySQL, PostgreSQL, SQLite, Mi
 
 ### Connecting
 
-```sapphire
+```corin
 import Database from "stdlib/database"
 
 # Option 1: config struct
@@ -1504,7 +1504,7 @@ conn.disconnect()
 
 ### Raw SQL
 
-```sapphire
+```corin
 # Query (returns rows)
 let result = conn.query("SELECT * FROM users WHERE active = ?", [true])
 println(result.row_count())
@@ -1525,7 +1525,7 @@ println(r.last_insert_id)
 
 ### Transactions
 
-```sapphire
+```corin
 conn.begin()
 try {
     conn.exec("UPDATE accounts SET balance = balance - 100 WHERE id = ?", [1])
@@ -1539,7 +1539,7 @@ try {
 
 ### Query Builder
 
-```sapphire
+```corin
 let users = Database.table(conn, "users")
     .select(["id", "name", "email"])
     .where("active = ?", [true])
@@ -1580,7 +1580,7 @@ let exists = Database.table(conn, "users").where("email = ?", ["alice@example.co
 
 ### ORM
 
-```sapphire
+```corin
 let orm = Database.ORM(conn)
 
 orm.define({
@@ -1620,7 +1620,7 @@ let active = orm.query("User").where("active = ?", [true]).order_by("name").get(
 
 ### Connection Pool
 
-```sapphire
+```corin
 let pool = Database.pool({
     driver:   "postgresql",
     host:     "localhost",
@@ -1640,7 +1640,7 @@ pool.destroy()
 
 ### MongoDB / Document style
 
-```sapphire
+```corin
 let conn = Database.connect_url("mongodb://localhost:27017/myapp")
 let users = Database.collection(conn, "users")
 
@@ -1655,7 +1655,7 @@ println(users.count())
 
 ### Real-world example: Login & Registration
 
-```sapphire
+```corin
 import Database from "stdlib/database"
 import HTTP from "stdlib/http"
 import Crypto from "stdlib/crypto"

@@ -17,7 +17,7 @@
 #include <sys/io.h>
 #endif
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace System {
 
@@ -404,132 +404,132 @@ namespace Kernel {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
     static thread_local char g_string_buffer[4096];
     
-    int sapphire_system_get_pid() {
-        return sapphire::stdlib::System::get_pid();
+    int corin_system_get_pid() {
+        return corin::stdlib::System::get_pid();
     }
     
-    void sapphire_system_exit(int code) {
-        sapphire::stdlib::System::exit_process(code);
+    void corin_system_exit(int code) {
+        corin::stdlib::System::exit_process(code);
     }
     
-    void* sapphire_system_allocate(size_t size) {
-        return sapphire::stdlib::System::allocate_memory(size);
+    void* corin_system_allocate(size_t size) {
+        return corin::stdlib::System::allocate_memory(size);
     }
     
-    void sapphire_system_free(void* ptr) {
-        sapphire::stdlib::System::free_memory(ptr);
+    void corin_system_free(void* ptr) {
+        corin::stdlib::System::free_memory(ptr);
     }
     
-    size_t sapphire_system_page_size() {
-        return sapphire::stdlib::System::get_page_size();
+    size_t corin_system_page_size() {
+        return corin::stdlib::System::get_page_size();
     }
     
-    bool sapphire_system_file_exists(const char* path) {
-        return sapphire::stdlib::System::file_exists(path);
+    bool corin_system_file_exists(const char* path) {
+        return corin::stdlib::System::file_exists(path);
     }
     
-    bool sapphire_system_create_directory(const char* path) {
-        return sapphire::stdlib::System::create_directory(path);
+    bool corin_system_create_directory(const char* path) {
+        return corin::stdlib::System::create_directory(path);
     }
     
-    const char* sapphire_system_get_cwd() {
-        std::string cwd = sapphire::stdlib::System::get_current_directory();
+    const char* corin_system_get_cwd() {
+        std::string cwd = corin::stdlib::System::get_current_directory();
         strncpy(g_string_buffer, cwd.c_str(), sizeof(g_string_buffer) - 1);
         return g_string_buffer;
     }
     
-    const char* sapphire_system_get_env(const char* name) {
-        std::string value = sapphire::stdlib::System::get_env(name);
+    const char* corin_system_get_env(const char* name) {
+        std::string value = corin::stdlib::System::get_env(name);
         strncpy(g_string_buffer, value.c_str(), sizeof(g_string_buffer) - 1);
         return g_string_buffer;
     }
     
-    const char* sapphire_system_get_username() {
-        std::string username = sapphire::stdlib::System::get_username();
+    const char* corin_system_get_username() {
+        std::string username = corin::stdlib::System::get_username();
         strncpy(g_string_buffer, username.c_str(), sizeof(g_string_buffer) - 1);
         return g_string_buffer;
     }
     
-    const char* sapphire_system_get_hostname() {
-        std::string hostname = sapphire::stdlib::System::get_hostname();
+    const char* corin_system_get_hostname() {
+        std::string hostname = corin::stdlib::System::get_hostname();
         strncpy(g_string_buffer, hostname.c_str(), sizeof(g_string_buffer) - 1);
         return g_string_buffer;
     }
     
-    int sapphire_system_cpu_count() {
-        return sapphire::stdlib::System::get_cpu_count();
+    int corin_system_cpu_count() {
+        return corin::stdlib::System::get_cpu_count();
     }
     
-    const char* sapphire_system_cpu_arch() {
-        std::string arch = sapphire::stdlib::System::get_cpu_arch();
+    const char* corin_system_cpu_arch() {
+        std::string arch = corin::stdlib::System::get_cpu_arch();
         strncpy(g_string_buffer, arch.c_str(), sizeof(g_string_buffer) - 1);
         return g_string_buffer;
     }
     
-    uint64_t sapphire_system_timestamp_ms() {
-        return sapphire::stdlib::System::get_timestamp_ms();
+    uint64_t corin_system_timestamp_ms() {
+        return corin::stdlib::System::get_timestamp_ms();
     }
     
-    uint64_t sapphire_system_timestamp_us() {
-        return sapphire::stdlib::System::get_timestamp_us();
+    uint64_t corin_system_timestamp_us() {
+        return corin::stdlib::System::get_timestamp_us();
     }
     
-    uint64_t sapphire_system_timestamp_ns() {
-        return sapphire::stdlib::System::get_timestamp_ns();
+    uint64_t corin_system_timestamp_ns() {
+        return corin::stdlib::System::get_timestamp_ns();
     }
     
-    void sapphire_system_sleep_ms(uint64_t ms) {
-        sapphire::stdlib::System::sleep_ms(ms);
+    void corin_system_sleep_ms(uint64_t ms) {
+        corin::stdlib::System::sleep_ms(ms);
     }
     
     // Kernel Interface C API
-    int sapphire_kernel_syscall(int number, void* arg1, void* arg2) {
-        return sapphire::stdlib::Kernel::syscall(number, arg1, arg2);
+    int corin_kernel_syscall(int number, void* arg1, void* arg2) {
+        return corin::stdlib::Kernel::syscall(number, arg1, arg2);
     }
     
-    void* sapphire_kernel_map_memory(void* addr, size_t length, int prot, int flags) {
-        return sapphire::stdlib::Kernel::map_memory(addr, length, prot, flags);
+    void* corin_kernel_map_memory(void* addr, size_t length, int prot, int flags) {
+        return corin::stdlib::Kernel::map_memory(addr, length, prot, flags);
     }
     
-    void sapphire_kernel_unmap_memory(void* addr, size_t length) {
-        sapphire::stdlib::Kernel::unmap_memory(addr, length);
+    void corin_kernel_unmap_memory(void* addr, size_t length) {
+        corin::stdlib::Kernel::unmap_memory(addr, length);
     }
     
-    uint8_t sapphire_kernel_inb(uint16_t port) {
-        return sapphire::stdlib::Kernel::inb(port);
+    uint8_t corin_kernel_inb(uint16_t port) {
+        return corin::stdlib::Kernel::inb(port);
     }
     
-    void sapphire_kernel_outb(uint16_t port, uint8_t value) {
-        sapphire::stdlib::Kernel::outb(port, value);
+    void corin_kernel_outb(uint16_t port, uint8_t value) {
+        corin::stdlib::Kernel::outb(port, value);
     }
     
-    uint16_t sapphire_kernel_inw(uint16_t port) {
-        return sapphire::stdlib::Kernel::inw(port);
+    uint16_t corin_kernel_inw(uint16_t port) {
+        return corin::stdlib::Kernel::inw(port);
     }
     
-    void sapphire_kernel_outw(uint16_t port, uint16_t value) {
-        sapphire::stdlib::Kernel::outw(port, value);
+    void corin_kernel_outw(uint16_t port, uint16_t value) {
+        corin::stdlib::Kernel::outw(port, value);
     }
     
-    uint32_t sapphire_kernel_inl(uint16_t port) {
-        return sapphire::stdlib::Kernel::inl(port);
+    uint32_t corin_kernel_inl(uint16_t port) {
+        return corin::stdlib::Kernel::inl(port);
     }
     
-    void sapphire_kernel_outl(uint16_t port, uint32_t value) {
-        sapphire::stdlib::Kernel::outl(port, value);
+    void corin_kernel_outl(uint16_t port, uint32_t value) {
+        corin::stdlib::Kernel::outl(port, value);
     }
     
-    void sapphire_kernel_enable_interrupts() {
-        sapphire::stdlib::Kernel::enable_interrupts();
+    void corin_kernel_enable_interrupts() {
+        corin::stdlib::Kernel::enable_interrupts();
     }
     
-    void sapphire_kernel_disable_interrupts() {
-        sapphire::stdlib::Kernel::disable_interrupts();
+    void corin_kernel_disable_interrupts() {
+        corin::stdlib::Kernel::disable_interrupts();
     }
 }

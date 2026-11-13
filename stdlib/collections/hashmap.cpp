@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Collections {
 
@@ -326,71 +326,71 @@ std::string hashmap_get_string(HashMap* map, const std::string& key) {
 
 } // namespace Collections
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
     static thread_local char g_hashmap_string_buffer[8192];
     
-    void* sapphire_hashmap_create() {
-        return sapphire::stdlib::Collections::create_hashmap();
+    void* corin_hashmap_create() {
+        return corin::stdlib::Collections::create_hashmap();
     }
     
-    void* sapphire_hashmap_create_with_capacity(int64_t capacity) {
-        return sapphire::stdlib::Collections::create_hashmap(capacity > 0 ? capacity : 16);
+    void* corin_hashmap_create_with_capacity(int64_t capacity) {
+        return corin::stdlib::Collections::create_hashmap(capacity > 0 ? capacity : 16);
     }
     
-    void sapphire_hashmap_destroy(void* map) {
+    void corin_hashmap_destroy(void* map) {
         if (map) {
-            sapphire::stdlib::Collections::destroy_hashmap(
-                (sapphire::stdlib::Collections::HashMap*)map);
+            corin::stdlib::Collections::destroy_hashmap(
+                (corin::stdlib::Collections::HashMap*)map);
         }
     }
     
-    bool sapphire_hashmap_set_int(void* map, const char* key, int64_t value) {
+    bool corin_hashmap_set_int(void* map, const char* key, int64_t value) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_set_int(
-                (sapphire::stdlib::Collections::HashMap*)map, key, value);
+            return corin::stdlib::Collections::hashmap_set_int(
+                (corin::stdlib::Collections::HashMap*)map, key, value);
         }
         return false;
     }
     
-    int64_t sapphire_hashmap_get_int(void* map, const char* key) {
+    int64_t corin_hashmap_get_int(void* map, const char* key) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_get_int(
-                (sapphire::stdlib::Collections::HashMap*)map, key);
+            return corin::stdlib::Collections::hashmap_get_int(
+                (corin::stdlib::Collections::HashMap*)map, key);
         }
         return 0;
     }
     
-    bool sapphire_hashmap_set_double(void* map, const char* key, double value) {
+    bool corin_hashmap_set_double(void* map, const char* key, double value) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_set_double(
-                (sapphire::stdlib::Collections::HashMap*)map, key, value);
+            return corin::stdlib::Collections::hashmap_set_double(
+                (corin::stdlib::Collections::HashMap*)map, key, value);
         }
         return false;
     }
     
-    double sapphire_hashmap_get_double(void* map, const char* key) {
+    double corin_hashmap_get_double(void* map, const char* key) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_get_double(
-                (sapphire::stdlib::Collections::HashMap*)map, key);
+            return corin::stdlib::Collections::hashmap_get_double(
+                (corin::stdlib::Collections::HashMap*)map, key);
         }
         return 0.0;
     }
     
-    bool sapphire_hashmap_set_string(void* map, const char* key, const char* value) {
+    bool corin_hashmap_set_string(void* map, const char* key, const char* value) {
         if (map && key && value) {
-            return sapphire::stdlib::Collections::hashmap_set_string(
-                (sapphire::stdlib::Collections::HashMap*)map, key, value);
+            return corin::stdlib::Collections::hashmap_set_string(
+                (corin::stdlib::Collections::HashMap*)map, key, value);
         }
         return false;
     }
     
-    const char* sapphire_hashmap_get_string(void* map, const char* key) {
+    const char* corin_hashmap_get_string(void* map, const char* key) {
         if (map && key) {
-            std::string result = sapphire::stdlib::Collections::hashmap_get_string(
-                (sapphire::stdlib::Collections::HashMap*)map, key);
+            std::string result = corin::stdlib::Collections::hashmap_get_string(
+                (corin::stdlib::Collections::HashMap*)map, key);
             
             strncpy(g_hashmap_string_buffer, result.c_str(), sizeof(g_hashmap_string_buffer) - 1);
             g_hashmap_string_buffer[sizeof(g_hashmap_string_buffer) - 1] = '\0';
@@ -400,42 +400,42 @@ extern "C" {
         return nullptr;
     }
     
-    bool sapphire_hashmap_remove(void* map, const char* key) {
+    bool corin_hashmap_remove(void* map, const char* key) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_remove(
-                (sapphire::stdlib::Collections::HashMap*)map, key);
+            return corin::stdlib::Collections::hashmap_remove(
+                (corin::stdlib::Collections::HashMap*)map, key);
         }
         return false;
     }
     
-    bool sapphire_hashmap_contains(void* map, const char* key) {
+    bool corin_hashmap_contains(void* map, const char* key) {
         if (map && key) {
-            return sapphire::stdlib::Collections::hashmap_contains(
-                (sapphire::stdlib::Collections::HashMap*)map, key);
+            return corin::stdlib::Collections::hashmap_contains(
+                (corin::stdlib::Collections::HashMap*)map, key);
         }
         return false;
     }
     
-    int64_t sapphire_hashmap_size(void* map) {
+    int64_t corin_hashmap_size(void* map) {
         if (map) {
-            return (int64_t)sapphire::stdlib::Collections::hashmap_size(
-                (sapphire::stdlib::Collections::HashMap*)map);
+            return (int64_t)corin::stdlib::Collections::hashmap_size(
+                (corin::stdlib::Collections::HashMap*)map);
         }
         return 0;
     }
     
-    bool sapphire_hashmap_empty(void* map) {
+    bool corin_hashmap_empty(void* map) {
         if (map) {
-            return sapphire::stdlib::Collections::hashmap_empty(
-                (sapphire::stdlib::Collections::HashMap*)map);
+            return corin::stdlib::Collections::hashmap_empty(
+                (corin::stdlib::Collections::HashMap*)map);
         }
         return true;
     }
     
-    void sapphire_hashmap_clear(void* map) {
+    void corin_hashmap_clear(void* map) {
         if (map) {
-            sapphire::stdlib::Collections::hashmap_clear(
-                (sapphire::stdlib::Collections::HashMap*)map);
+            corin::stdlib::Collections::hashmap_clear(
+                (corin::stdlib::Collections::HashMap*)map);
         }
     }
 }

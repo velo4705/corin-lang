@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace IO {
 
@@ -252,44 +252,44 @@ std::string csv_to_string(const CSVData* data) {
 
 } // namespace IO
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
     static thread_local char g_csv_string_buffer[8192];
     
-    void* sapphire_csv_create() {
-        return sapphire::stdlib::IO::create_csv_data();
+    void* corin_csv_create() {
+        return corin::stdlib::IO::create_csv_data();
     }
     
-    void sapphire_csv_destroy(void* csv_data) {
+    void corin_csv_destroy(void* csv_data) {
         if (csv_data) {
-            sapphire::stdlib::IO::destroy_csv_data(
-                (sapphire::stdlib::IO::CSVData*)csv_data);
+            corin::stdlib::IO::destroy_csv_data(
+                (corin::stdlib::IO::CSVData*)csv_data);
         }
     }
     
-    void* sapphire_csv_read_file(const char* filename, bool has_headers) {
+    void* corin_csv_read_file(const char* filename, bool has_headers) {
         if (!filename) return nullptr;
-        return sapphire::stdlib::IO::csv_read_file(filename, has_headers);
+        return corin::stdlib::IO::csv_read_file(filename, has_headers);
     }
     
-    bool sapphire_csv_write_file(const char* filename, void* csv_data) {
+    bool corin_csv_write_file(const char* filename, void* csv_data) {
         if (!filename || !csv_data) return false;
-        return sapphire::stdlib::IO::csv_write_file(
-            filename, (sapphire::stdlib::IO::CSVData*)csv_data);
+        return corin::stdlib::IO::csv_write_file(
+            filename, (corin::stdlib::IO::CSVData*)csv_data);
     }
     
-    void* sapphire_csv_parse_string(const char* content, bool has_headers) {
+    void* corin_csv_parse_string(const char* content, bool has_headers) {
         if (!content) return nullptr;
-        return sapphire::stdlib::IO::csv_parse_string(content, has_headers);
+        return corin::stdlib::IO::csv_parse_string(content, has_headers);
     }
     
-    const char* sapphire_csv_to_string(void* csv_data) {
+    const char* corin_csv_to_string(void* csv_data) {
         if (!csv_data) return nullptr;
         
-        std::string result = sapphire::stdlib::IO::csv_to_string(
-            (sapphire::stdlib::IO::CSVData*)csv_data);
+        std::string result = corin::stdlib::IO::csv_to_string(
+            (corin::stdlib::IO::CSVData*)csv_data);
         
         strncpy(g_csv_string_buffer, result.c_str(), sizeof(g_csv_string_buffer) - 1);
         g_csv_string_buffer[sizeof(g_csv_string_buffer) - 1] = '\0';
@@ -297,20 +297,20 @@ extern "C" {
         return g_csv_string_buffer;
     }
     
-    int64_t sapphire_csv_row_count(void* csv_data) {
+    int64_t corin_csv_row_count(void* csv_data) {
         if (!csv_data) return 0;
-        return (int64_t)((sapphire::stdlib::IO::CSVData*)csv_data)->row_count();
+        return (int64_t)((corin::stdlib::IO::CSVData*)csv_data)->row_count();
     }
     
-    int64_t sapphire_csv_col_count(void* csv_data) {
+    int64_t corin_csv_col_count(void* csv_data) {
         if (!csv_data) return 0;
-        return (int64_t)((sapphire::stdlib::IO::CSVData*)csv_data)->col_count();
+        return (int64_t)((corin::stdlib::IO::CSVData*)csv_data)->col_count();
     }
     
-    const char* sapphire_csv_get(void* csv_data, int64_t row, int64_t col) {
+    const char* corin_csv_get(void* csv_data, int64_t row, int64_t col) {
         if (!csv_data || row < 0 || col < 0) return nullptr;
         
-        std::string value = ((sapphire::stdlib::IO::CSVData*)csv_data)->get(
+        std::string value = ((corin::stdlib::IO::CSVData*)csv_data)->get(
             (size_t)row, (size_t)col);
         
         strncpy(g_csv_string_buffer, value.c_str(), sizeof(g_csv_string_buffer) - 1);
@@ -319,17 +319,17 @@ extern "C" {
         return g_csv_string_buffer;
     }
     
-    void sapphire_csv_set(void* csv_data, int64_t row, int64_t col, const char* value) {
+    void corin_csv_set(void* csv_data, int64_t row, int64_t col, const char* value) {
         if (!csv_data || row < 0 || col < 0 || !value) return;
         
-        ((sapphire::stdlib::IO::CSVData*)csv_data)->set(
+        ((corin::stdlib::IO::CSVData*)csv_data)->set(
             (size_t)row, (size_t)col, value);
     }
     
-    const char* sapphire_csv_get_header(void* csv_data, int64_t col) {
+    const char* corin_csv_get_header(void* csv_data, int64_t col) {
         if (!csv_data || col < 0) return nullptr;
         
-        auto* data = (sapphire::stdlib::IO::CSVData*)csv_data;
+        auto* data = (corin::stdlib::IO::CSVData*)csv_data;
         if (!data->has_headers || (size_t)col >= data->headers.size()) {
             return nullptr;
         }
@@ -341,10 +341,10 @@ extern "C" {
         return g_csv_string_buffer;
     }
     
-    void sapphire_csv_set_header(void* csv_data, int64_t col, const char* value) {
+    void corin_csv_set_header(void* csv_data, int64_t col, const char* value) {
         if (!csv_data || col < 0 || !value) return;
         
-        auto* data = (sapphire::stdlib::IO::CSVData*)csv_data;
+        auto* data = (corin::stdlib::IO::CSVData*)csv_data;
         data->has_headers = true;
         
         // Ensure headers vector is large enough
@@ -355,18 +355,18 @@ extern "C" {
         data->headers[col] = value;
     }
     
-    bool sapphire_csv_has_headers(void* csv_data) {
+    bool corin_csv_has_headers(void* csv_data) {
         if (!csv_data) return false;
-        return ((sapphire::stdlib::IO::CSVData*)csv_data)->has_headers;
+        return ((corin::stdlib::IO::CSVData*)csv_data)->has_headers;
     }
     
-    void sapphire_csv_add_row(void* csv_data) {
+    void corin_csv_add_row(void* csv_data) {
         if (!csv_data) return;
-        ((sapphire::stdlib::IO::CSVData*)csv_data)->add_row(std::vector<std::string>());
+        ((corin::stdlib::IO::CSVData*)csv_data)->add_row(std::vector<std::string>());
     }
     
-    void sapphire_csv_clear(void* csv_data) {
+    void corin_csv_clear(void* csv_data) {
         if (!csv_data) return;
-        ((sapphire::stdlib::IO::CSVData*)csv_data)->clear();
+        ((corin::stdlib::IO::CSVData*)csv_data)->clear();
     }
 }

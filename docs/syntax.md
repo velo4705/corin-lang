@@ -1,4 +1,4 @@
-# Sapphire Syntax Specification
+# Corin Syntax Specification
 
 ## Design Principles
 
@@ -11,10 +11,10 @@
 
 ### Variables and Types
 
-```sapphire
+```corin
 # Type inference
 let x = 42
-let name = "Sapphire"
+let name = "Corin"
 
 # Explicit typing
 let count: int = 100
@@ -26,7 +26,7 @@ const MAX_SIZE = 1000
 
 ### Functions
 
-```sapphire
+```corin
 fn add(a: int, b: int) -> int:
     return a + b
 
@@ -36,7 +36,7 @@ fn greet(name: str):
 
 ### Control Flow
 
-```sapphire
+```corin
 # If statements
 if x > 10:
     print("Large")
@@ -55,7 +55,7 @@ while condition:
 
 ### Data Structures
 
-```sapphire
+```corin
 # Lists
 numbers = [1, 2, 3, 4, 5]
 
@@ -68,7 +68,7 @@ point = (10, 20)
 
 ### Error Handling
 
-```sapphire
+```corin
 fn divide(a: int, b: int) -> Result<int, str>:
     if b == 0:
         return Err("Division by zero")

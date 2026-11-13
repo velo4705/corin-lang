@@ -8,7 +8,7 @@
 #include <thread>
 #include <atomic>
 
-namespace Sapphire {
+namespace Corin {
 namespace HTTP {
 
 // Forward declarations
@@ -229,7 +229,7 @@ std::string html_escape(const std::string& str);
 std::string get_mime_type(const std::string& filename);
 
 } // namespace HTTP
-} // namespace Sapphire
+} // namespace Corin
 
 // C API for compiler integration
 extern "C" {

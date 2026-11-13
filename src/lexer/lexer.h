@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_LEXER_H
-#define SAPPHIRE_LEXER_H
+#ifndef CORIN_LEXER_H
+#define CORIN_LEXER_H
 
 #include "token.h"
 #include <vector>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 
 class Lexer {
 private:
@@ -36,6 +36,6 @@ public:
     std::vector<Token> tokenize();
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_LEXER_H
+#endif // CORIN_LEXER_H

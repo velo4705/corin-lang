@@ -19,7 +19,7 @@ Space Complexity: [Big O notation]
 
 ```bash
 # Run individual test
-./sapp benchmarks/algorithms/[algorithm].spp
+./corin benchmarks/algorithms/[algorithm].corin
 
 # Run all tests with verification
 ./benchmarks/verify_outputs.sh
@@ -39,7 +39,7 @@ Space Complexity: [Big O notation]
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/fibonacci_dp.spp
+./corin benchmarks/algorithms/fibonacci_dp.corin
 # Should output: 102334155
 ```
 
@@ -70,7 +70,7 @@ Sum = 30+24+18+84+69+54+138+114+90 = 621
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/matrix_multiply.spp
+./corin benchmarks/algorithms/matrix_multiply.corin
 # Should output: 621
 ```
 
@@ -104,7 +104,7 @@ result = 690 + 1780 + 222 + 444 + 666 = 3802
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/hash_operations.spp
+./corin benchmarks/algorithms/hash_operations.corin
 # Should output: 3802
 ```
 
@@ -135,7 +135,7 @@ result = 26 + 25 + 10 + 25 + 95 = 181
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/string_operations.spp
+./corin benchmarks/algorithms/string_operations.corin
 # Should output: 181
 ```
 
@@ -156,7 +156,7 @@ Sum = 64 + 34 + 25 + 12 + 22 + 11 + 90 + 88 + 45 + 50 = 441
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/sorting_benchmark.spp
+./corin benchmarks/algorithms/sorting_benchmark.corin
 # Should output: 441
 ```
 
@@ -200,7 +200,7 @@ All tests passed! ✓
 
 ## Performance Comparison
 
-Compare Sapphire vs C performance:
+Compare Corin vs C performance:
 
 ```bash
 ./benchmarks/compare_with_c.sh
@@ -209,7 +209,7 @@ Compare Sapphire vs C performance:
 Expected output format:
 ```
 Algorithm: Fibonacci DP
-  Sapphire: 0.123ms
+  Corin: 0.123ms
   C:        0.120ms
   Ratio:    102.5% (within 5% target)
   ✓ PASS
@@ -219,7 +219,7 @@ Algorithm: Fibonacci DP
 
 To add a new algorithm benchmark:
 
-1. Create `benchmarks/algorithms/your_algorithm.spp`
+1. Create `benchmarks/algorithms/your_algorithm.corin`
 2. Create `benchmarks/algorithms/your_algorithm.c`
 3. Add test case to this README
 4. Update `verify_outputs.sh`
@@ -242,7 +242,7 @@ To add a new algorithm benchmark:
 
 **Verification**:
 ```bash
-./sapp benchmarks/algorithms/your_algorithm.spp
+./corin benchmarks/algorithms/your_algorithm.corin
 # Should output: [expected]
 ```
 ```

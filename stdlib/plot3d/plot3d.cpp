@@ -31,7 +31,7 @@ static std::string read_file_bytes(const std::string& path) {
                         std::istreambuf_iterator<char>());
 }
 
-namespace sapphire { namespace stdlib { namespace Plot3D {
+namespace corin { namespace stdlib { namespace Plot3D {
 
 Plot3D::Plot3D() {}
 
@@ -154,7 +154,7 @@ void Plot3D::save_html(const std::string& filename) {
          << "  #header { padding:12px 20px; background:#1a1a2e; color:#fff; font-size:14px; height:44px; }\n"
          << "  #plot { display:block; width:100%; height:calc(100vh - 44px); }\n"
          << "</style>\n</head>\n<body>\n"
-         << "<div id=\"header\">Sapphire 3D Plot &mdash; drag to rotate &bull; scroll to zoom &bull; right-drag to pan</div>\n"
+         << "<div id=\"header\">Corin 3D Plot &mdash; drag to rotate &bull; scroll to zoom &bull; right-drag to pan</div>\n"
          << "<div id=\"plot\"></div>\n";
 
     if (!plotly_js.empty()) {
@@ -210,7 +210,7 @@ void Plot3D::save_html(const std::string& filename) {
 
 // ── C API ──────────────────────────────────────────────────────────────────
 extern "C" {
-using P = sapphire::stdlib::Plot3D::Plot3D;
+using P = corin::stdlib::Plot3D::Plot3D;
 
 void* plot3d_create() { return new P(); }
 void  plot3d_destroy(void* p) { delete static_cast<P*>(p); }

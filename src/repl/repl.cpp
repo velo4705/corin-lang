@@ -13,7 +13,7 @@
 #include <termios.h>
 #endif
 
-namespace sapphire {
+namespace corin {
 
 REPL::REPL() : interpreter(std::make_shared<Interpreter>()), running(true) {}
 
@@ -171,7 +171,7 @@ void REPL::executeCode(const std::string& code) {
             }
         }
         
-    } catch (const SapphireException& e) {
+    } catch (const CorinException& e) {
         // Print the full error with stack trace
         std::string code;
         const std::string& t = e.getTypeName();
@@ -198,7 +198,7 @@ void REPL::executeCode(const std::string& code) {
 
 void REPL::printWelcome() {
     std::cout << "╔══════════════════════════════════════════════════════════════╗\n";
-    std::cout << "║         Sapphire REPL v1.0-beta.8                          ║\n";
+    std::cout << "║         Corin REPL v1.0-beta.8                          ║\n";
     std::cout << "║         Interactive Programming Environment                   ║\n";
     std::cout << "╚══════════════════════════════════════════════════════════════╝\n";
     std::cout << "\n";
@@ -215,7 +215,7 @@ void REPL::printHelp() {
     std::cout << "  :vars              - Show defined variables\n";
     std::cout << "  :funcs             - Show defined functions\n";
     std::cout << "  :reset             - Reset the environment\n";
-    std::cout << "  :reload <file>     - Reload a Sapphire file\n";
+    std::cout << "  :reload <file>     - Reload a Corin file\n";
     std::cout << "  :watch <file>      - Watch a file for changes (auto-reload)\n";
     std::cout << "  :watch             - Show watched files\n";
     std::cout << "  :unwatch <file>    - Stop watching a file\n";
@@ -320,7 +320,7 @@ void REPL::reloadFile(const std::string& filename) {
 }
 
 std::string REPL::getPrompt() const {
-    return "sapphire> ";
+    return "corin> ";
 }
 
 std::string REPL::readLine(const std::string& prompt) {
@@ -577,4 +577,4 @@ std::chrono::system_clock::time_point REPL::getFileModTime(const std::string& fi
     return std::chrono::system_clock::from_time_t(file_stat.st_mtime);
 }
 
-} // namespace sapphire
+} // namespace corin

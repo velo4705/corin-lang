@@ -1,7 +1,7 @@
 #include "regex.h"
 #include <stdexcept>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 //=============================================================================
@@ -199,37 +199,37 @@ std::string Regex::escape(const std::string& str) {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
 //=============================================================================
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 extern "C" {
 
-int sapphire_regex_matches(const char* pattern, const char* text) {
+int corin_regex_matches(const char* pattern, const char* text) {
     return Regex::matches(pattern, text) ? 1 : 0;
 }
 
-int sapphire_regex_search(const char* pattern, const char* text) {
+int corin_regex_search(const char* pattern, const char* text) {
     return Regex::search(pattern, text) ? 1 : 0;
 }
 
-const char* sapphire_regex_replace(const char* pattern, const char* text, const char* replacement) {
+const char* corin_regex_replace(const char* pattern, const char* text, const char* replacement) {
     static std::string result;
     result = Regex::replace(pattern, text, replacement);
     return result.c_str();
 }
 
-const char* sapphire_regex_replace_all(const char* pattern, const char* text, const char* replacement) {
+const char* corin_regex_replace_all(const char* pattern, const char* text, const char* replacement) {
     static std::string result;
     result = Regex::replace_all(pattern, text, replacement);
     return result.c_str();
 }
 
-int sapphire_regex_is_valid(const char* pattern) {
+int corin_regex_is_valid(const char* pattern) {
     return Regex::is_valid(pattern) ? 1 : 0;
 }
 

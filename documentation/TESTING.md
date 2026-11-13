@@ -1,6 +1,6 @@
-# Testing Guide - Sapphire
+# Testing Guide - Corin
 
-This document describes how to test Sapphire examples and features.
+This document describes how to test Corin examples and features.
 
 ---
 
@@ -12,12 +12,12 @@ This document describes how to test Sapphire examples and features.
 ./test_examples.sh
 ```
 
-This will test all 186 .spp files in the examples/ directory.
+This will test all 186 .corin files in the examples/ directory.
 
 ### Run Specific Example
 
 ```bash
-./sapp examples/hello.spp
+./corin examples/hello.corin
 ```
 
 ---
@@ -33,7 +33,7 @@ This will test all 186 .spp files in the examples/ directory.
 ### Test Script Features
 
 1. **Automatic Discovery**
-   - Finds all .spp files in examples/
+   - Finds all .corin files in examples/
    - No manual maintenance needed
 
 2. **Error Detection**
@@ -129,10 +129,10 @@ This will test all 186 .spp files in the examples/ directory.
 
 ### 1. Create Test File
 
-Create a new .spp file in examples/:
+Create a new .corin file in examples/:
 
-```sapphire
-# examples/my_test.spp
+```corin
+# examples/my_test.corin
 print("Testing my feature")
 
 let result = my_function()
@@ -153,10 +153,10 @@ If your test requires user input, add it to the skip list in `test_examples.sh`:
 
 ```bash
 SKIP_FILES=(
-    "examples/input_test_simple.spp"
-    "examples/input_working.spp"
-    "examples/user_input_example.spp"
-    "examples/my_interactive_test.spp"  # Add here
+    "examples/input_test_simple.corin"
+    "examples/input_working.corin"
+    "examples/user_input_example.corin"
+    "examples/my_interactive_test.corin"  # Add here
 )
 ```
 
@@ -187,7 +187,7 @@ Total:   186
 ### 1. Run Individual Test
 
 ```bash
-./sapp examples/failing_test.spp
+./corin examples/failing_test.corin
 ```
 
 ### 2. Check Error Output
@@ -201,10 +201,10 @@ Look for:
 
 ```bash
 # Edit the file
-vim examples/failing_test.spp
+vim examples/failing_test.corin
 
 # Test again
-./sapp examples/failing_test.spp
+./corin examples/failing_test.corin
 
 # Run full suite
 ./test_examples.sh
@@ -267,8 +267,8 @@ jobs:
    - Minimal dependencies
 
 2. **Use descriptive names**
-   - `test_pattern_matching_guards.spp`
-   - `example_async_channels.spp`
+   - `test_pattern_matching_guards.corin`
+   - `example_async_channels.corin`
 
 3. **Add comments**
    - Explain what's being tested
@@ -321,7 +321,7 @@ Increase timeout in test_examples.sh:
 
 ```bash
 # Change from 5s to 10s
-output=$(timeout 10s ./sapp "$example" 2>&1)
+output=$(timeout 10s ./corin "$example" 2>&1)
 ```
 
 ---

@@ -1,10 +1,10 @@
-# Sapphire Standard Library - New Libraries
+# Corin Standard Library - New Libraries
 
-This document describes the newly implemented standard library modules for Sapphire.
+This document describes the newly implemented standard library modules for Corin.
 
 ## Overview
 
-Three major library modules have been added to extend Sapphire's capabilities:
+Three major library modules have been added to extend Corin's capabilities:
 
 1. **DateTime** - Date, time, and duration utilities
 2. **Graphics** - 2D graphics and canvas operations
@@ -19,7 +19,7 @@ Located in: `stdlib/datetime/`
 #### `Instant`
 Represents a point in time with millisecond precision.
 
-```sapphire
+```corin
 let now = Instant.now()
 let elapsed = now - another_instant  # Returns Duration
 ```
@@ -32,7 +32,7 @@ let elapsed = now - another_instant  # Returns Duration
 #### `Duration`
 Represents a time span.
 
-```sapphire
+```corin
 let duration = instant1 - instant2
 print(duration.seconds())
 print(duration.minutes())
@@ -48,7 +48,7 @@ print(duration.hours())
 #### `Date`
 Represents a calendar date.
 
-```sapphire
+```corin
 let today = Date.today()
 let custom = Date(2024, 3, 15)
 print(today.to_string())  # "2024-03-15"
@@ -61,7 +61,7 @@ print(today.to_string())  # "2024-03-15"
 #### `Time`
 Represents a time of day.
 
-```sapphire
+```corin
 let current = Time.now()
 print(current.to_string())  # "14:30:45"
 ```
@@ -73,7 +73,7 @@ print(current.to_string())  # "14:30:45"
 #### `DateTime`
 Combines date and time.
 
-```sapphire
+```corin
 let now = DateTime.now()
 print(now.to_string())  # "2024-03-15 14:30:45"
 ```
@@ -84,7 +84,7 @@ print(now.to_string())  # "2024-03-15 14:30:45"
 
 ### Usage Example
 
-```sapphire
+```corin
 import datetime
 
 let start = Instant.now()
@@ -111,7 +111,7 @@ Located in: `stdlib/graphics/`
 #### `Color`
 Represents an RGBA color.
 
-```sapphire
+```corin
 let red = Color.red()
 let custom = Color(255, 128, 64, 255)
 ```
@@ -129,14 +129,14 @@ let custom = Color(255, 128, 64, 255)
 #### `Point`
 Represents a 2D point.
 
-```sapphire
+```corin
 let p = Point(100.0, 200.0)
 ```
 
 #### `Rect`
 Represents a rectangle.
 
-```sapphire
+```corin
 let r = Rect(10.0, 20.0, 100.0, 50.0)  # x, y, width, height
 ```
 
@@ -144,7 +144,7 @@ let r = Rect(10.0, 20.0, 100.0, 50.0)  # x, y, width, height
 
 Main drawing surface for graphics operations.
 
-```sapphire
+```corin
 let canvas = Canvas(800, 600)
 canvas.set_fill_color(Color.blue())
 canvas.fill_rect(Rect(50.0, 50.0, 100.0, 100.0))
@@ -171,7 +171,7 @@ canvas.save_ppm("output.ppm")
 
 ### Usage Example
 
-```sapphire
+```corin
 import graphics
 
 let canvas = Canvas(400, 300)
@@ -199,7 +199,7 @@ Located in: `stdlib/utils/`
 ### String Functions
 
 #### Case Conversion
-```sapphire
+```corin
 import utils
 
 let upper = Utils.to_upper("hello")      # "HELLO"
@@ -207,34 +207,34 @@ let lower = Utils.to_lower("WORLD")      # "world"
 ```
 
 #### Trimming
-```sapphire
+```corin
 let trimmed = Utils.trim("  hello  ")    # "hello"
 let ltrimmed = Utils.ltrim("  hello")    # "hello"
 let rtrimmed = Utils.rtrim("hello  ")    # "hello"
 ```
 
 #### Splitting and Joining
-```sapphire
+```corin
 let parts = Utils.split("a,b,c", ",")   # ["a", "b", "c"]
 let joined = Utils.join(parts, "-")     # "a-b-c"
 ```
 
 #### String Predicates
-```sapphire
+```corin
 Utils.starts_with("hello", "he")        # true
 Utils.ends_with("hello", "lo")          # true
 Utils.contains("hello", "ll")           # true
 ```
 
 #### String Replacement
-```sapphire
+```corin
 let replaced = Utils.replace("hello", "l", "L")  # "heLLo"
 let repeated = Utils.repeat("ab", 3)             # "ababab"
 ```
 
 ### Type Conversion
 
-```sapphire
+```corin
 let str_int = Utils.to_string(42)       # "42"
 let str_double = Utils.to_string(3.14)  # "3.14"
 let str_bool = Utils.to_string(true)    # "true"
@@ -246,7 +246,7 @@ let flag = Utils.to_bool("true")        # true
 
 ### Character Classification
 
-```sapphire
+```corin
 Utils.is_digit('5')                     # true
 Utils.is_alpha('a')                     # true
 Utils.is_alnum('5')                     # true
@@ -255,7 +255,7 @@ Utils.is_whitespace(' ')                # true
 
 ### Math Utilities
 
-```sapphire
+```corin
 Utils.abs(-42)                          # 42
 Utils.min(10, 20)                       # 10
 Utils.max(10, 20)                       # 20
@@ -263,14 +263,14 @@ Utils.max(10, 20)                       # 20
 
 ### Random Utilities
 
-```sapphire
+```corin
 let rand_int = Utils.random_int(1, 100)        # Random int 1-100
 let rand_double = Utils.random_double(0.0, 1.0) # Random double 0-1
 ```
 
 ### Hash Utilities
 
-```sapphire
+```corin
 let hash = Utils.hash_string("hello")   # uint32 hash value
 ```
 
@@ -306,7 +306,7 @@ Planned additions to the standard library:
 
 ## Notes
 
-- All libraries use the `sapphire::stdlib` namespace
+- All libraries use the `corin::stdlib` namespace
 - C API exports are provided for code generation
 - Libraries follow RAII principles for resource management
 - Thread-safe where applicable (e.g., random number generation)

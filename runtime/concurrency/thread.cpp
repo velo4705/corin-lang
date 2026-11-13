@@ -1,7 +1,7 @@
 #include "thread.h"
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 std::atomic<uint64_t> Thread::next_id_(1);
@@ -69,4 +69,4 @@ size_t Thread::hardware_concurrency() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin

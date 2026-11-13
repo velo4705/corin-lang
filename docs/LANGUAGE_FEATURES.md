@@ -1,4 +1,4 @@
-# Sapphire Language Features
+# Corin Language Features
 ## Combining the Best of All Worlds
 
 ### From Python 🐍
@@ -25,7 +25,7 @@
 - **Result/Option types** for error handling
 - **Trait system** for polymorphism
 - **Lifetime annotations** (when needed)
-- **Cargo-like package manager** (Sapphire Package Manager - spm)
+- **Cargo-like package manager** (Corin Package Manager - spm)
 - **Excellent error messages** with suggestions
 - **Macro system** for code generation
 
@@ -64,7 +64,7 @@
 - **Smart casts** after type checks
 - **Coroutines** for structured concurrency
 
-### Unique Sapphire Features 💎
+### Unique Corin Features 💎
 - **Adaptive optimization** - JIT for hot paths, AOT for cold
 - **Gradual typing** - start dynamic, add types as needed
 - **Built-in profiler** and debugger

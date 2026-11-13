@@ -4,7 +4,7 @@
 #include <thread>
 #include <vector>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 // Test counters
 int tests_passed = 0;
@@ -344,25 +344,25 @@ TEST(thread_safety) {
 TEST(c_api) {
     std::cout << "  Testing C API..." << std::endl;
     
-    sapphire_profiler_enable();
-    assert(sapphire_profiler_is_enabled());
+    corin_profiler_enable();
+    assert(corin_profiler_is_enabled());
     
-    sapphire_profiler_reset();
+    corin_profiler_reset();
     
     TestObject* obj = new TestObject();
-    sapphire_profiler_track_allocation(obj, sizeof(TestObject), 1);
+    corin_profiler_track_allocation(obj, sizeof(TestObject), 1);
     
-    assert(sapphire_profiler_total_allocated() == sizeof(TestObject));
-    assert(sapphire_profiler_current_usage() == sizeof(TestObject));
-    assert(sapphire_profiler_leak_count() == 1);
+    assert(corin_profiler_total_allocated() == sizeof(TestObject));
+    assert(corin_profiler_current_usage() == sizeof(TestObject));
+    assert(corin_profiler_leak_count() == 1);
     
-    sapphire_profiler_track_free(obj);
-    assert(sapphire_profiler_leak_count() == 0);
+    corin_profiler_track_free(obj);
+    assert(corin_profiler_leak_count() == 0);
     
     delete obj;
     
-    sapphire_profiler_disable();
-    assert(!sapphire_profiler_is_enabled());
+    corin_profiler_disable();
+    assert(!corin_profiler_is_enabled());
     
     std::cout << "  C API working correctly" << std::endl;
 }
@@ -409,7 +409,7 @@ TEST(print_reports) {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Memory Profiler Tests\n";
+    std::cout << "Corin Memory Profiler Tests\n";
     std::cout << "================================================================================\n\n";
     
     // Run all tests

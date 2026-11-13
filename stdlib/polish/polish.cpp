@@ -1,4 +1,4 @@
-// polish.cpp - M17 Polish & Optimization for Sapphire
+// polish.cpp - M17 Polish & Optimization for Corin
 #include "polish.h"
 #include <chrono>
 #include <algorithm>
@@ -11,7 +11,7 @@
 #include <ctime>
 #include <numeric>
 
-namespace Sapphire {
+namespace Corin {
 namespace Polish {
 
 // ===== Profiler =====
@@ -274,7 +274,7 @@ void* stacktrace_capture() {
         {"<current>",    "<script>", 0},
         {"visitCallExpr","interpreter.cpp", 0},
         {"execute",      "interpreter.cpp", 0},
-        {"main",         "sapphire.cpp", 0},
+        {"main",         "corin.cpp", 0},
     };
     return st;
 }
@@ -353,4 +353,4 @@ std::string memtrack_report() {
 }
 
 } // namespace Polish
-} // namespace Sapphire
+} // namespace Corin

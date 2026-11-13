@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Compare Sapphire vs C performance
+# Compare Corin vs C performance
 
 set -e
 
@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║         SAPPHIRE VS C PERFORMANCE COMPARISON                 ║"
+echo "║         CORIN VS C PERFORMANCE COMPARISON                 ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -33,11 +33,11 @@ benchmark_comparison() {
     echo "  [1/4] Compiling C version (-O3)..."
     gcc "$c_file" -o "benchmarks/output/${name// /_}_c" -O3 -lm 2>/dev/null
     
-    # Benchmark Sapphire (interpreter)
-    echo "  [2/4] Benchmarking Sapphire (interpreter, $ITERATIONS iterations)..."
+    # Benchmark Corin (interpreter)
+    echo "  [2/4] Benchmarking Corin (interpreter, $ITERATIONS iterations)..."
     local sapp_start=$(date +%s%N)
     for i in $(seq 1 $ITERATIONS); do
-        ./sapp "$spp_file" > /dev/null 2>&1
+        ./corin "$spp_file" > /dev/null 2>&1
     done
     local sapp_end=$(date +%s%N)
     local sapp_total=$((sapp_end - sapp_start))
@@ -45,7 +45,7 @@ benchmark_comparison() {
     local sapp_ms=$(echo "scale=3; $sapp_avg / 1000000" | bc)
     
     # Verify output
-    local sapp_output=$(./sapp "$spp_file" 2>/dev/null | grep -E '^[0-9]+' | tail -1)
+    local sapp_output=$(./corin "$spp_file" 2>/dev/null | grep -E '^[0-9]+' | tail -1)
     
     # Benchmark C
     echo "  [3/4] Benchmarking C (compiled -O3, $ITERATIONS iterations)..."
@@ -68,7 +68,7 @@ benchmark_comparison() {
     
     echo ""
     echo -e "${GREEN}Results:${NC}"
-    echo "  Sapphire (interpreter): ${sapp_ms} ms/iteration"
+    echo "  Corin (interpreter): ${sapp_ms} ms/iteration"
     echo "  C (compiled -O3):       ${c_ms} ms/iteration"
     echo "  Performance ratio:      ${ratio}% of C speed"
     echo ""
@@ -79,7 +79,7 @@ benchmark_comparison() {
     else
         echo -e "  ${YELLOW}⚠ Output mismatch:${NC}"
         echo "    Expected: $expected"
-        echo "    Sapphire: $sapp_output"
+        echo "    Corin: $sapp_output"
         echo "    C:        $c_output"
     fi
     
@@ -92,7 +92,7 @@ benchmark_comparison() {
     fi
     
     echo ""
-    echo "  Note: Compiled Sapphire (-O3) would achieve 90-100% of C performance"
+    echo "  Note: Compiled Corin (-O3) would achieve 90-100% of C performance"
     echo ""
 }
 
@@ -102,31 +102,31 @@ mkdir -p benchmarks/output
 # Run comparisons
 benchmark_comparison \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.spp" \
+    "benchmarks/algorithms/fibonacci_dp.corin" \
     "benchmarks/algorithms/fibonacci_dp.c" \
     "102334155"
 
 benchmark_comparison \
     "Matrix Multiply" \
-    "benchmarks/algorithms/matrix_multiply.spp" \
+    "benchmarks/algorithms/matrix_multiply.corin" \
     "benchmarks/algorithms/matrix_multiply.c" \
     "621"
 
 benchmark_comparison \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.spp" \
+    "benchmarks/algorithms/hash_operations.corin" \
     "benchmarks/algorithms/hash_operations.c" \
     "999000"
 
 benchmark_comparison \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.spp" \
+    "benchmarks/algorithms/string_operations.corin" \
     "benchmarks/algorithms/string_operations.c" \
     "181"
 
 benchmark_comparison \
     "Sorting" \
-    "benchmarks/algorithms/sorting_benchmark.spp" \
+    "benchmarks/algorithms/sorting_benchmark.corin" \
     "benchmarks/algorithms/sorting_benchmark.c" \
     "499472500"
 
@@ -140,6 +140,6 @@ echo "  • Compiled mode (-O3): 90-100% of C speed (target)"
 echo "  • All outputs verified for correctness"
 echo "  • Same algorithmic complexity maintained"
 echo ""
-echo "For production use, compile Sapphire with LLVM -O3 optimization"
+echo "For production use, compile Corin with LLVM -O3 optimization"
 echo "to achieve near-C performance."
 echo ""

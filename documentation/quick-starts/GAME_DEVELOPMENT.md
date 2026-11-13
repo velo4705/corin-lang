@@ -1,8 +1,8 @@
-# Game Development in Sapphire
+# Game Development in Corin
 
 ## Overview
 
-Sapphire supports game development with multiple graphics APIs, from simple 2D to advanced 3D rendering.
+Corin supports game development with multiple graphics APIs, from simple 2D to advanced 3D rendering.
 
 **Status**: ✅ Production Ready  
 **APIs Supported**: SDL2, OpenGL, GLUT, Vulkan (spec)
@@ -39,7 +39,7 @@ Controls: W/S (Player 1), Arrow Keys (Player 2), ESC (Quit)
 - `delay()` - Frame timing
 
 **Example**:
-```sapphire
+```corin
 let window = window_create("My Game", 800, 600)
 window_show(window)
 
@@ -71,7 +71,7 @@ window_destroy(window)
 - `gl_load_identity()` - Reset matrix
 
 **Example**:
-```sapphire
+```corin
 let GL_COLOR_BUFFER_BIT = 16384
 let GL_TRIANGLES = 4
 
@@ -93,7 +93,7 @@ gl_end()
 ### GLUT - 3D Utilities ✅
 **Best For**: Quick 3D prototypes, educational demos
 
-**Functions Available** (6 in Sapphire):
+**Functions Available** (6 in Corin):
 - `glut_init_display_mode()` - Display mode
 - `glut_init_window_size()` - Window size
 - `glut_create_window()` - Create window
@@ -128,14 +128,14 @@ gl_end()
 ### Pong (Multiple Implementations)
 **Location**: `examples/challenges/round3_field_level/`
 
-1. **SDL2 Pong** (`pong_simple.spp`)
+1. **SDL2 Pong** (`pong_simple.corin`)
    - 2D, fully functional
-   - 150 lines of Sapphire
+   - 150 lines of Corin
    - Best for beginners
 
-2. **OpenGL Pong** (`pong_opengl.spp`)
+2. **OpenGL Pong** (`pong_opengl.corin`)
    - 3D simulation demo
-   - 120 lines of Sapphire
+   - 120 lines of Corin
    - Educational
 
 3. **GLUT Pong** (`pong_glut.cpp`)
@@ -146,8 +146,8 @@ gl_end()
 ### Black Hole Simulations
 **Location**: `examples/challenges/round3_field_level/`
 
-1. **SDL2** (`blackhole_sdl2.spp`) - 2D particles
-2. **OpenGL** (`blackhole_opengl_sapphire.spp`) - 3D particles
+1. **SDL2** (`blackhole_sdl2.corin`) - 2D particles
+2. **OpenGL** (`blackhole_opengl_corin.corin`) - 3D particles
 3. **GLUT** (`blackhole_glut.cpp`) - 3D with utility shapes
 
 ---
@@ -208,7 +208,7 @@ gl_end()
 
 ### Examples
 - `examples/challenges/round3_field_level/` - Game examples
-- `examples/test_opengl.spp` - OpenGL test
+- `examples/test_opengl.corin` - OpenGL test
 
 ### Comparisons
 - `examples/challenges/round3_field_level/PONG_COMPARISON.md` - Detailed comparison
@@ -223,8 +223,8 @@ gl_end()
 
 ### SDL2 Game
 ```bash
-# Compile Sapphire to LLVM IR
-./sapp compile game.spp 2>/dev/null > game.ll
+# Compile Corin to LLVM IR
+./corin compile game.corin 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o
@@ -253,8 +253,8 @@ brew install sdl2 sdl2_ttf
 
 ### OpenGL Game
 ```bash
-# Compile Sapphire to LLVM IR
-./sapp compile game.spp 2>/dev/null > game.ll
+# Compile Corin to LLVM IR
+./corin compile game.corin 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o
@@ -324,7 +324,7 @@ g++ game.cpp -o game -lglut -lGL -lGLU -lm
 ## Common Patterns
 
 ### Game Loop (SDL2)
-```sapphire
+```corin
 let running = true
 while running:
     window_poll_events(window)
@@ -343,7 +343,7 @@ while running:
 ```
 
 ### 3D Setup (OpenGL)
-```sapphire
+```corin
 # Setup projection
 gl_matrix_mode(GL_PROJECTION)
 gl_load_identity()
@@ -418,7 +418,7 @@ Check that you're calling `window_present()` or `glut_swap_buffers()`.
 
 ## Summary
 
-Sapphire provides **production-ready game development** with:
+Corin provides **production-ready game development** with:
 - ✅ Multiple graphics APIs
 - ✅ 33 built-in graphics functions
 - ✅ Complete examples
@@ -432,4 +432,4 @@ Sapphire provides **production-ready game development** with:
 
 **Date**: March 8, 2026  
 **Status**: ✅ Production Ready  
-**Version**: Sapphire v1.0-beta.6 with Full Graphics Support
+**Version**: Corin v1.0-beta.6 with Full Graphics Support

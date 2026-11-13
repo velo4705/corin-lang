@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Sapphire Package Registry Server
+Corin Package Registry Server
 
-A simple HTTP server for hosting Sapphire packages.
+A simple HTTP server for hosting Corin packages.
 Supports package upload, download, search, and version management.
 """
 
@@ -336,7 +336,7 @@ class RegistryHandler(BaseHTTPRequestHandler):
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sapphire Package Registry</title>
+    <title>Corin Package Registry</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
         h1 { color: #4A90E2; }
@@ -349,8 +349,8 @@ class RegistryHandler(BaseHTTPRequestHandler):
     </style>
 </head>
 <body>
-    <h1>💎 Sapphire Package Registry</h1>
-    <p>Discover and share Sapphire packages</p>
+    <h1>💎 Corin Package Registry</h1>
+    <p>Discover and share Corin packages</p>
     
     <input type="text" class="search-box" id="search" placeholder="Search packages...">
     
@@ -392,7 +392,7 @@ def run_server(port=PORT):
     """Run the registry server"""
     server_address = ('', port)
     httpd = HTTPServer(server_address, RegistryHandler)
-    print(f'Sapphire Package Registry running on http://localhost:{port}')
+    print(f'Corin Package Registry running on http://localhost:{port}')
     print(f'Database: {DB_PATH}')
     print(f'Packages: {REGISTRY_DIR}')
     print('Press Ctrl+C to stop')

@@ -1,4 +1,4 @@
-# Deploying Sapphire Website to GitHub Pages
+# Deploying Corin Website to GitHub Pages
 
 ## Quick Setup
 
@@ -19,7 +19,7 @@ GitHub will automatically build and deploy your site. This usually takes 1-2 min
 
 Your site will be available at:
 ```
-https://velo4705.github.io/sapphire-lang
+https://velo4705.github.io/corin-lang
 ```
 
 ## Custom Domain (Optional)
@@ -29,14 +29,14 @@ https://velo4705.github.io/sapphire-lang
 Create `docs-site/CNAME` with your domain:
 
 ```
-sapphire-lang.org
+corin-lang.org
 ```
 
 ### 2. Configure DNS
 
 Add these DNS records at your domain registrar:
 
-**For apex domain (sapphire-lang.org):**
+**For apex domain (corin-lang.org):**
 ```
 A     185.199.108.153
 A     185.199.109.153
@@ -46,7 +46,7 @@ A     185.199.111.153
 
 **For www subdomain:**
 ```
-CNAME www.sapphire-lang.org velo4705.github.io
+CNAME www.corin-lang.org velo4705.github.io
 ```
 
 ### 3. Enable HTTPS
@@ -109,7 +109,7 @@ git push origin main
 
 ### Check Build Status
 
-Visit: `https://github.com/velo4705/sapphire-lang/actions`
+Visit: `https://github.com/velo4705/corin-lang/actions`
 
 ### View Deployment History
 
@@ -184,7 +184,7 @@ Add to `index.html` `<head>`:
 ### Download Site
 
 ```bash
-wget -r -p -k https://velo4705.github.io/sapphire-lang
+wget -r -p -k https://velo4705.github.io/corin-lang
 ```
 
 ### Version Control
@@ -194,8 +194,8 @@ All files are in Git - your backup is the repository itself.
 ## Support
 
 - **GitHub Pages Docs**: https://docs.github.com/pages
-- **Issues**: https://github.com/velo4705/sapphire-lang/issues
+- **Issues**: https://github.com/velo4705/corin-lang/issues
 
 ---
 
-Made with 💎 by the Sapphire community
+Made with 💎 by the Corin community

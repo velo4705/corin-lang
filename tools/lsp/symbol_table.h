@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_LSP_SYMBOL_TABLE_H
-#define SAPPHIRE_LSP_SYMBOL_TABLE_H
+#ifndef CORIN_LSP_SYMBOL_TABLE_H
+#define CORIN_LSP_SYMBOL_TABLE_H
 
 #include <string>
 #include <map>
 #include <vector>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 namespace lsp {
 
 /**
@@ -126,6 +126,6 @@ public:
 };
 
 } // namespace lsp
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_LSP_SYMBOL_TABLE_H
+#endif // CORIN_LSP_SYMBOL_TABLE_H

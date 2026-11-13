@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::base64;
+using namespace corin::base64;
 
 int tests_passed = 0;
 int tests_failed = 0;

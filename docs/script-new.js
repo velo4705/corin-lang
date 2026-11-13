@@ -224,7 +224,7 @@ showcaseTabs.forEach(tab => {
 
 // Copy install command
 function copyInstallCommand() {
-    const command = 'curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash';
+    const command = 'curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash';
     navigator.clipboard.writeText(command).then(() => {
         const btn = document.querySelector('.copy-btn');
         const originalText = btn.textContent;

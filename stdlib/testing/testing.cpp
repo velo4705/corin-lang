@@ -2,7 +2,7 @@
 #include <cmath>
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 // Static member initialization
@@ -138,25 +138,25 @@ void Testing::reset() {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementation
 extern "C" {
-    using namespace sapphire::stdlib;
+    using namespace corin::stdlib;
     
-    void sapphire_test_assert_true(bool condition, const char* message) {
+    void corin_test_assert_true(bool condition, const char* message) {
         Testing::assert_true(condition, message ? message : "");
     }
     
-    void sapphire_test_assert_false(bool condition, const char* message) {
+    void corin_test_assert_false(bool condition, const char* message) {
         Testing::assert_false(condition, message ? message : "");
     }
     
-    void sapphire_test_assert_equal_int(int actual, int expected, const char* message) {
+    void corin_test_assert_equal_int(int actual, int expected, const char* message) {
         Testing::assert_equal(actual, expected, message ? message : "");
     }
     
-    void sapphire_test_assert_equal_str(const char* actual, const char* expected, const char* message) {
+    void corin_test_assert_equal_str(const char* actual, const char* expected, const char* message) {
         Testing::assert_equal(
             std::string(actual ? actual : ""),
             std::string(expected ? expected : ""),
@@ -164,7 +164,7 @@ extern "C" {
         );
     }
     
-    void sapphire_test_print_summary() {
+    void corin_test_print_summary() {
         Testing::print_summary();
     }
 }

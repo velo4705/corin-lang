@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_DAP_SERVER_H
-#define SAPPHIRE_DAP_SERVER_H
+#ifndef CORIN_DAP_SERVER_H
+#define CORIN_DAP_SERVER_H
 
 #include <string>
 #include <map>
@@ -8,7 +8,7 @@
 #include <memory>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 namespace debug {
 
 /**
@@ -135,6 +135,6 @@ public:
 };
 
 } // namespace debug
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_DAP_SERVER_H
+#endif // CORIN_DAP_SERVER_H

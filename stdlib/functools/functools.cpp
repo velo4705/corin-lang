@@ -1,9 +1,9 @@
 #include "functools.h"
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 // Template implementations are in header
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin

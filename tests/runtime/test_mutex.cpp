@@ -5,7 +5,7 @@
 #include <atomic>
 #include <vector>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 int tests_passed = 0;
 int tests_failed = 0;

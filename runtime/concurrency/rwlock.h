@@ -1,9 +1,9 @@
-#ifndef SAPPHIRE_RUNTIME_RWLOCK_H
-#define SAPPHIRE_RUNTIME_RWLOCK_H
+#ifndef CORIN_RUNTIME_RWLOCK_H
+#define CORIN_RUNTIME_RWLOCK_H
 
 #include <shared_mutex>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -71,6 +71,6 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_RUNTIME_RWLOCK_H
+#endif // CORIN_RUNTIME_RWLOCK_H

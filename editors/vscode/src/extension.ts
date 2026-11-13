@@ -10,15 +10,15 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
-    console.log('Sapphire extension is now active!');
+    console.log('Corin extension is now active!');
 
     // Get LSP configuration
-    const config = workspace.getConfiguration('sapphire');
+    const config = workspace.getConfiguration('corin');
     const lspEnabled = config.get<boolean>('lsp.enabled', true);
     
     if (lspEnabled) {
         // Path to LSP server executable
-    const lspPath = config.get<string>('lsp.path', '/usr/local/bin/sapphire-lsp');
+    const lspPath = config.get<string>('lsp.path', '/usr/local/bin/corin-lsp');
         
         // Server options
         const serverOptions: ServerOptions = {
@@ -29,16 +29,16 @@ export function activate(context: ExtensionContext) {
 
         // Client options
         const clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'file', language: 'sapphire' }],
+            documentSelector: [{ scheme: 'file', language: 'corin' }],
             synchronize: {
-                fileEvents: workspace.createFileSystemWatcher('**/.spp')
+                fileEvents: workspace.createFileSystemWatcher('**/.corin')
             }
         };
 
         // Create the language client
         client = new LanguageClient(
-            'sapphireLSP',
-            'Sapphire Language Server',
+            'corinLSP',
+            'Corin Language Server',
             serverOptions,
             clientOptions
         );
@@ -46,16 +46,16 @@ export function activate(context: ExtensionContext) {
         // Start the client (and server)
         client.start();
         
-        console.log('Sapphire LSP client started');
+        console.log('Corin LSP client started');
     }
 
     // Register debug adapter
-    const debugProvider = new SapphireDebugConfigurationProvider();
+    const debugProvider = new CorinDebugConfigurationProvider();
     context.subscriptions.push(
-        debug.registerDebugConfigurationProvider('sapphire', debugProvider)
+        debug.registerDebugConfigurationProvider('corin', debugProvider)
     );
 
-    console.log('Sapphire debug adapter registered');
+    console.log('Corin debug adapter registered');
 }
 
 export function deactivate(): Thenable<void> | undefined {
@@ -66,9 +66,9 @@ export function deactivate(): Thenable<void> | undefined {
 }
 
 /**
- * Debug configuration provider for Sapphire
+ * Debug configuration provider for Corin
  */
-class SapphireDebugConfigurationProvider {
+class CorinDebugConfigurationProvider {
     resolveDebugConfiguration(
         folder: WorkspaceFolder | undefined,
         config: DebugConfiguration,
@@ -76,9 +76,9 @@ class SapphireDebugConfigurationProvider {
     ): ProviderResult<DebugConfiguration> {
         // If launch.json is missing or empty
         if (!config.type && !config.request && !config.name) {
-            const editor = workspace.textDocuments.find(doc => doc.languageId === 'sapphire');
+            const editor = workspace.textDocuments.find(doc => doc.languageId === 'corin');
             if (editor) {
-                config.type = 'sapphire';
+                config.type = 'corin';
                 config.name = 'Launch';
                 config.request = 'launch';
                 config.program = editor.fileName;

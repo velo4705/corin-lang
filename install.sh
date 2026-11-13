@@ -1,11 +1,11 @@
 #!/bin/bash
-# Sapphire One-Line Installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash
+# Corin One-Line Installer
+# Usage: curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash
 
 set -e
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║         Sapphire Programming Language Installer              ║"
+echo "║         Corin Programming Language Installer              ║"
 echo "║                    Version 1.0-beta.8                        ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
@@ -19,45 +19,45 @@ echo "✓ All prerequisites found"
 echo ""
 
 # Clone repository
-echo "Cloning Sapphire..."
-if [ -d "sapphire-lang" ]; then
+echo "Cloning Corin..."
+if [ -d "corin-lang" ]; then
     echo "Directory exists, updating..."
-    cd sapphire-lang
+    cd corin-lang
     git pull
 else
-    git clone https://github.com/velo4705/sapphire-lang.git
-    cd sapphire-lang
+    git clone https://github.com/velo4705/corin-lang.git
+    cd corin-lang
 fi
 
 # Build
 echo ""
-echo "Building Sapphire..."
+echo "Building Corin..."
 make clean
 make quick
 
 echo ""
 echo "Building additional tools..."
 make spm 2>/dev/null && echo "  ✓ spm built" || echo "  ⚠ spm build skipped"
-make sapphire-fmt 2>/dev/null && echo "  ✓ sapphire-fmt built" || echo "  ⚠ sapphire-fmt build skipped"
+make corin-fmt 2>/dev/null && echo "  ✓ corin-fmt built" || echo "  ⚠ corin-fmt build skipped"
 
 # Hybrid Installation: Both system-wide and user PATH
 echo ""
-echo "Installing Sapphire (hybrid approach)..."
+echo "Installing Corin (hybrid approach)..."
 echo ""
 
 # Step 1: Try system-wide installation (if sudo available)
 echo "Step 1: Attempting system-wide installation..."
 if sudo -n true 2>/dev/null; then
     # User has passwordless sudo
-    sudo cp sapp /usr/local/bin/ 2>/dev/null && echo "✓ System-wide install successful" || echo "⚠ System-wide install failed"
-    sudo cp sapphire /usr/local/bin/ 2>/dev/null
+    sudo cp corin /usr/local/bin/ 2>/dev/null && echo "✓ System-wide install successful" || echo "⚠ System-wide install failed"
+    sudo cp corin /usr/local/bin/ 2>/dev/null
     
     if [ -f "spm" ]; then
         sudo cp spm /usr/local/bin/ 2>/dev/null
     fi
     
-    if [ -f "sapphire-fmt" ]; then
-        sudo cp sapphire-fmt /usr/local/bin/ 2>/dev/null
+    if [ -f "corin-fmt" ]; then
+        sudo cp corin-fmt /usr/local/bin/ 2>/dev/null
     fi
 else
     # Ask for sudo permission
@@ -66,16 +66,16 @@ else
     install_system=${install_system:-Y}
     
     if [[ $install_system =~ ^[Yy]$ ]]; then
-        if sudo cp sapp /usr/local/bin/ 2>/dev/null; then
+        if sudo cp corin /usr/local/bin/ 2>/dev/null; then
             echo "✓ System-wide install successful"
-            sudo cp sapphire /usr/local/bin/ 2>/dev/null
+            sudo cp corin /usr/local/bin/ 2>/dev/null
             
             if [ -f "spm" ]; then
                 sudo cp spm /usr/local/bin/ 2>/dev/null
             fi
             
-            if [ -f "sapphire-fmt" ]; then
-                sudo cp sapphire-fmt /usr/local/bin/ 2>/dev/null
+            if [ -f "corin-fmt" ]; then
+                sudo cp corin-fmt /usr/local/bin/ 2>/dev/null
             fi
         else
             echo "⚠ System-wide install failed (continuing with user install)"
@@ -88,7 +88,7 @@ fi
 # Step 2: Always set up user PATH (as backup and for development)
 echo ""
 echo "Step 2: Setting up user PATH..."
-SAPPHIRE_DIR="$(pwd)"
+CORIN_DIR="$(pwd)"
 
 # Detect shell and add to appropriate config file
 if [[ $SHELL == *"zsh"* ]]; then
@@ -100,43 +100,43 @@ else
 fi
 
 # Add PATH export to shell config if not already present
-if ! grep -q "sapphire-lang" "$SHELL_CONFIG" 2>/dev/null; then
+if ! grep -q "corin-lang" "$SHELL_CONFIG" 2>/dev/null; then
     echo "" >> "$SHELL_CONFIG"
-    echo "# Sapphire Programming Language" >> "$SHELL_CONFIG"
-    echo "export PATH=\"\$PATH:$SAPPHIRE_DIR\"" >> "$SHELL_CONFIG"
-    echo "✓ Added Sapphire to user PATH in $SHELL_CONFIG"
+    echo "# Corin Programming Language" >> "$SHELL_CONFIG"
+    echo "export PATH=\"\$PATH:$CORIN_DIR\"" >> "$SHELL_CONFIG"
+    echo "✓ Added Corin to user PATH in $SHELL_CONFIG"
 else
-    echo "✓ Sapphire already in user PATH"
+    echo "✓ Corin already in user PATH"
 fi
 
 # Also export for current session
-export PATH="$PATH:$SAPPHIRE_DIR"
-echo "✓ Sapphire available in current session"
+export PATH="$PATH:$CORIN_DIR"
+echo "✓ Corin available in current session"
 
 echo ""
 echo "Installation Summary:"
-echo "• System-wide: 'sapp' available globally (if sudo install succeeded)"
-echo "• User PATH: 'sapp' available in your terminal sessions"
-echo "• Local: './sapp' always works from this directory"
+echo "• System-wide: 'corin' available globally (if sudo install succeeded)"
+echo "• User PATH: 'corin' available in your terminal sessions"
+echo "• Local: './corin' always works from this directory"
 echo "• Best of both worlds - no confusion, maximum compatibility!"
 
 # Test
 echo ""
 echo "Testing installation..."
-./sapp --version
+./corin --version
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║  ✓ Sapphire installed successfully! (Hybrid Installation)    ║"
+echo "║  ✓ Corin installed successfully! (Hybrid Installation)    ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Quick start:"
-echo "  sapp examples/hello.spp"
-echo "  sapp --version"
+echo "  corin examples/hello.corin"
+echo "  corin --version"
 echo ""
 echo "Available everywhere:"
-echo "• 'sapp' command works in any terminal (system + user PATH)"
-echo "• './sapp' works from installation directory"
+echo "• 'corin' command works in any terminal (system + user PATH)"
+echo "• './corin' works from installation directory"
 echo "• Automatic updates when you re-run installer"
 echo ""
-echo "Documentation: https://github.com/velo4705/sapphire-lang"
+echo "Documentation: https://github.com/velo4705/corin-lang"

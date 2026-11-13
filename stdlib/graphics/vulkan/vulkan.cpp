@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <set>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
@@ -62,9 +62,9 @@ bool VulkanContext::init() {
 bool VulkanContext::create_instance() {
     VkApplicationInfo app_info{};
     app_info.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    app_info.pApplicationName = "Sapphire Vulkan App";
+    app_info.pApplicationName = "Corin Vulkan App";
     app_info.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-    app_info.pEngineName = "Sapphire";
+    app_info.pEngineName = "Corin";
     app_info.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     app_info.apiVersion = VK_API_VERSION_1_0;
     
@@ -238,59 +238,59 @@ void VulkanContext::cleanup() {
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    void* sapphire_vulkan_create_context(const char* title, int width, int height) {
+    void* corin_vulkan_create_context(const char* title, int width, int height) {
         try {
-            return new sapphire::stdlib::graphics::VulkanContext(title, width, height);
+            return new corin::stdlib::graphics::VulkanContext(title, width, height);
         } catch (...) {
             return nullptr;
         }
     }
     
-    void sapphire_vulkan_destroy_context(void* context) {
+    void corin_vulkan_destroy_context(void* context) {
         if (context) {
-            delete static_cast<sapphire::stdlib::graphics::VulkanContext*>(context);
+            delete static_cast<corin::stdlib::graphics::VulkanContext*>(context);
         }
     }
     
-    bool sapphire_vulkan_init(void* context) {
+    bool corin_vulkan_init(void* context) {
         if (context) {
-            return static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->init();
+            return static_cast<corin::stdlib::graphics::VulkanContext*>(context)->init();
         }
         return false;
     }
     
-    void sapphire_vulkan_begin_frame(void* context) {
+    void corin_vulkan_begin_frame(void* context) {
         if (context) {
-            static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->begin_frame();
+            static_cast<corin::stdlib::graphics::VulkanContext*>(context)->begin_frame();
         }
     }
     
-    void sapphire_vulkan_end_frame(void* context) {
+    void corin_vulkan_end_frame(void* context) {
         if (context) {
-            static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->end_frame();
+            static_cast<corin::stdlib::graphics::VulkanContext*>(context)->end_frame();
         }
     }
     
-    void sapphire_vulkan_draw_triangle(void* context) {
+    void corin_vulkan_draw_triangle(void* context) {
         if (context) {
-            static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->draw_triangle();
+            static_cast<corin::stdlib::graphics::VulkanContext*>(context)->draw_triangle();
         }
     }
     
-    bool sapphire_vulkan_should_close(void* context) {
+    bool corin_vulkan_should_close(void* context) {
         if (context) {
-            return static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->should_close();
+            return static_cast<corin::stdlib::graphics::VulkanContext*>(context)->should_close();
         }
         return true;
     }
     
-    void sapphire_vulkan_poll_events(void* context) {
+    void corin_vulkan_poll_events(void* context) {
         if (context) {
-            static_cast<sapphire::stdlib::graphics::VulkanContext*>(context)->poll_events();
+            static_cast<corin::stdlib::graphics::VulkanContext*>(context)->poll_events();
         }
     }
 }

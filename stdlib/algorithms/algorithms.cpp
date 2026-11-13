@@ -4,7 +4,7 @@
 #include <limits>
 #include <algorithm>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Algorithms {
 
@@ -231,32 +231,32 @@ int edit_distance(const std::string& s1, const std::string& s2) {
 
 } // namespace Algorithms
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
-    void sapphire_quick_sort_int(int* arr, int size) {
+    void corin_quick_sort_int(int* arr, int size) {
         std::vector<int> vec(arr, arr + size);
-        sapphire::stdlib::Algorithms::quick_sort(vec, 0, size - 1);
+        corin::stdlib::Algorithms::quick_sort(vec, 0, size - 1);
         std::copy(vec.begin(), vec.end(), arr);
     }
     
-    void sapphire_merge_sort_int(int* arr, int size) {
+    void corin_merge_sort_int(int* arr, int size) {
         std::vector<int> vec(arr, arr + size);
-        sapphire::stdlib::Algorithms::merge_sort(vec, 0, size - 1);
+        corin::stdlib::Algorithms::merge_sort(vec, 0, size - 1);
         std::copy(vec.begin(), vec.end(), arr);
     }
     
-    int sapphire_binary_search_int(const int* arr, int size, int target) {
+    int corin_binary_search_int(const int* arr, int size, int target) {
         std::vector<int> vec(arr, arr + size);
-        return sapphire::stdlib::Algorithms::binary_search(vec, target);
+        return corin::stdlib::Algorithms::binary_search(vec, target);
     }
     
-    int64_t sapphire_fibonacci(int n) {
-        return sapphire::stdlib::Algorithms::fibonacci(n);
+    int64_t corin_fibonacci(int n) {
+        return corin::stdlib::Algorithms::fibonacci(n);
     }
     
-    int sapphire_edit_distance(const char* s1, const char* s2) {
-        return sapphire::stdlib::Algorithms::edit_distance(s1, s2);
+    int corin_edit_distance(const char* s1, const char* s2) {
+        return corin::stdlib::Algorithms::edit_distance(s1, s2);
     }
 }

@@ -1,8 +1,8 @@
-# Sapphire Complexity Analysis
+# Corin Complexity Analysis
 
 ## Time and Space Complexity Guarantees
 
-Sapphire provides the same algorithmic complexity guarantees as C, ensuring predictable performance for all algorithms and data structures.
+Corin provides the same algorithmic complexity guarantees as C, ensuring predictable performance for all algorithms and data structures.
 
 ## Data Structures
 
@@ -147,7 +147,7 @@ Sapphire provides the same algorithmic complexity guarantees as C, ensuring pred
 
 ### Worst-Case Guarantees
 
-Sapphire guarantees:
+Corin guarantees:
 1. **No hidden allocations** - All allocations are explicit
 2. **Predictable GC** - 119μs maximum pause
 3. **Zero-cost abstractions** - Generics have no runtime cost
@@ -173,20 +173,20 @@ All complexity claims are verified through:
 ## Examples
 
 ### O(1) - Constant Time
-```sapphire
+```corin
 let x = vec.get(5)        # Array access
 let y = map.get("key")    # Hash lookup
 vec.push(42)              # Amortized O(1)
 ```
 
 ### O(log n) - Logarithmic Time
-```sapphire
+```corin
 binary_search(arr, target)  # Binary search
 heap.insert(value)          # Heap operations
 ```
 
 ### O(n) - Linear Time
-```sapphire
+```corin
 for item in vec:            # Iterate all elements
     print(item)
 
@@ -194,13 +194,13 @@ let sum = vec.reduce(0, +)  # Fold operation
 ```
 
 ### O(n log n) - Linearithmic Time
-```sapphire
+```corin
 quicksort(arr)              # Efficient sorting
 mergesort(arr)              # Stable sorting
 ```
 
 ### O(n²) - Quadratic Time
-```sapphire
+```corin
 # Nested loops
 for i in range(n):
     for j in range(n):
@@ -208,21 +208,21 @@ for i in range(n):
 ```
 
 ### O(n³) - Cubic Time
-```sapphire
+```corin
 # Matrix multiplication
 matrix_multiply(A, B, C)    # Triple nested loop
 ```
 
 ## Conclusion
 
-Sapphire provides:
+Corin provides:
 - **Same complexity** as C for all operations
 - **Predictable performance** with 119μs GC pause
 - **Zero-cost abstractions** for high-level features
 - **Efficient data structures** with optimal complexity
 - **Lock-free concurrency** for scalable parallelism
 
-The LLVM backend ensures that algorithmic complexity translates directly to machine code performance, making Sapphire suitable for performance-critical applications.
+The LLVM backend ensures that algorithmic complexity translates directly to machine code performance, making Corin suitable for performance-critical applications.
 
 ---
 

@@ -13,7 +13,7 @@ Pattern matching provides a powerful way to destructure and match values against
 
 ## Basic Syntax
 
-```sapphire
+```corin
 match <value>:
     <pattern1> => <expression1>
     <pattern2> => <expression2>
@@ -28,7 +28,7 @@ match <value>:
 
 Match exact values:
 
-```sapphire
+```corin
 fn classify_number(n):
     return match n:
         0 => "zero"
@@ -44,7 +44,7 @@ print(classify_number(5))  # "other"
 
 Bind the matched value to a variable:
 
-```sapphire
+```corin
 fn describe(n):
     return match n:
         x => "The number is " + x
@@ -56,7 +56,7 @@ fn describe(n):
 
 Match anything without binding:
 
-```sapphire
+```corin
 fn is_zero(n):
     return match n:
         0 => true
@@ -67,7 +67,7 @@ fn is_zero(n):
 
 Match against multiple patterns:
 
-```sapphire
+```corin
 fn day_type(day):
     return match day:
         1 => "Monday"
@@ -86,7 +86,7 @@ fn day_type(day):
 
 Add conditions to patterns:
 
-```sapphire
+```corin
 fn classify(n):
     return match n:
         x if x < 0 => "negative"
@@ -102,7 +102,7 @@ fn classify(n):
 
 Match array structures:
 
-```sapphire
+```corin
 fn describe_list(items):
     return match items:
         [] => "empty"
@@ -120,7 +120,7 @@ fn describe_list(items):
 
 Match object structures:
 
-```sapphire
+```corin
 fn describe_point(point):
     return match point:
         {x: 0, y: 0} => "origin"
@@ -137,7 +137,7 @@ fn describe_point(point):
 
 Ensure exhaustive matching:
 
-```sapphire
+```corin
 # Good
 match value:
     0 => "zero"
@@ -152,7 +152,7 @@ match value:
 
 Patterns are checked in order:
 
-```sapphire
+```corin
 match n:
     _ => "always matches first"
     0 => "never reached"
@@ -160,7 +160,7 @@ match n:
 
 ### 3. Use Guards for Conditions
 
-```sapphire
+```corin
 # Good
 match n:
     x if x < 0 => "negative"
@@ -178,7 +178,7 @@ match n:
 
 ### Example 1: HTTP Status Codes
 
-```sapphire
+```corin
 fn status_message(code):
     return match code:
         200 => "OK"
@@ -191,7 +191,7 @@ fn status_message(code):
 
 ### Example 2: Option Type (Future)
 
-```sapphire
+```corin
 fn get_value(opt):
     return match opt:
         Some(x) => x
@@ -200,7 +200,7 @@ fn get_value(opt):
 
 ### Example 3: Result Type (Future)
 
-```sapphire
+```corin
 fn handle_result(result):
     return match result:
         Ok(value) => "Success: " + value
@@ -230,15 +230,15 @@ match value {
 }
 ```
 
-### Sapphire
-```sapphire
+### Corin
+```corin
 match value:
     0 => "zero"
     x if x < 0 => "negative"
     _ => "positive"
 ```
 
-Similar syntax, but Sapphire uses indentation instead of braces.
+Similar syntax, but Corin uses indentation instead of braces.
 
 ---
 

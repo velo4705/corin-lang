@@ -1,6 +1,6 @@
-# Sapphire Language Server Protocol (LSP)
+# Corin Language Server Protocol (LSP)
 
-The Sapphire LSP provides IDE features for Sapphire code.
+The Corin LSP provides IDE features for Corin code.
 
 ## Features
 
@@ -13,7 +13,7 @@ The Sapphire LSP provides IDE features for Sapphire code.
 ## Building
 
 ```bash
-make sapphire-lsp
+make corin-lsp
 ```
 
 ## Usage
@@ -22,16 +22,16 @@ The LSP server communicates over stdin/stdout using the JSON-RPC protocol.
 
 ### With VSCode
 
-1. Install the Sapphire VSCode extension from `editors/vscode/`
+1. Install the Corin VSCode extension from `editors/vscode/`
 2. The extension will automatically start the LSP server
-3. Configure the path to `sapphire-lsp` in VSCode settings if needed
+3. Configure the path to `corin-lsp` in VSCode settings if needed
 
 ### Manual Testing
 
 You can test the LSP server manually:
 
 ```bash
-echo 'Content-Length: 52\r\n\r\n{"jsonrpc":"2.0","id":1,"method":"initialize"}' | ./sapphire-lsp
+echo 'Content-Length: 52\r\n\r\n{"jsonrpc":"2.0","id":1,"method":"initialize"}' | ./corin-lsp
 ```
 
 ## Architecture
@@ -43,7 +43,7 @@ echo 'Content-Length: 52\r\n\r\n{"jsonrpc":"2.0","id":1,"method":"initialize"}' 
 └─────────────┘         └─────────────┘
                               ↓
                         ┌─────────────┐
-                        │  Sapphire   │
+                        │  Corin   │
                         │   Parser    │
                         └─────────────┘
 ```

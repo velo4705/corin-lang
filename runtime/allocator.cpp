@@ -5,7 +5,7 @@
 #include <new>
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 // Global allocator instance
@@ -238,7 +238,7 @@ void shutdown_allocator() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
@@ -246,22 +246,22 @@ void shutdown_allocator() {
 
 extern "C" {
 
-void* sapphire_allocate(size_t size, uint64_t type_id) {
-    if (!sapphire::runtime::global_allocator) {
-        sapphire::runtime::init_allocator();
+void* corin_allocate(size_t size, uint64_t type_id) {
+    if (!corin::runtime::global_allocator) {
+        corin::runtime::init_allocator();
     }
-    return sapphire::runtime::global_allocator->allocate(size, type_id);
+    return corin::runtime::global_allocator->allocate(size, type_id);
 }
 
-void sapphire_free(void* ptr) {
-    if (sapphire::runtime::global_allocator) {
-        sapphire::runtime::global_allocator->free(ptr);
+void corin_free(void* ptr) {
+    if (corin::runtime::global_allocator) {
+        corin::runtime::global_allocator->free(ptr);
     }
 }
 
-size_t sapphire_memory_usage() {
-    if (sapphire::runtime::global_allocator) {
-        return sapphire::runtime::global_allocator->current_usage();
+size_t corin_memory_usage() {
+    if (corin::runtime::global_allocator) {
+        return corin::runtime::global_allocator->current_usage();
     }
     return 0;
 }

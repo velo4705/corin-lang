@@ -8,7 +8,7 @@
 #include <openssl/sha.h>
 #include <openssl/rand.h>
 
-namespace Sapphire {
+namespace Corin {
 namespace Auth {
 
 // ===== Base64URL helpers =====
@@ -422,23 +422,23 @@ bool OAuth2Provider::has_provider(const std::string& name) const {
 }
 
 } // namespace Auth
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 
 extern "C" {
 
-static std::string g_last_string; // thread-unsafe but fine for single-threaded Sapphire
+static std::string g_last_string; // thread-unsafe but fine for single-threaded Corin
 
 void* jwt_create(const char* secret, const char* algorithm) {
-    return new Sapphire::Auth::JwtHandler(secret, algorithm ? algorithm : "HS256");
+    return new Corin::Auth::JwtHandler(secret, algorithm ? algorithm : "HS256");
 }
 void jwt_destroy(void* jwt) {
-    delete static_cast<Sapphire::Auth::JwtHandler*>(jwt);
+    delete static_cast<Corin::Auth::JwtHandler*>(jwt);
 }
 const char* jwt_generate(void* jwt, const char* subject, int expires_in_seconds) {
-    auto* h = static_cast<Sapphire::Auth::JwtHandler*>(jwt);
-    Sapphire::Auth::JwtClaims c;
+    auto* h = static_cast<Corin::Auth::JwtHandler*>(jwt);
+    Corin::Auth::JwtClaims c;
     c.subject    = subject;
     c.issued_at  = std::time(nullptr);
     c.expires_at = c.issued_at + expires_in_seconds;
@@ -446,14 +446,14 @@ const char* jwt_generate(void* jwt, const char* subject, int expires_in_seconds)
     return g_last_string.c_str();
 }
 int jwt_validate(void* jwt, const char* token) {
-    return static_cast<Sapphire::Auth::JwtHandler*>(jwt)->validate(token) ? 1 : 0;
+    return static_cast<Corin::Auth::JwtHandler*>(jwt)->validate(token) ? 1 : 0;
 }
 const char* jwt_get_subject(void* jwt, const char* token) {
-    g_last_string = static_cast<Sapphire::Auth::JwtHandler*>(jwt)->decode(token).subject;
+    g_last_string = static_cast<Corin::Auth::JwtHandler*>(jwt)->decode(token).subject;
     return g_last_string.c_str();
 }
 const char* jwt_get_claim(void* jwt, const char* token, const char* claim) {
-    auto claims = static_cast<Sapphire::Auth::JwtHandler*>(jwt)->decode(token);
+    auto claims = static_cast<Corin::Auth::JwtHandler*>(jwt)->decode(token);
     std::string key(claim);
     if (key == "sub") g_last_string = claims.subject;
     else if (key == "iss") g_last_string = claims.issuer;
@@ -465,90 +465,90 @@ const char* jwt_get_claim(void* jwt, const char* token, const char* claim) {
     return g_last_string.c_str();
 }
 const char* jwt_refresh(void* jwt, const char* token, int extend_seconds) {
-    g_last_string = static_cast<Sapphire::Auth::JwtHandler*>(jwt)->refresh(token, extend_seconds);
+    g_last_string = static_cast<Corin::Auth::JwtHandler*>(jwt)->refresh(token, extend_seconds);
     return g_last_string.c_str();
 }
 void jwt_blacklist(void* jwt, const char* token) {
-    static_cast<Sapphire::Auth::JwtHandler*>(jwt)->blacklist(token);
+    static_cast<Corin::Auth::JwtHandler*>(jwt)->blacklist(token);
 }
 int jwt_is_blacklisted(void* jwt, const char* token) {
-    return static_cast<Sapphire::Auth::JwtHandler*>(jwt)->is_blacklisted(token) ? 1 : 0;
+    return static_cast<Corin::Auth::JwtHandler*>(jwt)->is_blacklisted(token) ? 1 : 0;
 }
 
 // Session
 void* session_manager_create(int ttl_seconds) {
-    return new Sapphire::Auth::SessionManager(ttl_seconds);
+    return new Corin::Auth::SessionManager(ttl_seconds);
 }
 void session_manager_destroy(void* sm) {
-    delete static_cast<Sapphire::Auth::SessionManager*>(sm);
+    delete static_cast<Corin::Auth::SessionManager*>(sm);
 }
 const char* session_create(void* sm, const char* user_id) {
-    g_last_string = static_cast<Sapphire::Auth::SessionManager*>(sm)->create(user_id);
+    g_last_string = static_cast<Corin::Auth::SessionManager*>(sm)->create(user_id);
     return g_last_string.c_str();
 }
 int session_is_valid(void* sm, const char* session_id) {
-    return static_cast<Sapphire::Auth::SessionManager*>(sm)->is_valid(session_id) ? 1 : 0;
+    return static_cast<Corin::Auth::SessionManager*>(sm)->is_valid(session_id) ? 1 : 0;
 }
 void session_set_data(void* sm, const char* session_id, const char* key, const char* value) {
-    static_cast<Sapphire::Auth::SessionManager*>(sm)->set_data(session_id, key, value);
+    static_cast<Corin::Auth::SessionManager*>(sm)->set_data(session_id, key, value);
 }
 const char* session_get_data(void* sm, const char* session_id, const char* key) {
-    g_last_string = static_cast<Sapphire::Auth::SessionManager*>(sm)->get_data(session_id, key);
+    g_last_string = static_cast<Corin::Auth::SessionManager*>(sm)->get_data(session_id, key);
     return g_last_string.c_str();
 }
 int session_destroy(void* sm, const char* session_id) {
-    return static_cast<Sapphire::Auth::SessionManager*>(sm)->destroy(session_id) ? 1 : 0;
+    return static_cast<Corin::Auth::SessionManager*>(sm)->destroy(session_id) ? 1 : 0;
 }
 const char* session_regenerate(void* sm, const char* session_id) {
-    g_last_string = static_cast<Sapphire::Auth::SessionManager*>(sm)->regenerate(session_id);
+    g_last_string = static_cast<Corin::Auth::SessionManager*>(sm)->regenerate(session_id);
     return g_last_string.c_str();
 }
 int session_cleanup(void* sm) {
-    return static_cast<Sapphire::Auth::SessionManager*>(sm)->cleanup();
+    return static_cast<Corin::Auth::SessionManager*>(sm)->cleanup();
 }
 const char* session_get_user_id(void* sm, const char* session_id) {
-    auto* s = static_cast<Sapphire::Auth::SessionManager*>(sm)->get(session_id);
+    auto* s = static_cast<Corin::Auth::SessionManager*>(sm)->get(session_id);
     g_last_string = s ? s->user_id : "";
     return g_last_string.c_str();
 }
 
 // RBAC
 void* rbac_create() {
-    return new Sapphire::Auth::RoleManager();
+    return new Corin::Auth::RoleManager();
 }
 void rbac_destroy(void* rbac) {
-    delete static_cast<Sapphire::Auth::RoleManager*>(rbac);
+    delete static_cast<Corin::Auth::RoleManager*>(rbac);
 }
 void rbac_define_role(void* rbac, const char* name, const char* parent) {
-    static_cast<Sapphire::Auth::RoleManager*>(rbac)->define_role(name, parent ? parent : "");
+    static_cast<Corin::Auth::RoleManager*>(rbac)->define_role(name, parent ? parent : "");
 }
 void rbac_add_permission(void* rbac, const char* role, const char* resource, const char* action) {
-    static_cast<Sapphire::Auth::RoleManager*>(rbac)->add_permission(role, resource, action);
+    static_cast<Corin::Auth::RoleManager*>(rbac)->add_permission(role, resource, action);
 }
 void rbac_assign_role(void* rbac, const char* user_id, const char* role) {
-    static_cast<Sapphire::Auth::RoleManager*>(rbac)->assign_role(user_id, role);
+    static_cast<Corin::Auth::RoleManager*>(rbac)->assign_role(user_id, role);
 }
 void rbac_revoke_role(void* rbac, const char* user_id, const char* role) {
-    static_cast<Sapphire::Auth::RoleManager*>(rbac)->revoke_role(user_id, role);
+    static_cast<Corin::Auth::RoleManager*>(rbac)->revoke_role(user_id, role);
 }
 int rbac_has_permission(void* rbac, const char* user_id, const char* resource, const char* action) {
-    return static_cast<Sapphire::Auth::RoleManager*>(rbac)->has_permission(user_id, resource, action) ? 1 : 0;
+    return static_cast<Corin::Auth::RoleManager*>(rbac)->has_permission(user_id, resource, action) ? 1 : 0;
 }
 int rbac_has_role(void* rbac, const char* user_id, const char* role) {
-    return static_cast<Sapphire::Auth::RoleManager*>(rbac)->has_role(user_id, role) ? 1 : 0;
+    return static_cast<Corin::Auth::RoleManager*>(rbac)->has_role(user_id, role) ? 1 : 0;
 }
 
 // OAuth2
 void* oauth2_create() {
-    return new Sapphire::Auth::OAuth2Provider();
+    return new Corin::Auth::OAuth2Provider();
 }
 void oauth2_destroy(void* oauth2) {
-    delete static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2);
+    delete static_cast<Corin::Auth::OAuth2Provider*>(oauth2);
 }
 void oauth2_register_provider(void* oauth2, const char* provider, const char* client_id,
                                const char* client_secret, const char* redirect_uri,
                                const char* scopes, const char* auth_url, const char* token_url) {
-    Sapphire::Auth::OAuth2Config cfg;
+    Corin::Auth::OAuth2Config cfg;
     cfg.provider      = provider;
     cfg.client_id     = client_id;
     cfg.client_secret = client_secret;
@@ -559,21 +559,21 @@ void oauth2_register_provider(void* oauth2, const char* provider, const char* cl
     std::istringstream ss(scopes);
     std::string scope;
     while (ss >> scope) cfg.scopes.push_back(scope);
-    static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2)->register_provider(cfg);
+    static_cast<Corin::Auth::OAuth2Provider*>(oauth2)->register_provider(cfg);
 }
 const char* oauth2_get_auth_url(void* oauth2, const char* provider, const char* state) {
-    g_last_string = static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2)->get_auth_url(provider, state ? state : "");
+    g_last_string = static_cast<Corin::Auth::OAuth2Provider*>(oauth2)->get_auth_url(provider, state ? state : "");
     return g_last_string.c_str();
 }
 const char* oauth2_generate_state(void* oauth2) {
-    g_last_string = static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2)->generate_state();
+    g_last_string = static_cast<Corin::Auth::OAuth2Provider*>(oauth2)->generate_state();
     return g_last_string.c_str();
 }
 int oauth2_validate_state(void* oauth2, const char* state) {
-    return static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2)->validate_state(state) ? 1 : 0;
+    return static_cast<Corin::Auth::OAuth2Provider*>(oauth2)->validate_state(state) ? 1 : 0;
 }
 int oauth2_has_provider(void* oauth2, const char* provider) {
-    return static_cast<Sapphire::Auth::OAuth2Provider*>(oauth2)->has_provider(provider) ? 1 : 0;
+    return static_cast<Corin::Auth::OAuth2Provider*>(oauth2)->has_provider(provider) ? 1 : 0;
 }
 
 } // extern "C"

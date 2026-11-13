@@ -6,7 +6,7 @@
 #include <fstream>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace IO {
 
@@ -121,28 +121,28 @@ std::unique_ptr<BufferedWriter> create_buffered_writer(const std::string& path);
 
 } // namespace IO
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // FileStream operations
-    void* sapphire_file_stream_create(const char* path, const char* mode);
-    void sapphire_file_stream_destroy(void* stream);
-    const char* sapphire_file_stream_read(void* stream, size_t bytes);
-    const char* sapphire_file_stream_read_line(void* stream);
-    void sapphire_file_stream_write(void* stream, const char* data);
-    void sapphire_file_stream_close(void* stream);
+    void* corin_file_stream_create(const char* path, const char* mode);
+    void corin_file_stream_destroy(void* stream);
+    const char* corin_file_stream_read(void* stream, size_t bytes);
+    const char* corin_file_stream_read_line(void* stream);
+    void corin_file_stream_write(void* stream, const char* data);
+    void corin_file_stream_close(void* stream);
     
     // BufferedReader operations
-    void* sapphire_buffered_reader_create(const char* path);
-    void sapphire_buffered_reader_destroy(void* reader);
-    const char* sapphire_buffered_reader_read_line(void* reader);
-    char sapphire_buffered_reader_read_char(void* reader);
+    void* corin_buffered_reader_create(const char* path);
+    void corin_buffered_reader_destroy(void* reader);
+    const char* corin_buffered_reader_read_line(void* reader);
+    char corin_buffered_reader_read_char(void* reader);
     
     // BufferedWriter operations
-    void* sapphire_buffered_writer_create(const char* path);
-    void sapphire_buffered_writer_destroy(void* writer);
-    void sapphire_buffered_writer_write(void* writer, const char* data);
-    void sapphire_buffered_writer_write_line(void* writer, const char* line);
-    void sapphire_buffered_writer_flush(void* writer);
+    void* corin_buffered_writer_create(const char* path);
+    void corin_buffered_writer_destroy(void* writer);
+    void corin_buffered_writer_write(void* writer, const char* data);
+    void corin_buffered_writer_write_line(void* writer, const char* line);
+    void corin_buffered_writer_flush(void* writer);
 }

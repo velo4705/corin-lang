@@ -14,7 +14,7 @@ function initHeroCanvas() {
     // Shard definition — a polygon with position, velocity, rotation
     const COLORS = [
         'rgba(26,86,219,',    // vivid royal blue
-        'rgba(77,159,255,',   // electric sapphire
+        'rgba(77,159,255,',   // electric corin
         'rgba(15,45,138,',    // deep saturated navy
         'rgba(45,110,240,',   // bright mid blue
     ];
@@ -109,7 +109,7 @@ function initHeroCanvas() {
 // ─── Code snippets to cycle through in the hero preview ─────────────────────
 const SNIPPETS = [
     {
-        filename: 'hello.spp',
+        filename: 'hello.corin',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'main', cls: 'f' },
@@ -117,12 +117,12 @@ const SNIPPETS = [
             { text: '    ' },
             { text: 'println', cls: 'f' },
             { text: '(' },
-            { text: '"Hello, Sapphire! 💎"', cls: 's' },
+            { text: '"Hello, Corin! 💎"', cls: 's' },
             { text: ')\n}' },
         ]
     },
     {
-        filename: 'fibonacci.spp',
+        filename: 'fibonacci.corin',
         code: [
             { text: '@cache\n', cls: 'attr' },
             { text: 'fn ', cls: 'k' },
@@ -153,7 +153,7 @@ const SNIPPETS = [
         ]
     },
     {
-        filename: 'pattern.spp',
+        filename: 'pattern.corin',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'classify', cls: 'f' },
@@ -187,7 +187,7 @@ const SNIPPETS = [
         ]
     },
     {
-        filename: 'loops.spp',
+        filename: 'loops.corin',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'main', cls: 'f' },

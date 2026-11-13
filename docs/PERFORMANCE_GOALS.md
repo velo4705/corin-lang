@@ -1,11 +1,11 @@
-# Sapphire Performance Goals - Quick Reference
+# Corin Performance Goals - Quick Reference
 
 ## The Reality Check
 
-**Can Sapphire be faster than assembly?**
+**Can Corin be faster than assembly?**
 No. Assembly IS the machine code. It's impossible to be faster than the target you compile to.
 
-**What CAN Sapphire achieve?**
+**What CAN Corin achieve?**
 Be the second-fastest language after C/Assembly. This means matching or exceeding C++/Rust performance while providing better developer experience.
 
 ## Performance Tiers
@@ -14,7 +14,7 @@ Be the second-fastest language after C/Assembly. This means matching or exceedin
 ┌─────────────────────────────────────────┐
 │ #1: Assembly, C                         │ ← The absolute fastest
 ├─────────────────────────────────────────┤
-│ #2: Sapphire (GOAL)                     │ ← Second-fastest language
+│ #2: Corin (GOAL)                     │ ← Second-fastest language
 ├─────────────────────────────────────────┤
 │ S-Tier: C++, Rust                       │ ← Match or exceed these
 ├─────────────────────────────────────────┤
@@ -56,7 +56,7 @@ Be the second-fastest language after C/Assembly. This means matching or exceedin
 
 ## Expected Performance vs Other Languages
 
-| Benchmark | C | Sapphire (Goal) | C++ | Rust | Go | Python |
+| Benchmark | C | Corin (Goal) | C++ | Rust | Go | Python |
 |-----------|---|----------------|-----|------|-----|--------|
 | Fibonacci | 0.80s | 0.81s | 0.82s | 0.83s | 1.2s | 45s |
 | HTTP Server | 110k req/s | 108k req/s | 105k | 103k | 95k | 5k |
@@ -99,7 +99,7 @@ Modern compilers (LLVM) can:
 
 ## Conclusion
 
-Sapphire will be **the second-fastest programming language** (after C/Assembly) by:
+Corin will be **the second-fastest programming language** (after C/Assembly) by:
 1. Compiling to native code via LLVM
 2. Using zero-cost abstractions
 3. Aggressive optimization beyond C++/Rust
@@ -112,6 +112,6 @@ It won't be "faster than assembly" because that's impossible, but it will match 
 
 **Ranking:**
 1. C/Assembly (baseline)
-2. **Sapphire** ← Our target
+2. **Corin** ← Our target
 3. C++/Rust (match or exceed)
 4. Everything else (significantly faster)

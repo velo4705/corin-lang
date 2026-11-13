@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_LLVM_CODEGEN_H
-#define SAPPHIRE_LLVM_CODEGEN_H
+#ifndef CORIN_LLVM_CODEGEN_H
+#define CORIN_LLVM_CODEGEN_H
 
 #include <memory>
 #include <string>
@@ -12,7 +12,7 @@ namespace llvm {
     class Function;
 }
 
-namespace sapphire {
+namespace corin {
 
 // Forward declarations
 class Stmt;
@@ -35,7 +35,7 @@ class ImportStmt;
 /**
  * LLVM Code Generator
  * 
- * Transforms Sapphire AST into LLVM IR, which is then compiled to native machine code.
+ * Transforms Corin AST into LLVM IR, which is then compiled to native machine code.
  */
 class LLVMCodeGen {
 public:
@@ -162,6 +162,6 @@ private:
     void* current_function_;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_LLVM_CODEGEN_H
+#endif // CORIN_LLVM_CODEGEN_H

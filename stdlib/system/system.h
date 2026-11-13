@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_SYSTEM_H
-#define SAPPHIRE_STDLIB_SYSTEM_H
+#ifndef CORIN_STDLIB_SYSTEM_H
+#define CORIN_STDLIB_SYSTEM_H
 
 #include <string>
 #include <vector>
@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -104,51 +104,51 @@ namespace Kernel {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // Process
-    int sapphire_system_get_pid();
-    void sapphire_system_exit(int code);
+    int corin_system_get_pid();
+    void corin_system_exit(int code);
     
     // Memory
-    void* sapphire_system_allocate(size_t size);
-    void sapphire_system_free(void* ptr);
-    size_t sapphire_system_page_size();
+    void* corin_system_allocate(size_t size);
+    void corin_system_free(void* ptr);
+    size_t corin_system_page_size();
     
     // File System
-    bool sapphire_system_file_exists(const char* path);
-    bool sapphire_system_create_directory(const char* path);
-    const char* sapphire_system_get_cwd();
+    bool corin_system_file_exists(const char* path);
+    bool corin_system_create_directory(const char* path);
+    const char* corin_system_get_cwd();
     
     // Environment
-    const char* sapphire_system_get_env(const char* name);
-    const char* sapphire_system_get_username();
-    const char* sapphire_system_get_hostname();
+    const char* corin_system_get_env(const char* name);
+    const char* corin_system_get_username();
+    const char* corin_system_get_hostname();
     
     // System Info
-    int sapphire_system_cpu_count();
-    const char* sapphire_system_cpu_arch();
+    int corin_system_cpu_count();
+    const char* corin_system_cpu_arch();
     
     // Time
-    uint64_t sapphire_system_timestamp_ms();
-    uint64_t sapphire_system_timestamp_us();
-    uint64_t sapphire_system_timestamp_ns();
-    void sapphire_system_sleep_ms(uint64_t ms);
+    uint64_t corin_system_timestamp_ms();
+    uint64_t corin_system_timestamp_us();
+    uint64_t corin_system_timestamp_ns();
+    void corin_system_sleep_ms(uint64_t ms);
     
     // Kernel Interface C API
-    int sapphire_kernel_syscall(int number, void* arg1, void* arg2);
-    void* sapphire_kernel_map_memory(void* addr, size_t length, int prot, int flags);
-    void sapphire_kernel_unmap_memory(void* addr, size_t length);
-    uint8_t sapphire_kernel_inb(uint16_t port);
-    void sapphire_kernel_outb(uint16_t port, uint8_t value);
-    uint16_t sapphire_kernel_inw(uint16_t port);
-    void sapphire_kernel_outw(uint16_t port, uint16_t value);
-    uint32_t sapphire_kernel_inl(uint16_t port);
-    void sapphire_kernel_outl(uint16_t port, uint32_t value);
-    void sapphire_kernel_enable_interrupts();
-    void sapphire_kernel_disable_interrupts();
+    int corin_kernel_syscall(int number, void* arg1, void* arg2);
+    void* corin_kernel_map_memory(void* addr, size_t length, int prot, int flags);
+    void corin_kernel_unmap_memory(void* addr, size_t length);
+    uint8_t corin_kernel_inb(uint16_t port);
+    void corin_kernel_outb(uint16_t port, uint8_t value);
+    uint16_t corin_kernel_inw(uint16_t port);
+    void corin_kernel_outw(uint16_t port, uint16_t value);
+    uint32_t corin_kernel_inl(uint16_t port);
+    void corin_kernel_outl(uint16_t port, uint32_t value);
+    void corin_kernel_enable_interrupts();
+    void corin_kernel_disable_interrupts();
 }
 
-#endif // SAPPHIRE_STDLIB_SYSTEM_H
+#endif // CORIN_STDLIB_SYSTEM_H

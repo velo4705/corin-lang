@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_GENERIC_TYPE_H
-#define SAPPHIRE_GENERIC_TYPE_H
+#ifndef CORIN_GENERIC_TYPE_H
+#define CORIN_GENERIC_TYPE_H
 
 #include "type.h"
 #include <string>
@@ -7,7 +7,7 @@
 #include <memory>
 #include <map>
 
-namespace sapphire {
+namespace corin {
 
 // Type parameter (e.g., T in List<T>)
 class TypeParameter {
@@ -165,6 +165,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_GENERIC_TYPE_H
+#endif // CORIN_GENERIC_TYPE_H

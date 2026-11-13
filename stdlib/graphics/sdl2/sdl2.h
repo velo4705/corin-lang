@@ -1,16 +1,16 @@
-#ifndef SAPPHIRE_STDLIB_SDL2_H
-#define SAPPHIRE_STDLIB_SDL2_H
+#ifndef CORIN_STDLIB_SDL2_H
+#define CORIN_STDLIB_SDL2_H
 
 #include <SDL2/SDL.h>
 #include <string>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
 /**
- * SDL2 Graphics Library for Sapphire
+ * SDL2 Graphics Library for Corin
  * 
  * Provides cross-platform window management, 2D rendering, and input handling.
  * Use this for 2D games and simple graphics applications.
@@ -54,33 +54,33 @@ public:
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire code generation
+// C API for Corin code generation
 extern "C" {
     // Window management
-    void* sapphire_sdl2_create_window(const char* title, int width, int height);
-    void sapphire_sdl2_destroy_window(void* window);
-    void sapphire_sdl2_show_window(void* window);
-    void sapphire_sdl2_hide_window(void* window);
-    bool sapphire_sdl2_should_close(void* window);
-    int sapphire_sdl2_get_width(void* window);
-    int sapphire_sdl2_get_height(void* window);
+    void* corin_sdl2_create_window(const char* title, int width, int height);
+    void corin_sdl2_destroy_window(void* window);
+    void corin_sdl2_show_window(void* window);
+    void corin_sdl2_hide_window(void* window);
+    bool corin_sdl2_should_close(void* window);
+    int corin_sdl2_get_width(void* window);
+    int corin_sdl2_get_height(void* window);
     
     // Event handling
-    void sapphire_sdl2_poll_events(void* window);
-    bool sapphire_sdl2_is_key_down(void* window, int64_t scancode);
+    void corin_sdl2_poll_events(void* window);
+    bool corin_sdl2_is_key_down(void* window, int64_t scancode);
     
     // Rendering
-    void sapphire_sdl2_clear(void* window, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_sdl2_present(void* window);
-    void sapphire_sdl2_fill_rect(void* window, int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_sdl2_draw_line(void* window, int x1, int y1, int x2, int y2, uint8_t r, uint8_t g, uint8_t b);
-    void sapphire_sdl2_draw_point(void* window, int x, int y, uint8_t r, uint8_t g, uint8_t b);
+    void corin_sdl2_clear(void* window, uint8_t r, uint8_t g, uint8_t b);
+    void corin_sdl2_present(void* window);
+    void corin_sdl2_fill_rect(void* window, int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b);
+    void corin_sdl2_draw_line(void* window, int x1, int y1, int x2, int y2, uint8_t r, uint8_t g, uint8_t b);
+    void corin_sdl2_draw_point(void* window, int x, int y, uint8_t r, uint8_t g, uint8_t b);
     
     // Timing
-    void sapphire_sdl2_delay(uint32_t ms);
-    uint32_t sapphire_sdl2_get_ticks();
+    void corin_sdl2_delay(uint32_t ms);
+    uint32_t corin_sdl2_get_ticks();
 }
 
-#endif // SAPPHIRE_STDLIB_SDL2_H
+#endif // CORIN_STDLIB_SDL2_H

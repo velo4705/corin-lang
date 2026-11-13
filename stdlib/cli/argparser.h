@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_STDLIB_ARGPARSER_H
-#define SAPPHIRE_STDLIB_ARGPARSER_H
+#ifndef CORIN_STDLIB_ARGPARSER_H
+#define CORIN_STDLIB_ARGPARSER_H
 
 #include <string>
 #include <vector>
 #include <map>
 
-namespace sapphire {
+namespace corin {
 namespace cli {
 
 class ArgParser {
@@ -30,6 +30,6 @@ public:
 };
 
 } // namespace cli
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_ARGPARSER_H
+#endif // CORIN_STDLIB_ARGPARSER_H

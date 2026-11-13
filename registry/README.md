@@ -1,6 +1,6 @@
-# Sapphire Package Registry
+# Corin Package Registry
 
-A lightweight HTTP server for hosting and distributing Sapphire packages.
+A lightweight HTTP server for hosting and distributing Corin packages.
 
 ## Features
 
@@ -193,7 +193,7 @@ PORT = 8080                # Server port
 
 ## Integration with spm
 
-The registry is designed to work with the Sapphire Package Manager (spm).
+The registry is designed to work with the Corin Package Manager (spm).
 
 ### Publishing
 
@@ -259,4 +259,4 @@ CMD ["python3", "server.py"]
 
 ## License
 
-MIT License - See LICENSE file in the Sapphire repository.
+MIT License - See LICENSE file in the Corin repository.

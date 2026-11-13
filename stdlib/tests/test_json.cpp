@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::json;
+using namespace corin::json;
 
 int tests_passed = 0;
 int tests_failed = 0;

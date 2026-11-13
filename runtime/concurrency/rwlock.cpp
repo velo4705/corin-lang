@@ -1,6 +1,6 @@
 #include "rwlock.h"
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 void RwLock::read_lock() {
@@ -58,4 +58,4 @@ RwLock::WriteGuard::~WriteGuard() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin

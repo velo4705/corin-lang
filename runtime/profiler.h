@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_PROFILER_H
-#define SAPPHIRE_PROFILER_H
+#ifndef CORIN_PROFILER_H
+#define CORIN_PROFILER_H
 
 #include <cstdint>
 #include <cstddef>
@@ -9,7 +9,7 @@
 #include <mutex>
 #include <chrono>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -159,30 +159,30 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Enable/disable profiler
-    void sapphire_profiler_enable();
-    void sapphire_profiler_disable();
-    bool sapphire_profiler_is_enabled();
+    void corin_profiler_enable();
+    void corin_profiler_disable();
+    bool corin_profiler_is_enabled();
     
     // Track allocation/free
-    void sapphire_profiler_track_allocation(void* ptr, size_t size, uint64_t type_id);
-    void sapphire_profiler_track_free(void* ptr);
+    void corin_profiler_track_allocation(void* ptr, size_t size, uint64_t type_id);
+    void corin_profiler_track_free(void* ptr);
     
     // Statistics
-    size_t sapphire_profiler_total_allocated();
-    size_t sapphire_profiler_current_usage();
-    size_t sapphire_profiler_leak_count();
+    size_t corin_profiler_total_allocated();
+    size_t corin_profiler_current_usage();
+    size_t corin_profiler_leak_count();
     
     // Reports
-    void sapphire_profiler_print_stats();
-    void sapphire_profiler_print_leaks();
+    void corin_profiler_print_stats();
+    void corin_profiler_print_leaks();
     
     // Reset
-    void sapphire_profiler_reset();
+    void corin_profiler_reset();
 }
 
-#endif // SAPPHIRE_PROFILER_H
+#endif // CORIN_PROFILER_H

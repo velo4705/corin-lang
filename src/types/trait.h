@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_TRAIT_H
-#define SAPPHIRE_TRAIT_H
+#ifndef CORIN_TRAIT_H
+#define CORIN_TRAIT_H
 
 #include "type.h"
 #include <string>
@@ -7,7 +7,7 @@
 #include <memory>
 #include <map>
 
-namespace sapphire {
+namespace corin {
 
 // Method signature in a trait
 struct TraitMethod {
@@ -205,6 +205,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TRAIT_H
+#endif // CORIN_TRAIT_H

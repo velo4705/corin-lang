@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <openssl/sha.h>
 
-namespace Sapphire {
+namespace Corin {
 namespace Blockchain {
 
 // ===== SHA-256 =====
@@ -329,4 +329,4 @@ std::string P2PNetwork::network_status() const {
 }
 
 } // namespace Blockchain
-} // namespace Sapphire
+} // namespace Corin

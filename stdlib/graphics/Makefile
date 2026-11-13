@@ -1,4 +1,4 @@
-# Makefile for Sapphire Graphics Libraries
+# Makefile for Corin Graphics Libraries
 # Builds SDL2, OpenGL, GLUT, and Vulkan libraries
 
 CXX = g++
@@ -13,14 +13,14 @@ GLUT_DIR = glut
 VULKAN_DIR = vulkan
 
 # Output libraries
-SDL2_LIB = $(SDL2_DIR)/libsapphire_sdl2.a
-SDL2_SO = $(SDL2_DIR)/libsapphire_sdl2.so
-OPENGL_LIB = $(OPENGL_DIR)/libsapphire_opengl.a
-OPENGL_SO = $(OPENGL_DIR)/libsapphire_opengl.so
-GLUT_LIB = $(GLUT_DIR)/libsapphire_glut.a
-GLUT_SO = $(GLUT_DIR)/libsapphire_glut.so
-VULKAN_LIB = $(VULKAN_DIR)/libsapphire_vulkan.a
-VULKAN_SO = $(VULKAN_DIR)/libsapphire_vulkan.so
+SDL2_LIB = $(SDL2_DIR)/libcorin_sdl2.a
+SDL2_SO = $(SDL2_DIR)/libcorin_sdl2.so
+OPENGL_LIB = $(OPENGL_DIR)/libcorin_opengl.a
+OPENGL_SO = $(OPENGL_DIR)/libcorin_opengl.so
+GLUT_LIB = $(GLUT_DIR)/libcorin_glut.a
+GLUT_SO = $(GLUT_DIR)/libcorin_glut.so
+VULKAN_LIB = $(VULKAN_DIR)/libcorin_vulkan.a
+VULKAN_SO = $(VULKAN_DIR)/libcorin_vulkan.so
 
 # Object files
 SDL2_OBJ = $(SDL2_DIR)/sdl2.o
@@ -118,7 +118,7 @@ install: all
 
 # Show library info
 info:
-	@echo "=== Sapphire Graphics Libraries ==="
+	@echo "=== Corin Graphics Libraries ==="
 	@echo ""
 	@echo "SDL2:"
 	@ls -lh $(SDL2_LIB) $(SDL2_SO) 2>/dev/null || echo "  Not built"
@@ -134,7 +134,7 @@ info:
 
 # Help
 help:
-	@echo "Sapphire Graphics Libraries Makefile"
+	@echo "Corin Graphics Libraries Makefile"
 	@echo ""
 	@echo "Targets:"
 	@echo "  all      - Build all libraries (static and shared)"

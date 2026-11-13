@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_CODEGEN_IMPL_H
-#define SAPPHIRE_CODEGEN_IMPL_H
+#ifndef CORIN_CODEGEN_IMPL_H
+#define CORIN_CODEGEN_IMPL_H
 
 #ifdef HAVE_LLVM
 
@@ -22,7 +22,7 @@
 #include <string>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 
 /**
  * Internal implementation details for LLVM code generation
@@ -65,8 +65,8 @@ struct LLVMCodeGenImpl {
     void finalizeMainFunction();
 };
 
-} // namespace sapphire
+} // namespace corin
 
 #endif // HAVE_LLVM
 
-#endif // SAPPHIRE_CODEGEN_IMPL_H
+#endif // CORIN_CODEGEN_IMPL_H

@@ -3,7 +3,7 @@
 #include "../error/error_reporter.h"
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 
 Parser::Parser(const std::vector<Token>& tokens,
                const std::string& source_text,
@@ -1501,4 +1501,4 @@ std::unique_ptr<Expr> Parser::parseFString(const std::string& raw_content) {
     return std::make_unique<FStringExpr>(std::move(segments));
 }
 
-} // namespace sapphire
+} // namespace corin

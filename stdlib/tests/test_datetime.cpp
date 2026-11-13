@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 int main() {
     std::cout << "Testing DateTime library...\n\n";
@@ -47,7 +47,7 @@ int main() {
     
     // Test C API
     std::cout << "Test 5: C API\n";
-    int64_t timestamp = sapphire_instant_now_ms();
+    int64_t timestamp = corin_instant_now_ms();
     std::cout << "  Timestamp: " << timestamp << " ms\n";
     assert(timestamp > 0);
     std::cout << "  ✓ C API test passed\n\n";

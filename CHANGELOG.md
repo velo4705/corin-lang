@@ -1,6 +1,18 @@
 # Changelog
 
-All notable changes to Sapphire will be documented in this file.
+All notable changes to Corin will be documented in this file.
+
+## [Unreleased]
+
+### 💎 Rebrand: Sapphire → Corin
+
+- Language renamed to **Corin** (`corin` compiler binary); repository renamed to `corin-lang`.
+- File extension changed: `.spp` → `.corin`.
+- Tooling renamed: `sapphire-fmt` → `corin-fmt`, `sapphire-lsp` → `corin-lsp`, `sapphire-debug` → `corin-debug`, `sapphire-doc` → `corin-doc`; VSCode extension is now `corin-lang`.
+- `spm` package manager name unchanged.
+- Historical entries below were mechanically rebranded (Sapphire → Corin); release dates and version numbering are unchanged.
+
+---
 
 ## [1.0-beta.8] - 2026-06-17
 
@@ -132,7 +144,7 @@ Complete web development platform with HTTP, WebSocket, templating, and database
 ### Technical Implementation
 
 **Architecture:**
-- C API integration for seamless Sapphire binding
+- C API integration for seamless Corin binding
 - RAII resource management for automatic cleanup
 - Thread-safe operations for concurrent request handling
 - Modular design with separate libraries per component
@@ -156,7 +168,7 @@ Interactive REPL, runtime reflection, basic macros, and hot reloading for modern
 ### Added
 
 #### Enhanced REPL ✅ COMPLETE (Phase 1)
-- ✅ Interactive mode (start with `sapp` no arguments)
+- ✅ Interactive mode (start with `corin` no arguments)
 - ✅ Persistent environment across inputs
 - ✅ Command system with `:` prefix
 - ✅ Error recovery (errors don't crash REPL)
@@ -249,7 +261,7 @@ Interactive programming environment, runtime introspection, and basic metaprogra
 ### Added
 
 #### Enhanced REPL ✅ COMPLETE (Phase 1)
-- ✅ Interactive mode (start with `sapp` no arguments)
+- ✅ Interactive mode (start with `corin` no arguments)
 - ✅ Persistent environment across inputs
 - ✅ Command system with `:` prefix
 - ✅ Error recovery (errors don't crash REPL)
@@ -346,7 +358,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 - ✅ Milestone 1 now 100% complete!
 
 #### Language Server Protocol (LSP) ✅ COMPLETE
-- ✅ Complete LSP server implementation (sapphire-lsp)
+- ✅ Complete LSP server implementation (corin-lsp)
 - ✅ JSON-RPC message handling over stdin/stdout
 - ✅ Symbol table for tracking definitions and references
 - ✅ Auto-completion (keywords + document symbols)
@@ -357,7 +369,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 - ✅ Position tracking from token data
 
 #### Debug Adapter Protocol (DAP) ✅ COMPLETE
-- ✅ Complete DAP server implementation (sapphire-debug)
+- ✅ Complete DAP server implementation (corin-debug)
 - ✅ Breakpoint management (set, clear, list)
 - ✅ Execution control (continue, step, pause, terminate)
 - ✅ JSON-RPC protocol over stdin/stdout
@@ -377,7 +389,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 - ✅ Web interface for browsing packages
 
 #### Documentation Generator ✅ COMPLETE
-- ✅ sapphire-doc tool for generating HTML docs
+- ✅ corin-doc tool for generating HTML docs
 - ✅ Doc comment parsing (`///` and `#!` syntax)
 - ✅ Markdown support in doc comments
 - ✅ Function and class documentation
@@ -387,7 +399,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 - ✅ Batch processing support
 
 #### VSCode Extension ✅ COMPLETE
-- ✅ Full syntax highlighting for .spp files
+- ✅ Full syntax highlighting for .corin files
 - ✅ LSP client integration
 - ✅ Debug adapter integration
 - ✅ Language configuration (brackets, comments, indentation)
@@ -422,10 +434,10 @@ Professional IDE support, debugging, package registry, documentation generation,
 - Total: ~2,450 lines of new code across 25 files
 
 ### Tools Added
-- `sapphire-lsp` - Language Server Protocol implementation
-- `sapphire-debug` - Debug Adapter Protocol implementation
+- `corin-lsp` - Language Server Protocol implementation
+- `corin-debug` - Debug Adapter Protocol implementation
 - `spm-registry` - Package registry client
-- `sapphire-doc` - Documentation generator
+- `corin-doc` - Documentation generator
 
 ### Known Limitations
 - Hover documentation stubbed (returns empty)
@@ -449,7 +461,7 @@ Professional IDE support with Language Server Protocol implementation.
 ### Added
 
 #### Language Server Protocol (LSP) ✅ COMPLETE
-- ✅ Complete LSP server implementation (sapphire-lsp)
+- ✅ Complete LSP server implementation (corin-lsp)
 - ✅ JSON-RPC message handling over stdin/stdout
 - ✅ Symbol table for tracking definitions and references
 - ✅ Auto-completion (keywords + document symbols)
@@ -460,7 +472,7 @@ Professional IDE support with Language Server Protocol implementation.
 - ✅ Position tracking from token data
 
 #### VSCode Extension ✅ COMPLETE
-- ✅ Full syntax highlighting for .spp files
+- ✅ Full syntax highlighting for .corin files
 - ✅ LSP client integration
 - ✅ Language configuration (brackets, comments, indentation)
 - ✅ Auto-completion support
@@ -510,15 +522,15 @@ Developer tools and enhanced standard library for production readiness.
 - ✅ spm init - Create new packages with structure
 - ✅ spm build - Build and validate packages
 - ✅ spm test - Run all tests with reporting
-- ✅ spm run - Execute Sapphire files
+- ✅ spm run - Execute Corin files
 - ✅ spm clean - Clean build artifacts
 - ✅ spm install - Dependency management (manual)
 - ✅ spm publish - Package validation
 - ✅ Package manifest (spm.toml)
 - ✅ Automatic project structure generation
 
-#### Code Formatter (sapphire-fmt) ✅ COMPLETE
-- ✅ Format Sapphire code automatically
+#### Code Formatter (corin-fmt) ✅ COMPLETE
+- ✅ Format Corin code automatically
 - ✅ --check flag for CI/CD integration
 - ✅ --indent flag for custom indentation
 - ✅ Spaces around operators
@@ -707,20 +719,20 @@ Development version with new language features for v1.1 release.
 - ⏳ Goroutines (go keyword) - planned
 
 ### Examples
-- `examples/pattern_matching_simple.spp` - Basic pattern matching
-- `examples/pattern_matching_comprehensive.spp` - All pattern features
-- `examples/pattern_matching_arrays.spp` - Array destructuring
-- `examples/pattern_matching_objects.spp` - Object destructuring
-- `examples/pattern_matching_rest.spp` - Rest patterns
-- `examples/match_guard_simple.spp` - Guard clauses
-- `examples/match_guard_indent.spp` - Guard clauses with indentation
-- `examples/match_multi_arm.spp` - Multiple match arms
-- `examples/traits_working.spp` - Basic traits
-- `examples/traits_full_demo.spp` - Complete trait demo
-- `examples/traits_generics.spp` - Traits with generics
-- `examples/traits_multiple.spp` - Multiple traits per type
-- `examples/async_simple.spp` - Basic async/await
-- `examples/async_comprehensive.spp` - Comprehensive async features
+- `examples/pattern_matching_simple.corin` - Basic pattern matching
+- `examples/pattern_matching_comprehensive.corin` - All pattern features
+- `examples/pattern_matching_arrays.corin` - Array destructuring
+- `examples/pattern_matching_objects.corin` - Object destructuring
+- `examples/pattern_matching_rest.corin` - Rest patterns
+- `examples/match_guard_simple.corin` - Guard clauses
+- `examples/match_guard_indent.corin` - Guard clauses with indentation
+- `examples/match_multi_arm.corin` - Multiple match arms
+- `examples/traits_working.corin` - Basic traits
+- `examples/traits_full_demo.corin` - Complete trait demo
+- `examples/traits_generics.corin` - Traits with generics
+- `examples/traits_multiple.corin` - Multiple traits per type
+- `examples/async_simple.corin` - Basic async/await
+- `examples/async_comprehensive.corin` - Comprehensive async features
 
 ### Documentation
 - `docs/PATTERN_MATCHING.md` - Pattern matching guide
@@ -743,9 +755,9 @@ Development version with new language features for v1.1 release.
 
 ## [1.0.0] - 2026-02-26
 
-### 🎉 Initial Release - Sapphire 1.0!
+### 🎉 Initial Release - Corin 1.0!
 
-This is the first stable release of Sapphire, a modern programming language combining the best features of Python, C++, Rust, and Go.
+This is the first stable release of Corin, a modern programming language combining the best features of Python, C++, Rust, and Go.
 
 ### Added
 
@@ -800,16 +812,16 @@ This is the first stable release of Sapphire, a modern programming language comb
   - Documentation generator
   - Code formatter
 - ✅ Package registry for sharing libraries
-- ✅ Code formatter (sapphire-fmt)
+- ✅ Code formatter (corin-fmt)
 - ✅ Enhanced REPL with auto-completion
 - ✅ Debugger integration
 - ✅ Professional development workflow
-- ✅ Auto-update system (`sapp --update`)
+- ✅ Auto-update system (`corin --update`)
 - ✅ One-line installer
 
 #### Multi-Platform Support (Milestone 8)
 - ✅ WASM backend for web deployment
-- ✅ Self-hosting compiler (written in Sapphire)
+- ✅ Self-hosting compiler (written in Corin)
 - ✅ iOS native compilation
 - ✅ Android native compilation
 - ✅ Platform directives (#[ios], #[android], #[mobile], #[web])

@@ -1,17 +1,17 @@
 # Graphics Quick Start Guide
 
-Quick reference for using graphics APIs with Sapphire.
+Quick reference for using graphics APIs with Corin.
 
 ---
 
 ## Available Graphics APIs
 
-### 1. SDL2 (Sapphire) - Easiest
+### 1. SDL2 (Corin) - Easiest
 **Best for**: 2D games, simple graphics, beginners
 
 ```bash
 # Run example
-./sapp examples/test_window_visible.spp
+./corin examples/test_window_visible.corin
 ```
 
 **Lines**: 37  
@@ -64,9 +64,9 @@ Quick reference for using graphics APIs with Sapphire.
 
 ## Graphics Headers
 
-Use these headers in your Sapphire code:
+Use these headers in your Corin code:
 
-```sapphire
+```corin
 // Window management
 use stdlib::graphics::window::*
 
@@ -87,8 +87,8 @@ use stdlib::graphics::vulkan::*
 
 ## Quick Examples
 
-### SDL2 Window (Sapphire)
-```sapphire
+### SDL2 Window (Corin)
+```corin
 use stdlib::graphics::window::*
 use stdlib::graphics::sdl2::*
 
@@ -191,8 +191,8 @@ Run all graphics tests:
 
 Individual tests:
 ```bash
-# SDL2 (Sapphire)
-./sapp examples/test_window_visible.spp
+# SDL2 (Corin)
+./corin examples/test_window_visible.corin
 
 # SDL2 + OpenGL
 ./examples/run_test_sdl2_opengl.sh

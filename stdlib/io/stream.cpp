@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace IO {
 
@@ -309,18 +309,18 @@ std::unique_ptr<BufferedWriter> create_buffered_writer(const std::string& path) 
 
 } // namespace IO
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API Implementation
 //=============================================================================
 
-using namespace sapphire::stdlib::IO;
+using namespace corin::stdlib::IO;
 
 extern "C" {
     static thread_local char g_stream_string_buffer[8192];
     
-    void* sapphire_file_stream_create(const char* path, const char* mode) {
+    void* corin_file_stream_create(const char* path, const char* mode) {
         if (!path || !mode) return nullptr;
         try {
             return new FileStream(path, mode);
@@ -329,11 +329,11 @@ extern "C" {
         }
     }
     
-    void sapphire_file_stream_destroy(void* stream) {
+    void corin_file_stream_destroy(void* stream) {
         delete static_cast<FileStream*>(stream);
     }
     
-    const char* sapphire_file_stream_read(void* stream, size_t bytes) {
+    const char* corin_file_stream_read(void* stream, size_t bytes) {
         if (!stream) return nullptr;
         try {
             std::string result = static_cast<FileStream*>(stream)->read(bytes);
@@ -345,7 +345,7 @@ extern "C" {
         }
     }
     
-    const char* sapphire_file_stream_read_line(void* stream) {
+    const char* corin_file_stream_read_line(void* stream) {
         if (!stream) return nullptr;
         try {
             std::string result = static_cast<FileStream*>(stream)->read_line();
@@ -357,7 +357,7 @@ extern "C" {
         }
     }
     
-    void sapphire_file_stream_write(void* stream, const char* data) {
+    void corin_file_stream_write(void* stream, const char* data) {
         if (stream && data) {
             try {
                 static_cast<FileStream*>(stream)->write(data);
@@ -367,13 +367,13 @@ extern "C" {
         }
     }
     
-    void sapphire_file_stream_close(void* stream) {
+    void corin_file_stream_close(void* stream) {
         if (stream) {
             static_cast<FileStream*>(stream)->close();
         }
     }
     
-    void* sapphire_buffered_reader_create(const char* path) {
+    void* corin_buffered_reader_create(const char* path) {
         if (!path) return nullptr;
         try {
             return new BufferedReader(path);
@@ -382,11 +382,11 @@ extern "C" {
         }
     }
     
-    void sapphire_buffered_reader_destroy(void* reader) {
+    void corin_buffered_reader_destroy(void* reader) {
         delete static_cast<BufferedReader*>(reader);
     }
     
-    const char* sapphire_buffered_reader_read_line(void* reader) {
+    const char* corin_buffered_reader_read_line(void* reader) {
         if (!reader) return nullptr;
         try {
             std::string result = static_cast<BufferedReader*>(reader)->read_line();
@@ -398,7 +398,7 @@ extern "C" {
         }
     }
     
-    char sapphire_buffered_reader_read_char(void* reader) {
+    char corin_buffered_reader_read_char(void* reader) {
         if (!reader) return '\0';
         try {
             return static_cast<BufferedReader*>(reader)->read_char();
@@ -407,7 +407,7 @@ extern "C" {
         }
     }
     
-    void* sapphire_buffered_writer_create(const char* path) {
+    void* corin_buffered_writer_create(const char* path) {
         if (!path) return nullptr;
         try {
             return new BufferedWriter(path);
@@ -416,11 +416,11 @@ extern "C" {
         }
     }
     
-    void sapphire_buffered_writer_destroy(void* writer) {
+    void corin_buffered_writer_destroy(void* writer) {
         delete static_cast<BufferedWriter*>(writer);
     }
     
-    void sapphire_buffered_writer_write(void* writer, const char* data) {
+    void corin_buffered_writer_write(void* writer, const char* data) {
         if (writer && data) {
             try {
                 static_cast<BufferedWriter*>(writer)->write(data);
@@ -430,7 +430,7 @@ extern "C" {
         }
     }
     
-    void sapphire_buffered_writer_write_line(void* writer, const char* line) {
+    void corin_buffered_writer_write_line(void* writer, const char* line) {
         if (writer && line) {
             try {
                 static_cast<BufferedWriter*>(writer)->write_line(line);
@@ -440,7 +440,7 @@ extern "C" {
         }
     }
     
-    void sapphire_buffered_writer_flush(void* writer) {
+    void corin_buffered_writer_flush(void* writer) {
         if (writer) {
             try {
                 static_cast<BufferedWriter*>(writer)->flush();

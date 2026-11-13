@@ -1,4 +1,4 @@
-# Sapphire Error Reference
+# Corin Error Reference
 
 Error codes follow the format `E<category><hex>` — each category has 256 slots (`E_00`–`E_FF`).
 
@@ -12,7 +12,7 @@ Error codes follow the format `E<category><hex>` — each category has 256 slots
 | E6xx  | IO       |
 | E7xx  | Value    |
 
-Run `sapp --explain <code>` for a quick inline description.
+Run `corin --explain <code>` for a quick inline description.
 
 ---
 
@@ -22,7 +22,7 @@ Run `sapp --explain <code>` for a quick inline description.
 
 The parser hit a token it didn't expect at that position.
 
-```sapphire
+```corin
 # bad
 if x > 0
     print("yes")
@@ -40,7 +40,7 @@ if x > 0:
 
 An expression (value, variable, or call) was required but not found.
 
-```sapphire
+```corin
 # bad
 x = +
 
@@ -52,9 +52,9 @@ x = 1 + 2
 
 ### E1A2 — invalid indentation
 
-Sapphire uses 4-space indentation. Mixing tabs and spaces causes this.
+Corin uses 4-space indentation. Mixing tabs and spaces causes this.
 
-```sapphire
+```corin
 # bad (tab used instead of spaces)
 fn greet():
 	print("hi")   # tab
@@ -72,7 +72,7 @@ fn greet():
 
 A string literal was opened but never closed.
 
-```sapphire
+```corin
 # bad
 name = "Alice
 
@@ -86,7 +86,7 @@ name = "Alice"
 
 Decorators can only be applied to functions and classes.
 
-```sapphire
+```corin
 # bad
 @cached
 x = 10
@@ -103,7 +103,7 @@ fn compute():
 
 `fn`, `class`, `if`, `for`, and `while` bodies must end with `:`.
 
-```sapphire
+```corin
 # bad
 fn add(a, b)
     return a + b
@@ -119,7 +119,7 @@ fn add(a, b):
 
 Only variables and subscript expressions can be on the left side of `=`.
 
-```sapphire
+```corin
 # bad
 1 = x
 
@@ -131,9 +131,9 @@ x = 1
 
 ### E1A7 — body must be indented on the next line
 
-Sapphire does not allow single-line `if`/`while`/`fn` bodies. The body must be on the next line, indented.
+Corin does not allow single-line `if`/`while`/`fn` bodies. The body must be on the next line, indented.
 
-```sapphire
+```corin
 # bad
 if x > 0: print("yes")
 
@@ -152,7 +152,7 @@ if x > 0:
 
 The variable was used before being defined, or the name is misspelled.
 
-```sapphire
+```corin
 # bad
 print(count)   # count not defined yet
 
@@ -167,7 +167,7 @@ print(count)
 
 The function doesn't exist in scope, or the module wasn't imported.
 
-```sapphire
+```corin
 # bad
 result = sqrt(16)
 
@@ -182,7 +182,7 @@ result = math.sqrt(16)
 
 The module name is wrong or not installed.
 
-```sapphire
+```corin
 # bad
 import mathz   # typo
 
@@ -196,7 +196,7 @@ import math
 
 The object doesn't have the attribute or method you're accessing.
 
-```sapphire
+```corin
 # bad
 x = 42
 x.append(1)   # int has no append
@@ -214,7 +214,7 @@ items.append(1)
 
 A value of the wrong type was passed or assigned.
 
-```sapphire
+```corin
 # bad
 x = "hello" + 5
 
@@ -228,7 +228,7 @@ x = "hello" + str(5)
 
 The operator doesn't support the given types.
 
-```sapphire
+```corin
 # bad
 result = [1, 2] * [3, 4]
 
@@ -242,7 +242,7 @@ result = [1, 2] + [3, 4]   # list concatenation
 
 You tried to call something that isn't a function or class.
 
-```sapphire
+```corin
 # bad
 x = 42
 x()
@@ -259,7 +259,7 @@ greet()
 
 `for` loops require a list, string, range, or other iterable.
 
-```sapphire
+```corin
 # bad
 for i in 42:
     print(i)
@@ -275,7 +275,7 @@ for i in range(42):
 
 Only lists, strings, and dicts support `[]` indexing.
 
-```sapphire
+```corin
 # bad
 x = 42
 print(x[0])
@@ -293,7 +293,7 @@ print(items[0])
 
 The index is outside the valid range of the list or string.
 
-```sapphire
+```corin
 # bad
 items = [1, 2, 3]
 print(items[5])
@@ -309,7 +309,7 @@ if 5 < len(items):
 
 The divisor evaluated to zero.
 
-```sapphire
+```corin
 # bad
 result = 10 / 0
 
@@ -325,7 +325,7 @@ if divisor != 0:
 
 An `assert()` condition was false.
 
-```sapphire
+```corin
 # bad
 assert(1 == 2)
 
@@ -339,7 +339,7 @@ assert(len(items) > 0)
 
 A value is `none` and you tried to use it.
 
-```sapphire
+```corin
 # bad
 x = none
 print(x.name)
@@ -355,7 +355,7 @@ if x != none:
 
 A function is recursing too deeply — usually a missing or wrong base case.
 
-```sapphire
+```corin
 # bad
 fn count(n):
     return count(n - 1)   # no base case
@@ -375,7 +375,7 @@ fn count(n):
 
 The module doesn't exist or isn't installed.
 
-```sapphire
+```corin
 # bad
 import nonexistent_module
 
@@ -392,11 +392,11 @@ import http
 Two modules are importing each other, creating a cycle.
 
 ```
-# a.spp imports b.spp
-# b.spp imports a.spp  ← cycle
+# a.corin imports b.corin
+# b.corin imports a.corin  ← cycle
 
-# fix — extract shared code into a third module c.spp
-# both a.spp and b.spp import c.spp
+# fix — extract shared code into a third module c.corin
+# both a.corin and b.corin import c.corin
 ```
 
 ---
@@ -407,7 +407,7 @@ Two modules are importing each other, creating a cycle.
 
 The file path doesn't exist or is wrong.
 
-```sapphire
+```corin
 # bad
 import fs
 content = fs.read("data.txt")   # file doesn't exist
@@ -437,7 +437,7 @@ The process doesn't have read/write access to the file.
 
 A function received an argument with an unexpected value.
 
-```sapphire
+```corin
 # bad
 import math
 math.sqrt(-1)   # negative input to sqrt
@@ -453,7 +453,7 @@ math.sqrt(abs(-1))
 
 Wrong number of arguments passed to a function.
 
-```sapphire
+```corin
 # bad
 fn add(a, b):
     return a + b
@@ -471,7 +471,7 @@ add(1, 2)
 
 The value exceeds the allowed range for the operation.
 
-```sapphire
+```corin
 # bad
 import time
 time.sleep(-5)   # negative sleep duration
@@ -482,4 +482,4 @@ time.sleep(1)
 
 ---
 
-*Run `sapp --explain <code>` for a quick inline summary of any error.*
+*Run `corin --explain <code>` for a quick inline summary of any error.*

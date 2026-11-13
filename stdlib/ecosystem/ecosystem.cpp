@@ -1,4 +1,4 @@
-// ecosystem.cpp - M18 Community & Ecosystem for Sapphire
+// ecosystem.cpp - M18 Community & Ecosystem for Corin
 #include "ecosystem.h"
 #include <sstream>
 #include <algorithm>
@@ -7,7 +7,7 @@
 #include <cctype>
 #include <numeric>
 
-namespace Sapphire {
+namespace Corin {
 namespace Ecosystem {
 
 // ===== Semver =====
@@ -314,14 +314,14 @@ ResolveResult pkgmgr_resolve(const Manifest& m) {
 
 std::string pkgmgr_lockfile(const Manifest& m) {
     std::ostringstream oss;
-    oss << "# Sapphire lockfile\n# Generated for " << m.name << "@" << m.version << "\n\n";
+    oss << "# Corin lockfile\n# Generated for " << m.name << "@" << m.version << "\n\n";
     for (const auto& dep : m.dependencies) {
         std::string ver = pkgmgr_installed_version(dep.name);
         if (ver.empty()) ver = dep.version_range;
         oss << "[[package]]\n"
             << "name = \"" << dep.name << "\"\n"
             << "version = \"" << ver << "\"\n"
-            << "resolved = \"https://registry.sapphire-lang.org/" << dep.name << "/" << ver << "\"\n\n";
+            << "resolved = \"https://registry.corin-lang.org/" << dep.name << "/" << ver << "\"\n\n";
     }
     return oss.str();
 }
@@ -447,4 +447,4 @@ std::string fmt_apply(const std::string& code, const FormatOptions& opts) {
 }
 
 } // namespace Ecosystem
-} // namespace Sapphire
+} // namespace Corin

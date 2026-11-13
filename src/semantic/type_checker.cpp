@@ -1,6 +1,6 @@
 #include "type_checker.h"
 
-namespace sapphire {
+namespace corin {
 
 // Expression visitors
 
@@ -411,4 +411,4 @@ void TypeChecker::visitClassDecl(ClassDecl& stmt) {
     current_type = std::make_shared<TypeVariable>();
 }
 
-} // namespace sapphire
+} // namespace corin

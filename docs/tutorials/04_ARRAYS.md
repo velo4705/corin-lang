@@ -1,12 +1,12 @@
 # Tutorial 4: Arrays and Collections
 
-Learn how to work with collections of data in Sapphire.
+Learn how to work with collections of data in Corin.
 
 ## Arrays
 
 Arrays store multiple values of the same type:
 
-```sapphire
+```corin
 fn main() {
     // Create an array
     let numbers = [1, 2, 3, 4, 5]
@@ -21,7 +21,7 @@ fn main() {
 
 Use index (starting from 0):
 
-```sapphire
+```corin
 fn main() {
     let fruits = ["apple", "banana", "orange"]
     
@@ -33,7 +33,7 @@ fn main() {
 
 ### Array Length
 
-```sapphire
+```corin
 fn main() {
     let numbers = [10, 20, 30, 40, 50]
     
@@ -43,7 +43,7 @@ fn main() {
 
 ### Modifying Arrays
 
-```sapphire
+```corin
 fn main() {
     let mut numbers = [1, 2, 3, 4, 5]
     
@@ -56,7 +56,7 @@ fn main() {
 
 ### Iterating Over Arrays
 
-```sapphire
+```corin
 fn main() {
     let fruits = ["apple", "banana", "orange", "grape"]
     
@@ -76,7 +76,7 @@ fn main() {
 
 Arrays of arrays:
 
-```sapphire
+```corin
 fn main() {
     // 2D array (matrix)
     let matrix = [
@@ -104,7 +104,7 @@ fn main() {
 
 ### Finding Elements
 
-```sapphire
+```corin
 fn find(arr: [int], target: int) -> int {
     for i in 0..len(arr) {
         if arr[i] == target {
@@ -128,7 +128,7 @@ fn main() {
 
 ### Sum of Array
 
-```sapphire
+```corin
 fn sum(arr: [int]) -> int {
     let mut total = 0
     for num in arr {
@@ -145,7 +145,7 @@ fn main() {
 
 ### Maximum Value
 
-```sapphire
+```corin
 fn max(arr: [int]) -> int {
     let mut maximum = arr[0]
     for num in arr {
@@ -164,7 +164,7 @@ fn main() {
 
 ### Reverse Array
 
-```sapphire
+```corin
 fn reverse(arr: [int]) -> [int] {
     let mut result = []
     for i in len(arr)-1..0 step -1 {
@@ -184,7 +184,7 @@ fn main() {
 
 Lists can grow and shrink:
 
-```sapphire
+```corin
 fn main() {
     // Create empty list
     let mut items = []
@@ -208,7 +208,7 @@ fn main() {
 
 ### List Methods
 
-```sapphire
+```corin
 fn main() {
     let mut numbers = [1, 2, 3]
     
@@ -236,7 +236,7 @@ fn main() {
 
 Store key-value pairs:
 
-```sapphire
+```corin
 fn main() {
     // Create dictionary
     let mut ages = {
@@ -271,7 +271,7 @@ fn main() {
 
 ### Dictionary Methods
 
-```sapphire
+```corin
 fn main() {
     let mut scores = {
         "Math": 95,
@@ -299,7 +299,7 @@ fn main() {
 
 Store unique values:
 
-```sapphire
+```corin
 fn main() {
     // Create set
     let mut numbers = {1, 2, 3, 4, 5}
@@ -332,7 +332,7 @@ fn main() {
 
 Get a portion of an array:
 
-```sapphire
+```corin
 fn main() {
     let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
@@ -359,7 +359,7 @@ fn main() {
 ### Exercise 1: Average Calculator
 Calculate the average of numbers in an array:
 
-```sapphire
+```corin
 fn average(numbers: [float]) -> float {
     let mut sum = 0.0
     for num in numbers {
@@ -378,7 +378,7 @@ fn main() {
 ### Exercise 2: Remove Duplicates
 Remove duplicate values from an array:
 
-```sapphire
+```corin
 fn remove_duplicates(arr: [int]) -> [int] {
     let mut result = []
     let mut seen = {}
@@ -403,7 +403,7 @@ fn main() {
 ### Exercise 3: Word Counter
 Count word frequency in a sentence:
 
-```sapphire
+```corin
 fn count_words(text: str) -> {str: int} {
     let words = text.split(" ")
     let mut counts = {}
@@ -432,7 +432,7 @@ fn main() {
 ### Exercise 4: Matrix Addition
 Add two matrices:
 
-```sapphire
+```corin
 fn add_matrices(a: [[int]], b: [[int]]) -> [[int]] {
     let mut result = []
     
@@ -459,7 +459,7 @@ fn main() {
 ### Exercise 5: Shopping Cart
 Implement a simple shopping cart:
 
-```sapphire
+```corin
 fn main() {
     let mut cart = {}
     
@@ -483,7 +483,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. Index Out of Bounds
-```sapphire
+```corin
 // Wrong:
 let arr = [1, 2, 3]
 println(arr[5])  // Error! Index out of bounds
@@ -497,7 +497,7 @@ if 5 < len(arr) {
 ```
 
 ### 2. Modifying Immutable Array
-```sapphire
+```corin
 // Wrong:
 let arr = [1, 2, 3]
 arr[0] = 10  // Error! arr is immutable
@@ -508,7 +508,7 @@ arr[0] = 10  // OK
 ```
 
 ### 3. Wrong Type in Array
-```sapphire
+```corin
 // Wrong:
 let arr = [1, 2, "three"]  // Error! Mixed types
 

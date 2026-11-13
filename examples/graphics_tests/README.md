@@ -18,7 +18,7 @@ These examples demonstrate graphics functionality and require **compiled mode** 
 
 ## 🎮 Games
 
-### game_pong.spp - Classic Pong
+### game_pong.corin - Classic Pong
 Two-player Pong game with scoring.
 
 **Controls:**
@@ -36,7 +36,7 @@ Two-player Pong game with scoring.
 
 ---
 
-### game_snake.spp - Snake Game
+### game_snake.corin - Snake Game
 Eat food, grow longer, don't hit walls!
 
 **Controls:**
@@ -55,7 +55,7 @@ Eat food, grow longer, don't hit walls!
 
 ## 🎨 Applications
 
-### app_paint.spp - Paint Application
+### app_paint.corin - Paint Application
 Simple drawing application with color selection.
 
 **Controls:**
@@ -76,7 +76,7 @@ Simple drawing application with color selection.
 
 ## ✨ Demos
 
-### demo_particles.spp - Particle System
+### demo_particles.corin - Particle System
 Animated bouncing particles with motion trails.
 
 **Controls:**
@@ -92,7 +92,7 @@ Animated bouncing particles with motion trails.
 
 ---
 
-### demo_3d_cube.spp - 3D Rotating Cube
+### demo_3d_cube.corin - 3D Rotating Cube
 OpenGL 3D graphics demonstration.
 
 **Controls:**
@@ -130,7 +130,7 @@ These examples are designed for the **compiler** and must be compiled to native 
 
 ```bash
 # 1. Compile to LLVM IR
-./sapp compile examples/graphics_tests/game_pong.spp 2>/dev/null > game_pong.ll
+./corin compile examples/graphics_tests/game_pong.corin 2>/dev/null > game_pong.ll
 
 # 2. Compile to object file
 llc game_pong.ll -filetype=obj -o game_pong.o
@@ -138,7 +138,7 @@ llc game_pong.ll -filetype=obj -o game_pong.o
 # 3. Link with SDL2 library
 clang game_pong.o -o game_pong \
     -L./stdlib/graphics/sdl2 \
-    -lsapphire_sdl2 \
+    -lcorin_sdl2 \
     -lSDL2 \
     -lstdc++
 
@@ -150,7 +150,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./game_pong
 
 ```bash
 # 1. Compile to LLVM IR
-./sapp compile examples/graphics_tests/demo_3d_cube.spp 2>/dev/null > demo_3d_cube.ll
+./corin compile examples/graphics_tests/demo_3d_cube.corin 2>/dev/null > demo_3d_cube.ll
 
 # 2. Compile to object file
 llc demo_3d_cube.ll -filetype=obj -o demo_3d_cube.o
@@ -159,8 +159,8 @@ llc demo_3d_cube.ll -filetype=obj -o demo_3d_cube.o
 clang demo_3d_cube.o -o demo_3d_cube \
     -L./stdlib/graphics/opengl \
     -L./stdlib/graphics/glut \
-    -lsapphire_opengl \
-    -lsapphire_glut \
+    -lcorin_opengl \
+    -lcorin_glut \
     -lGL \
     -lGLU \
     -lglut \
@@ -172,7 +172,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/opengl:./stdlib/graphics/glut:$LD_LIBRARY_PATH
 
 ## Prerequisites
 
-1. **Sapphire compiler**: `make quick`
+1. **Corin compiler**: `make quick`
 2. **Graphics libraries**: `cd stdlib/graphics && make`
 3. **System libraries**: SDL2, OpenGL, GLUT installed
 
@@ -196,7 +196,7 @@ export LD_LIBRARY_PATH=./stdlib/graphics/sdl2:./stdlib/graphics/opengl:./stdlib/
 - Check SDL2/OpenGL/GLUT installation
 
 ### Compilation errors
-- Use `./sapp compile`, not `./sapp` (interpreter)
+- Use `./corin compile`, not `./corin` (interpreter)
 - Check LLVM: `llc --version`
 - Check clang: `clang --version`
 
@@ -238,6 +238,6 @@ export LD_LIBRARY_PATH=./stdlib/graphics/sdl2:./stdlib/graphics/opengl:./stdlib/
 
 ## Note
 
-These examples demonstrate the power of Sapphire's graphics import system. They're fully functional games and applications that compile to native code with performance comparable to C/C++.
+These examples demonstrate the power of Corin's graphics import system. They're fully functional games and applications that compile to native code with performance comparable to C/C++.
 
-For regular Sapphire examples that work in the interpreter, see the parent `examples/` directory.
+For regular Corin examples that work in the interpreter, see the parent `examples/` directory.

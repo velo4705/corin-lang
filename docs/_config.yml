@@ -1,9 +1,9 @@
-# GitHub Pages Configuration for Sapphire
+# GitHub Pages Configuration for Corin
 
 # Site settings
-title: Sapphire Programming Language
+title: Corin Programming Language
 description: A modern programming language that's as fast as C and as easy as Python
-baseurl: "/sapphire-lang"
+baseurl: "/corin-lang"
 url: "https://velo4705.github.io"
 
 # Build settings

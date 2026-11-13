@@ -10,27 +10,27 @@ static std::string g_gql_last_string;
 
 // ===== Schema =====
 
-void* gql_schema_create() { return new Sapphire::GraphQL::Schema(); }
-void  gql_schema_destroy(void* s) { delete static_cast<Sapphire::GraphQL::Schema*>(s); }
+void* gql_schema_create() { return new Corin::GraphQL::Schema(); }
+void  gql_schema_destroy(void* s) { delete static_cast<Corin::GraphQL::Schema*>(s); }
 
 void gql_schema_add_type(void* s, const char* name, const char* kind, const char* description) {
-    Sapphire::GraphQL::TypeDef t;
+    Corin::GraphQL::TypeDef t;
     t.name = name; t.kind = kind ? kind : "type";
     t.description = description ? description : "";
-    static_cast<Sapphire::GraphQL::Schema*>(s)->add_type(t);
+    static_cast<Corin::GraphQL::Schema*>(s)->add_type(t);
 }
 
 void gql_schema_add_field(void* s, const char* type_name, const char* field_name,
                            const char* field_type, int non_null, int is_list, const char* description) {
-    auto* schema = static_cast<Sapphire::GraphQL::Schema*>(s);
+    auto* schema = static_cast<Corin::GraphQL::Schema*>(s);
     // Get or create the type
     std::string tn(type_name);
-    const Sapphire::GraphQL::TypeDef* existing = schema->get_type(tn);
-    Sapphire::GraphQL::TypeDef t;
+    const Corin::GraphQL::TypeDef* existing = schema->get_type(tn);
+    Corin::GraphQL::TypeDef t;
     if (existing) t = *existing;
     else { t.name = tn; t.kind = "type"; }
 
-    Sapphire::GraphQL::FieldDef f;
+    Corin::GraphQL::FieldDef f;
     f.name = field_name;
     f.type_name = field_type;
     f.non_null = non_null != 0;
@@ -41,7 +41,7 @@ void gql_schema_add_field(void* s, const char* type_name, const char* field_name
 }
 
 void gql_schema_add_scalar(void* s, const char* name, const char* description) {
-    static_cast<Sapphire::GraphQL::Schema*>(s)->add_scalar(name, description ? description : "");
+    static_cast<Corin::GraphQL::Schema*>(s)->add_scalar(name, description ? description : "");
 }
 
 void gql_schema_add_enum(void* s, const char* name, const char* values_csv) {
@@ -54,18 +54,18 @@ void gql_schema_add_enum(void* s, const char* name, const char* values_csv) {
         while (!v.empty() && v.back() == ' ') v.pop_back();
         if (!v.empty()) vals.push_back(v);
     }
-    static_cast<Sapphire::GraphQL::Schema*>(s)->add_enum(name, vals);
+    static_cast<Corin::GraphQL::Schema*>(s)->add_enum(name, vals);
 }
 
-void gql_schema_set_query(void* s, const char* n)        { static_cast<Sapphire::GraphQL::Schema*>(s)->set_query_type(n); }
-void gql_schema_set_mutation(void* s, const char* n)     { static_cast<Sapphire::GraphQL::Schema*>(s)->set_mutation_type(n); }
-void gql_schema_set_subscription(void* s, const char* n) { static_cast<Sapphire::GraphQL::Schema*>(s)->set_subscription_type(n); }
-int  gql_schema_has_type(void* s, const char* n)         { return static_cast<Sapphire::GraphQL::Schema*>(s)->has_type(n) ? 1 : 0; }
-int  gql_schema_type_count(void* s)                      { return static_cast<Sapphire::GraphQL::Schema*>(s)->type_count(); }
+void gql_schema_set_query(void* s, const char* n)        { static_cast<Corin::GraphQL::Schema*>(s)->set_query_type(n); }
+void gql_schema_set_mutation(void* s, const char* n)     { static_cast<Corin::GraphQL::Schema*>(s)->set_mutation_type(n); }
+void gql_schema_set_subscription(void* s, const char* n) { static_cast<Corin::GraphQL::Schema*>(s)->set_subscription_type(n); }
+int  gql_schema_has_type(void* s, const char* n)         { return static_cast<Corin::GraphQL::Schema*>(s)->has_type(n) ? 1 : 0; }
+int  gql_schema_type_count(void* s)                      { return static_cast<Corin::GraphQL::Schema*>(s)->type_count(); }
 
 int gql_schema_validate(void* s, char* error_buf, int buf_size) {
     std::string err;
-    bool ok = static_cast<Sapphire::GraphQL::Schema*>(s)->validate(err);
+    bool ok = static_cast<Corin::GraphQL::Schema*>(s)->validate(err);
     if (!ok && error_buf && buf_size > 0) {
         strncpy(error_buf, err.c_str(), buf_size - 1);
         error_buf[buf_size - 1] = '\0';
@@ -74,12 +74,12 @@ int gql_schema_validate(void* s, char* error_buf, int buf_size) {
 }
 
 const char* gql_schema_to_sdl(void* s) {
-    g_gql_last_string = static_cast<Sapphire::GraphQL::Schema*>(s)->to_sdl();
+    g_gql_last_string = static_cast<Corin::GraphQL::Schema*>(s)->to_sdl();
     return g_gql_last_string.c_str();
 }
 
 const char* gql_schema_introspect(void* s) {
-    g_gql_last_string = static_cast<Sapphire::GraphQL::Schema*>(s)->introspect();
+    g_gql_last_string = static_cast<Corin::GraphQL::Schema*>(s)->introspect();
     return g_gql_last_string.c_str();
 }
 
@@ -87,13 +87,13 @@ const char* gql_schema_introspect(void* s) {
 
 // Store static data for resolvers (simple key->json map)
 struct QueryEngineWrapper {
-    Sapphire::GraphQL::QueryEngine* engine;
+    Corin::GraphQL::QueryEngine* engine;
     std::unordered_map<std::string, std::string> static_data; // "Type.field" -> json
 };
 
 void* gql_query_engine_create(void* schema) {
     auto* w = new QueryEngineWrapper();
-    w->engine = new Sapphire::GraphQL::QueryEngine(static_cast<Sapphire::GraphQL::Schema*>(schema));
+    w->engine = new Corin::GraphQL::QueryEngine(static_cast<Corin::GraphQL::Schema*>(schema));
     return w;
 }
 
@@ -111,7 +111,7 @@ void gql_query_engine_register_data(void* e, const char* type_name,
     w->static_data[key] = data;
     // Register a resolver that returns the static data
     w->engine->register_resolver(type_name, field_name,
-        [data](const Sapphire::GraphQL::ResolverContext&) { return data; });
+        [data](const Corin::GraphQL::ResolverContext&) { return data; });
 }
 
 const char* gql_query_execute(void* e, const char* query, const char* variables) {
@@ -133,13 +133,13 @@ int gql_query_resolver_count(void* e) {
 // ===== Mutation Engine =====
 
 struct MutationEngineWrapper {
-    Sapphire::GraphQL::MutationEngine* engine;
+    Corin::GraphQL::MutationEngine* engine;
     std::unordered_map<std::string, std::string> mutation_results;
 };
 
 void* gql_mutation_engine_create(void* schema) {
     auto* w = new MutationEngineWrapper();
-    w->engine = new Sapphire::GraphQL::MutationEngine(static_cast<Sapphire::GraphQL::Schema*>(schema));
+    w->engine = new Corin::GraphQL::MutationEngine(static_cast<Corin::GraphQL::Schema*>(schema));
     return w;
 }
 
@@ -154,7 +154,7 @@ void gql_mutation_register(void* e, const char* name, const char* result_json) {
     std::string result(result_json ? result_json : "null");
     w->mutation_results[name] = result;
     w->engine->register_mutation(name,
-        [result](const Sapphire::GraphQL::ResolverContext&) { return result; });
+        [result](const Corin::GraphQL::ResolverContext&) { return result; });
 }
 
 const char* gql_mutation_execute(void* e, const char* mutation, const char* variables) {
@@ -170,25 +170,25 @@ int gql_mutation_count(void* e) {
 
 // ===== Subscription Manager =====
 
-void* gql_subscription_manager_create() { return new Sapphire::GraphQL::SubscriptionManager(); }
-void  gql_subscription_manager_destroy(void* m) { delete static_cast<Sapphire::GraphQL::SubscriptionManager*>(m); }
+void* gql_subscription_manager_create() { return new Corin::GraphQL::SubscriptionManager(); }
+void  gql_subscription_manager_destroy(void* m) { delete static_cast<Corin::GraphQL::SubscriptionManager*>(m); }
 
 const char* gql_subscribe(void* m, const char* client_id, const char* event_name, const char* query) {
-    g_gql_last_string = static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->subscribe(
+    g_gql_last_string = static_cast<Corin::GraphQL::SubscriptionManager*>(m)->subscribe(
         client_id, event_name, query ? query : "");
     return g_gql_last_string.c_str();
 }
 
 int gql_unsubscribe(void* m, const char* subscription_id) {
-    return static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->unsubscribe(subscription_id) ? 1 : 0;
+    return static_cast<Corin::GraphQL::SubscriptionManager*>(m)->unsubscribe(subscription_id) ? 1 : 0;
 }
 
 void gql_unsubscribe_client(void* m, const char* client_id) {
-    static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->unsubscribe_client(client_id);
+    static_cast<Corin::GraphQL::SubscriptionManager*>(m)->unsubscribe_client(client_id);
 }
 
 const char* gql_publish(void* m, const char* event_name, const char* data_json) {
-    auto notifications = static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->publish(
+    auto notifications = static_cast<Corin::GraphQL::SubscriptionManager*>(m)->publish(
         event_name, data_json ? data_json : "null");
     std::ostringstream ss;
     ss << "[";
@@ -202,15 +202,15 @@ const char* gql_publish(void* m, const char* event_name, const char* data_json) 
 }
 
 int gql_subscription_count(void* m) {
-    return static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->subscription_count();
+    return static_cast<Corin::GraphQL::SubscriptionManager*>(m)->subscription_count();
 }
 
 int gql_client_subscription_count(void* m, const char* client_id) {
-    return static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->client_subscription_count(client_id);
+    return static_cast<Corin::GraphQL::SubscriptionManager*>(m)->client_subscription_count(client_id);
 }
 
 int gql_is_subscribed(void* m, const char* client_id, const char* event_name) {
-    return static_cast<Sapphire::GraphQL::SubscriptionManager*>(m)->is_subscribed(client_id, event_name) ? 1 : 0;
+    return static_cast<Corin::GraphQL::SubscriptionManager*>(m)->is_subscribed(client_id, event_name) ? 1 : 0;
 }
 
 } // extern "C"

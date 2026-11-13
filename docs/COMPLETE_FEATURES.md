@@ -1,6 +1,6 @@
-# Sapphire Complete Feature Set
+# Corin Complete Feature Set
 
-This document lists ALL features from major programming languages that Sapphire includes or will include.
+This document lists ALL features from major programming languages that Corin includes or will include.
 
 ## Core Language Features
 
@@ -887,4 +887,4 @@ This document lists ALL features from major programming languages that Sapphire 
 - 🔄 In development
 - ⏳ Planned for future versions
 
-All features marked ✅ are part of Sapphire's complete vision and will be available in v1.0.0 or future releases.
+All features marked ✅ are part of Corin's complete vision and will be available in v1.0.0 or future releases.

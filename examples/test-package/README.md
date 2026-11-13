@@ -1,6 +1,6 @@
 # Hello World Package
 
-A simple hello world package for testing the Sapphire Package Registry.
+A simple hello world package for testing the Corin Package Registry.
 
 ## Installation
 
@@ -10,7 +10,7 @@ spm-registry install hello-world
 
 ## Usage
 
-```sapphire
+```corin
 import greet from "hello-world"
 
 fn main():

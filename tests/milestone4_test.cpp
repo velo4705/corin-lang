@@ -5,7 +5,7 @@
 #include <fstream>
 #include "../stdlib/http/http.h"
 
-using namespace Sapphire::HTTP;
+using namespace Corin::HTTP;
 
 // Test utilities
 void assert_equal(const std::string& expected, const std::string& actual, const std::string& test_name) {
@@ -82,7 +82,7 @@ void test_http_response_parsing() {
         "HTTP/1.1 200 OK\r\n"
         "Content-Type: application/json\r\n"
         "Content-Length: 25\r\n"
-        "Server: Sapphire/1.0\r\n"
+        "Server: Corin/1.0\r\n"
         "\r\n"
         "{\"message\":\"Hello World\"}";
     
@@ -92,7 +92,7 @@ void test_http_response_parsing() {
     assert_true(response.get_status() == Status::OK, "Status parsing");
     assert_equal("{\"message\":\"Hello World\"}", response.get_body(), "Body parsing");
     assert_equal("application/json", response.get_header("Content-Type"), "Content-Type header");
-    assert_equal("Sapphire/1.0", response.get_header("Server"), "Server header");
+    assert_equal("Corin/1.0", response.get_header("Server"), "Server header");
 }
 
 // Test HTTP Response creation

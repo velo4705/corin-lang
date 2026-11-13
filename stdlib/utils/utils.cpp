@@ -5,7 +5,7 @@
 #include <random>
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 namespace Utils {
@@ -203,66 +203,66 @@ namespace Utils {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
     static thread_local std::string g_string_buffer;
     
-    const char* sapphire_utils_to_string_int(int value) {
-        g_string_buffer = sapphire::stdlib::Utils::to_string(value);
+    const char* corin_utils_to_string_int(int value) {
+        g_string_buffer = corin::stdlib::Utils::to_string(value);
         return g_string_buffer.c_str();
     }
     
-    const char* sapphire_utils_to_string_double(double value) {
-        g_string_buffer = sapphire::stdlib::Utils::to_string(value);
+    const char* corin_utils_to_string_double(double value) {
+        g_string_buffer = corin::stdlib::Utils::to_string(value);
         return g_string_buffer.c_str();
     }
     
-    int sapphire_utils_to_int(const char* str) {
-        return sapphire::stdlib::Utils::to_int(str);
+    int corin_utils_to_int(const char* str) {
+        return corin::stdlib::Utils::to_int(str);
     }
     
-    double sapphire_utils_to_double(const char* str) {
-        return sapphire::stdlib::Utils::to_double(str);
+    double corin_utils_to_double(const char* str) {
+        return corin::stdlib::Utils::to_double(str);
     }
     
-    const char* sapphire_utils_to_upper(const char* str) {
-        g_string_buffer = sapphire::stdlib::Utils::to_upper(str);
+    const char* corin_utils_to_upper(const char* str) {
+        g_string_buffer = corin::stdlib::Utils::to_upper(str);
         return g_string_buffer.c_str();
     }
     
-    const char* sapphire_utils_to_lower(const char* str) {
-        g_string_buffer = sapphire::stdlib::Utils::to_lower(str);
+    const char* corin_utils_to_lower(const char* str) {
+        g_string_buffer = corin::stdlib::Utils::to_lower(str);
         return g_string_buffer.c_str();
     }
     
-    const char* sapphire_utils_trim(const char* str) {
-        g_string_buffer = sapphire::stdlib::Utils::trim(str);
+    const char* corin_utils_trim(const char* str) {
+        g_string_buffer = corin::stdlib::Utils::trim(str);
         return g_string_buffer.c_str();
     }
     
-    bool sapphire_utils_starts_with(const char* str, const char* prefix) {
-        return sapphire::stdlib::Utils::starts_with(str, prefix);
+    bool corin_utils_starts_with(const char* str, const char* prefix) {
+        return corin::stdlib::Utils::starts_with(str, prefix);
     }
     
-    bool sapphire_utils_ends_with(const char* str, const char* suffix) {
-        return sapphire::stdlib::Utils::ends_with(str, suffix);
+    bool corin_utils_ends_with(const char* str, const char* suffix) {
+        return corin::stdlib::Utils::ends_with(str, suffix);
     }
     
-    bool sapphire_utils_contains(const char* str, const char* substring) {
-        return sapphire::stdlib::Utils::contains(str, substring);
+    bool corin_utils_contains(const char* str, const char* substring) {
+        return corin::stdlib::Utils::contains(str, substring);
     }
     
-    int sapphire_utils_random_int(int min, int max) {
-        return sapphire::stdlib::Utils::random_int(min, max);
+    int corin_utils_random_int(int min, int max) {
+        return corin::stdlib::Utils::random_int(min, max);
     }
     
-    double sapphire_utils_random_double(double min, double max) {
-        return sapphire::stdlib::Utils::random_double(min, max);
+    double corin_utils_random_double(double min, double max) {
+        return corin::stdlib::Utils::random_double(min, max);
     }
     
-    uint32_t sapphire_utils_hash_string(const char* str) {
-        return sapphire::stdlib::Utils::hash_string(str);
+    uint32_t corin_utils_hash_string(const char* str) {
+        return corin::stdlib::Utils::hash_string(str);
     }
 }

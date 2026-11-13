@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
 fi
 
 EXAMPLE=$1
-SOURCE="examples/graphics_tests/${EXAMPLE}.spp"
+SOURCE="examples/graphics_tests/${EXAMPLE}.corin"
 OUTPUT="${EXAMPLE}"
 
 # Check if source exists
@@ -30,10 +30,10 @@ echo ""
 
 # Step 1: Compile to LLVM IR
 echo "[1/4] Compiling to LLVM IR..."
-./sapp compile "$SOURCE" 2>/dev/null > "${OUTPUT}.ll"
+./corin compile "$SOURCE" 2>/dev/null > "${OUTPUT}.ll"
 if [ $? -ne 0 ]; then
     echo "Error: Compilation failed"
-    ./sapp compile "$SOURCE" 2>&1 | grep -i error | head -5
+    ./corin compile "$SOURCE" 2>&1 | grep -i error | head -5
     exit 1
 fi
 echo "✓ LLVM IR generated"
@@ -56,8 +56,8 @@ if [[ "$EXAMPLE" == demo_3d_cube ]]; then
     clang "${OUTPUT}.o" -o "$OUTPUT" \
         -L./stdlib/graphics/opengl \
         -L./stdlib/graphics/glut \
-        -lsapphire_opengl \
-        -lsapphire_glut \
+        -lcorin_opengl \
+        -lcorin_glut \
         -lGL \
         -lGLU \
         -lglut \
@@ -67,7 +67,7 @@ else
     # SDL2
     clang "${OUTPUT}.o" -o "$OUTPUT" \
         -L./stdlib/graphics/sdl2 \
-        -lsapphire_sdl2 \
+        -lcorin_sdl2 \
         -lSDL2 \
         -lstdc++ 2>/dev/null
     LIBPATH="./stdlib/graphics/sdl2"

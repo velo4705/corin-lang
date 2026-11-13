@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <functional>
 
-namespace Sapphire {
+namespace Corin {
 namespace Blockchain {
 
 // ===== SHA-256 =====
@@ -142,7 +142,7 @@ private:
 };
 
 } // namespace Blockchain
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

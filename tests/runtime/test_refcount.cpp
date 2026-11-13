@@ -5,7 +5,7 @@
 #include <vector>
 #include <atomic>
 
-using namespace sapphire::runtime;
+using namespace corin::runtime;
 
 // Test counters
 int tests_passed = 0;
@@ -441,7 +441,7 @@ TEST(null_rc) {
 
 int main() {
     std::cout << "================================================================================\n";
-    std::cout << "Sapphire Reference Counting Tests\n";
+    std::cout << "Corin Reference Counting Tests\n";
     std::cout << "================================================================================\n\n";
     
     // Run all tests

@@ -1,4 +1,4 @@
-# User Input in Sapphire
+# User Input in Corin
 
 Complete guide to reading user input from console, files, and other sources.
 
@@ -6,7 +6,7 @@ Complete guide to reading user input from console, files, and other sources.
 
 ### Basic Input
 
-```sapphire
+```corin
 # Read a line of text
 let name = input("Enter your name: ")
 print(f"Hello, {name}!")
@@ -17,7 +17,7 @@ let data = input()
 
 ### Input with Type Conversion
 
-```sapphire
+```corin
 # Read integer
 let age = input("Enter your age: ").to_int()
 print(f"You are {age} years old")
@@ -32,7 +32,7 @@ let answer = input("Continue? (yes/no): ").to_lower() == "yes"
 
 ### Input with Validation
 
-```sapphire
+```corin
 fn get_valid_age() -> int:
     while true:
         try:
@@ -47,7 +47,7 @@ fn get_valid_age() -> int:
 
 ### Multiple Inputs
 
-```sapphire
+```corin
 # Read multiple values on one line
 let input_str = input("Enter three numbers: ")
 let numbers = input_str.split().map(|x| x.to_int())
@@ -58,7 +58,7 @@ let a, b, c = input("Enter x, y, z: ").split(",").map(|x| x.to_int())
 
 ## Password Input
 
-```sapphire
+```corin
 import getpass
 
 # Read password (hidden input)
@@ -74,7 +74,7 @@ else:
 
 ## Command-Line Arguments
 
-```sapphire
+```corin
 import sys
 
 # Get all arguments
@@ -92,11 +92,11 @@ let filename = args[1]
 
 ### Argument Parser
 
-```sapphire
+```corin
 import argparse
 
 let parser = argparse.ArgumentParser(
-    description: "My Sapphire Program"
+    description: "My Corin Program"
 )
 
 parser.add_argument("input", help: "Input file")
@@ -114,7 +114,7 @@ print(f"Count: {args.count}")
 
 ## Interactive Menus
 
-```sapphire
+```corin
 fn show_menu() -> int:
     print("\n=== Main Menu ===")
     print("1. New file")
@@ -145,7 +145,7 @@ fn main():
 
 ## Reading from Standard Input
 
-```sapphire
+```corin
 import sys
 
 # Read all input at once
@@ -164,7 +164,7 @@ if line is None:
 
 ## Piped Input
 
-```sapphire
+```corin
 import sys
 
 # Check if input is piped
@@ -181,7 +181,7 @@ else:
 
 ## File Input
 
-```sapphire
+```corin
 # Read from file
 let content = File.read("input.txt")
 let lines = content.split("\n")
@@ -200,7 +200,7 @@ catch FileNotFoundError:
 
 ## Environment Variables
 
-```sapphire
+```corin
 import os
 
 # Get environment variable
@@ -220,7 +220,7 @@ if os.hasenv("DEBUG"):
 
 ## Configuration Files
 
-```sapphire
+```corin
 import config
 
 # Read INI file
@@ -240,7 +240,7 @@ let cfg = config.read_json("config.json")
 
 ## Interactive Prompts
 
-```sapphire
+```corin
 import prompt
 
 # Yes/No prompt
@@ -270,7 +270,7 @@ let email = prompt.input(
 
 ## Progress Bars
 
-```sapphire
+```corin
 import progress
 
 # Simple progress bar
@@ -289,7 +289,7 @@ let bar = progress.Bar(
 
 ## Spinner
 
-```sapphire
+```corin
 import spinner
 
 # Show spinner during long operation
@@ -302,7 +302,7 @@ print("Done!")
 
 ## Input Validation
 
-```sapphire
+```corin
 fn validate_email(email: str) -> bool:
     return email.contains("@") and email.contains(".")
 
@@ -326,7 +326,7 @@ let email = get_validated_input(
 
 ## Autocomplete
 
-```sapphire
+```corin
 import readline
 
 # Enable autocomplete
@@ -338,7 +338,7 @@ let fruit = input("Enter fruit: ")
 
 ## History
 
-```sapphire
+```corin
 import readline
 
 # Enable command history
@@ -360,7 +360,7 @@ for cmd in history:
 
 ### Simple Calculator
 
-```sapphire
+```corin
 fn calculator():
     print("Simple Calculator")
     print("Enter 'quit' to exit")
@@ -380,7 +380,7 @@ fn calculator():
 
 ### User Registration
 
-```sapphire
+```corin
 fn register_user():
     print("=== User Registration ===")
     
@@ -408,9 +408,9 @@ fn register_user():
 
 ### Interactive Shell
 
-```sapphire
+```corin
 fn shell():
-    print("Sapphire Shell v1.0")
+    print("Corin Shell v1.0")
     print("Type 'help' for commands")
     
     let commands = {
@@ -450,7 +450,7 @@ fn shell():
 
 ## Example Code
 
-See [examples/user_input_example.spp](../examples/user_input_example.spp) for a complete working example.
+See [examples/user_input_example.corin](../examples/user_input_example.corin) for a complete working example.
 
 ## See Also
 

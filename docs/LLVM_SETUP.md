@@ -1,8 +1,8 @@
-# LLVM Setup Guide for Sapphire
+# LLVM Setup Guide for Corin
 
 ## Overview
 
-Milestone 3 requires LLVM development libraries to compile Sapphire programs to native machine code. This guide covers installation on various platforms.
+Milestone 3 requires LLVM development libraries to compile Corin programs to native machine code. This guide covers installation on various platforms.
 
 ## Why LLVM?
 
@@ -116,9 +116,9 @@ Expected output:
 /usr/lib/llvm-14/lib
 ```
 
-## Building Sapphire with LLVM
+## Building Corin with LLVM
 
-Once LLVM is installed, rebuild Sapphire:
+Once LLVM is installed, rebuild Corin:
 
 ```bash
 # Clean previous build
@@ -139,7 +139,7 @@ The build system will automatically detect LLVM and enable code generation.
 
 ```bash
 # Create a simple test program
-cat > test.spp << 'EOF'
+cat > test.corin << 'EOF'
 let x = 10
 let y = 20
 let sum = x + y
@@ -147,13 +147,13 @@ print(sum)
 EOF
 
 # Compile to LLVM IR
-./sapp compile test.spp --emit-llvm -o test.ll
+./corin compile test.corin --emit-llvm -o test.ll
 
 # View the generated IR
 cat test.ll
 
 # Compile to executable
-./sapp compile test.spp -o test
+./corin compile test.corin -o test
 
 # Run the executable
 ./test
@@ -187,7 +187,7 @@ sudo dnf install llvm-devel
 
 ### "LLVM version too old"
 
-**Solution:** Sapphire requires LLVM 14 or newer.
+**Solution:** Corin requires LLVM 14 or newer.
 
 ```bash
 # Check version
@@ -229,7 +229,7 @@ make
 
 ## LLVM Components Used
 
-Sapphire uses the following LLVM components:
+Corin uses the following LLVM components:
 
 - **Core**: Basic IR types and operations
 - **Support**: Utilities and data structures
@@ -262,16 +262,16 @@ LLVM-compiled code is significantly faster:
 
 ```bash
 # No optimization (fast compile, slow runtime)
-./sapp compile -O0 program.spp
+./corin compile -O0 program.corin
 
 # Basic optimization (balanced)
-./sapp compile -O1 program.spp
+./corin compile -O1 program.corin
 
 # Default optimization (recommended)
-./sapp compile -O2 program.spp
+./corin compile -O2 program.corin
 
 # Aggressive optimization (slow compile, fast runtime)
-./sapp compile -O3 program.spp
+./corin compile -O3 program.corin
 ```
 
 ## Next Steps

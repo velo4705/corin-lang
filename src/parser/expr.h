@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_EXPR_H
-#define SAPPHIRE_EXPR_H
+#ifndef CORIN_EXPR_H
+#define CORIN_EXPR_H
 
 #include <memory>
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 // Forward declarations
 class ExprVisitor;
@@ -531,6 +531,6 @@ public:
     virtual void visitFStringExpr(FStringExpr& expr) = 0;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_EXPR_H
+#endif // CORIN_EXPR_H

@@ -3,7 +3,7 @@
 #include <sstream>
 #include <cstring>
 
-using namespace Sapphire::Security;
+using namespace Corin::Security;
 
 // Thread-local string storage for returned const char*
 static thread_local std::string tl_str;

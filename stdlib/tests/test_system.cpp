@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 int main() {
     std::cout << "Testing System library...\n\n";
@@ -70,9 +70,9 @@ int main() {
     
     // Test C API
     std::cout << "Test 7: C API\n";
-    int c_pid = sapphire_system_get_pid();
+    int c_pid = corin_system_get_pid();
     assert(c_pid == pid);
-    uint64_t c_ts = sapphire_system_timestamp_ms();
+    uint64_t c_ts = corin_system_timestamp_ms();
     assert(c_ts > 0);
     std::cout << "  ✓ C API test passed\n\n";
     

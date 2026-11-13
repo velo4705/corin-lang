@@ -1,6 +1,6 @@
 #include "mutex.h"
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 void Mutex::lock() {
@@ -31,4 +31,4 @@ Mutex::Guard::~Guard() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin

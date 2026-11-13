@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_OWNERSHIP_H
-#define SAPPHIRE_OWNERSHIP_H
+#ifndef CORIN_OWNERSHIP_H
+#define CORIN_OWNERSHIP_H
 
 #include "allocator.h"
 #include <cstdint>
@@ -9,7 +9,7 @@
 #include <mutex>
 #include <thread>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -214,30 +214,30 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Track ownership
-    void sapphire_set_owner(void* ptr, uint64_t owner_id);
-    uint64_t sapphire_get_owner(void* ptr);
-    bool sapphire_is_owner(void* ptr, uint64_t owner_id);
+    void corin_set_owner(void* ptr, uint64_t owner_id);
+    uint64_t corin_get_owner(void* ptr);
+    bool corin_is_owner(void* ptr, uint64_t owner_id);
     
     // Move semantics
-    void sapphire_mark_moved(void* ptr);
-    bool sapphire_is_moved(void* ptr);
-    void sapphire_transfer_ownership(void* ptr, uint64_t new_owner);
+    void corin_mark_moved(void* ptr);
+    bool corin_is_moved(void* ptr);
+    void corin_transfer_ownership(void* ptr, uint64_t new_owner);
     
     // Shared ownership
-    void sapphire_mark_shared(void* ptr);
-    bool sapphire_is_shared(void* ptr);
+    void corin_mark_shared(void* ptr);
+    bool corin_is_shared(void* ptr);
     
     // Validation
-    void sapphire_check_ownership(void* ptr, uint64_t owner_id);
-    void sapphire_check_not_moved(void* ptr);
+    void corin_check_ownership(void* ptr, uint64_t owner_id);
+    void corin_check_not_moved(void* ptr);
     
     // Get current thread ID
-    uint64_t sapphire_current_thread_id();
+    uint64_t corin_current_thread_id();
 }
 
-#endif // SAPPHIRE_OWNERSHIP_H
+#endif // CORIN_OWNERSHIP_H

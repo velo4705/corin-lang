@@ -3,7 +3,7 @@
 extern "C" {
 #endif
 
-// ── gl3d: SDL2 + OpenGL 3D engine for Sapphire ───────────────────────────
+// ── gl3d: SDL2 + OpenGL 3D engine for Corin ───────────────────────────
 // Window / context
 void* gl3d_window_create(const char* title, int w, int h);
 void  gl3d_window_destroy(void* win);

@@ -765,7 +765,7 @@ void gl3d_world4d_update(void* mesh, const float* cam, const float* cells, int n
 // Self-contained rigid-body car physics with suspension, slope forces,
 // gravity, tire friction, and obstacle collision.
 //
-// Sapphire call:
+// Corin call:
 //   state = gl3d_car_step(state, input, heights, subdiv, tsize, hscale,
 //                         tree_xs, tree_zs, ntrees, dt)
 //

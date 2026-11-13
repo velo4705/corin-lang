@@ -1,9 +1,9 @@
-#ifndef SAPPHIRE_STDLIB_MATH_H
-#define SAPPHIRE_STDLIB_MATH_H
+#ifndef CORIN_STDLIB_MATH_H
+#define CORIN_STDLIB_MATH_H
 
 #include <cmath>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -67,39 +67,39 @@ namespace Math {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 extern "C" {
     // Basic operations
-    double sapphire_math_abs(double x);
-    double sapphire_math_min(double a, double b);
-    double sapphire_math_max(double a, double b);
+    double corin_math_abs(double x);
+    double corin_math_min(double a, double b);
+    double corin_math_max(double a, double b);
     
     // Trigonometry
-    double sapphire_math_sin(double x);
-    double sapphire_math_cos(double x);
-    double sapphire_math_tan(double x);
-    double sapphire_math_asin(double x);
-    double sapphire_math_acos(double x);
-    double sapphire_math_atan(double x);
-    double sapphire_math_atan2(double y, double x);
+    double corin_math_sin(double x);
+    double corin_math_cos(double x);
+    double corin_math_tan(double x);
+    double corin_math_asin(double x);
+    double corin_math_acos(double x);
+    double corin_math_atan(double x);
+    double corin_math_atan2(double y, double x);
     
     // Exponential and logarithmic
-    double sapphire_math_exp(double x);
-    double sapphire_math_log(double x);
-    double sapphire_math_log10(double x);
-    double sapphire_math_log2(double x);
-    double sapphire_math_pow(double x, double y);
-    double sapphire_math_sqrt(double x);
+    double corin_math_exp(double x);
+    double corin_math_log(double x);
+    double corin_math_log10(double x);
+    double corin_math_log2(double x);
+    double corin_math_pow(double x, double y);
+    double corin_math_sqrt(double x);
     
     // Rounding
-    double sapphire_math_floor(double x);
-    double sapphire_math_ceil(double x);
-    double sapphire_math_round(double x);
+    double corin_math_floor(double x);
+    double corin_math_ceil(double x);
+    double corin_math_round(double x);
     
     // Constants
-    double sapphire_math_pi();
-    double sapphire_math_e();
+    double corin_math_pi();
+    double corin_math_e();
 }
 
-#endif // SAPPHIRE_STDLIB_MATH_H
+#endif // CORIN_STDLIB_MATH_H

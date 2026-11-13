@@ -1,10 +1,10 @@
-#ifndef SAPPHIRE_LSP_JSON_HELPER_H
-#define SAPPHIRE_LSP_JSON_HELPER_H
+#ifndef CORIN_LSP_JSON_HELPER_H
+#define CORIN_LSP_JSON_HELPER_H
 
 #include <string>
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace lsp {
 
 /**
@@ -92,6 +92,6 @@ public:
 };
 
 } // namespace lsp
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_LSP_JSON_HELPER_H
+#endif // CORIN_LSP_JSON_HELPER_H

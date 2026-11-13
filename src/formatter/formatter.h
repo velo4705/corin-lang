@@ -1,10 +1,10 @@
-#ifndef SAPPHIRE_FORMATTER_H
-#define SAPPHIRE_FORMATTER_H
+#ifndef CORIN_FORMATTER_H
+#define CORIN_FORMATTER_H
 
 #include <string>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 struct FormatOptions {
     int indent_size = 4;
@@ -33,6 +33,6 @@ public:
     bool format_file_inplace(const std::string& filename);
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_FORMATTER_H
+#endif // CORIN_FORMATTER_H

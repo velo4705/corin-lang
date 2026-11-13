@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Reference — Sapphire 💎</title>
+    <title>Error Reference — Corin 💎</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,8 +167,8 @@
 <nav>
     <div class="nav-inner">
         <a href="../index.html" class="nav-home">
-            <img src="../sapphire-icon.svg" alt="Sapphire">
-            Sapphire
+            <img src="../corin-icon.svg" alt="Corin">
+            Corin
         </a>
         <span class="nav-sep">/</span>
         <span class="nav-title">Error Reference</span>
@@ -225,9 +225,9 @@
     <!-- Main -->
     <main class="content">
         <h1>Error Reference</h1>
-        <p class="subtitle">All 28 Sapphire error codes with causes, examples, and fixes.</p>
+        <p class="subtitle">All 28 Corin error codes with causes, examples, and fixes.</p>
         <div class="tip">
-            Run <code>sapp --explain &lt;code&gt;</code> in your terminal for a quick inline summary of any error.
+            Run <code>corin --explain &lt;code&gt;</code> in your terminal for a quick inline summary of any error.
         </div>
 
         <table class="range-table">
@@ -271,7 +271,7 @@
 
         <div class="error-card" id="E1A2">
             <div class="ec-head"><span class="ec-code">E1A2</span><span class="ec-title">invalid indentation</span></div>
-            <div class="ec-note"><strong>note:</strong> Sapphire uses 4-space indentation — check for mixed tabs/spaces</div>
+            <div class="ec-note"><strong>note:</strong> Corin uses 4-space indentation — check for mixed tabs/spaces</div>
             <pre><span class="comment"># bad — tab used</span>
 fn greet():
 <span class="bad">	print("hi")</span>
@@ -319,7 +319,7 @@ fn compute():
 
         <div class="error-card" id="E1A7">
             <div class="ec-head"><span class="ec-code">E1A7</span><span class="ec-title">body must be indented on the next line</span></div>
-            <div class="ec-note"><strong>note:</strong> Sapphire does not allow single-line bodies — put the body on the next line, indented. Applies to <code>fn</code>, <code>class</code>, <code>if</code>, <code>while</code>, and <code>for</code>.</div>
+            <div class="ec-note"><strong>note:</strong> Corin does not allow single-line bodies — put the body on the next line, indented. Applies to <code>fn</code>, <code>class</code>, <code>if</code>, <code>while</code>, and <code>for</code>.</div>
             <pre><span class="bad">if x > 0: print("yes")</span>
 
 <span class="good">if x > 0:
@@ -492,11 +492,11 @@ import http</span></pre>
         <div class="error-card" id="E5A1">
             <div class="ec-head"><span class="ec-code">E5A1</span><span class="ec-title">circular import</span></div>
             <div class="ec-note"><strong>note:</strong> two modules are importing each other — restructure to break the cycle</div>
-            <pre><span class="comment"># a.spp imports b.spp
-# b.spp imports a.spp  ← cycle
+            <pre><span class="comment"># a.corin imports b.corin
+# b.corin imports a.corin  ← cycle
 
-# fix: extract shared code into c.spp
-# both a.spp and b.spp import c.spp</span></pre>
+# fix: extract shared code into c.corin
+# both a.corin and b.corin import c.corin</span></pre>
         </div>
 
         <!-- ── E6xx IO ── -->

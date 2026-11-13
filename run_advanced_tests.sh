@@ -3,7 +3,7 @@
 # These require a display server and/or network access.
 # Use run_tests.sh for core language tests.
 
-SAPP="./sapp"
+CORIN="./corin"
 PASS=0
 FAIL=0
 SKIP=0
@@ -52,7 +52,7 @@ run_test() {
         return  # Skip files that don't match any pattern
     fi
 
-    output=$(timeout 15s "$SAPP" "$file" 2>&1)
+    output=$(timeout 15s "$CORIN" "$file" 2>&1)
     exit_code=$?
 
     if [ $exit_code -eq 124 ]; then
@@ -74,8 +74,8 @@ run_test() {
     fi
 }
 
-echo "=== Running window/gui/web examples/*.spp ==="
-for f in examples/*.spp; do
+echo "=== Running window/gui/web examples/*.corin ==="
+for f in examples/*.corin; do
     run_test "$f"
 done
 

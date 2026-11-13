@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_ALLOCATOR_H
-#define SAPPHIRE_ALLOCATOR_H
+#ifndef CORIN_ALLOCATOR_H
+#define CORIN_ALLOCATOR_H
 
 #include <cstdint>
 #include <cstddef>
 #include <atomic>
 #include <mutex>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -164,7 +164,7 @@ private:
 /**
  * Global Allocator
  * 
- * Main allocator for the Sapphire runtime.
+ * Main allocator for the Corin runtime.
  * Uses size classes for small objects and direct allocation for large objects.
  */
 class Allocator {
@@ -222,18 +222,18 @@ void init_allocator();
 void shutdown_allocator();
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Allocate object
-    void* sapphire_allocate(size_t size, uint64_t type_id);
+    void* corin_allocate(size_t size, uint64_t type_id);
     
     // Free object
-    void sapphire_free(void* ptr);
+    void corin_free(void* ptr);
     
     // Get allocation statistics
-    size_t sapphire_memory_usage();
+    size_t corin_memory_usage();
 }
 
-#endif // SAPPHIRE_ALLOCATOR_H
+#endif // CORIN_ALLOCATOR_H

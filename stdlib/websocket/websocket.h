@@ -10,7 +10,7 @@
 #include <unordered_map>
 #include <queue>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace WebSocket {
 
@@ -199,38 +199,38 @@ std::string sha1_hash(const std::string& input);
 
 } // namespace WebSocket
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire integration
+// C API for Corin integration
 extern "C" {
     // WebSocket Server
-    void* sapphire_websocket_server_create(int port);
-    void sapphire_websocket_server_destroy(void* server);
-    int sapphire_websocket_server_start(void* server);
-    void sapphire_websocket_server_stop(void* server);
-    void sapphire_websocket_server_broadcast_text(void* server, const char* text);
-    void sapphire_websocket_server_broadcast_binary(void* server, const uint8_t* data, int size);
-    int sapphire_websocket_server_connection_count(void* server);
+    void* corin_websocket_server_create(int port);
+    void corin_websocket_server_destroy(void* server);
+    int corin_websocket_server_start(void* server);
+    void corin_websocket_server_stop(void* server);
+    void corin_websocket_server_broadcast_text(void* server, const char* text);
+    void corin_websocket_server_broadcast_binary(void* server, const uint8_t* data, int size);
+    int corin_websocket_server_connection_count(void* server);
     
     // WebSocket Client
-    void* sapphire_websocket_client_create();
-    void sapphire_websocket_client_destroy(void* client);
-    int sapphire_websocket_client_connect(void* client, const char* url);
-    void sapphire_websocket_client_disconnect(void* client);
-    int sapphire_websocket_client_send_text(void* client, const char* text);
-    int sapphire_websocket_client_send_binary(void* client, const uint8_t* data, int size);
-    int sapphire_websocket_client_is_connected(void* client);
+    void* corin_websocket_client_create();
+    void corin_websocket_client_destroy(void* client);
+    int corin_websocket_client_connect(void* client, const char* url);
+    void corin_websocket_client_disconnect(void* client);
+    int corin_websocket_client_send_text(void* client, const char* text);
+    int corin_websocket_client_send_binary(void* client, const uint8_t* data, int size);
+    int corin_websocket_client_is_connected(void* client);
     
     // WebSocket Connection
-    int sapphire_websocket_connection_send_text(void* connection, const char* text);
-    int sapphire_websocket_connection_send_binary(void* connection, const uint8_t* data, int size);
-    void sapphire_websocket_connection_close(void* connection, int code, const char* reason);
-    int sapphire_websocket_connection_is_open(void* connection);
-    const char* sapphire_websocket_connection_get_id(void* connection);
+    int corin_websocket_connection_send_text(void* connection, const char* text);
+    int corin_websocket_connection_send_binary(void* connection, const uint8_t* data, int size);
+    void corin_websocket_connection_close(void* connection, int code, const char* reason);
+    int corin_websocket_connection_is_open(void* connection);
+    const char* corin_websocket_connection_get_id(void* connection);
     
     // Utility functions
-    char* sapphire_websocket_base64_encode(const uint8_t* data, int size);
-    uint8_t* sapphire_websocket_base64_decode(const char* encoded, int* out_size);
-    void sapphire_websocket_free_string(char* str);
-    void sapphire_websocket_free_data(uint8_t* data);
+    char* corin_websocket_base64_encode(const uint8_t* data, int size);
+    uint8_t* corin_websocket_base64_decode(const char* encoded, int* out_size);
+    void corin_websocket_free_string(char* str);
+    void corin_websocket_free_data(uint8_t* data);
 }

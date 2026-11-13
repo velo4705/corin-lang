@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <sstream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 //=============================================================================
@@ -392,57 +392,57 @@ void String::reserve(size_t capacity) {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
 //=============================================================================
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 extern "C" {
 
-void* sapphire_string_new() {
+void* corin_string_new() {
     return new String();
 }
 
-void* sapphire_string_from_cstr(const char* str) {
+void* corin_string_from_cstr(const char* str) {
     return new String(str);
 }
 
-void sapphire_string_delete(void* str) {
+void corin_string_delete(void* str) {
     delete static_cast<String*>(str);
 }
 
-size_t sapphire_string_length(void* str) {
+size_t corin_string_length(void* str) {
     return static_cast<String*>(str)->length();
 }
 
-const char* sapphire_string_cstr(void* str) {
+const char* corin_string_cstr(void* str) {
     return static_cast<String*>(str)->c_str();
 }
 
-void* sapphire_string_concat(void* str1, void* str2) {
+void* corin_string_concat(void* str1, void* str2) {
     String* s1 = static_cast<String*>(str1);
     String* s2 = static_cast<String*>(str2);
     return new String(*s1 + *s2);
 }
 
-void* sapphire_string_substring(void* str, size_t start, size_t length) {
+void* corin_string_substring(void* str, size_t start, size_t length) {
     return new String(static_cast<String*>(str)->substring(start, length));
 }
 
-bool sapphire_string_contains(void* str, void* substr) {
+bool corin_string_contains(void* str, void* substr) {
     String* s = static_cast<String*>(str);
     String* sub = static_cast<String*>(substr);
     return s->contains(*sub);
 }
 
-void* sapphire_string_to_upper(void* str) {
+void* corin_string_to_upper(void* str) {
     return new String(static_cast<String*>(str)->to_upper());
 }
 
-void* sapphire_string_to_lower(void* str) {
+void* corin_string_to_lower(void* str) {
     return new String(static_cast<String*>(str)->to_lower());
 }
 

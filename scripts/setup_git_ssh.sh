@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Sapphire Git SSH Setup Script
+# Corin Git SSH Setup Script
 # Automates SSH key generation and GitHub setup
 
 set -e
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║         Sapphire Git SSH Setup                               ║"
+echo "║         Corin Git SSH Setup                               ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -51,8 +51,8 @@ echo "2. Go to: https://github.com/settings/ssh/new"
 echo "3. Paste the key and give it a title (e.g., 'My Laptop')"
 echo "4. Click 'Add SSH key'"
 echo ""
-echo "Then clone Sapphire with:"
-echo "  git clone git@github.com:velo4705/sapphire-lang.git"
+echo "Then clone Corin with:"
+echo "  git clone git@github.com:velo4705/corin-lang.git"
 echo ""
 
 # Try to copy to clipboard
@@ -77,8 +77,8 @@ echo "Testing SSH connection to GitHub..."
 if ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
     echo "✓ SSH connection successful!"
     echo ""
-    echo "You're all set! Clone Sapphire with:"
-    echo "  git clone git@github.com:velo4705/sapphire-lang.git"
+    echo "You're all set! Clone Corin with:"
+    echo "  git clone git@github.com:velo4705/corin-lang.git"
 else
     echo "⚠ SSH connection test failed. Please check:"
     echo "  1. Did you add the key to GitHub?"

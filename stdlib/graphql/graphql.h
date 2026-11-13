@@ -6,7 +6,7 @@
 #include <memory>
 #include <functional>
 
-namespace Sapphire {
+namespace Corin {
 namespace GraphQL {
 
 // ===== Type System =====
@@ -204,7 +204,7 @@ private:
 };
 
 } // namespace GraphQL
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

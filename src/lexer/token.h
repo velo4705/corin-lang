@@ -1,10 +1,10 @@
-#ifndef SAPPHIRE_TOKEN_H
-#define SAPPHIRE_TOKEN_H
+#ifndef CORIN_TOKEN_H
+#define CORIN_TOKEN_H
 
 #include <string>
 #include <ostream>
 
-namespace sapphire {
+namespace corin {
 
 enum class TokenType {
     // Literals
@@ -120,6 +120,6 @@ struct Token {
 std::string tokenTypeToString(TokenType type);
 std::ostream& operator<<(std::ostream& os, const Token& token);
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TOKEN_H
+#endif // CORIN_TOKEN_H

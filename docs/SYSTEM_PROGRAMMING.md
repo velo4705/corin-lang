@@ -1,4 +1,4 @@
-# System Programming in Sapphire
+# System Programming in Corin
 
 Complete guide to low-level system programming, system calls, and OS interaction.
 
@@ -6,7 +6,7 @@ Complete guide to low-level system programming, system calls, and OS interaction
 
 ### Creating Processes
 
-```sapphire
+```corin
 import process
 
 # Spawn a new process
@@ -26,7 +26,7 @@ print(output)
 
 ### Process Information
 
-```sapphire
+```corin
 import process
 
 // Current process
@@ -44,7 +44,7 @@ print(f"Threads: {info.num_threads}")
 
 ### Process Control
 
-```sapphire
+```corin
 // Fork process (Unix)
 let pid = process.fork()
 if pid == 0:
@@ -63,7 +63,7 @@ process.exec("/bin/ls", ["-la"])
 
 ### Signals
 
-```sapphire
+```corin
 import signal
 
 // Handle signals
@@ -87,7 +87,7 @@ signal.default(signal.SIGINT)
 
 ### File Metadata
 
-```sapphire
+```corin
 import fs
 
 // Get file stats
@@ -105,7 +105,7 @@ print(f"Change time: {stat.ctime}")
 
 ### Permissions
 
-```sapphire
+```corin
 // Change file permissions
 fs.chmod("file.txt", 0o644)  // rw-r--r--
 
@@ -123,7 +123,7 @@ if fs.access("file.txt", fs.X_OK):
 
 ### Links
 
-```sapphire
+```corin
 // Create hard link
 fs.link("original.txt", "hardlink.txt")
 
@@ -140,7 +140,7 @@ if fs.is_symlink("path"):
 
 ### Directory Operations
 
-```sapphire
+```corin
 // Create directory
 fs.mkdir("mydir")
 fs.mkdir("path/to/dir", recursive: true)
@@ -165,7 +165,7 @@ for root, dirs, files in fs.walk("/path"):
 
 ### Memory Allocation
 
-```sapphire
+```corin
 import mem
 
 // Allocate memory
@@ -183,7 +183,7 @@ let ptr = mem.calloc(100, size: 8)  // 100 * 8 bytes
 
 ### Memory Mapping
 
-```sapphire
+```corin
 // Memory-map a file
 let mmap = mem.mmap(
     file: "data.bin",
@@ -205,7 +205,7 @@ mmap.unmap()
 
 ### Memory Information
 
-```sapphire
+```corin
 // Get memory info
 let info = mem.info()
 print(f"Total: {info.total_mb} MB")
@@ -219,7 +219,7 @@ print(f"Percent: {info.percent}%")
 
 ### Direct System Calls
 
-```sapphire
+```corin
 import syscall
 
 // Make system call
@@ -236,7 +236,7 @@ let err = syscall.errno()
 
 ### Low-Level I/O
 
-```sapphire
+```corin
 import io
 
 // Open file descriptor
@@ -259,7 +259,7 @@ let fd2 = io.dup(fd)
 
 ### Pipes
 
-```sapphire
+```corin
 // Create pipe
 let read_fd, write_fd = io.pipe()
 
@@ -284,7 +284,7 @@ else:
 
 ### Sockets
 
-```sapphire
+```corin
 import socket
 
 // Create TCP socket
@@ -306,7 +306,7 @@ while true:
 
 ### UDP Sockets
 
-```sapphire
+```corin
 // Create UDP socket
 let sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind("0.0.0.0", 9000)
@@ -321,7 +321,7 @@ sock.sendto("Response", addr)
 
 ### Unix Domain Sockets
 
-```sapphire
+```corin
 // Create Unix socket
 let sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 sock.bind("/tmp/mysocket")
@@ -335,7 +335,7 @@ let data = client.recv(1024)
 
 ### Memory-Mapped I/O
 
-```sapphire
+```corin
 // Map hardware registers
 let gpio_base = 0x3F200000
 let gpio = mem.mmap_device(gpio_base, 0x1000)
@@ -347,7 +347,7 @@ let status = gpio[4]  // Read status
 
 ### Port I/O (x86)
 
-```sapphire
+```corin
 import port
 
 // Read from I/O port
@@ -365,7 +365,7 @@ port.outl(0x60, 0xFFFFFFFF)  // Write long
 
 ### Timers
 
-```sapphire
+```corin
 import timer
 
 // Create timer
@@ -382,7 +382,7 @@ timer.usleep(1000)  // Sleep 1000 microseconds
 
 ### Alarms
 
-```sapphire
+```corin
 import alarm
 
 // Set alarm
@@ -398,7 +398,7 @@ alarm.cancel()
 
 ### OS Information
 
-```sapphire
+```corin
 import sys
 
 print(f"OS: {sys.platform}")
@@ -410,7 +410,7 @@ print(f"Username: {sys.username}")
 
 ### CPU Information
 
-```sapphire
+```corin
 import cpu
 
 let info = cpu.info()
@@ -422,7 +422,7 @@ print(f"Usage: {cpu.percent()}%")
 
 ### Disk Information
 
-```sapphire
+```corin
 import disk
 
 let usage = disk.usage("/")
@@ -436,7 +436,7 @@ print(f"Percent: {usage.percent}%")
 
 ### Loading Modules
 
-```sapphire
+```corin
 import kernel
 
 // Load kernel module
@@ -455,7 +455,7 @@ for mod in modules:
 
 ### Character Devices
 
-```sapphire
+```corin
 // Open device
 let dev = io.open("/dev/mydevice", io.O_RDWR)
 
@@ -475,7 +475,7 @@ io.close(dev)
 
 ### Priority Scheduling
 
-```sapphire
+```corin
 import sched
 
 // Set real-time priority
@@ -490,7 +490,7 @@ sched.set_affinity([0, 1])  // Run on CPUs 0 and 1
 
 ### Memory Locking
 
-```sapphire
+```corin
 import mem
 
 // Lock memory (prevent swapping)
@@ -507,7 +507,7 @@ mem.unlock_all()
 
 ### Simple Shell
 
-```sapphire
+```corin
 fn shell():
     while true:
         let cmd = input("$ ")
@@ -520,7 +520,7 @@ fn shell():
 
 ### File Monitor
 
-```sapphire
+```corin
 import inotify
 
 fn monitor_file(path: str):
@@ -536,7 +536,7 @@ fn monitor_file(path: str):
 
 ### Memory Profiler
 
-```sapphire
+```corin
 fn profile_memory():
     let start = mem.info()
     
@@ -560,7 +560,7 @@ fn profile_memory():
 
 ## Example Code
 
-See [examples/system_programming_example.spp](../examples/system_programming_example.spp) for a complete working example.
+See [examples/system_programming_example.corin](../examples/system_programming_example.corin) for a complete working example.
 
 ## See Also
 

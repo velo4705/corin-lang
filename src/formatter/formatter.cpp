@@ -5,7 +5,7 @@
 #include <cctype>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 Formatter::Formatter(const FormatOptions& options) 
     : options_(options), current_indent_(0) {}
@@ -177,4 +177,4 @@ bool Formatter::format_file_inplace(const std::string& filename) {
     return true;
 }
 
-} // namespace sapphire
+} // namespace corin

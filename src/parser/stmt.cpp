@@ -1,6 +1,6 @@
 #include "stmt.h"
 
-namespace sapphire {
+namespace corin {
 
 void ExprStmt::accept(StmtVisitor& visitor) {
     visitor.visitExprStmt(*this);
@@ -86,4 +86,4 @@ void ExtendDecl::accept(StmtVisitor& visitor) {
     visitor.visitExtendDecl(*this);
 }
 
-} // namespace sapphire
+} // namespace corin

@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_REFCOUNT_H
-#define SAPPHIRE_REFCOUNT_H
+#ifndef CORIN_REFCOUNT_H
+#define CORIN_REFCOUNT_H
 
 #include <atomic>
 #include <cstdint>
 #include <utility>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -397,6 +397,6 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_REFCOUNT_H
+#endif // CORIN_REFCOUNT_H

@@ -1,6 +1,6 @@
-# Sapphire Tutorials
+# Corin Tutorials
 
-Welcome to the Sapphire programming language tutorials! These step-by-step guides will teach you everything you need to know to become proficient in Sapphire.
+Welcome to the Corin programming language tutorials! These step-by-step guides will teach you everything you need to know to become proficient in Corin.
 
 ## Tutorial Series
 
@@ -135,7 +135,7 @@ For OS development and low-level programming.
 **Estimated Time:** 6-8 hours
 
 ### Path 4: Complete Mastery
-Learn everything Sapphire has to offer.
+Learn everything Corin has to offer.
 
 ```
 All tutorials in order (1-11)
@@ -147,7 +147,7 @@ All tutorials in order (1-11)
 
 ### Syntax Cheat Sheet
 
-```sapphire
+```corin
 // Variables
 let x = 10
 let mut y = 20
@@ -226,7 +226,7 @@ After completing the tutorials, try these projects:
 - Discord Server (Coming Soon)
 - Forum (Coming Soon)
 - GitHub Discussions
-- Stack Overflow Tag: `sapphire-lang`
+- Stack Overflow Tag: `corin-lang`
 
 ## Tips for Learning
 
@@ -293,7 +293,7 @@ See [CONTRIBUTING.md](../../CONTRIBUTING.md) for details.
 
 ## License
 
-These tutorials are part of the Sapphire project and are licensed under the same terms.
+These tutorials are part of the Corin project and are licensed under the same terms.
 
 ---
 

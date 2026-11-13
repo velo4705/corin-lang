@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_STDLIB_REGEX_H
-#define SAPPHIRE_STDLIB_REGEX_H
+#ifndef CORIN_STDLIB_REGEX_H
+#define CORIN_STDLIB_REGEX_H
 
 #include <string>
 #include <vector>
 #include <regex>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -74,16 +74,16 @@ private:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // Regex operations
-    int sapphire_regex_matches(const char* pattern, const char* text);
-    int sapphire_regex_search(const char* pattern, const char* text);
-    const char* sapphire_regex_replace(const char* pattern, const char* text, const char* replacement);
-    const char* sapphire_regex_replace_all(const char* pattern, const char* text, const char* replacement);
-    int sapphire_regex_is_valid(const char* pattern);
+    int corin_regex_matches(const char* pattern, const char* text);
+    int corin_regex_search(const char* pattern, const char* text);
+    const char* corin_regex_replace(const char* pattern, const char* text, const char* replacement);
+    const char* corin_regex_replace_all(const char* pattern, const char* text, const char* replacement);
+    int corin_regex_is_valid(const char* pattern);
 }
 
-#endif // SAPPHIRE_STDLIB_REGEX_H
+#endif // CORIN_STDLIB_REGEX_H

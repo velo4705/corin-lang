@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Quick clone script for Sapphire
+# Quick clone script for Corin
 # Handles authentication automatically
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║         Sapphire Quick Clone                                  ║"
+echo "║         Corin Quick Clone                                  ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -17,14 +17,14 @@ if [ -f ~/.ssh/id_ed25519 ] || [ -f ~/.ssh/id_rsa ]; then
         echo "✓ SSH authentication working!"
         echo ""
         echo "Cloning with SSH..."
-        git clone git@github.com:velo4705/sapphire-lang.git
-        cd sapphire-lang
+        git clone git@github.com:velo4705/corin-lang.git
+        cd corin-lang
         echo ""
-        echo "Building Sapphire..."
+        echo "Building Corin..."
         make quick
         echo ""
         echo "✓ Done! Run your first program:"
-        echo "  ./sapp examples/hello.spp"
+        echo "  ./corin examples/hello.corin"
         exit 0
     else
         echo "⚠ SSH key exists but not configured with GitHub"
@@ -48,19 +48,19 @@ read -p "Do you have a token? (y/N): " has_token
 if [[ $has_token =~ ^[Yy]$ ]]; then
     echo ""
     echo "Cloning with HTTPS..."
-    git clone https://github.com/velo4705/sapphire-lang.git
+    git clone https://github.com/velo4705/corin-lang.git
     
     if [ $? -eq 0 ]; then
-        cd sapphire-lang
+        cd corin-lang
         echo ""
         echo "Caching credentials..."
         git config credential.helper cache
         echo ""
-        echo "Building Sapphire..."
+        echo "Building Corin..."
         make quick
         echo ""
         echo "✓ Done! Run your first program:"
-        echo "  ./sapp examples/hello.spp"
+        echo "  ./corin examples/hello.corin"
     else
         echo ""
         echo "✗ Clone failed. Try setting up SSH instead:"

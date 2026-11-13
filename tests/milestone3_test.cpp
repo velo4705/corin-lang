@@ -8,7 +8,7 @@
 #include "stdlib/io/stream.h"
 #include "stdlib/error/error.h"
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_text_processing() {
     std::cout << "Testing Text Processing..." << std::endl;
@@ -178,8 +178,8 @@ void test_error_handling() {
     std::cout << "Testing Error Handling..." << std::endl;
     
     // Test stack trace
-    Error::ErrorHandler::push_frame("test_function", "test_file.spp", 42);
-    Error::ErrorHandler::push_frame("main", "main.spp", 10);
+    Error::ErrorHandler::push_frame("test_function", "test_file.corin", 42);
+    Error::ErrorHandler::push_frame("main", "main.corin", 10);
     
     Error::StackTrace trace = Error::ErrorHandler::capture_stack_trace();
     assert(trace.depth() == 2);
@@ -191,8 +191,8 @@ void test_error_handling() {
     Error::ErrorHandler::pop_frame();
     Error::ErrorHandler::pop_frame();
     
-    // Test SapphireError
-    Error::SapphireError error("Test error message", "TEST_ERROR");
+    // Test CorinError
+    Error::CorinError error("Test error message", "TEST_ERROR");
     error.add_suggestion("Try checking your input");
     error.add_suggestion("Make sure the file exists");
     
@@ -204,14 +204,14 @@ void test_error_handling() {
     // Test specific error types
     try {
         throw Error::RuntimeError("Runtime error occurred");
-    } catch (const Error::SapphireError& e) {
+    } catch (const Error::CorinError& e) {
         assert(e.get_error_code() == "RUNTIME_ERROR");
         assert(e.get_message() == "Runtime error occurred");
     }
     
     try {
         throw Error::TypeError("Type mismatch");
-    } catch (const Error::SapphireError& e) {
+    } catch (const Error::CorinError& e) {
         assert(e.get_error_code() == "TYPE_ERROR");
     }
     
@@ -249,71 +249,71 @@ void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
     // Test text processing C API
-    void* regex = sapphire_regex_create(R"(\d+)");
+    void* regex = corin_regex_create(R"(\d+)");
     assert(regex != nullptr);
     
-    assert(sapphire_regex_matches(regex, "123"));
-    assert(!sapphire_regex_matches(regex, "abc"));
+    assert(corin_regex_matches(regex, "123"));
+    assert(!corin_regex_matches(regex, "abc"));
     
-    const char* replaced = sapphire_regex_replace(regex, "Price: $25", "XX");
+    const char* replaced = corin_regex_replace(regex, "Price: $25", "XX");
     assert(replaced != nullptr);
     assert(std::string(replaced) == "Price: $XX");
     
-    sapphire_regex_destroy(regex);
+    corin_regex_destroy(regex);
     
     // Test string builder C API
-    void* builder = sapphire_string_builder_create();
+    void* builder = corin_string_builder_create();
     assert(builder != nullptr);
     
-    sapphire_string_builder_append(builder, "Hello ");
-    sapphire_string_builder_append(builder, "World");
+    corin_string_builder_append(builder, "Hello ");
+    corin_string_builder_append(builder, "World");
     
-    const char* result = sapphire_string_builder_to_string(builder);
+    const char* result = corin_string_builder_to_string(builder);
     assert(result != nullptr);
     assert(std::string(result) == "Hello World");
     
-    sapphire_string_builder_destroy(builder);
+    corin_string_builder_destroy(builder);
     
     // Test template C API
-    void* template_obj = sapphire_template_create("Hello {{name}}!");
+    void* template_obj = corin_template_create("Hello {{name}}!");
     assert(template_obj != nullptr);
     
-    sapphire_template_set_variable(template_obj, "name", "World");
+    corin_template_set_variable(template_obj, "name", "World");
     
-    const char* rendered = sapphire_template_render(template_obj);
+    const char* rendered = corin_template_render(template_obj);
     assert(rendered != nullptr);
     std::cout << "  C API Template rendered: '" << rendered << "'" << std::endl;
     assert(std::string(rendered) == "Hello World!");
     
-    sapphire_template_destroy(template_obj);
+    corin_template_destroy(template_obj);
     
     // Test streaming I/O C API
-    void* stream = sapphire_file_stream_create("test_c_api.txt", "w");
+    void* stream = corin_file_stream_create("test_c_api.txt", "w");
     assert(stream != nullptr);
     
-    sapphire_file_stream_write(stream, "Hello from C API");
-    sapphire_file_stream_close(stream);
-    sapphire_file_stream_destroy(stream);
+    corin_file_stream_write(stream, "Hello from C API");
+    corin_file_stream_close(stream);
+    corin_file_stream_destroy(stream);
     
-    stream = sapphire_file_stream_create("test_c_api.txt", "r");
+    stream = corin_file_stream_create("test_c_api.txt", "r");
     assert(stream != nullptr);
     
-    const char* content = sapphire_file_stream_read_line(stream);
+    const char* content = corin_file_stream_read_line(stream);
     assert(content != nullptr);
     assert(std::string(content) == "Hello from C API");
     
-    sapphire_file_stream_close(stream);
-    sapphire_file_stream_destroy(stream);
+    corin_file_stream_close(stream);
+    corin_file_stream_destroy(stream);
     
     // Test error handling C API
-    sapphire_error_enable_stack_traces(true);
-    sapphire_stack_push_frame("test_function", "test.spp", 42);
+    corin_error_enable_stack_traces(true);
+    corin_stack_push_frame("test_function", "test.corin", 42);
     
-    const char* trace = sapphire_stack_get_trace();
+    const char* trace = corin_stack_get_trace();
     assert(trace != nullptr);
     assert(std::string(trace).find("test_function") != std::string::npos);
     
-    sapphire_stack_pop_frame();
+    corin_stack_pop_frame();
     
     // Cleanup
     std::remove("test_c_api.txt");

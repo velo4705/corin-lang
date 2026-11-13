@@ -1,7 +1,7 @@
 #include "refcount.h"
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 //=============================================================================
@@ -66,4 +66,4 @@ bool ControlBlock::is_alive() const {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin

@@ -3,7 +3,7 @@
 
 #ifdef HAVE_LLVM
 
-namespace sapphire {
+namespace corin {
 
 LLVMCodeGenImpl::LLVMCodeGenImpl(const std::string& name) 
     : module_name(name), current_function(nullptr) {
@@ -88,6 +88,6 @@ void LLVMCodeGenImpl::finalizeMainFunction() {
     }
 }
 
-} // namespace sapphire
+} // namespace corin
 
 #endif // HAVE_LLVM

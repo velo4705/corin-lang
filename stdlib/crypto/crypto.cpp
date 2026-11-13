@@ -21,7 +21,7 @@
 #include <cstring>
 #include <algorithm>
 
-namespace Sapphire {
+namespace Corin {
 namespace Crypto {
 
 // ===== Helpers =====
@@ -491,4 +491,4 @@ std::string random_bytes_hex(int count) {
 }
 
 } // namespace Crypto
-} // namespace Sapphire
+} // namespace Corin

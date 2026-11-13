@@ -1,10 +1,10 @@
 # Option Type Examples
 
-Sapphire's Option<T> type provides a type-safe way to handle nullable values, inspired by Rust's Option type.
+Corin's Option<T> type provides a type-safe way to handle nullable values, inspired by Rust's Option type.
 
 ## Available Examples
 
-### 1. option_comprehensive.spp
+### 1. option_comprehensive.corin
 Complete feature demonstration covering all Option capabilities:
 - Basic construction (Some/None)
 - State checking (is_some/is_none)
@@ -15,9 +15,9 @@ Complete feature demonstration covering all Option capabilities:
 - Nested Options
 - Real-world scenarios
 
-Run: `./sapp examples/option_comprehensive.spp`
+Run: `./corin examples/option_comprehensive.corin`
 
-### 2. option_practical.spp
+### 2. option_practical.corin
 Real-world usage patterns:
 - Safe dictionary lookup
 - Configuration with defaults
@@ -29,9 +29,9 @@ Real-world usage patterns:
 - Nested Options
 - Option in loops
 
-Run: `./sapp examples/option_practical.spp`
+Run: `./corin examples/option_practical.corin`
 
-### 3. option_error_handling.spp
+### 3. option_error_handling.corin
 Error handling patterns with Option:
 - Safe division
 - Safe string parsing
@@ -39,18 +39,18 @@ Error handling patterns with Option:
 - Optional return values
 - Avoiding null pointer errors
 
-Run: `./sapp examples/option_error_handling.spp`
+Run: `./corin examples/option_error_handling.corin`
 
 ## Quick Reference
 
 ### Construction
-```sapphire
+```corin
 let some_value = Some(42)
 let no_value = None()
 ```
 
 ### Methods
-```sapphire
+```corin
 # Check state
 some_value.is_some()  # true
 some_value.is_none()  # false
@@ -68,7 +68,7 @@ some_value.and_then(safe_divide)  # Chains operations
 ```
 
 ### Pattern Matching
-```sapphire
+```corin
 match some_value:
     Some(x) => print("Value:", x)
     None => print("No value")
@@ -83,7 +83,7 @@ match opt:
 ## Common Patterns
 
 ### Safe Lookup
-```sapphire
+```corin
 fn find_user(id):
     if id == 1:
         return Some("Alice")
@@ -93,13 +93,13 @@ let user = find_user(1).unwrap_or("Guest")
 ```
 
 ### Configuration Defaults
-```sapphire
+```corin
 let port = get_config("port").unwrap_or(8080)
 let host = get_config("host").unwrap_or("localhost")
 ```
 
 ### Chained Transformations
-```sapphire
+```corin
 let result = parse_int(input)
     .and_then(validate)
     .and_then(process)
@@ -107,7 +107,7 @@ let result = parse_int(input)
 ```
 
 ### Safe Array Access
-```sapphire
+```corin
 fn safe_get(arr, index):
     if index >= 0 and index < len(arr):
         return Some(arr[index])

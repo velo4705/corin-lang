@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_EXECUTOR_H
-#define SAPPHIRE_EXECUTOR_H
+#ifndef CORIN_EXECUTOR_H
+#define CORIN_EXECUTOR_H
 
 #include "future.h"
 #include <queue>
@@ -8,7 +8,7 @@
 #include <atomic>
 #include <functional>
 
-namespace sapphire {
+namespace corin {
 
 // Task type - a unit of async work
 using Task = std::function<void()>;
@@ -143,6 +143,6 @@ inline AsyncExecutor& get_global_executor() {
     return executor;
 }
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_EXECUTOR_H
+#endif // CORIN_EXECUTOR_H

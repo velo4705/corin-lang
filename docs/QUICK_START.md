@@ -6,46 +6,46 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 
 # Build (requires C++20 compiler)
 make quick
 
 # Verify installation
-./sapphire --version
+./corin --version
 ```
 
 ## Your First Program
 
-Create `hello.spp`:
+Create `hello.corin`:
 
-```sapphire
-# Hello World in Sapphire
-let message = "Hello, Sapphire!"
+```corin
+# Hello World in Corin
+let message = "Hello, Corin!"
 print(message)
 ```
 
 Run it:
 
 ```bash
-./sapp hello.spp
+./corin hello.corin
 # or
-./sapphire hello.spp
+./corin hello.corin
 ```
 
-**Note:** Both `sapp` (short) and `sapphire` (full) work!
+**Note:** Both `corin` (short) and `corin` (full) work!
 
 Output:
 ```
-Hello, Sapphire!
+Hello, Corin!
 ```
 
 ## Basic Examples
 
 ### Variables and Arithmetic
 
-```sapphire
+```corin
 let x = 10
 let y = 20
 let sum = x + y
@@ -57,7 +57,7 @@ print(power)  # 256
 
 ### Conditionals
 
-```sapphire
+```corin
 let age = 25
 
 if age >= 18:
@@ -68,7 +68,7 @@ else:
 
 ### Loops
 
-```sapphire
+```corin
 # While loop
 let i = 0
 while i < 5:
@@ -82,7 +82,7 @@ for j in range(10):
 
 ### Comments
 
-```sapphire
+```corin
 # This is a single-line comment
 
 let x = 42  # Inline comment
@@ -115,8 +115,8 @@ let x = 42  # Inline comment
 Check out the `examples/` directory:
 
 ```bash
-./sapphire examples/demo.spp
-./sapphire examples/simple.spp
+./corin examples/demo.corin
+./corin examples/simple.corin
 ```
 
 ## Getting Help

@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <memory>
 
-namespace Sapphire {
+namespace Corin {
 namespace REST {
 
 // ===== Route Generator =====
@@ -218,7 +218,7 @@ private:
 };
 
 } // namespace REST
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

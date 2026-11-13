@@ -9,7 +9,7 @@
 #include "stdlib/json/json.h"
 #include "stdlib/random/random.h"
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 void test_hashmap() {
     std::cout << "Testing Hash Maps..." << std::endl;
@@ -67,7 +67,7 @@ void test_json() {
         "age": 25,
         "active": true,
         "score": 95.5,
-        "tags": ["developer", "sapphire"],
+        "tags": ["developer", "corin"],
         "address": {
             "city": "New York",
             "zip": 10001
@@ -97,7 +97,7 @@ void test_json() {
     const auto& tags = obj.at("tags")->as_array();
     assert(tags.size() == 2);
     assert(tags[0]->as_string() == "developer");
-    assert(tags[1]->as_string() == "sapphire");
+    assert(tags[1]->as_string() == "corin");
     
     // Test nested object
     assert(obj.at("address")->is_object());
@@ -178,38 +178,38 @@ void test_c_api() {
     std::cout << "Testing C API..." << std::endl;
     
     // Test HashMap C API
-    void* map = sapphire_hashmap_create();
+    void* map = corin_hashmap_create();
     assert(map != nullptr);
     
-    assert(sapphire_hashmap_set_int(map, "test", 123));
-    assert(sapphire_hashmap_get_int(map, "test") == 123);
-    assert(sapphire_hashmap_contains(map, "test"));
-    assert(sapphire_hashmap_size(map) == 1);
+    assert(corin_hashmap_set_int(map, "test", 123));
+    assert(corin_hashmap_get_int(map, "test") == 123);
+    assert(corin_hashmap_contains(map, "test"));
+    assert(corin_hashmap_size(map) == 1);
     
-    sapphire_hashmap_destroy(map);
+    corin_hashmap_destroy(map);
     
     // Test JSON C API
-    void* json_obj = sapphire_json_create_object();
+    void* json_obj = corin_json_create_object();
     assert(json_obj != nullptr);
     
-    void* json_str = sapphire_json_create_string("test_value");
-    sapphire_json_object_set(json_obj, "key", json_str);
+    void* json_str = corin_json_create_string("test_value");
+    corin_json_object_set(json_obj, "key", json_str);
     
-    void* retrieved = sapphire_json_object_get(json_obj, "key");
+    void* retrieved = corin_json_object_get(json_obj, "key");
     assert(retrieved != nullptr);
-    assert(sapphire_json_is_string(retrieved));
+    assert(corin_json_is_string(retrieved));
     
-    sapphire_json_destroy(json_obj);
-    sapphire_json_destroy(json_str);
-    sapphire_json_destroy(retrieved);
+    corin_json_destroy(json_obj);
+    corin_json_destroy(json_str);
+    corin_json_destroy(retrieved);
     
     // Test Random C API
-    sapphire_random_seed(98765);
+    corin_random_seed(98765);
     
-    double uniform = sapphire_random_uniform();
+    double uniform = corin_random_uniform();
     assert(uniform >= 0.0 && uniform < 1.0);
     
-    int64_t random_int = sapphire_random_int(1, 100);
+    int64_t random_int = corin_random_int(1, 100);
     assert(random_int >= 1 && random_int <= 100);
     
     std::cout << "✓ C API tests passed" << std::endl;

@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STDLIB_TESTING_H
-#define SAPPHIRE_STDLIB_TESTING_H
+#ifndef CORIN_STDLIB_TESTING_H
+#define CORIN_STDLIB_TESTING_H
 
 #include <string>
 #include <vector>
 #include <functional>
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -45,15 +45,15 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for use from Sapphire code
+// C API for use from Corin code
 extern "C" {
-    void sapphire_test_assert_true(bool condition, const char* message);
-    void sapphire_test_assert_false(bool condition, const char* message);
-    void sapphire_test_assert_equal_int(int actual, int expected, const char* message);
-    void sapphire_test_assert_equal_str(const char* actual, const char* expected, const char* message);
-    void sapphire_test_print_summary();
+    void corin_test_assert_true(bool condition, const char* message);
+    void corin_test_assert_false(bool condition, const char* message);
+    void corin_test_assert_equal_int(int actual, int expected, const char* message);
+    void corin_test_assert_equal_str(const char* actual, const char* expected, const char* message);
+    void corin_test_print_summary();
 }
 
-#endif // SAPPHIRE_STDLIB_TESTING_H
+#endif // CORIN_STDLIB_TESTING_H

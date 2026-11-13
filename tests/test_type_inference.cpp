@@ -5,7 +5,7 @@
 #include <cassert>
 #include <iostream>
 
-using namespace sapphire;
+using namespace corin;
 
 void test_substitution() {
     Substitution sub;

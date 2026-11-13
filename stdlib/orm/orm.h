@@ -6,7 +6,7 @@
 #include <memory>
 #include <functional>
 
-namespace Sapphire {
+namespace Corin {
 namespace ORM {
 
 // Forward declarations
@@ -262,9 +262,9 @@ private:
 };
 
 } // namespace ORM
-} // namespace Sapphire
+} // namespace Corin
 
-// C API for Sapphire integration
+// C API for Corin integration
 extern "C" {
     // Model operations
     void* orm_model_create(const char* table_name);

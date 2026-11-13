@@ -1,26 +1,26 @@
-# Sapphire Language Support for VSCode
+# Corin Language Support for VSCode
 
-Official VSCode extension for the Sapphire programming language.
+Official VSCode extension for the Corin programming language.
 
 ## Features
 
-- **Syntax Highlighting** - Full syntax highlighting for Sapphire code
+- **Syntax Highlighting** - Full syntax highlighting for Corin code
 - **Auto-completion** - Intelligent code completion (requires LSP)
 - **Go to Definition** - Jump to function/class definitions (requires LSP)
 - **Error Checking** - Real-time syntax error detection (requires LSP)
-- **Code Formatting** - Format code with sapphire-fmt
+- **Code Formatting** - Format code with corin-fmt
 
 ## Requirements
 
-- Sapphire compiler installed
-- `sapphire-lsp` in PATH (for LSP features)
-- `sapphire-fmt` in PATH (for formatting)
+- Corin compiler installed
+- `corin-lsp` in PATH (for LSP features)
+- `corin-fmt` in PATH (for formatting)
 
 ## Installation
 
 ### From Source
 
-1. Clone the Sapphire repository
+1. Clone the Corin repository
 2. Navigate to `editors/vscode/`
 3. Run `npm install`
 4. Run `npm run compile`
@@ -40,14 +40,14 @@ Configure the extension in VSCode settings:
 
 ```json
 {
-  "sapphire.lsp.enabled": true,
-  "sapphire.lsp.path": "sapphire-lsp"
+  "corin.lsp.enabled": true,
+  "corin.lsp.path": "corin-lsp"
 }
 ```
 
 ## Usage
 
-1. Open a `.spp` file
+1. Open a `.corin` file
 2. Start typing - auto-completion will appear
 3. Hover over symbols for documentation
 4. Right-click and select "Go to Definition"
@@ -56,23 +56,23 @@ Configure the extension in VSCode settings:
 ## Building the LSP Server
 
 ```bash
-cd /path/to/sapphire-lang
-make sapphire-lsp
+cd /path/to/corin-lang
+make corin-lsp
 ```
 
-This creates the `sapphire-lsp` executable.
+This creates the `corin-lsp` executable.
 
 ## Troubleshooting
 
 ### LSP not working
 
-1. Check that `sapphire-lsp` is in your PATH
-2. Check VSCode output panel (View > Output > Sapphire Language Server)
+1. Check that `corin-lsp` is in your PATH
+2. Check VSCode output panel (View > Output > Corin Language Server)
 3. Try restarting VSCode
 
 ### Syntax highlighting not working
 
-1. Make sure file extension is `.spp`
+1. Make sure file extension is `.corin`
 2. Try reloading VSCode window (Ctrl+Shift+P > Reload Window)
 
 ## Contributing

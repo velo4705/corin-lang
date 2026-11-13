@@ -1,13 +1,13 @@
-# Sapphire Algorithm Benchmarks
+# Corin Algorithm Benchmarks
 
 ## Overview
 
-Comprehensive benchmarks testing Sapphire's performance on complex algorithms and data structures.
+Comprehensive benchmarks testing Corin's performance on complex algorithms and data structures.
 
 ## Benchmark Categories
 
 ### 1. Dynamic Programming
-**File**: `algorithms/fibonacci_dp.spp` vs `algorithms/fibonacci_dp.c`
+**File**: `algorithms/fibonacci_dp.corin` vs `algorithms/fibonacci_dp.c`
 
 **Algorithm**: Fibonacci with memoization
 - **Time Complexity**: O(n)
@@ -21,7 +21,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 - Cache efficiency
 
 ### 2. Matrix Operations
-**File**: `algorithms/matrix_multiply.spp` vs `algorithms/matrix_multiply.c`
+**File**: `algorithms/matrix_multiply.corin` vs `algorithms/matrix_multiply.c`
 
 **Algorithm**: Matrix multiplication
 - **Time Complexity**: O(n³)
@@ -35,7 +35,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 - Arithmetic operations
 
 ### 3. Hash Table Operations
-**File**: `algorithms/hash_operations.spp` vs `algorithms/hash_operations.c`
+**File**: `algorithms/hash_operations.corin` vs `algorithms/hash_operations.c`
 
 **Algorithm**: Hash table insert/lookup
 - **Time Complexity**: O(1) average, O(n) worst case
@@ -49,7 +49,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 - Pointer operations
 
 ### 4. String Manipulation
-**File**: `algorithms/string_operations.spp` vs `algorithms/string_operations.c`
+**File**: `algorithms/string_operations.corin` vs `algorithms/string_operations.c`
 
 **Algorithm**: String concat, reverse, pattern matching
 - **Time Complexity**: O(n) for most operations
@@ -63,7 +63,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 - Character manipulation
 
 ### 5. Sorting Algorithms
-**File**: `algorithms/sorting_benchmark.spp` vs `algorithms/sorting_benchmark.c`
+**File**: `algorithms/sorting_benchmark.corin` vs `algorithms/sorting_benchmark.c`
 
 **Algorithm**: QuickSort
 - **Time Complexity**: O(n log n) average, O(n²) worst
@@ -80,7 +80,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 
 ### Time Complexity Comparison
 
-| Algorithm | Sapphire | C | Difference |
+| Algorithm | Corin | C | Difference |
 |-----------|----------|---|------------|
 | Fibonacci DP | O(n) | O(n) | Same |
 | Matrix Multiply | O(n³) | O(n³) | Same |
@@ -90,7 +90,7 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 
 ### Space Complexity Comparison
 
-| Algorithm | Sapphire | C | Difference |
+| Algorithm | Corin | C | Difference |
 |-----------|----------|---|------------|
 | Fibonacci DP | O(n) | O(n) | Same |
 | Matrix Multiply | O(n²) | O(n²) | Same |
@@ -98,11 +98,11 @@ Comprehensive benchmarks testing Sapphire's performance on complex algorithms an
 | String Ops | O(n) | O(n) | Same |
 | QuickSort | O(log n) | O(log n) | Same |
 
-**Key Insight**: Sapphire maintains the same algorithmic complexity as C, meaning the LLVM backend optimizes to equivalent machine code.
+**Key Insight**: Corin maintains the same algorithmic complexity as C, meaning the LLVM backend optimizes to equivalent machine code.
 
 ## Performance Expectations
 
-### Sapphire vs C Performance
+### Corin vs C Performance
 
 Based on LLVM optimization and runtime overhead:
 
@@ -132,14 +132,14 @@ Based on LLVM optimization and runtime overhead:
 ### Individual Tests
 
 ```bash
-# Sapphire (interpreter)
-./sapp benchmarks/algorithms/fibonacci_dp.spp
+# Corin (interpreter)
+./corin benchmarks/algorithms/fibonacci_dp.corin
 
-# Sapphire (compiled)
-./sapp compile benchmarks/algorithms/fibonacci_dp.spp > fib.ll
+# Corin (compiled)
+./corin compile benchmarks/algorithms/fibonacci_dp.corin > fib.ll
 llc fib.ll -o fib.s -O3
-clang fib.s -o fib_sapp -O3
-time ./fib_sapp
+clang fib.s -o fib_corin -O3
+time ./fib_corin
 
 # C (compiled)
 gcc benchmarks/algorithms/fibonacci_dp.c -o fib_c -O3
@@ -203,7 +203,7 @@ All standard algorithms maintain their theoretical complexity:
 
 ## Complexity Guarantees
 
-Sapphire guarantees:
+Corin guarantees:
 - **Same algorithmic complexity** as C
 - **Predictable performance** (no JIT warmup)
 - **Consistent timing** (119μs GC pause)
@@ -216,34 +216,34 @@ Sapphire guarantees:
 ```
 Fibonacci DP (n=40):
   C:        ~0.001ms
-  Sapphire: ~0.001ms (100% of C)
+  Corin: ~0.001ms (100% of C)
 
 Matrix Multiply (100x100):
   C:        ~5ms
-  Sapphire: ~5-6ms (90-95% of C)
+  Corin: ~5-6ms (90-95% of C)
 
 Hash Operations (1000 ops):
   C:        ~0.1ms
-  Sapphire: ~0.1ms (95-100% of C)
+  Corin: ~0.1ms (95-100% of C)
 
 String Operations (1000 chars):
   C:        ~0.5ms
-  Sapphire: ~0.5-0.6ms (90-95% of C)
+  Corin: ~0.5-0.6ms (90-95% of C)
 
 QuickSort (10,000 elements):
   C:        ~2ms
-  Sapphire: ~2-2.2ms (90-95% of C)
+  Corin: ~2-2.2ms (90-95% of C)
 ```
 
 ## Conclusion
 
-Sapphire maintains:
+Corin maintains:
 - **Same algorithmic complexity** as C
 - **95-100% performance** on computation-heavy tasks
 - **90-95% performance** on memory-intensive tasks
 - **Predictable, consistent** performance
 
-The LLVM backend ensures that well-written Sapphire code compiles to machine code comparable to C, making it suitable for performance-critical applications.
+The LLVM backend ensures that well-written Corin code compiles to machine code comparable to C, making it suitable for performance-critical applications.
 
 ---
 

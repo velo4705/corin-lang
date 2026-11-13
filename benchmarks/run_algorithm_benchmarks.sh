@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Sapphire Algorithm Benchmark Suite
+# Corin Algorithm Benchmark Suite
 # Tests complex algorithms and data structures
 
 set -e
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║       SAPPHIRE ALGORITHM BENCHMARK SUITE                     ║"
+echo "║       CORIN ALGORITHM BENCHMARK SUITE                     ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -32,10 +32,10 @@ run_algo_bench() {
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
     
-    # Test Sapphire (interpreter mode)
-    echo "  [1/2] Testing Sapphire (interpreter)..."
+    # Test Corin (interpreter mode)
+    echo "  [1/2] Testing Corin (interpreter)..."
     local sapp_start=$(date +%s%N)
-    local sapp_output=$(./sapp "$spp_file" 2>/dev/null)
+    local sapp_output=$(./corin "$spp_file" 2>/dev/null)
     local sapp_end=$(date +%s%N)
     local sapp_time=$((sapp_end - sapp_start))
     local sapp_ms=$(echo "scale=3; $sapp_time / 1000000" | bc)
@@ -54,7 +54,7 @@ run_algo_bench() {
     
     echo ""
     echo -e "${GREEN}Results:${NC}"
-    echo "  Sapphire: ${sapp_ms} ms (output: $sapp_output)"
+    echo "  Corin: ${sapp_ms} ms (output: $sapp_output)"
     echo "  C:        ${c_ms} ms (output: $c_output)"
     echo "  Ratio:    ${ratio}% of C speed"
     
@@ -73,31 +73,31 @@ echo ""
 
 run_algo_bench \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.spp" \
+    "benchmarks/algorithms/fibonacci_dp.corin" \
     "benchmarks/algorithms/fibonacci_dp.c" \
     "Time: O(n), Space: O(n)"
 
 run_algo_bench \
     "Matrix Multiply" \
-    "benchmarks/algorithms/matrix_multiply.spp" \
+    "benchmarks/algorithms/matrix_multiply.corin" \
     "benchmarks/algorithms/matrix_multiply.c" \
     "Time: O(n³), Space: O(n²)"
 
 run_algo_bench \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.spp" \
+    "benchmarks/algorithms/hash_operations.corin" \
     "benchmarks/algorithms/hash_operations.c" \
     "Time: O(1) avg, Space: O(n)"
 
 run_algo_bench \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.spp" \
+    "benchmarks/algorithms/string_operations.corin" \
     "benchmarks/algorithms/string_operations.c" \
     "Time: O(n), Space: O(n)"
 
 run_algo_bench \
     "Sorting" \
-    "benchmarks/algorithms/sorting_benchmark.spp" \
+    "benchmarks/algorithms/sorting_benchmark.corin" \
     "benchmarks/algorithms/sorting_benchmark.c" \
     "Time: O(n log n), Space: O(log n)"
 
@@ -107,7 +107,7 @@ echo "╚═══════════════════════�
 echo ""
 echo "Summary:"
 echo "  • All algorithms maintain same complexity as C"
-echo "  • Sapphire achieves 90-100% of C performance"
+echo "  • Corin achieves 90-100% of C performance"
 echo "  • LLVM optimization ensures efficient code generation"
 echo ""
 echo "Note: Interpreter mode shown above. Compiled mode (-O3) achieves"

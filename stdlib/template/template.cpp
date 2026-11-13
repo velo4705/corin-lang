@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Template {
 
@@ -155,21 +155,21 @@ std::string TemplateEngine::load_template_file(const std::string& filename) {
 
 } // namespace Template
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API Implementation
 extern "C" {
-    using namespace sapphire::stdlib::Template;
+    using namespace corin::stdlib::Template;
     
-    void* sapphire_html_template_engine_create() {
+    void* corin_html_template_engine_create() {
         return new TemplateEngine();
     }
     
-    void sapphire_html_template_engine_destroy(void* engine) {
+    void corin_html_template_engine_destroy(void* engine) {
         delete static_cast<TemplateEngine*>(engine);
     }
     
-    char* sapphire_html_template_render(void* engine, const char* template_str, const char** keys, const char** values, int count) {
+    char* corin_html_template_render(void* engine, const char* template_str, const char** keys, const char** values, int count) {
         TemplateContext context;
         for (int i = 0; i < count; ++i) {
             context[keys[i]] = values[i];
@@ -181,7 +181,7 @@ extern "C" {
         return c_result;
     }
     
-    char* sapphire_html_template_render_file(void* engine, const char* filename, const char** keys, const char** values, int count) {
+    char* corin_html_template_render_file(void* engine, const char* filename, const char** keys, const char** values, int count) {
         TemplateContext context;
         for (int i = 0; i < count; ++i) {
             context[keys[i]] = values[i];
@@ -193,19 +193,19 @@ extern "C" {
         return c_result;
     }
     
-    void sapphire_html_template_set_dir(void* engine, const char* dir) {
+    void corin_html_template_set_dir(void* engine, const char* dir) {
         static_cast<TemplateEngine*>(engine)->set_template_dir(std::string(dir));
     }
     
-    void sapphire_html_template_cache(void* engine, const char* name, const char* content) {
+    void corin_html_template_cache(void* engine, const char* name, const char* content) {
         static_cast<TemplateEngine*>(engine)->cache_template(std::string(name), std::string(content));
     }
     
-    void sapphire_html_template_clear_cache(void* engine) {
+    void corin_html_template_clear_cache(void* engine) {
         static_cast<TemplateEngine*>(engine)->clear_cache();
     }
     
-    void sapphire_html_template_free_string(char* str) {
+    void corin_html_template_free_string(char* str) {
         delete[] str;
     }
 }

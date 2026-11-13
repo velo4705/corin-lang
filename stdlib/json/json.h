@@ -6,7 +6,7 @@
 #include <variant>
 #include <memory>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace JSON {
 
@@ -111,43 +111,43 @@ std::shared_ptr<JSONValue> create_json_object();
 
 } // namespace JSON
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // JSON parsing
-    void* sapphire_json_parse(const char* json_text);
-    const char* sapphire_json_stringify(void* json_value, bool pretty);
-    void sapphire_json_destroy(void* json_value);
+    void* corin_json_parse(const char* json_text);
+    const char* corin_json_stringify(void* json_value, bool pretty);
+    void corin_json_destroy(void* json_value);
     
     // JSON creation
-    void* sapphire_json_create_null();
-    void* sapphire_json_create_bool(bool value);
-    void* sapphire_json_create_number(double value);
-    void* sapphire_json_create_string(const char* value);
-    void* sapphire_json_create_array();
-    void* sapphire_json_create_object();
+    void* corin_json_create_null();
+    void* corin_json_create_bool(bool value);
+    void* corin_json_create_number(double value);
+    void* corin_json_create_string(const char* value);
+    void* corin_json_create_array();
+    void* corin_json_create_object();
     
     // Type checking
-    bool sapphire_json_is_null(void* json_value);
-    bool sapphire_json_is_bool(void* json_value);
-    bool sapphire_json_is_number(void* json_value);
-    bool sapphire_json_is_string(void* json_value);
-    bool sapphire_json_is_array(void* json_value);
-    bool sapphire_json_is_object(void* json_value);
+    bool corin_json_is_null(void* json_value);
+    bool corin_json_is_bool(void* json_value);
+    bool corin_json_is_number(void* json_value);
+    bool corin_json_is_string(void* json_value);
+    bool corin_json_is_array(void* json_value);
+    bool corin_json_is_object(void* json_value);
     
     // Value access
-    bool sapphire_json_get_bool(void* json_value);
-    double sapphire_json_get_number(void* json_value);
-    const char* sapphire_json_get_string(void* json_value);
+    bool corin_json_get_bool(void* json_value);
+    double corin_json_get_number(void* json_value);
+    const char* corin_json_get_string(void* json_value);
     
     // Array operations
-    int64_t sapphire_json_array_size(void* json_value);
-    void* sapphire_json_array_get(void* json_value, int64_t index);
-    void sapphire_json_array_push(void* json_value, void* element);
+    int64_t corin_json_array_size(void* json_value);
+    void* corin_json_array_get(void* json_value, int64_t index);
+    void corin_json_array_push(void* json_value, void* element);
     
     // Object operations
-    void* sapphire_json_object_get(void* json_value, const char* key);
-    void sapphire_json_object_set(void* json_value, const char* key, void* element);
-    bool sapphire_json_object_has(void* json_value, const char* key);
+    void* corin_json_object_get(void* json_value, const char* key);
+    void corin_json_object_set(void* json_value, const char* key, void* element);
+    bool corin_json_object_has(void* json_value, const char* key);
 }

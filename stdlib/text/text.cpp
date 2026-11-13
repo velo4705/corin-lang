@@ -7,7 +7,7 @@
 #include <map>
 #include <cstring>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Text {
 
@@ -426,18 +426,18 @@ std::unique_ptr<Template> create_template(const std::string& template_str) {
 
 } // namespace Text
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API Implementation
 //=============================================================================
 
-using namespace sapphire::stdlib::Text;
+using namespace corin::stdlib::Text;
 
 extern "C" {
     static thread_local char g_text_string_buffer[8192];
     
-    void* sapphire_regex_create(const char* pattern) {
+    void* corin_regex_create(const char* pattern) {
         try {
             return new Regex(pattern);
         } catch (...) {
@@ -445,11 +445,11 @@ extern "C" {
         }
     }
     
-    void sapphire_regex_destroy(void* regex) {
+    void corin_regex_destroy(void* regex) {
         delete static_cast<Regex*>(regex);
     }
     
-    bool sapphire_regex_matches(void* regex, const char* text) {
+    bool corin_regex_matches(void* regex, const char* text) {
         if (!regex || !text) return false;
         try {
             return static_cast<Regex*>(regex)->matches(text);
@@ -458,7 +458,7 @@ extern "C" {
         }
     }
     
-    const char* sapphire_regex_replace(void* regex, const char* text, const char* replacement) {
+    const char* corin_regex_replace(void* regex, const char* text, const char* replacement) {
         if (!regex || !text || !replacement) return nullptr;
         try {
             std::string result = static_cast<Regex*>(regex)->replace(text, replacement);
@@ -470,17 +470,17 @@ extern "C" {
         }
     }
     
-    size_t sapphire_text_word_count(const char* text) {
+    size_t corin_text_word_count(const char* text) {
         if (!text) return 0;
         return TextProcessor::word_count(text);
     }
     
-    size_t sapphire_text_line_count(const char* text) {
+    size_t corin_text_line_count(const char* text) {
         if (!text) return 0;
         return TextProcessor::line_count(text);
     }
     
-    const char* sapphire_text_normalize_whitespace(const char* text) {
+    const char* corin_text_normalize_whitespace(const char* text) {
         if (!text) return nullptr;
         std::string result = TextProcessor::normalize_whitespace(text);
         strncpy(g_text_string_buffer, result.c_str(), sizeof(g_text_string_buffer) - 1);
@@ -488,7 +488,7 @@ extern "C" {
         return g_text_string_buffer;
     }
     
-    const char* sapphire_text_capitalize_words(const char* text) {
+    const char* corin_text_capitalize_words(const char* text) {
         if (!text) return nullptr;
         std::string result = TextProcessor::capitalize_words(text);
         strncpy(g_text_string_buffer, result.c_str(), sizeof(g_text_string_buffer) - 1);
@@ -496,21 +496,21 @@ extern "C" {
         return g_text_string_buffer;
     }
     
-    void* sapphire_string_builder_create() {
+    void* corin_string_builder_create() {
         return new StringBuilder();
     }
     
-    void sapphire_string_builder_destroy(void* builder) {
+    void corin_string_builder_destroy(void* builder) {
         delete static_cast<StringBuilder*>(builder);
     }
     
-    void sapphire_string_builder_append(void* builder, const char* text) {
+    void corin_string_builder_append(void* builder, const char* text) {
         if (builder && text) {
             static_cast<StringBuilder*>(builder)->append(text);
         }
     }
     
-    const char* sapphire_string_builder_to_string(void* builder) {
+    const char* corin_string_builder_to_string(void* builder) {
         if (!builder) return nullptr;
         std::string result = static_cast<StringBuilder*>(builder)->to_string();
         strncpy(g_text_string_buffer, result.c_str(), sizeof(g_text_string_buffer) - 1);
@@ -518,22 +518,22 @@ extern "C" {
         return g_text_string_buffer;
     }
     
-    void* sapphire_template_create(const char* template_str) {
+    void* corin_template_create(const char* template_str) {
         if (!template_str) return nullptr;
         return new Template(template_str);
     }
     
-    void sapphire_template_destroy(void* template_obj) {
+    void corin_template_destroy(void* template_obj) {
         delete static_cast<Template*>(template_obj);
     }
     
-    void sapphire_template_set_variable(void* template_obj, const char* name, const char* value) {
+    void corin_template_set_variable(void* template_obj, const char* name, const char* value) {
         if (template_obj && name && value) {
             static_cast<Template*>(template_obj)->set_variable(std::string(name), std::string(value));
         }
     }
     
-    const char* sapphire_template_render(void* template_obj) {
+    const char* corin_template_render(void* template_obj) {
         if (!template_obj) return nullptr;
         std::string result = static_cast<Template*>(template_obj)->render();
         strncpy(g_text_string_buffer, result.c_str(), sizeof(g_text_string_buffer) - 1);

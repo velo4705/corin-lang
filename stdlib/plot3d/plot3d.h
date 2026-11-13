@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-namespace sapphire { namespace stdlib { namespace Plot3D {
+namespace corin { namespace stdlib { namespace Plot3D {
 
 enum class Plot3DType { SURFACE, SCATTER, LINE, BAR3D };
 

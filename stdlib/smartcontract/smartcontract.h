@@ -8,7 +8,7 @@
 #include <variant>
 #include <stdexcept>
 
-namespace Sapphire {
+namespace Corin {
 namespace SmartContract {
 
 // ===== Opcodes =====
@@ -193,7 +193,7 @@ private:
 };
 
 } // namespace SmartContract
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

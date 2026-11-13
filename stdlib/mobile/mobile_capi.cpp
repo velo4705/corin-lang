@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-using namespace Sapphire::Mobile;
+using namespace Corin::Mobile;
 
 static thread_local std::string tl_str;
 static const char* ret_str(const std::string& s) { tl_str = s; return tl_str.c_str(); }

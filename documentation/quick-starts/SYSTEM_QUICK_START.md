@@ -1,31 +1,31 @@
-# Sapphire System Library - Quick Start Guide
+# Corin System Library - Quick Start Guide
 
-**Get started with OS-level programming in Sapphire in 5 minutes!**
+**Get started with OS-level programming in Corin in 5 minutes!**
 
 ---
 
 ## Installation
 
-No installation needed! The system library is built into the Sapphire compiler.
+No installation needed! The system library is built into the Corin compiler.
 
 ---
 
 ## Your First System Program
 
-Create `hello_system.spp`:
+Create `hello_system.corin`:
 
-```sapphire
+```corin
 import system
 
 print("=== My First System Program ===")
 
-let pid = sapphire_system_get_pid()
+let pid = corin_system_get_pid()
 print("Process ID:", pid)
 
-let cpu_count = sapphire_system_cpu_count()
+let cpu_count = corin_system_cpu_count()
 print("CPU Cores:", cpu_count)
 
-let username = sapphire_system_get_username()
+let username = corin_system_get_username()
 print("Username:", username)
 
 print("Done!")
@@ -34,7 +34,7 @@ print("Done!")
 Compile and run:
 
 ```bash
-./sapp compile hello_system.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > hello_system.ll
+./corin compile hello_system.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > hello_system.ll
 llc hello_system.ll -filetype=obj -o hello_system.o
 gcc hello_system.o stdlib/system/system.cpp -o hello_system -lstdc++ -lpthread
 ./hello_system
@@ -46,37 +46,37 @@ gcc hello_system.o stdlib/system/system.cpp -o hello_system -lstdc++ -lpthread
 
 ### Get Process Information
 
-```sapphire
+```corin
 import system
 
-let pid = sapphire_system_get_pid()
+let pid = corin_system_get_pid()
 print("PID:", pid)
 ```
 
 ### Measure Execution Time
 
-```sapphire
+```corin
 import system
 
-let start = sapphire_system_timestamp_ns()
+let start = corin_system_timestamp_ns()
 
 // Your code here
 let count = 0
 while count < 1000000:
     count = count + 1
 
-let end = sapphire_system_timestamp_ns()
+let end = corin_system_timestamp_ns()
 print("Time:", end - start, "ns")
 ```
 
 ### Check System Resources
 
-```sapphire
+```corin
 import system
 
-let cpu_count = sapphire_system_cpu_count()
-let cpu_arch = sapphire_system_cpu_arch()
-let page_size = sapphire_system_page_size()
+let cpu_count = corin_system_cpu_count()
+let cpu_arch = corin_system_cpu_arch()
+let page_size = corin_system_page_size()
 
 print("CPUs:", cpu_count)
 print("Architecture:", cpu_arch)
@@ -85,13 +85,13 @@ print("Page Size:", page_size, "bytes")
 
 ### Access Environment
 
-```sapphire
+```corin
 import system
 
-let home = sapphire_system_get_env("HOME")
-let shell = sapphire_system_get_env("SHELL")
-let user = sapphire_system_get_username()
-let host = sapphire_system_get_hostname()
+let home = corin_system_get_env("HOME")
+let shell = corin_system_get_env("SHELL")
+let user = corin_system_get_username()
+let host = corin_system_get_hostname()
 
 print("User:", user, "on", host)
 print("Home:", home)
@@ -100,32 +100,32 @@ print("Shell:", shell)
 
 ### Work with Files
 
-```sapphire
+```corin
 import system
 
-let cwd = sapphire_system_get_cwd()
+let cwd = corin_system_get_cwd()
 print("Current directory:", cwd)
 
-let exists = sapphire_system_file_exists("/etc/passwd")
+let exists = corin_system_file_exists("/etc/passwd")
 print("File exists:", exists)
 
-let dir_exists = sapphire_system_directory_exists("/tmp")
+let dir_exists = corin_system_directory_exists("/tmp")
 print("Directory exists:", dir_exists)
 ```
 
 ### Allocate Memory
 
-```sapphire
+```corin
 import system
 
 // Allocate 1KB
-let ptr = sapphire_system_allocate(1024)
+let ptr = corin_system_allocate(1024)
 print("Allocated memory at:", ptr)
 
 // Use the memory...
 
 // Free it
-sapphire_system_free(ptr)
+corin_system_free(ptr)
 print("Memory freed")
 ```
 
@@ -134,33 +134,33 @@ print("Memory freed")
 ## Available Functions
 
 ### Process
-- `sapphire_system_get_pid()` → int - Get process ID
+- `corin_system_get_pid()` → int - Get process ID
 
 ### Memory
-- `sapphire_system_allocate(size)` → ptr - Allocate memory
-- `sapphire_system_free(ptr)` → void - Free memory
-- `sapphire_system_page_size()` → int - Get page size
+- `corin_system_allocate(size)` → ptr - Allocate memory
+- `corin_system_free(ptr)` → void - Free memory
+- `corin_system_page_size()` → int - Get page size
 
 ### File System
-- `sapphire_system_file_exists(path)` → bool - Check file
-- `sapphire_system_directory_exists(path)` → bool - Check directory
-- `sapphire_system_create_directory(path)` → bool - Create directory
-- `sapphire_system_get_cwd()` → string - Get current directory
+- `corin_system_file_exists(path)` → bool - Check file
+- `corin_system_directory_exists(path)` → bool - Check directory
+- `corin_system_create_directory(path)` → bool - Create directory
+- `corin_system_get_cwd()` → string - Get current directory
 
 ### Environment
-- `sapphire_system_get_env(name)` → string - Get environment variable
-- `sapphire_system_get_username()` → string - Get username
-- `sapphire_system_get_hostname()` → string - Get hostname
+- `corin_system_get_env(name)` → string - Get environment variable
+- `corin_system_get_username()` → string - Get username
+- `corin_system_get_hostname()` → string - Get hostname
 
 ### System Info
-- `sapphire_system_cpu_count()` → int - Get CPU count
-- `sapphire_system_cpu_arch()` → string - Get CPU architecture
+- `corin_system_cpu_count()` → int - Get CPU count
+- `corin_system_cpu_arch()` → string - Get CPU architecture
 
 ### Timing
-- `sapphire_system_timestamp_ms()` → int64 - Milliseconds
-- `sapphire_system_timestamp_us()` → int64 - Microseconds
-- `sapphire_system_timestamp_ns()` → int64 - Nanoseconds
-- `sapphire_system_sleep_ms(ms)` → void - Sleep
+- `corin_system_timestamp_ms()` → int64 - Milliseconds
+- `corin_system_timestamp_us()` → int64 - Microseconds
+- `corin_system_timestamp_ns()` → int64 - Nanoseconds
+- `corin_system_sleep_ms(ms)` → void - Sleep
 
 ---
 
@@ -173,17 +173,17 @@ print("Memory freed")
 ./run_kernel_demo.sh
 
 # Or manually:
-./sapp compile system_demo.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > system_demo.ll
+./corin compile system_demo.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > system_demo.ll
 llc system_demo.ll -filetype=obj -o system_demo.o
 gcc system_demo.o stdlib/system/system.cpp -o system_demo -lstdc++ -lpthread
 ./system_demo
 ```
 
 Available demos:
-- `system_demo.spp` - Comprehensive system demo
-- `kernel_hello.spp` - Kernel-style initialization
-- `process_monitor.spp` - Process monitoring
-- `test_system_simple.spp` - Minimal test
+- `system_demo.corin` - Comprehensive system demo
+- `kernel_hello.corin` - Kernel-style initialization
+- `process_monitor.corin` - Process monitoring
+- `test_system_simple.corin` - Minimal test
 
 ---
 

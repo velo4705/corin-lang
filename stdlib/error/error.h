@@ -7,7 +7,7 @@
 #include <functional>
 #include <type_traits>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Error {
 
@@ -56,9 +56,9 @@ public:
 };
 
 /**
- * SapphireError - Base exception class with enhanced diagnostics
+ * CorinError - Base exception class with enhanced diagnostics
  */
-class SapphireError : public std::exception {
+class CorinError : public std::exception {
 protected:
     std::string message;
     std::string error_code;
@@ -66,8 +66,8 @@ protected:
     std::vector<std::string> suggestions;
     
 public:
-    SapphireError(const std::string& msg, const std::string& code = "");
-    SapphireError(const std::string& msg, const StackTrace& trace, const std::string& code = "");
+    CorinError(const std::string& msg, const std::string& code = "");
+    CorinError(const std::string& msg, const StackTrace& trace, const std::string& code = "");
     
     // Exception interface
     const char* what() const noexcept override;
@@ -90,32 +90,32 @@ public:
 /**
  * Specific error types
  */
-class RuntimeError : public SapphireError {
+class RuntimeError : public CorinError {
 public:
-    RuntimeError(const std::string& msg) : SapphireError(msg, "RUNTIME_ERROR") {}
+    RuntimeError(const std::string& msg) : CorinError(msg, "RUNTIME_ERROR") {}
     RuntimeError(const std::string& msg, const StackTrace& trace) 
-        : SapphireError(msg, trace, "RUNTIME_ERROR") {}
+        : CorinError(msg, trace, "RUNTIME_ERROR") {}
 };
 
-class TypeError : public SapphireError {
+class TypeError : public CorinError {
 public:
-    TypeError(const std::string& msg) : SapphireError(msg, "TYPE_ERROR") {}
+    TypeError(const std::string& msg) : CorinError(msg, "TYPE_ERROR") {}
     TypeError(const std::string& msg, const StackTrace& trace) 
-        : SapphireError(msg, trace, "TYPE_ERROR") {}
+        : CorinError(msg, trace, "TYPE_ERROR") {}
 };
 
-class ValueError : public SapphireError {
+class ValueError : public CorinError {
 public:
-    ValueError(const std::string& msg) : SapphireError(msg, "VALUE_ERROR") {}
+    ValueError(const std::string& msg) : CorinError(msg, "VALUE_ERROR") {}
     ValueError(const std::string& msg, const StackTrace& trace) 
-        : SapphireError(msg, trace, "VALUE_ERROR") {}
+        : CorinError(msg, trace, "VALUE_ERROR") {}
 };
 
-class IOError : public SapphireError {
+class IOError : public CorinError {
 public:
-    IOError(const std::string& msg) : SapphireError(msg, "IO_ERROR") {}
+    IOError(const std::string& msg) : CorinError(msg, "IO_ERROR") {}
     IOError(const std::string& msg, const StackTrace& trace) 
-        : SapphireError(msg, trace, "IO_ERROR") {}
+        : CorinError(msg, trace, "IO_ERROR") {}
 };
 
 /**
@@ -123,18 +123,18 @@ public:
  */
 class ErrorHandler {
 private:
-    static std::function<void(const SapphireError&)> error_callback;
+    static std::function<void(const CorinError&)> error_callback;
     static bool show_stack_traces;
     static bool show_suggestions;
     
 public:
     // Configuration
-    static void set_error_callback(std::function<void(const SapphireError&)> callback);
+    static void set_error_callback(std::function<void(const CorinError&)> callback);
     static void enable_stack_traces(bool enable = true);
     static void enable_suggestions(bool enable = true);
     
     // Error handling
-    static void handle_error(const SapphireError& error);
+    static void handle_error(const CorinError& error);
     static void report_error(const std::string& message, const std::string& file = "", size_t line = 0);
     
     // Stack trace capture
@@ -226,7 +226,7 @@ public:
 };
 
 // Helper macros for error handling
-#define SAPPHIRE_TRY(expr) \
+#define CORIN_TRY(expr) \
     do { \
         auto result = (expr); \
         if (result.is_error()) { \
@@ -234,26 +234,26 @@ public:
         } \
     } while(0)
 
-#define SAPPHIRE_THROW(error_type, message) \
+#define CORIN_THROW(error_type, message) \
     throw error_type(message, ErrorHandler::capture_stack_trace())
 
 // Factory functions
 std::unique_ptr<StackTrace> create_stack_trace();
-std::unique_ptr<SapphireError> create_error(const std::string& message, const std::string& code = "");
+std::unique_ptr<CorinError> create_error(const std::string& message, const std::string& code = "");
 
 } // namespace Error
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API
 extern "C" {
     // Error handling
-    void sapphire_error_set_callback(void (*callback)(const char* message));
-    void sapphire_error_enable_stack_traces(bool enable);
-    void sapphire_error_report(const char* message, const char* file, size_t line);
+    void corin_error_set_callback(void (*callback)(const char* message));
+    void corin_error_enable_stack_traces(bool enable);
+    void corin_error_report(const char* message, const char* file, size_t line);
     
     // Stack trace
-    void sapphire_stack_push_frame(const char* function, const char* file, size_t line);
-    void sapphire_stack_pop_frame();
-    const char* sapphire_stack_get_trace();
+    void corin_stack_push_frame(const char* function, const char* file, size_t line);
+    void corin_stack_pop_frame();
+    const char* corin_stack_get_trace();
 }

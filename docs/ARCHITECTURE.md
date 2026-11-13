@@ -1,9 +1,9 @@
-# Sapphire Architecture
+# Corin Architecture
 
 ## Compilation Pipeline
 
 ```
-Source Code (.spp)
+Source Code (.corin)
     ↓
 [Lexer] → Tokens
     ↓
@@ -49,7 +49,7 @@ Executable
 - **Concurrent marking** to reduce pause times
 
 ### Optional Manual Control
-```sapphire
+```corin
 # Automatic (default)
 let data = allocate_large_buffer()
 
@@ -67,7 +67,7 @@ unsafe:
 ## Type System
 
 ### Static + Dynamic
-```sapphire
+```corin
 # Static typing (checked at compile time)
 let x: int = 42
 
@@ -79,7 +79,7 @@ let z: dyn = get_dynamic_value()
 ```
 
 ### Null Safety
-```sapphire
+```corin
 # Non-nullable by default
 let name: str = "Alice"  # Cannot be null
 
@@ -109,7 +109,7 @@ if optional_name:
 ## Interoperability
 
 ### C/C++ FFI
-```sapphire
+```corin
 extern "C":
     fn printf(format: *const char, ...) -> int
 
@@ -118,7 +118,7 @@ fn main():
 ```
 
 ### Python Integration
-```sapphire
+```corin
 import python:
     import numpy as np
     

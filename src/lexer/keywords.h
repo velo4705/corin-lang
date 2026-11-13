@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_KEYWORDS_H
-#define SAPPHIRE_KEYWORDS_H
+#ifndef CORIN_KEYWORDS_H
+#define CORIN_KEYWORDS_H
 
 #include "token.h"
 #include <map>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 
 static const std::map<std::string, TokenType> KEYWORDS = {
     {"let", TokenType::LET},
@@ -60,6 +60,6 @@ static const std::map<std::string, TokenType> KEYWORDS = {
 
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_KEYWORDS_H
+#endif // CORIN_KEYWORDS_H

@@ -8,7 +8,7 @@
 #include <pthread.h>
 #endif
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 // Global GC instance
@@ -313,7 +313,7 @@ void shutdown_gc() {
 }
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
@@ -321,35 +321,35 @@ void shutdown_gc() {
 
 extern "C" {
 
-void sapphire_gc_collect() {
-    if (sapphire::runtime::global_gc) {
-        sapphire::runtime::global_gc->collect();
+void corin_gc_collect() {
+    if (corin::runtime::global_gc) {
+        corin::runtime::global_gc->collect();
     }
 }
 
-size_t sapphire_gc_collections() {
-    if (sapphire::runtime::global_gc) {
-        return sapphire::runtime::global_gc->stats().collections;
-    }
-    return 0;
-}
-
-size_t sapphire_gc_last_pause_us() {
-    if (sapphire::runtime::global_gc) {
-        return sapphire::runtime::global_gc->stats().last_pause_us;
+size_t corin_gc_collections() {
+    if (corin::runtime::global_gc) {
+        return corin::runtime::global_gc->stats().collections;
     }
     return 0;
 }
 
-void sapphire_gc_add_root(void* ptr) {
-    if (sapphire::runtime::global_gc) {
-        sapphire::runtime::global_gc->add_root(ptr);
+size_t corin_gc_last_pause_us() {
+    if (corin::runtime::global_gc) {
+        return corin::runtime::global_gc->stats().last_pause_us;
+    }
+    return 0;
+}
+
+void corin_gc_add_root(void* ptr) {
+    if (corin::runtime::global_gc) {
+        corin::runtime::global_gc->add_root(ptr);
     }
 }
 
-void sapphire_gc_remove_root(void* ptr) {
-    if (sapphire::runtime::global_gc) {
-        sapphire::runtime::global_gc->remove_root(ptr);
+void corin_gc_remove_root(void* ptr) {
+    if (corin::runtime::global_gc) {
+        corin::runtime::global_gc->remove_root(ptr);
     }
 }
 

@@ -1,6 +1,6 @@
 # JIT Compilation
 
-Sapphire features a sophisticated JIT (Just-In-Time) compiler that optimizes code at runtime for maximum performance.
+Corin features a sophisticated JIT (Just-In-Time) compiler that optimizes code at runtime for maximum performance.
 
 ## Overview
 
@@ -15,7 +15,7 @@ The JIT compiler:
 
 ### Function-Level JIT
 
-```sapphire
+```corin
 #[jit]
 fn fibonacci(n: i64) -> i64 {
     if n <= 1 {
@@ -27,7 +27,7 @@ fn fibonacci(n: i64) -> i64 {
 
 ### With Optimization Hints
 
-```sapphire
+```corin
 #[jit(inline_threshold: 100, unroll_loops: true)]
 fn matrix_multiply(a: Matrix, b: Matrix) -> Matrix {
     // JIT will inline small functions and unroll loops
@@ -36,13 +36,13 @@ fn matrix_multiply(a: Matrix, b: Matrix) -> Matrix {
 
 ## Tiered Compilation
 
-Sapphire uses a multi-tier compilation strategy:
+Corin uses a multi-tier compilation strategy:
 
 1. **Tier 0**: Interpreter (fast startup)
 2. **Tier 1**: Quick JIT (basic optimizations)
 3. **Tier 2**: Optimizing JIT (aggressive optimizations)
 
-```sapphire
+```corin
 #[tiered_compilation]
 fn process_data(data: Vec<i64>) -> i64 {
     // Starts interpreted
@@ -60,7 +60,7 @@ fn process_data(data: Vec<i64>) -> i64 {
 
 The JIT collects runtime statistics to guide optimization.
 
-```sapphire
+```corin
 #[pgo]
 fn search(arr: Vec<i64>, target: i64) -> Option<usize> {
     // JIT tracks:
@@ -80,7 +80,7 @@ fn search(arr: Vec<i64>, target: i64) -> Option<usize> {
 
 The JIT adapts to runtime behavior.
 
-```sapphire
+```corin
 #[adaptive]
 fn sort(arr: Vec<i64>) -> Vec<i64> {
     // JIT chooses algorithm based on:
@@ -102,7 +102,7 @@ fn sort(arr: Vec<i64>) -> Vec<i64> {
 
 The JIT makes assumptions and optimizes speculatively.
 
-```sapphire
+```corin
 #[speculative]
 fn polymorphic_call(obj: Any) -> i64 {
     // JIT assumes obj is usually the same type
@@ -116,7 +116,7 @@ fn polymorphic_call(obj: Any) -> i64 {
 
 Optimize dynamic dispatch with inline caching.
 
-```sapphire
+```corin
 #[inline_cache]
 fn make_sound(animal: Animal) {
     // First call: polymorphic dispatch (slow)
@@ -129,7 +129,7 @@ fn make_sound(animal: Animal) {
 
 ### Vectorization
 
-```sapphire
+```corin
 #[jit(vectorize: true)]
 fn sum_array(arr: Vec<f64>) -> f64 {
     let sum = 0.0
@@ -143,7 +143,7 @@ fn sum_array(arr: Vec<f64>) -> f64 {
 
 ### Loop Unrolling
 
-```sapphire
+```corin
 #[jit(unroll: 4)]
 fn process_elements(arr: Vec<i64>) {
     // JIT unrolls loop 4 times
@@ -157,7 +157,7 @@ fn process_elements(arr: Vec<i64>) {
 
 The JIT determines if objects escape their scope.
 
-```sapphire
+```corin
 #[jit(escape_analysis: true)]
 fn create_point(x: f64, y: f64) -> Point {
     // JIT allocates on stack if Point doesn't escape
@@ -170,7 +170,7 @@ fn create_point(x: f64, y: f64) -> Point {
 
 The JIT can deoptimize when assumptions are violated.
 
-```sapphire
+```corin
 #[jit(deopt_on_type_change: true)]
 fn process_value(value: Any) -> i64 {
     // Optimized for specific type
@@ -183,7 +183,7 @@ fn process_value(value: Any) -> i64 {
 
 Provide hints for branch prediction.
 
-```sapphire
+```corin
 fn predict_branch(condition: bool) {
     if likely!(condition) {
         // Hot path - JIT optimizes this
@@ -207,7 +207,7 @@ fn error_handling(result: Result) {
 
 Generate and compile code at runtime.
 
-```sapphire
+```corin
 fn create_specialized_function(operation: String) -> fn(i64, i64) -> i64 {
     let code = match operation {
         "add" => "fn(a, b) { return a + b }",
@@ -227,7 +227,7 @@ let result = add_fn(5, 3)  // 8
 
 ### Manual Control
 
-```sapphire
+```corin
 fn manual_jit_example() {
     // Disable JIT
     jit::disable()
@@ -248,7 +248,7 @@ fn manual_jit_example() {
 
 ### JIT Statistics
 
-```sapphire
+```corin
 fn print_jit_stats() {
     let stats = jit::get_stats()
     print(f"Compiled functions: {stats.compiled_count}")
@@ -260,7 +260,7 @@ fn print_jit_stats() {
 
 ## Optimization Levels
 
-```sapphire
+```corin
 // No optimization
 #[jit(opt_level: 0)]
 fn debug_function() { }
@@ -282,7 +282,7 @@ fn critical_function() { }
 
 Compare JIT vs interpreted performance.
 
-```sapphire
+```corin
 fn benchmark_jit() {
     let data = Vec::range(0, 1000000)
     
@@ -316,7 +316,7 @@ fn benchmark_jit() {
 
 ### Write JIT-Friendly Code
 
-```sapphire
+```corin
 // Good - monomorphic
 fn process_int(x: i64) -> i64 {
     return x * 2
@@ -330,7 +330,7 @@ fn process_any(x: Any) -> Any {
 
 ### Avoid Type Instability
 
-```sapphire
+```corin
 // Good - stable types
 fn stable_types() {
     let x: i64 = 0
@@ -354,7 +354,7 @@ fn unstable_types() {
 
 ### Keep Functions Small
 
-```sapphire
+```corin
 // Good - small, inlinable
 fn add(a: i64, b: i64) -> i64 {
     return a + b
@@ -371,24 +371,24 @@ fn huge_function() {
 ### Trace Compilation
 
 ```bash
-sapp --trace-jit file.spp
+corin --trace-jit file.corin
 ```
 
 ### Dump Generated Code
 
 ```bash
-sapp --dump-jit-code file.spp
+corin --dump-jit-code file.corin
 ```
 
 ### Profile JIT
 
 ```bash
-sapp --profile-jit file.spp
+corin --profile-jit file.corin
 ```
 
 ## Architecture
 
-Sapphire's JIT uses:
+Corin's JIT uses:
 - **LLVM** for code generation
 - **Tiered compilation** for fast startup
 - **Profile-guided optimization** for adaptive behavior
@@ -406,7 +406,7 @@ Typical speedups:
 
 ## Examples
 
-See `examples/jit_compilation.spp` for complete examples.
+See `examples/jit_compilation.corin` for complete examples.
 
 ## Further Reading
 

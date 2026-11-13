@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace Security {
 
 // ===== Phase 1: Vulnerability Scanner =====
@@ -221,7 +221,7 @@ private:
 };
 
 } // namespace Security
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

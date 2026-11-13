@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sapphire build script
+# Corin build script
 
 set -e
 
@@ -9,7 +9,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}Building Sapphire...${NC}"
+echo -e "${GREEN}Building Corin...${NC}"
 
 # Create build directory
 mkdir -p build
@@ -31,4 +31,4 @@ echo -e "${YELLOW}Running tests...${NC}"
 ctest --output-on-failure
 
 echo -e "${GREEN}✓ Build complete!${NC}"
-echo -e "Binary: ${PWD}/sapphire"
+echo -e "Binary: ${PWD}/corin"

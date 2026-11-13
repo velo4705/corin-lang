@@ -1,5 +1,5 @@
-// ─── Sapphire syntax mode for CodeMirror ────────────────────────────────────
-CodeMirror.defineSimpleMode('sapphire', {
+// ─── Corin syntax mode for CodeMirror ────────────────────────────────────
+CodeMirror.defineSimpleMode('corin', {
     start: [
         { regex: /#.*/, token: 'comment' },
         { regex: /"(?:[^\\]|\\.)*?"/, token: 'string' },
@@ -19,16 +19,16 @@ CodeMirror.defineSimpleMode('sapphire', {
 // ─── Example programs ────────────────────────────────────────────────────────
 const EXAMPLES = {
     hello: {
-        file: 'hello.spp',
-        code: `# Hello World in Sapphire
-print("Hello, Sapphire! 💎")
+        file: 'hello.corin',
+        code: `# Hello World in Corin
+print("Hello, Corin! 💎")
 print("Welcome to the playground.")`,
-        output: `Hello, Sapphire! 💎
+        output: `Hello, Corin! 💎
 Welcome to the playground.`
     },
 
     fibonacci: {
-        file: 'fibonacci.spp',
+        file: 'fibonacci.corin',
         code: `fn fibonacci(n):
     if n <= 1:
         return n
@@ -51,7 +51,7 @@ for i in range(10):
     },
 
     functions: {
-        file: 'functions.spp',
+        file: 'functions.corin',
         code: `fn greet(name):
     return "Hello, " + name + "!"
 
@@ -63,16 +63,16 @@ fn factorial(n):
         return 1
     return n * factorial(n - 1)
 
-print(greet("Sapphire"))
+print(greet("Corin"))
 print(add(3, 7))
 print(factorial(10))`,
-        output: `Hello, Sapphire!
+        output: `Hello, Corin!
 10
 3628800`
     },
 
     loops: {
-        file: 'loops.spp',
+        file: 'loops.corin',
         code: `# Range loop
 for i in range(5):
     print(i)
@@ -91,7 +91,7 @@ print(n)`,
     },
 
     pattern: {
-        file: 'pattern_matching.spp',
+        file: 'pattern_matching.corin',
         code: `fn classify(n):
     return match n:
         0 => "zero"
@@ -110,7 +110,7 @@ other`
     },
 
     classes: {
-        file: 'classes.spp',
+        file: 'classes.corin',
         code: `class Animal:
     fn __init__(self, name):
         self.name = name
@@ -140,7 +140,7 @@ Whiskers says: Meow!`
     },
 
     errors: {
-        file: 'error_handling.spp',
+        file: 'error_handling.corin',
         code: `# Basic try-catch
 try:
     throw "Division by zero"
@@ -170,7 +170,7 @@ Outer catch`
     },
 
     hashmap: {
-        file: 'hashmap.spp',
+        file: 'hashmap.corin',
         code: `import HashMap from "stdlib/collections"
 
 scores = HashMap.new()
@@ -191,7 +191,7 @@ false
     },
 
     decorators: {
-        file: 'decorators.spp',
+        file: 'decorators.corin',
         code: `@cache
 fn fib(n):
     if n <= 1:
@@ -213,7 +213,7 @@ Function 'compute' took 0.12ms`
     },
 
     arrays: {
-        file: 'arrays.spp',
+        file: 'arrays.corin',
         code: `arr = [1, 2, 3, 4, 5]
 print(arr)
 print(arr[0])
@@ -240,7 +240,7 @@ print(matrix[1][1])`,
     },
 
     oop: {
-        file: 'oop.spp',
+        file: 'oop.corin',
         code: `class Shape:
     fn area(self):
         return 0
@@ -270,7 +270,7 @@ print(circ.area())`,
     },
 
     sorting: {
-        file: 'sorting.spp',
+        file: 'sorting.corin',
         code: `fn sort(arr):
     i = 0
     while i < len(arr):
@@ -294,7 +294,7 @@ print(nums[5])`,
     },
 
     generics: {
-        file: 'generics.spp',
+        file: 'generics.corin',
         code: `fn identity[T](x):
     return x
 
@@ -313,7 +313,7 @@ hello
     },
 
     traits: {
-        file: 'traits.spp',
+        file: 'traits.corin',
         code: `trait Describable:
     fn describe(self) -> String
 
@@ -335,7 +335,7 @@ print_description(alice)`,
     },
 
     channels: {
-        file: 'channels.spp',
+        file: 'channels.corin',
         code: `ch = Channel[int]()
 fn producer():
     ch.send(10)
@@ -356,7 +356,7 @@ done`
     },
 
     fizzbuzz: {
-        file: 'fizzbuzz.spp',
+        file: 'fizzbuzz.corin',
         code: `fn fizzbuzz(n):
     if n % 15 == 0:
         return "FizzBuzz"
@@ -408,7 +408,7 @@ function initEditor(code) {
         return;
     }
     editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-        mode: 'sapphire',
+        mode: 'corin',
         theme: 'dracula',
         lineNumbers: true,
         matchBrackets: true,
@@ -499,7 +499,7 @@ function simulateGeneric(code) {
     }
 
     return {
-        output: '[Playground] Custom code requires a local Sapphire install.\nThis playground simulates output for the built-in examples.\n\nInstall Sapphire:\n  curl -fsSL https://raw.githubusercontent.com/velo4705/sapphire-lang/main/install.sh | bash',
+        output: '[Playground] Custom code requires a local Corin install.\nThis playground simulates output for the built-in examples.\n\nInstall Corin:\n  curl -fsSL https://raw.githubusercontent.com/velo4705/corin-lang/main/install.sh | bash',
         error: false
     };
 }
@@ -541,7 +541,7 @@ function escapeHtml(s) {
 // ─── Event listeners ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     initEditor('');
-    document.getElementById('currentFile').textContent = 'main.spp';
+    document.getElementById('currentFile').textContent = 'main.corin';
 
     // Keyboard navigation for example list
     const exampleList = document.getElementById('exampleList');
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const code = editor.getValue();
         const url = window.location.origin + window.location.pathname + '?code=' + encodeURIComponent(code);
         if (navigator.share) {
-            navigator.share({ title: 'Sapphire Playground', text: code, url: url });
+            navigator.share({ title: 'Corin Playground', text: code, url: url });
         } else {
             navigator.clipboard.writeText(url).then(() => {
                 const btn = document.getElementById('btnShare');

@@ -1,7 +1,7 @@
 #include "window.h"
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 static bool sdl_initialized = false;
@@ -201,69 +201,69 @@ void Window::set_title(const std::string& title) {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementations
 extern "C" {
-    bool sapphire_gui_init() {
-        return sapphire::stdlib::init_gui();
+    bool corin_gui_init() {
+        return corin::stdlib::init_gui();
     }
     
-    void sapphire_gui_quit() {
-        sapphire::stdlib::quit_gui();
+    void corin_gui_quit() {
+        corin::stdlib::quit_gui();
     }
     
-    void* sapphire_window_create(const char* title, int width, int height) {
+    void* corin_window_create(const char* title, int width, int height) {
         try {
-            return new sapphire::stdlib::Window(title, width, height);
+            return new corin::stdlib::Window(title, width, height);
         } catch (...) {
             return nullptr;
         }
     }
     
-    void sapphire_window_destroy(void* window) {
-        delete static_cast<sapphire::stdlib::Window*>(window);
+    void corin_window_destroy(void* window) {
+        delete static_cast<corin::stdlib::Window*>(window);
     }
     
-    void sapphire_window_show(void* window) {
-        static_cast<sapphire::stdlib::Window*>(window)->show();
+    void corin_window_show(void* window) {
+        static_cast<corin::stdlib::Window*>(window)->show();
     }
     
-    void sapphire_window_close(void* window) {
-        static_cast<sapphire::stdlib::Window*>(window)->close();
+    void corin_window_close(void* window) {
+        static_cast<corin::stdlib::Window*>(window)->close();
     }
     
-    bool sapphire_window_is_open(void* window) {
-        return static_cast<sapphire::stdlib::Window*>(window)->is_open();
+    bool corin_window_is_open(void* window) {
+        return static_cast<corin::stdlib::Window*>(window)->is_open();
     }
     
-    bool sapphire_window_poll_events(void* window) {
-        return static_cast<sapphire::stdlib::Window*>(window)->poll_events();
+    bool corin_window_poll_events(void* window) {
+        return static_cast<corin::stdlib::Window*>(window)->poll_events();
     }
     
-    void sapphire_window_clear(void* window, uint8_t r, uint8_t g, uint8_t b) {
-        static_cast<sapphire::stdlib::Window*>(window)->clear(r, g, b);
+    void corin_window_clear(void* window, uint8_t r, uint8_t g, uint8_t b) {
+        static_cast<corin::stdlib::Window*>(window)->clear(r, g, b);
     }
     
-    void sapphire_window_present(void* window) {
-        static_cast<sapphire::stdlib::Window*>(window)->present();
+    void corin_window_present(void* window) {
+        static_cast<corin::stdlib::Window*>(window)->present();
     }
     
-    void sapphire_window_draw_text(void* window, const char* text, int x, int y, int size,
+    void corin_window_draw_text(void* window, const char* text, int x, int y, int size,
                                    uint8_t r, uint8_t g, uint8_t b) {
-        static_cast<sapphire::stdlib::Window*>(window)->draw_text(text, x, y, size, r, g, b);
+        static_cast<corin::stdlib::Window*>(window)->draw_text(text, x, y, size, r, g, b);
     }
     
-    void sapphire_window_fill_rect(void* window, int x, int y, int w, int h,
+    void corin_window_fill_rect(void* window, int x, int y, int w, int h,
                                    uint8_t r, uint8_t g, uint8_t b) {
-        static_cast<sapphire::stdlib::Window*>(window)->fill_rect(x, y, w, h, r, g, b);
+        static_cast<corin::stdlib::Window*>(window)->fill_rect(x, y, w, h, r, g, b);
     }
     
-    bool sapphire_window_is_key_down(void* window, int keycode) {
-        return static_cast<sapphire::stdlib::Window*>(window)->is_key_down(keycode);
+    bool corin_window_is_key_down(void* window, int keycode) {
+        return static_cast<corin::stdlib::Window*>(window)->is_key_down(keycode);
     }
     
-    bool sapphire_window_should_close(void* window) {
-        return !static_cast<sapphire::stdlib::Window*>(window)->is_open();
+    bool corin_window_should_close(void* window) {
+        return !static_cast<corin::stdlib::Window*>(window)->is_open();
     }
 }

@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STDLIB_STRING_H
-#define SAPPHIRE_STDLIB_STRING_H
+#ifndef CORIN_STDLIB_STRING_H
+#define CORIN_STDLIB_STRING_H
 
 #include <cstddef>
 #include <cstring>
 #include <vector>
 #include <string>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -110,25 +110,25 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API for use from generated code
 extern "C" {
     // Constructors
-    void* sapphire_string_new();
-    void* sapphire_string_from_cstr(const char* str);
-    void sapphire_string_delete(void* str);
+    void* corin_string_new();
+    void* corin_string_from_cstr(const char* str);
+    void corin_string_delete(void* str);
     
     // Properties
-    size_t sapphire_string_length(void* str);
-    const char* sapphire_string_cstr(void* str);
+    size_t corin_string_length(void* str);
+    const char* corin_string_cstr(void* str);
     
     // Operations
-    void* sapphire_string_concat(void* str1, void* str2);
-    void* sapphire_string_substring(void* str, size_t start, size_t length);
-    bool sapphire_string_contains(void* str, void* substr);
-    void* sapphire_string_to_upper(void* str);
-    void* sapphire_string_to_lower(void* str);
+    void* corin_string_concat(void* str1, void* str2);
+    void* corin_string_substring(void* str, size_t start, size_t length);
+    bool corin_string_contains(void* str, void* substr);
+    void* corin_string_to_upper(void* str);
+    void* corin_string_to_lower(void* str);
 }
 
-#endif // SAPPHIRE_STDLIB_STRING_H
+#endif // CORIN_STDLIB_STRING_H

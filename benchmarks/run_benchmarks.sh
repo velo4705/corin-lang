@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Sapphire Performance Benchmark Suite
-# Compares Sapphire performance against C
+# Corin Performance Benchmark Suite
+# Compares Corin performance against C
 
 set -e
 
@@ -12,7 +12,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║         SAPPHIRE 1.0-beta.6 PERFORMANCE BENCHMARKS           ║"
+echo "║         CORIN 1.0-beta.6 PERFORMANCE BENCHMARKS           ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -30,25 +30,25 @@ run_benchmark() {
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
     
-    # Compile Sapphire to LLVM IR
-    echo "  [1/5] Compiling Sapphire to LLVM IR..."
-    ./sapp compile "$spp_file" > "benchmarks/output/${name}.ll" 2>&1
+    # Compile Corin to LLVM IR
+    echo "  [1/5] Compiling Corin to LLVM IR..."
+    ./corin compile "$spp_file" > "benchmarks/output/${name}.ll" 2>&1
     
     # Compile LLVM IR to object file
     echo "  [2/5] Compiling LLVM IR to native code..."
     llc "benchmarks/output/${name}.ll" -o "benchmarks/output/${name}.s" -O3
-    clang "benchmarks/output/${name}.s" -o "benchmarks/output/${name}_sapp" -O3
+    clang "benchmarks/output/${name}.s" -o "benchmarks/output/${name}_corin" -O3
     
     # Compile C version
     echo "  [3/5] Compiling C version..."
     gcc "$c_file" -o "benchmarks/output/${name}_c" -O3 -lm
     
-    # Run Sapphire version multiple times
-    echo "  [4/5] Running Sapphire version (10 iterations)..."
+    # Run Corin version multiple times
+    echo "  [4/5] Running Corin version (10 iterations)..."
     local sapp_total=0
     for i in {1..10}; do
         local start=$(date +%s%N)
-        "benchmarks/output/${name}_sapp" > /dev/null
+        "benchmarks/output/${name}_corin" > /dev/null
         local end=$(date +%s%N)
         local elapsed=$((end - start))
         sapp_total=$((sapp_total + elapsed))
@@ -75,7 +75,7 @@ run_benchmark() {
     
     echo ""
     echo -e "${GREEN}Results:${NC}"
-    echo "  Sapphire: ${sapp_ms} ms"
+    echo "  Corin: ${sapp_ms} ms"
     echo "  C:        ${c_ms} ms"
     echo "  Ratio:    ${ratio}% of C speed"
     
@@ -90,13 +90,13 @@ run_benchmark() {
 }
 
 # Run benchmarks
-run_benchmark "arithmetic" "benchmarks/bench_arithmetic.spp" "benchmarks/bench_arithmetic.c"
-run_benchmark "memory" "benchmarks/bench_memory.spp" "benchmarks/bench_memory.c"
+run_benchmark "arithmetic" "benchmarks/bench_arithmetic.corin" "benchmarks/bench_arithmetic.c"
+run_benchmark "memory" "benchmarks/bench_memory.corin" "benchmarks/bench_memory.c"
 
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║                    BENCHMARK COMPLETE                        ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
-echo "Note: Benchmarks compare LLVM-optimized Sapphire (-O3) vs GCC C (-O3)"
-echo "Results show Sapphire's compiled performance, not interpreter mode."
+echo "Note: Benchmarks compare LLVM-optimized Corin (-O3) vs GCC C (-O3)"
+echo "Results show Corin's compiled performance, not interpreter mode."
 echo ""

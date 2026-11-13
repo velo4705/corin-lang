@@ -1,8 +1,8 @@
-# Sapphire Type Inference
+# Corin Type Inference
 
 ## Overview
 
-Sapphire uses a **Hindley-Milner** style type inference system that automatically deduces types without requiring explicit type annotations.
+Corin uses a **Hindley-Milner** style type inference system that automatically deduces types without requiring explicit type annotations.
 
 ## How It Works
 
@@ -10,7 +10,7 @@ Sapphire uses a **Hindley-Milner** style type inference system that automaticall
 
 When the compiler encounters an expression without a known type, it creates a **type variable** (like `T0`, `T1`, etc.):
 
-```sapphire
+```corin
 let x = 42        # x: T0
 let y = x + 10    # y: T1
 ```
@@ -19,7 +19,7 @@ let y = x + 10    # y: T1
 
 The compiler generates **constraints** based on how values are used:
 
-```sapphire
+```corin
 let x = 42        # Constraint: T0 = int
 let y = x + 10    # Constraints: T0 = T1, T1 = int
 ```
@@ -28,7 +28,7 @@ let y = x + 10    # Constraints: T0 = T1, T1 = int
 
 The **unification algorithm** solves these constraints to find the most general types:
 
-```sapphire
+```corin
 # After unification:
 # T0 = int
 # T1 = int
@@ -39,7 +39,7 @@ The **unification algorithm** solves these constraints to find the most general 
 
 ### Basic Inference
 
-```sapphire
+```corin
 # Literals
 let x = 42              # x: int
 let y = 3.14            # y: float
@@ -53,7 +53,7 @@ let ratio = y / 2.0     # ratio: float
 
 ### List Inference
 
-```sapphire
+```corin
 # Homogeneous lists
 let numbers = [1, 2, 3]           # numbers: List<int>
 let names = ["Alice", "Bob"]      # names: List<string>
@@ -64,7 +64,7 @@ let empty = []                    # empty: List<T>
 
 ### Function Inference
 
-```sapphire
+```corin
 # Function without type annotations
 fn double(x):
     return x * 2
@@ -77,7 +77,7 @@ let result = double(21)  # result: int
 
 ### Generic Functions
 
-```sapphire
+```corin
 # Identity function
 fn identity(x):
     return x
@@ -90,7 +90,7 @@ let b = identity("hi")    # b: string
 
 ### Complex Inference
 
-```sapphire
+```corin
 # Map function
 fn map(f, list):
     let result = []
@@ -110,7 +110,7 @@ let squared = map(square, [1, 2, 3])  # squared: List<int>
 
 ### Equality Constraints
 
-```sapphire
+```corin
 let x = 42
 let y = x
 
@@ -120,7 +120,7 @@ let y = x
 
 ### Function Application
 
-```sapphire
+```corin
 fn add(a, b):
     return a + b
 
@@ -136,7 +136,7 @@ let result = add(10, 20)
 
 ### List Operations
 
-```sapphire
+```corin
 let numbers = [1, 2, 3]
 let first = numbers[0]
 
@@ -162,7 +162,7 @@ unify(int, string) = ERROR              # Type mismatch
 
 Prevents infinite types:
 
-```sapphire
+```corin
 # This would create: T = List<T> (infinite!)
 # The occurs check prevents this
 ```
@@ -223,7 +223,7 @@ x : T ∈ Γ
 
 ### When to Use Explicit Types
 
-```sapphire
+```corin
 # Good: Explicit types for public APIs
 fn process_data(data: List<int>) -> Result<string, Error>:
     # ...
@@ -237,7 +237,7 @@ let empty: List<int> = []
 
 ### When to Rely on Inference
 
-```sapphire
+```corin
 # Good: Local variables with obvious types
 let count = 42
 let name = "Alice"
@@ -267,9 +267,9 @@ The constraint solver uses:
 
 ### Polymorphism
 
-Sapphire supports **let-polymorphism**:
+Corin supports **let-polymorphism**:
 
-```sapphire
+```corin
 fn identity(x):
     return x
 

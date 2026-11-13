@@ -1,11 +1,11 @@
-# Git Authentication Setup for Sapphire
+# Git Authentication Setup for Corin
 
 ## Problem
 
 When cloning with HTTPS, you get:
 ```
 remote: Invalid username or token. Password authentication is not supported for Git operations.
-fatal: Authentication failed for 'https://github.com/velo4705/sapphire-lang.git/'
+fatal: Authentication failed for 'https://github.com/velo4705/corin-lang.git/'
 ```
 
 ## Solution 1: Use SSH (Recommended)
@@ -48,8 +48,8 @@ Then:
 
 ```bash
 # Use SSH URL instead of HTTPS
-git clone git@github.com:velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone git@github.com:velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
@@ -58,8 +58,8 @@ make quick
 If you already cloned with HTTPS:
 
 ```bash
-cd sapphire-lang
-git remote set-url origin git@github.com:velo4705/sapphire-lang.git
+cd corin-lang
+git remote set-url origin git@github.com:velo4705/corin-lang.git
 ```
 
 ## Solution 2: Use Personal Access Token (PAT)
@@ -71,7 +71,7 @@ git remote set-url origin git@github.com:velo4705/sapphire-lang.git
 3. Click "Developer settings" (bottom left)
 4. Click "Personal access tokens" → "Tokens (classic)"
 5. Click "Generate new token" → "Generate new token (classic)"
-6. Give it a name (e.g., "Sapphire Development")
+6. Give it a name (e.g., "Corin Development")
 7. Select scopes: `repo` (full control of private repositories)
 8. Click "Generate token"
 9. **Copy the token immediately** (you won't see it again!)
@@ -80,7 +80,7 @@ git remote set-url origin git@github.com:velo4705/sapphire-lang.git
 
 ```bash
 # Use token as password
-git clone https://github.com/velo4705/sapphire-lang.git
+git clone https://github.com/velo4705/corin-lang.git
 # Username: velo4705
 # Password: <paste your token>
 ```
@@ -136,8 +136,8 @@ gh auth login
 ### Step 3: Clone
 
 ```bash
-gh repo clone velo4705/sapphire-lang
-cd sapphire-lang
+gh repo clone velo4705/corin-lang
+cd corin-lang
 make quick
 ```
 
@@ -154,8 +154,8 @@ cat ~/.ssh/id_ed25519.pub
 # Add this to GitHub: Settings → SSH and GPG keys
 
 # 3. Clone
-git clone git@github.com:velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone git@github.com:velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
@@ -165,7 +165,7 @@ make quick
 # 1. Create token at: https://github.com/settings/tokens
 
 # 2. Clone
-git clone https://github.com/velo4705/sapphire-lang.git
+git clone https://github.com/velo4705/corin-lang.git
 # Username: velo4705
 # Password: <your token>
 
@@ -173,7 +173,7 @@ git clone https://github.com/velo4705/sapphire-lang.git
 git config --global credential.helper cache
 
 # 4. Build
-cd sapphire-lang
+cd corin-lang
 make quick
 ```
 
@@ -211,10 +211,10 @@ git pull
 git remote -v
 
 # Update to SSH
-git remote set-url origin git@github.com:velo4705/sapphire-lang.git
+git remote set-url origin git@github.com:velo4705/corin-lang.git
 
 # Or update to HTTPS
-git remote set-url origin https://github.com/velo4705/sapphire-lang.git
+git remote set-url origin https://github.com/velo4705/corin-lang.git
 ```
 
 ## Update README.md
@@ -227,16 +227,16 @@ The README should show both options:
 ### Option 1: SSH (Recommended)
 
 ```bash
-git clone git@github.com:velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone git@github.com:velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 
 ### Option 2: HTTPS
 
 ```bash
-git clone https://github.com/velo4705/sapphire-lang.git
-cd sapphire-lang
+git clone https://github.com/velo4705/corin-lang.git
+cd corin-lang
 make quick
 ```
 

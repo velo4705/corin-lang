@@ -8,7 +8,7 @@
 // For now, we'll use a simple ASCII-based renderer for basic functionality
 // In a full implementation, this would use Cairo, matplotlib, or similar
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace Plotting {
 
@@ -576,23 +576,23 @@ Color ColorPalette::get_color(size_t index, const std::vector<Color>& palette) {
 
 } // namespace Plotting
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 // C API implementation
 extern "C" {
-    using namespace sapphire::stdlib::Plotting;
+    using namespace corin::stdlib::Plotting;
     
     // Global storage for plots to manage lifetime
     static std::vector<std::shared_ptr<Plot>> plot_storage;
     
-    void* sapphire_plot_create(int width, int height, int chart_type) {
+    void* corin_plot_create(int width, int height, int chart_type) {
         ChartType type = static_cast<ChartType>(chart_type);
         auto plot = std::make_shared<Plot>(width, height, type);
         plot_storage.push_back(plot);
         return plot.get();
     }
     
-    void sapphire_plot_destroy(void* plot) {
+    void corin_plot_destroy(void* plot) {
         // Remove from storage (simplified - in production would need better management)
         Plot* p = static_cast<Plot*>(plot);
         plot_storage.erase(
@@ -601,7 +601,7 @@ extern "C" {
             plot_storage.end());
     }
     
-    void sapphire_plot_add_line(void* plot, double* x_data, double* y_data, 
+    void corin_plot_add_line(void* plot, double* x_data, double* y_data, 
                                int data_size, const char* label, 
                                double r, double g, double b) {
         Plot* p = static_cast<Plot*>(plot);
@@ -610,7 +610,7 @@ extern "C" {
         p->add_line(x, y, label ? label : "", Color(r, g, b));
     }
     
-    void sapphire_plot_add_scatter(void* plot, double* x_data, double* y_data,
+    void corin_plot_add_scatter(void* plot, double* x_data, double* y_data,
                                   int data_size, const char* label,
                                   double r, double g, double b, int marker_style) {
         Plot* p = static_cast<Plot*>(plot);
@@ -620,7 +620,7 @@ extern "C" {
                       static_cast<MarkerStyle>(marker_style));
     }
     
-    void sapphire_plot_add_histogram(void* plot, double* data, int data_size,
+    void corin_plot_add_histogram(void* plot, double* data, int data_size,
                                     int bins, const char* label,
                                     double r, double g, double b) {
         Plot* p = static_cast<Plot*>(plot);
@@ -628,39 +628,39 @@ extern "C" {
         p->add_histogram(values, bins, label ? label : "", Color(r, g, b));
     }
     
-    void sapphire_plot_set_title(void* plot, const char* title) {
+    void corin_plot_set_title(void* plot, const char* title) {
         Plot* p = static_cast<Plot*>(plot);
         p->set_title(title ? title : "");
     }
     
-    void sapphire_plot_set_xlabel(void* plot, const char* label) {
+    void corin_plot_set_xlabel(void* plot, const char* label) {
         Plot* p = static_cast<Plot*>(plot);
         p->set_xlabel(label ? label : "");
     }
     
-    void sapphire_plot_set_ylabel(void* plot, const char* label) {
+    void corin_plot_set_ylabel(void* plot, const char* label) {
         Plot* p = static_cast<Plot*>(plot);
         p->set_ylabel(label ? label : "");
     }
     
-    void sapphire_plot_show(void* plot) {
+    void corin_plot_show(void* plot) {
         Plot* p = static_cast<Plot*>(plot);
         p->show();
     }
     
-    void sapphire_plot_save_svg(void* plot, const char* filename) {
+    void corin_plot_save_svg(void* plot, const char* filename) {
         Plot* p = static_cast<Plot*>(plot);
         p->save_svg(filename ? filename : "plot.svg");
     }
     
-    void* sapphire_quick_plot(double* y_data, int data_size, const char* title) {
+    void* corin_quick_plot(double* y_data, int data_size, const char* title) {
         std::vector<double> y(y_data, y_data + data_size);
         auto p = plot(y, title ? title : "");
         plot_storage.push_back(p);
         return p.get();
     }
     
-    void* sapphire_quick_scatter(double* x_data, double* y_data, int data_size, const char* title) {
+    void* corin_quick_scatter(double* x_data, double* y_data, int data_size, const char* title) {
         std::vector<double> x(x_data, x_data + data_size);
         std::vector<double> y(y_data, y_data + data_size);
         auto p = scatter(x, y, title ? title : "");
@@ -668,7 +668,7 @@ extern "C" {
         return p.get();
     }
     
-    void* sapphire_quick_histogram(double* data, int data_size, int bins, const char* title) {
+    void* corin_quick_histogram(double* data, int data_size, int bins, const char* title) {
         std::vector<double> values(data, data + data_size);
         auto p = histogram(values, bins, title ? title : "");
         plot_storage.push_back(p);

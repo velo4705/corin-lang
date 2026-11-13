@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_RUNTIME_CHANNEL_H
-#define SAPPHIRE_RUNTIME_CHANNEL_H
+#ifndef CORIN_RUNTIME_CHANNEL_H
+#define CORIN_RUNTIME_CHANNEL_H
 
 #include <queue>
 #include <mutex>
@@ -7,7 +7,7 @@
 #include <optional>
 #include <stdexcept>
 
-namespace sapphire {
+namespace corin {
 namespace runtime {
 
 /**
@@ -202,6 +202,6 @@ public:
 };
 
 } // namespace runtime
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_RUNTIME_CHANNEL_H
+#endif // CORIN_RUNTIME_CHANNEL_H

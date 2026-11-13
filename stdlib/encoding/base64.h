@@ -1,15 +1,15 @@
-#ifndef SAPPHIRE_STDLIB_BASE64_H
-#define SAPPHIRE_STDLIB_BASE64_H
+#ifndef CORIN_STDLIB_BASE64_H
+#define CORIN_STDLIB_BASE64_H
 
 #include <string>
 
-namespace sapphire {
+namespace corin {
 namespace base64 {
 
 std::string encode(const std::string& data);
 std::string decode(const std::string& encoded);
 
 } // namespace base64
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_BASE64_H
+#endif // CORIN_STDLIB_BASE64_H

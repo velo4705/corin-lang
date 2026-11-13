@@ -1,6 +1,6 @@
-# Sapphire Documentation Generator
+# Corin Documentation Generator
 
-Automatically generate HTML documentation from Sapphire source code with doc comments.
+Automatically generate HTML documentation from Corin source code with doc comments.
 
 ## Features
 
@@ -18,11 +18,11 @@ Automatically generate HTML documentation from Sapphire source code with doc com
 ### Generate Documentation
 
 ```bash
-python3 tools/doc/sapphire-doc.py src/ docs/
+python3 tools/doc/corin-doc.py src/ docs/
 ```
 
 This will:
-1. Parse all `.spp` files in `src/`
+1. Parse all `.corin` files in `src/`
 2. Extract doc comments
 3. Generate HTML in `docs/`
 
@@ -34,7 +34,7 @@ Open `docs/index.html` in your browser.
 
 ### Functions
 
-```sapphire
+```corin
 /// Calculate the factorial of a number
 ///
 /// This function uses recursion to calculate n!
@@ -52,7 +52,7 @@ fn factorial(n: int) -> int:
 
 ### Classes
 
-```sapphire
+```corin
 /// Represents a point in 2D space
 ///
 /// The Point class provides methods for geometric operations.
@@ -87,7 +87,7 @@ Add to your `spm.toml`:
 
 ```toml
 [scripts]
-docs = "python3 tools/doc/sapphire-doc.py src/ docs/"
+docs = "python3 tools/doc/corin-doc.py src/ docs/"
 ```
 
 Then run:
@@ -109,4 +109,4 @@ spm run docs
 
 ## License
 
-MIT License - See LICENSE file in the Sapphire repository.
+MIT License - See LICENSE file in the Corin repository.

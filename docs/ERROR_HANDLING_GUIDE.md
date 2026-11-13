@@ -1,4 +1,4 @@
-# Error Handling Guide - Sapphire v1.3.0
+# Error Handling Guide - Corin v1.3.0
 
 Quick reference for Option<T>, Result<T, E>, and the ? operator.
 
@@ -9,20 +9,20 @@ Quick reference for Option<T>, Result<T, E>, and the ? operator.
 Use Option when a value might be absent.
 
 ### Creating Options
-```sapphire
+```corin
 let some = Some(42)
 let none = None()
 ```
 
 ### Pattern Matching
-```sapphire
+```corin
 match option:
     Some(x) => print("Value:", x)
     None() => print("No value")
 ```
 
 ### Methods
-```sapphire
+```corin
 option.is_some()           # true if Some
 option.is_none()           # true if None
 option.unwrap()            # Get value or panic
@@ -32,7 +32,7 @@ option.and_then(fn)        # Chain Option-returning functions
 ```
 
 ### Common Patterns
-```sapphire
+```corin
 # Safe unwrap with default
 let value = find_user(id).unwrap_or("guest")
 
@@ -52,7 +52,7 @@ let result = get_user(id)
 Use Result when an operation can fail.
 
 ### Creating Results
-```sapphire
+```corin
 fn divide(a, b):
     if b == 0:
         return Err("division by zero")
@@ -60,14 +60,14 @@ fn divide(a, b):
 ```
 
 ### Pattern Matching
-```sapphire
+```corin
 match result:
     Ok(value) => print("Success:", value)
     Err(error) => print("Error:", error)
 ```
 
 ### Methods
-```sapphire
+```corin
 result.is_ok()             # true if Ok
 result.is_err()            # true if Err
 result.unwrap()            # Get value or panic
@@ -79,7 +79,7 @@ result.and_then(fn)        # Chain Result-returning functions
 ```
 
 ### Common Patterns
-```sapphire
+```corin
 # Safe unwrap with default
 let value = divide(10, 2).unwrap_or(0)
 
@@ -102,7 +102,7 @@ let result = parse_int(input)
 Use ? to automatically propagate errors up the call stack.
 
 ### Basic Usage
-```sapphire
+```corin
 fn calculate(a, b, c):
     let x = divide(a, b)?  # If Err, return immediately
     let y = divide(x, c)?  # If Err, return immediately
@@ -115,7 +115,7 @@ fn calculate(a, b, c):
 - Only works with Result types (not Option)
 
 ### Multi-Step Validation
-```sapphire
+```corin
 fn validate_input(input):
     let checked = validate_not_empty(input)?
     let length_ok = validate_length(checked)?
@@ -124,7 +124,7 @@ fn validate_input(input):
 ```
 
 ### Real-World Pipeline
-```sapphire
+```corin
 fn process_file(path):
     let content = read_file(path)?
     let parsed = parse_json(content)?
@@ -153,7 +153,7 @@ fn process_file(path):
 ## Best Practices
 
 ### 1. Use ? for Error Propagation
-```sapphire
+```corin
 # Good - Clean and readable
 fn process(input):
     let parsed = parse(input)?
@@ -170,20 +170,20 @@ fn process(input):
 ```
 
 ### 2. Use Pattern Matching for Complex Logic
-```sapphire
+```corin
 match authenticate(user, pass):
     Ok(token) => fetch_data(token)
     Err(error) => handle_auth_error(error)
 ```
 
 ### 3. Use unwrap_or for Defaults
-```sapphire
+```corin
 let port = config.get("port").unwrap_or(8080)
 let name = user.name.unwrap_or("Anonymous")
 ```
 
 ### 4. Chain Operations with map and and_then
-```sapphire
+```corin
 let result = get_user(id)
     .map(fn(u) { u.email })
     .and_then(fn(e) { validate_email(e) })
@@ -191,7 +191,7 @@ let result = get_user(id)
 ```
 
 ### 5. Return Early with ?
-```sapphire
+```corin
 fn complex_operation():
     let a = step1()?
     let b = step2(a)?
@@ -204,7 +204,7 @@ fn complex_operation():
 ## Common Patterns
 
 ### Pattern 1: File Operations
-```sapphire
+```corin
 fn read_and_parse(path):
     let content = read_file(path)?
     let data = parse_json(content)?
@@ -212,7 +212,7 @@ fn read_and_parse(path):
 ```
 
 ### Pattern 2: Validation Chain
-```sapphire
+```corin
 fn validate_user(input):
     let username = validate_username(input)?
     let email = validate_email(input)?
@@ -221,7 +221,7 @@ fn validate_user(input):
 ```
 
 ### Pattern 3: Authentication Flow
-```sapphire
+```corin
 fn authenticate_and_fetch(creds):
     let user = verify_credentials(creds)?
     let token = generate_token(user)?
@@ -230,7 +230,7 @@ fn authenticate_and_fetch(creds):
 ```
 
 ### Pattern 4: Optional Chaining
-```sapphire
+```corin
 fn get_user_email(id):
     let user = find_user(id)
     match user:
@@ -267,16 +267,16 @@ All operations are zero-cost:
 ## Examples
 
 See these files for complete examples:
-- `examples/option_showcase.spp` - Option features
-- `examples/result_showcase.spp` - Result features
-- `examples/try_operator_showcase.spp` - ? operator
-- `examples/milestone5_complete.spp` - All features together
+- `examples/option_showcase.corin` - Option features
+- `examples/result_showcase.corin` - Result features
+- `examples/try_operator_showcase.corin` - ? operator
+- `examples/milestone5_complete.corin` - All features together
 
 ---
 
 ## Quick Reference Card
 
-```sapphire
+```corin
 # Option<T>
 Some(value)                # Create Some
 None()                     # Create None
@@ -305,4 +305,4 @@ expr?                      # Unwrap Ok or propagate Err
 
 ---
 
-**Sapphire v1.3.0** - Modern error handling made simple
+**Corin v1.3.0** - Modern error handling made simple

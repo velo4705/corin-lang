@@ -1,12 +1,12 @@
-# File I/O in Sapphire
+# File I/O in Corin
 
-Complete guide to reading and writing files in Sapphire.
+Complete guide to reading and writing files in Corin.
 
 ## Reading Files
 
 ### Read Entire File
 
-```sapphire
+```corin
 # Read entire file as string
 let content = File.read("data.txt")
 print(content)
@@ -23,7 +23,7 @@ print(f"File size: {bytes.len()} bytes")
 
 ### Read Line by Line
 
-```sapphire
+```corin
 # Efficient for large files
 let file = File.open("large_file.txt", "r")
 while let line = file.read_line():
@@ -38,7 +38,7 @@ with File.open("data.txt", "r") as file:
 
 ### Read with Error Handling
 
-```sapphire
+```corin
 try:
     let content = File.read("data.txt")
     print(content)
@@ -54,9 +54,9 @@ catch IOError as e:
 
 ### Write String to File
 
-```sapphire
+```corin
 # Write (overwrites existing file)
-File.write("output.txt", "Hello, Sapphire!")
+File.write("output.txt", "Hello, Corin!")
 
 # Append to file
 File.append("log.txt", "New log entry\n")
@@ -68,7 +68,7 @@ File.write_lines("output.txt", lines)
 
 ### Write with File Handle
 
-```sapphire
+```corin
 let file = File.open("output.txt", "w")
 file.write("First line\n")
 file.write("Second line\n")
@@ -83,7 +83,7 @@ with File.open("output.txt", "w") as file:
 
 ### Write Binary Data
 
-```sapphire
+```corin
 let data = [0x48, 0x65, 0x6C, 0x6C, 0x6F]  # "Hello"
 File.write_bytes("output.bin", data)
 ```
@@ -92,7 +92,7 @@ File.write_bytes("output.bin", data)
 
 ### Check File Existence
 
-```sapphire
+```corin
 if File.exists("data.txt"):
     print("File exists")
 else:
@@ -101,7 +101,7 @@ else:
 
 ### File Information
 
-```sapphire
+```corin
 let info = File.info("data.txt")
 print(f"Size: {info.size} bytes")
 print(f"Created: {info.created}")
@@ -113,7 +113,7 @@ print(f"Permissions: {info.permissions}")
 
 ### File Operations
 
-```sapphire
+```corin
 # Copy file
 File.copy("source.txt", "destination.txt")
 
@@ -137,7 +137,7 @@ for file in files:
 
 ## File Modes
 
-```sapphire
+```corin
 # Read mode (default)
 let file = File.open("data.txt", "r")
 
@@ -157,7 +157,7 @@ let file = File.open("output.bin", "wb")  # Write binary
 
 ## Path Operations
 
-```sapphire
+```corin
 import path
 
 # Join paths
@@ -186,7 +186,7 @@ if path.is_absolute("/usr/bin"):
 
 ## Working with CSV
 
-```sapphire
+```corin
 import csv
 
 # Read CSV
@@ -210,7 +210,7 @@ csv.write("output.csv", data)
 
 ## Working with JSON
 
-```sapphire
+```corin
 import json
 
 # Read JSON file
@@ -236,7 +236,7 @@ let json_str = json.stringify(obj)
 
 ## Temporary Files
 
-```sapphire
+```corin
 import tempfile
 
 # Create temporary file
@@ -253,7 +253,7 @@ temp_dir.cleanup()  # Delete directory and contents
 
 ## Memory-Mapped Files
 
-```sapphire
+```corin
 # For large files - map to memory
 let mmap = File.mmap("large_file.dat")
 let data = mmap[1000:2000]  # Read bytes 1000-2000
@@ -264,7 +264,7 @@ mmap.close()
 
 ## File Locking
 
-```sapphire
+```corin
 # Exclusive lock (write)
 let file = File.open("data.txt", "r+")
 file.lock_exclusive()
@@ -282,7 +282,7 @@ file.close()
 
 ## Buffered I/O
 
-```sapphire
+```corin
 # Buffered reading (faster for many small reads)
 let file = File.open("data.txt", "r", buffer_size: 8192)
 let content = file.read()
@@ -298,7 +298,7 @@ file.close()
 
 ### Copy File with Progress
 
-```sapphire
+```corin
 fn copy_with_progress(source: str, dest: str):
     let src = File.open(source, "rb")
     let dst = File.open(dest, "wb")
@@ -317,7 +317,7 @@ fn copy_with_progress(source: str, dest: str):
 
 ### Read Configuration File
 
-```sapphire
+```corin
 fn read_config(path: str) -> HashMap<str, str>:
     let config = HashMap::new()
     let lines = File.read_lines(path)
@@ -335,7 +335,7 @@ fn read_config(path: str) -> HashMap<str, str>:
 
 ### Log to File
 
-```sapphire
+```corin
 fn log(message: str):
     let timestamp = time.now().format("%Y-%m-%d %H:%M:%S")
     let entry = f"[{timestamp}] {message}\n"
@@ -354,7 +354,7 @@ fn log(message: str):
 
 ## Example Code
 
-See [examples/file_io_example.spp](../examples/file_io_example.spp) for a complete working example.
+See [examples/file_io_example.corin](../examples/file_io_example.corin) for a complete working example.
 
 ## See Also
 

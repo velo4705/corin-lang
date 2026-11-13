@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_PARSER_H
-#define SAPPHIRE_PARSER_H
+#ifndef CORIN_PARSER_H
+#define CORIN_PARSER_H
 
 #include "../lexer/token.h"
 #include "stmt.h"
@@ -8,7 +8,7 @@
 #include <memory>
 #include <stdexcept>
 
-namespace sapphire {
+namespace corin {
 
 class ParseError : public std::runtime_error {
 public:
@@ -99,6 +99,6 @@ public:
     std::vector<std::unique_ptr<Stmt>> parse();
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_PARSER_H
+#endif // CORIN_PARSER_H

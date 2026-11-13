@@ -1,6 +1,6 @@
 // Theme toggle — dark/light mode with localStorage persistence
 (function () {
-    const STORAGE_KEY = 'sapphire-theme';
+    const STORAGE_KEY = 'corin-theme';
 
     function getPreferredTheme() {
         const saved = localStorage.getItem(STORAGE_KEY);

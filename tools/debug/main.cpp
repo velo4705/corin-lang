@@ -3,7 +3,7 @@
 #include <sstream>
 #include <algorithm>
 
-namespace sapphire {
+namespace corin {
 namespace debug {
 
 DAPServer::DAPServer() 
@@ -175,7 +175,7 @@ void DAPServer::handleDisconnect(const std::string& seq) {
 
 void DAPServer::run() {
     running_ = true;
-    std::cerr << "Sapphire Debug Adapter starting...\n";
+    std::cerr << "Corin Debug Adapter starting...\n";
     
     while (running_) {
         // Read Content-Length header
@@ -328,10 +328,10 @@ void DAPServer::notifyBreakpoint(const std::string& file, int line, const std::s
 }
 
 } // namespace debug
-} // namespace sapphire
+} // namespace corin
 
 int main() {
-    sapphire::debug::DAPServer server;
+    corin::debug::DAPServer server;
     server.run();
     return 0;
 }

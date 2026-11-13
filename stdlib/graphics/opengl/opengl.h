@@ -1,16 +1,16 @@
-#ifndef SAPPHIRE_STDLIB_OPENGL_H
-#define SAPPHIRE_STDLIB_OPENGL_H
+#ifndef CORIN_STDLIB_OPENGL_H
+#define CORIN_STDLIB_OPENGL_H
 
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <cstdint>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 namespace graphics {
 
 /**
- * OpenGL Graphics Library for Sapphire
+ * OpenGL Graphics Library for Corin
  * 
  * Provides OpenGL 2.1+ 3D graphics capabilities.
  * Use with SDL2 or GLUT for window management.
@@ -64,48 +64,48 @@ public:
 
 } // namespace graphics
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-// C API for Sapphire code generation
+// C API for Corin code generation
 extern "C" {
     // Initialization
-    bool sapphire_gl_init();
+    bool corin_gl_init();
     
     // Viewport and clearing
-    void sapphire_gl_viewport(int x, int y, int width, int height);
-    void sapphire_gl_clear_color(float r, float g, float b, float a);
-    void sapphire_gl_clear(unsigned int mask);
+    void corin_gl_viewport(int x, int y, int width, int height);
+    void corin_gl_clear_color(float r, float g, float b, float a);
+    void corin_gl_clear(unsigned int mask);
     
     // Matrix operations
-    void sapphire_gl_matrix_mode(unsigned int mode);
-    void sapphire_gl_load_identity();
-    void sapphire_gl_ortho(double left, double right, double bottom, double top, double near_val, double far_val);
-    void sapphire_gl_perspective(double fovy, double aspect, double near_val, double far_val);
-    void sapphire_gl_frustum(double left, double right, double bottom, double top, double near_val, double far_val);
+    void corin_gl_matrix_mode(unsigned int mode);
+    void corin_gl_load_identity();
+    void corin_gl_ortho(double left, double right, double bottom, double top, double near_val, double far_val);
+    void corin_gl_perspective(double fovy, double aspect, double near_val, double far_val);
+    void corin_gl_frustum(double left, double right, double bottom, double top, double near_val, double far_val);
     
     // Transformations
-    void sapphire_gl_translate(float x, float y, float z);
-    void sapphire_gl_rotate(float angle, float x, float y, float z);
-    void sapphire_gl_scale(float x, float y, float z);
-    void sapphire_gl_push_matrix();
-    void sapphire_gl_pop_matrix();
+    void corin_gl_translate(float x, float y, float z);
+    void corin_gl_rotate(float angle, float x, float y, float z);
+    void corin_gl_scale(float x, float y, float z);
+    void corin_gl_push_matrix();
+    void corin_gl_pop_matrix();
     
     // Drawing primitives
-    void sapphire_gl_begin(unsigned int mode);
-    void sapphire_gl_end();
-    void sapphire_gl_vertex2f(float x, float y);
-    void sapphire_gl_vertex3f(float x, float y, float z);
-    void sapphire_gl_color3f(float r, float g, float b);
-    void sapphire_gl_color4f(float r, float g, float b, float a);
-    void sapphire_gl_normal3f(float x, float y, float z);
-    void sapphire_gl_tex_coord2f(float s, float t);
+    void corin_gl_begin(unsigned int mode);
+    void corin_gl_end();
+    void corin_gl_vertex2f(float x, float y);
+    void corin_gl_vertex3f(float x, float y, float z);
+    void corin_gl_color3f(float r, float g, float b);
+    void corin_gl_color4f(float r, float g, float b, float a);
+    void corin_gl_normal3f(float x, float y, float z);
+    void corin_gl_tex_coord2f(float s, float t);
     
     // State management
-    void sapphire_gl_enable(unsigned int cap);
-    void sapphire_gl_disable(unsigned int cap);
-    void sapphire_gl_depth_func(unsigned int func);
-    void sapphire_gl_blend_func(unsigned int sfactor, unsigned int dfactor);
-    void sapphire_gl_cull_face(unsigned int mode);
+    void corin_gl_enable(unsigned int cap);
+    void corin_gl_disable(unsigned int cap);
+    void corin_gl_depth_func(unsigned int func);
+    void corin_gl_blend_func(unsigned int sfactor, unsigned int dfactor);
+    void corin_gl_cull_face(unsigned int mode);
 }
 
-#endif // SAPPHIRE_STDLIB_OPENGL_H
+#endif // CORIN_STDLIB_OPENGL_H

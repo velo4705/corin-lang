@@ -5,7 +5,7 @@
 #include <chrono>
 #include <cmath>
 
-namespace Sapphire {
+namespace Corin {
 namespace Mobile {
 
 static uint64_t now_ms() {
@@ -357,4 +357,4 @@ int DeviceAPI::pending_notification_count() const {
 }
 
 } // namespace Mobile
-} // namespace Sapphire
+} // namespace Corin

@@ -1,12 +1,12 @@
 # Tutorial 5: Strings
 
-Learn how to work with text in Sapphire.
+Learn how to work with text in Corin.
 
 ## String Basics
 
 Strings are sequences of characters:
 
-```sapphire
+```corin
 fn main() {
     let message = "Hello, World!"
     let name = "Alice"
@@ -20,12 +20,12 @@ fn main() {
 
 ### Multi-line Strings
 
-```sapphire
+```corin
 fn main() {
     let poem = """
     Roses are red,
     Violets are blue,
-    Sapphire is fast,
+    Corin is fast,
     And easy too!
     """
     
@@ -37,7 +37,7 @@ fn main() {
 
 Combine strings:
 
-```sapphire
+```corin
 fn main() {
     let first = "Hello"
     let second = "World"
@@ -56,7 +56,7 @@ fn main() {
 
 ## String Length
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
@@ -69,9 +69,9 @@ fn main() {
 
 ## Accessing Characters
 
-```sapphire
+```corin
 fn main() {
-    let word = "Sapphire"
+    let word = "Corin"
     
     // Access by index
     println(word[0])  // S
@@ -87,7 +87,7 @@ fn main() {
 
 ### Case Conversion
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
@@ -99,7 +99,7 @@ fn main() {
 
 ### Trimming Whitespace
 
-```sapphire
+```corin
 fn main() {
     let text = "   Hello, World!   "
     
@@ -111,7 +111,7 @@ fn main() {
 
 ### Splitting Strings
 
-```sapphire
+```corin
 fn main() {
     let sentence = "The quick brown fox"
     let words = sentence.split(" ")
@@ -134,26 +134,26 @@ fn main() {
 
 ### Joining Strings
 
-```sapphire
+```corin
 fn main() {
-    let words = ["Hello", "World", "from", "Sapphire"]
+    let words = ["Hello", "World", "from", "Corin"]
     
     let sentence = words.join(" ")
-    println(sentence)  // Hello World from Sapphire
+    println(sentence)  // Hello World from Corin
     
     let csv = words.join(",")
-    println(csv)  // Hello,World,from,Sapphire
+    println(csv)  // Hello,World,from,Corin
 }
 ```
 
 ### Replacing Text
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
-    let new_text = text.replace("World", "Sapphire")
-    println(new_text)  // Hello, Sapphire!
+    let new_text = text.replace("World", "Corin")
+    println(new_text)  // Hello, Corin!
     
     // Replace all occurrences
     let repeated = "foo bar foo baz foo"
@@ -164,7 +164,7 @@ fn main() {
 
 ### Checking Content
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
@@ -187,7 +187,7 @@ fn main() {
 
 ### Finding Substrings
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
@@ -208,7 +208,7 @@ fn main() {
 
 Extract parts of a string:
 
-```sapphire
+```corin
 fn main() {
     let text = "Hello, World!"
     
@@ -230,7 +230,7 @@ fn main() {
 
 ### Basic Formatting
 
-```sapphire
+```corin
 fn main() {
     let name = "Alice"
     let age = 25
@@ -247,7 +247,7 @@ fn main() {
 
 ### Format Specifiers
 
-```sapphire
+```corin
 fn main() {
     let pi = 3.14159
     
@@ -264,7 +264,7 @@ fn main() {
 
 ## String Comparison
 
-```sapphire
+```corin
 fn main() {
     let str1 = "apple"
     let str2 = "banana"
@@ -287,7 +287,7 @@ fn main() {
 
 ### Checking Character Types
 
-```sapphire
+```corin
 fn main() {
     let ch = 'A'
     
@@ -315,7 +315,7 @@ fn main() {
 
 ### Character Conversion
 
-```sapphire
+```corin
 fn main() {
     let ch = 'a'
     
@@ -335,7 +335,7 @@ fn main() {
 
 Efficiently build strings:
 
-```sapphire
+```corin
 fn main() {
     let mut builder = StringBuilder()
     
@@ -354,7 +354,7 @@ fn main() {
 ### Exercise 1: Reverse String
 Reverse a string:
 
-```sapphire
+```corin
 fn reverse(s: str) -> str {
     let mut result = ""
     for i in len(s)-1..0 step -1 {
@@ -365,14 +365,14 @@ fn reverse(s: str) -> str {
 
 fn main() {
     println(reverse("hello"))     // olleh
-    println(reverse("Sapphire"))  // erihppaS
+    println(reverse("Corin"))  // erihppaS
 }
 ```
 
 ### Exercise 2: Palindrome Checker
 Check if a string is a palindrome:
 
-```sapphire
+```corin
 fn is_palindrome(s: str) -> bool {
     let cleaned = s.to_lower().replace(" ", "")
     let reversed = reverse(cleaned)
@@ -389,7 +389,7 @@ fn main() {
 ### Exercise 3: Word Count
 Count words in a string:
 
-```sapphire
+```corin
 fn word_count(text: str) -> int {
     let words = text.trim().split(" ")
     let mut count = 0
@@ -412,7 +412,7 @@ fn main() {
 ### Exercise 4: Title Case
 Convert string to title case:
 
-```sapphire
+```corin
 fn title_case(s: str) -> str {
     let words = s.to_lower().split(" ")
     let mut result = []
@@ -437,7 +437,7 @@ fn main() {
 ### Exercise 5: Caesar Cipher
 Implement a simple Caesar cipher:
 
-```sapphire
+```corin
 fn caesar_cipher(text: str, shift: int) -> str {
     let mut result = ""
     
@@ -467,7 +467,7 @@ fn main() {
 ### Exercise 6: Email Validator
 Simple email validation:
 
-```sapphire
+```corin
 fn is_valid_email(email: str) -> bool {
     // Check for @ symbol
     if not email.contains("@") {
@@ -505,7 +505,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. String Immutability
-```sapphire
+```corin
 // Wrong:
 let text = "Hello"
 text[0] = 'h'  // Error! Strings are immutable
@@ -517,7 +517,7 @@ println(new_text)  // hello
 ```
 
 ### 2. Forgetting to Convert to String
-```sapphire
+```corin
 // Wrong:
 let age = 25
 let message = "I am " + age + " years old"  // Error!
@@ -528,7 +528,7 @@ let message = "I am " + str(age) + " years old"
 ```
 
 ### 3. Index Out of Bounds
-```sapphire
+```corin
 // Wrong:
 let text = "Hi"
 println(text[5])  // Error! Index out of bounds

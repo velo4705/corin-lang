@@ -1,12 +1,12 @@
-#ifndef SAPPHIRE_STDLIB_HASHMAP_H
-#define SAPPHIRE_STDLIB_HASHMAP_H
+#ifndef CORIN_STDLIB_HASHMAP_H
+#define CORIN_STDLIB_HASHMAP_H
 
 #include <cstddef>
 #include <functional>
 #include <stdexcept>
 #include <utility>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -288,6 +288,6 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_HASHMAP_H
+#endif // CORIN_STDLIB_HASHMAP_H

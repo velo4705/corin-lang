@@ -18,7 +18,7 @@
 #include <sys/stat.h>
 #endif
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 //=============================================================================
@@ -333,17 +333,17 @@ std::string Path::absolute(const std::string& path) {
 }
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
 //=============================================================================
 // C API
 //=============================================================================
 
-using namespace sapphire::stdlib;
+using namespace corin::stdlib;
 
 extern "C" {
 
-const char* sapphire_file_read(const char* path) {
+const char* corin_file_read(const char* path) {
     static std::string result;
     try {
         result = File::read(path);
@@ -353,7 +353,7 @@ const char* sapphire_file_read(const char* path) {
     }
 }
 
-void sapphire_file_write(const char* path, const char* content) {
+void corin_file_write(const char* path, const char* content) {
     try {
         File::write(path, content);
     } catch (...) {
@@ -361,11 +361,11 @@ void sapphire_file_write(const char* path, const char* content) {
     }
 }
 
-int sapphire_file_exists(const char* path) {
+int corin_file_exists(const char* path) {
     return File::exists(path) ? 1 : 0;
 }
 
-void sapphire_file_delete(const char* path) {
+void corin_file_delete(const char* path) {
     try {
         File::delete_file(path);
     } catch (...) {
@@ -373,7 +373,7 @@ void sapphire_file_delete(const char* path) {
     }
 }
 
-void sapphire_file_copy(const char* source, const char* destination) {
+void corin_file_copy(const char* source, const char* destination) {
     try {
         File::copy(source, destination);
     } catch (...) {
@@ -381,7 +381,7 @@ void sapphire_file_copy(const char* source, const char* destination) {
     }
 }
 
-size_t sapphire_file_size(const char* path) {
+size_t corin_file_size(const char* path) {
     try {
         return File::size(path);
     } catch (...) {
@@ -389,11 +389,11 @@ size_t sapphire_file_size(const char* path) {
     }
 }
 
-int sapphire_dir_exists(const char* path) {
+int corin_dir_exists(const char* path) {
     return Dir::exists(path) ? 1 : 0;
 }
 
-void sapphire_dir_create(const char* path) {
+void corin_dir_create(const char* path) {
     try {
         Dir::create(path);
     } catch (...) {
@@ -401,7 +401,7 @@ void sapphire_dir_create(const char* path) {
     }
 }
 
-void sapphire_dir_remove(const char* path) {
+void corin_dir_remove(const char* path) {
     try {
         Dir::remove(path);
     } catch (...) {
@@ -409,19 +409,19 @@ void sapphire_dir_remove(const char* path) {
     }
 }
 
-const char* sapphire_path_join(const char* part1, const char* part2) {
+const char* corin_path_join(const char* part1, const char* part2) {
     static std::string result;
     result = Path::join(part1, part2);
     return result.c_str();
 }
 
-const char* sapphire_path_basename(const char* path) {
+const char* corin_path_basename(const char* path) {
     static std::string result;
     result = Path::basename(path);
     return result.c_str();
 }
 
-const char* sapphire_path_dirname(const char* path) {
+const char* corin_path_dirname(const char* path) {
     static std::string result;
     result = Path::dirname(path);
     return result.c_str();

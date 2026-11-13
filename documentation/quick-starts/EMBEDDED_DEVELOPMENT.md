@@ -1,4 +1,4 @@
-# Sapphire Embedded Development - Complete Guide
+# Corin Embedded Development - Complete Guide
 
 **Date:** March 8, 2026  
 **Status:** PRODUCTION READY ✅
@@ -7,7 +7,7 @@
 
 ## Overview
 
-Sapphire supports embedded systems development with comprehensive system-level programming capabilities. This guide demonstrates how to build embedded applications using Sapphire's system library.
+Corin supports embedded systems development with comprehensive system-level programming capabilities. This guide demonstrates how to build embedded applications using Corin's system library.
 
 ---
 
@@ -15,7 +15,7 @@ Sapphire supports embedded systems development with comprehensive system-level p
 
 **Question:** Create embedded system applications that demonstrate real-time control, sensor data acquisition, actuator management, and power optimization.
 
-**Solution:** Built two complete embedded system demos using Sapphire:
+**Solution:** Built two complete embedded system demos using Corin:
 1. Temperature Controller - Simple embedded control system
 2. IoT Sensor Node - Advanced data acquisition and transmission
 
@@ -35,7 +35,7 @@ A simple embedded temperature control system that maintains a target temperature
 
 ### Code Example
 
-```sapphire
+```corin
 import system
 
 let TARGET_TEMP = 22
@@ -60,7 +60,7 @@ while cycle_count < 30:
         heater_on = 0
         fan_on = 0
     
-    sapphire_system_sleep_ms(SAMPLE_RATE_MS)
+    corin_system_sleep_ms(SAMPLE_RATE_MS)
     cycle_count = cycle_count + 1
 ```
 
@@ -134,7 +134,7 @@ An advanced IoT sensor node that collects data from multiple sensors, buffers re
 
 ### Code Example
 
-```sapphire
+```corin
 import system
 
 let BUFFER_SIZE = 5
@@ -152,9 +152,9 @@ print("[HAL]  - Pressure sensor (SPI)")
 print("[HAL]  - Wireless module (UART)")
 
 print("[MEM]  Allocating buffers...")
-let temp_buffer = sapphire_system_allocate(BUFFER_SIZE * 8)
-let humidity_buffer = sapphire_system_allocate(BUFFER_SIZE * 8)
-let pressure_buffer = sapphire_system_allocate(BUFFER_SIZE * 8)
+let temp_buffer = corin_system_allocate(BUFFER_SIZE * 8)
+let humidity_buffer = corin_system_allocate(BUFFER_SIZE * 8)
+let pressure_buffer = corin_system_allocate(BUFFER_SIZE * 8)
 
 while cycle_count < 25:
     temp_sum = temp_sum + temp_sensor
@@ -177,7 +177,7 @@ while cycle_count < 25:
         humidity_sum = 0
         pressure_sum = 0
     
-    sapphire_system_sleep_ms(SAMPLE_RATE_MS)
+    corin_system_sleep_ms(SAMPLE_RATE_MS)
 ```
 
 ### Output
@@ -258,8 +258,8 @@ Sample rate: 200 ms
 
 ### 1. Real-Time Constraints
 
-```sapphire
-let cycle_start = sapphire_system_timestamp_ns()
+```corin
+let cycle_start = corin_system_timestamp_ns()
 
 if cycle_time_us > 1000:
     print("[WARN] Cycle time exceeded:", cycle_time_us, "us")
@@ -269,7 +269,7 @@ if cycle_time_us > 1000:
 
 ### 2. State Machines
 
-```sapphire
+```corin
 if current_temp < TARGET_TEMP:
     heater_on = 1
     fan_on = 0
@@ -283,7 +283,7 @@ if current_temp > TARGET_TEMP:
 
 ### 3. Sensor Data Acquisition
 
-```sapphire
+```corin
 temp_sensor = 25 + cycle_count % 5
 humidity_sensor = 60 + cycle_count % 10
 pressure_sensor = 1013 - cycle_count % 3
@@ -293,7 +293,7 @@ pressure_sensor = 1013 - cycle_count % 3
 
 ### 4. Actuator Control
 
-```sapphire
+```corin
 if heater_on == 1:
     current_temp = current_temp + 1
 
@@ -305,7 +305,7 @@ if fan_on == 1:
 
 ### 5. Power Management
 
-```sapphire
+```corin
 if buffer_index < 3:
     if sleep_mode == 0:
         sleep_mode = 1
@@ -316,7 +316,7 @@ if buffer_index < 3:
 
 ### 6. Watchdog Timer
 
-```sapphire
+```corin
 watchdog_counter = watchdog_counter + 1
 if watchdog_counter >= watchdog_timeout:
     watchdog_counter = 0
@@ -329,18 +329,18 @@ if watchdog_counter >= watchdog_timeout:
 ## System Library Functions Used
 
 ### Timing Functions
-- `sapphire_system_timestamp_ms()` - Millisecond timestamps
-- `sapphire_system_timestamp_us()` - Microsecond timestamps
-- `sapphire_system_timestamp_ns()` - Nanosecond timestamps
-- `sapphire_system_sleep_ms(ms)` - Precise delays
+- `corin_system_timestamp_ms()` - Millisecond timestamps
+- `corin_system_timestamp_us()` - Microsecond timestamps
+- `corin_system_timestamp_ns()` - Nanosecond timestamps
+- `corin_system_sleep_ms(ms)` - Precise delays
 
 ### Memory Functions
-- `sapphire_system_allocate(size)` - Allocate memory
-- `sapphire_system_free(ptr)` - Free memory
+- `corin_system_allocate(size)` - Allocate memory
+- `corin_system_free(ptr)` - Free memory
 
 ### System Info Functions
-- `sapphire_system_cpu_count()` - Get CPU cores
-- `sapphire_system_cpu_arch()` - Get architecture
+- `corin_system_cpu_count()` - Get CPU cores
+- `corin_system_cpu_arch()` - Get architecture
 
 ---
 
@@ -361,13 +361,13 @@ Select from menu:
 
 ```bash
 # Temperature Controller
-./sapp compile embedded_demo.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > embedded_demo.ll
+./corin compile embedded_demo.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > embedded_demo.ll
 llc embedded_demo.ll -filetype=obj -o embedded_demo.o
 gcc embedded_demo.o stdlib/system/system.cpp -o embedded_demo -lstdc++ -lpthread
 ./embedded_demo
 
 # IoT Sensor Node
-./sapp compile iot_sensor_node.spp 2>/dev/null | grep -A 1000 "^; ModuleID" > iot_sensor_node.ll
+./corin compile iot_sensor_node.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > iot_sensor_node.ll
 llc iot_sensor_node.ll -filetype=obj -o iot_sensor_node.o
 gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpthread
 ./iot_sensor_node
@@ -424,7 +424,7 @@ gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpth
 
 ## Comparison with Other Languages
 
-### Sapphire vs C
+### Corin vs C
 **Advantages:**
 - Higher-level syntax
 - Built-in system library
@@ -436,7 +436,7 @@ gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpth
 - Same real-time capabilities
 - Similar memory footprint
 
-### Sapphire vs Python
+### Corin vs Python
 **Advantages:**
 - Much faster (compiled vs interpreted)
 - Real-time capable
@@ -448,7 +448,7 @@ gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpth
 - More verbose
 - Requires compilation
 
-### Sapphire vs Rust
+### Corin vs Rust
 **Advantages:**
 - Simpler syntax
 - Faster compilation
@@ -464,32 +464,32 @@ gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpth
 ## Best Practices
 
 ### 1. Initialize Hardware Early
-```sapphire
+```corin
 print("[BOOT] Initializing system...")
-let boot_start = sapphire_system_timestamp_ms()
+let boot_start = corin_system_timestamp_ms()
 ```
 
 ### 2. Check Real-Time Constraints
-```sapphire
+```corin
 if cycle_time_us > 1000:
     print("[WARN] Cycle time exceeded")
 ```
 
 ### 3. Use Proper State Management
-```sapphire
+```corin
 let heater_on = 0
 let fan_on = 0
 ```
 
 ### 4. Implement Graceful Shutdown
-```sapphire
+```corin
 print("[MAIN] Shutting down...")
 heater_on = 0
 fan_on = 0
 ```
 
 ### 5. Monitor Performance
-```sapphire
+```corin
 print("=== System Statistics ===")
 print("Total runtime:", total_time, "ms")
 print("Total cycles:", cycle_count)
@@ -526,7 +526,7 @@ print("Total cycles:", cycle_count)
 
 ## Conclusion
 
-Sapphire provides excellent support for embedded systems development with:
+Corin provides excellent support for embedded systems development with:
 
 ✅ Real-time control capabilities  
 ✅ System-level programming  
@@ -547,10 +547,10 @@ Sapphire provides excellent support for embedded systems development with:
 - [OS Development Guide](docs/OS_DEVELOPMENT.md)
 
 ### Examples
-- `embedded_demo.spp` - Temperature controller
-- `iot_sensor_node.spp` - IoT sensor node
-- `system_demo.spp` - System capabilities
-- `process_monitor.spp` - Process monitoring
+- `embedded_demo.corin` - Temperature controller
+- `iot_sensor_node.corin` - IoT sensor node
+- `system_demo.corin` - System capabilities
+- `process_monitor.corin` - Process monitoring
 
 ### Scripts
 - `run_embedded_demos.sh` - Demo launcher

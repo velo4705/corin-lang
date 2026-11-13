@@ -1,7 +1,7 @@
 #include "argparser.h"
 #include <iostream>
 
-namespace sapphire {
+namespace corin {
 namespace cli {
 
 ArgParser::ArgParser(int argc, char** argv) {
@@ -87,4 +87,4 @@ void ArgParser::print_help() const {
 }
 
 } // namespace cli
-} // namespace sapphire
+} // namespace corin

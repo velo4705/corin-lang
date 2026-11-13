@@ -1,8 +1,8 @@
-# Sapphire Performance Benchmarks
+# Corin Performance Benchmarks
 
 ## Overview
 
-Sapphire 1.0-beta.6 achieves near-C performance through LLVM optimization.
+Corin 1.0-beta.6 achieves near-C performance through LLVM optimization.
 
 ## Current Performance
 
@@ -22,7 +22,7 @@ All 134 tests pass with 100% success rate:
 
 ## Performance Goals
 
-Sapphire targets being the **second-fastest language** after C/Assembly:
+Corin targets being the **second-fastest language** after C/Assembly:
 - Within 0-5% of C performance
 - Faster than C++ and Rust through aggressive LLVM optimization
 - Zero-cost abstractions
@@ -38,17 +38,17 @@ Sapphire targets being the **second-fastest language** after C/Assembly:
 
 ## Benchmark Programs
 
-- `bench_simple.spp` - Arithmetic and memory operations
+- `bench_simple.corin` - Arithmetic and memory operations
 - `bench_simple.c` - C equivalent for comparison
 
 ## Running Benchmarks
 
 ```bash
 # Simple interpreter test
-./sapp benchmarks/bench_simple.spp
+./corin benchmarks/bench_simple.corin
 
 # Compile and run (when LLVM toolchain is available)
-./sapp compile benchmarks/bench_simple.spp > output.ll
+./corin compile benchmarks/bench_simple.corin > output.ll
 llc output.ll -o output.s -O3
 clang output.s -o output -O3
 ./output
@@ -56,7 +56,7 @@ clang output.s -o output -O3
 
 ## Performance Claims
 
-Sapphire's performance comes from:
+Corin's performance comes from:
 - LLVM's world-class optimization (same as Rust, Swift, Julia)
 - Efficient runtime system (119μs GC pause)
 - Zero-overhead abstractions

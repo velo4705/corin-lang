@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_TYPE_INFERENCE_H
-#define SAPPHIRE_TYPE_INFERENCE_H
+#ifndef CORIN_TYPE_INFERENCE_H
+#define CORIN_TYPE_INFERENCE_H
 
 #include "../parser/expr.h"
 #include "../parser/stmt.h"
@@ -11,7 +11,7 @@
 #include <memory>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 class TypeInference : public ExprVisitor, public StmtVisitor {
 private:
@@ -103,6 +103,6 @@ public:
     void visitForStmt(ForStmt& stmt) override;
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TYPE_INFERENCE_H
+#endif // CORIN_TYPE_INFERENCE_H

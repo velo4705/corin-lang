@@ -1,5 +1,5 @@
-#ifndef SAPPHIRE_STDLIB_COLLECTIONS_H
-#define SAPPHIRE_STDLIB_COLLECTIONS_H
+#ifndef CORIN_STDLIB_COLLECTIONS_H
+#define CORIN_STDLIB_COLLECTIONS_H
 
 #include <vector>
 #include <set>
@@ -8,7 +8,7 @@
 #include <string>
 #include <optional>
 
-namespace sapphire {
+namespace corin {
 namespace stdlib {
 
 /**
@@ -244,6 +244,6 @@ public:
 };
 
 } // namespace stdlib
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_STDLIB_COLLECTIONS_H
+#endif // CORIN_STDLIB_COLLECTIONS_H

@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstdint>
 
-namespace Sapphire {
+namespace Corin {
 namespace AdvancedCrypto {
 
 // ===== Utility =====
@@ -341,7 +341,7 @@ std::string ot_receiver_extract(const std::string& receiver_state_hex,
                                  int choice_bit);
 
 } // namespace AdvancedCrypto
-} // namespace Sapphire
+} // namespace Corin
 
 // ===== C API =====
 extern "C" {

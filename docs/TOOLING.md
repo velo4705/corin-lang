@@ -1,16 +1,16 @@
-# Sapphire Tooling Guide
+# Corin Tooling Guide
 
-This guide covers the developer tools available in the Sapphire ecosystem.
+This guide covers the developer tools available in the Corin ecosystem.
 
 ---
 
 ## Package Manager (spm)
 
-The Sapphire Package Manager helps you create, build, test, and manage Sapphire projects.
+The Corin Package Manager helps you create, build, test, and manage Corin projects.
 
 ### Installation
 
-The spm tool is built automatically with the Sapphire compiler:
+The spm tool is built automatically with the Corin compiler:
 
 ```bash
 make spm
@@ -29,7 +29,7 @@ Creates a new package with the following structure:
 my-package/
 ├── spm.toml          # Package manifest
 ├── src/
-│   └── main.spp      # Main source file
+│   └── main.corin      # Main source file
 ├── tests/            # Test files
 ├── examples/         # Example files
 ├── README.md
@@ -50,15 +50,15 @@ Validates and builds all source files in the `src/` directory.
 spm test
 ```
 
-Runs all `.spp` files in the `tests/` directory and reports results.
+Runs all `.corin` files in the `tests/` directory and reports results.
 
 #### Run a File
 
 ```bash
-spm run src/main.spp
+spm run src/main.corin
 ```
 
-Executes a Sapphire file using the interpreter.
+Executes a Corin file using the interpreter.
 
 #### Clean Build Artifacts
 
@@ -98,7 +98,7 @@ name = "my-package"
 version = "0.1.0"
 authors = ["Your Name <your.email@example.com>"]
 license = "MIT"
-description = "A Sapphire package"
+description = "A Corin package"
 
 [dependencies]
 # Add dependencies here
@@ -113,16 +113,16 @@ optimization = "release"
 
 ---
 
-## Code Formatter (sapphire-fmt)
+## Code Formatter (corin-fmt)
 
-The Sapphire code formatter ensures consistent code style across your project.
+The Corin code formatter ensures consistent code style across your project.
 
 ### Installation
 
-The formatter is built automatically with the Sapphire compiler:
+The formatter is built automatically with the Corin compiler:
 
 ```bash
-make sapphire-fmt
+make corin-fmt
 ```
 
 ### Commands
@@ -130,15 +130,15 @@ make sapphire-fmt
 #### Format a File
 
 ```bash
-sapphire-fmt file.spp
+corin-fmt file.corin
 ```
 
-Formats the file in-place according to Sapphire style guidelines.
+Formats the file in-place according to Corin style guidelines.
 
 #### Check Formatting
 
 ```bash
-sapphire-fmt --check file.spp
+corin-fmt --check file.corin
 ```
 
 Checks if a file is formatted correctly without modifying it. Returns exit code 0 if formatted, 1 if needs formatting.
@@ -146,7 +146,7 @@ Checks if a file is formatted correctly without modifying it. Returns exit code 
 #### Custom Indent Size
 
 ```bash
-sapphire-fmt --indent 2 file.spp
+corin-fmt --indent 2 file.corin
 ```
 
 Formats with a custom indent size (default is 4 spaces).
@@ -165,14 +165,14 @@ The formatter applies the following rules:
 ### Examples
 
 Before formatting:
-```sapphire
+```corin
 fn add(a:int,b:int)->int:
 x=a+b
 return x
 ```
 
 After formatting:
-```sapphire
+```corin
 fn add(a:int, b:int) -> int:
     x = a + b
     return x
@@ -184,36 +184,36 @@ You can use the formatter with spm:
 
 ```bash
 # Format all source files
-find src -name "*.spp" -exec sapphire-fmt {} \;
+find src -name "*.corin" -exec corin-fmt {} \;
 
 # Check formatting in CI
-find src -name "*.spp" -exec sapphire-fmt --check {} \;
+find src -name "*.corin" -exec corin-fmt --check {} \;
 ```
 
 ### Known Limitations
 
 - Indentation inference works best with already-indented code
-- No configuration file support yet (.sapphire-fmt.toml)
+- No configuration file support yet (.corin-fmt.toml)
 - Processes one file at a time (no directory recursion)
 - Basic dedent detection (may need manual adjustment for complex nesting)
 
 ---
 
-## Compiler (sapp)
+## Compiler (corin)
 
-The Sapphire compiler and interpreter.
+The Corin compiler and interpreter.
 
 ### Usage
 
 ```bash
 # Run a file
-./sapp file.spp
+./corin file.corin
 
 # With verbose output
-./sapp -v file.spp
+./corin -v file.corin
 
 # Show version
-./sapp --version
+./corin --version
 ```
 
 ### Building
@@ -238,16 +238,16 @@ spm init my-app
 cd my-app
 
 # Write code
-vim src/main.spp
+vim src/main.corin
 
 # Format code
-sapphire-fmt src/main.spp
+corin-fmt src/main.corin
 
 # Run it
-spm run src/main.spp
+spm run src/main.corin
 
 # Add tests
-vim tests/test_main.spp
+vim tests/test_main.corin
 
 # Run tests
 spm test
@@ -257,10 +257,10 @@ spm test
 
 ```bash
 # Format before committing
-find src -name "*.spp" -exec sapphire-fmt {} \;
+find src -name "*.corin" -exec corin-fmt {} \;
 
 # Check in CI
-sapphire-fmt --check src/**/*.spp
+corin-fmt --check src/**/*.corin
 ```
 
 ### Testing Workflow
@@ -270,7 +270,7 @@ sapphire-fmt --check src/**/*.spp
 spm test
 
 # Run specific test
-spm run tests/test_feature.spp
+spm run tests/test_feature.corin
 
 # Clean and rebuild
 spm clean
@@ -290,7 +290,7 @@ spm test
 - Lock file (spm.lock)
 
 ### Code Formatter
-- Configuration file (.sapphire-fmt.toml)
+- Configuration file (.corin-fmt.toml)
 - Directory recursion
 - Improved indentation inference
 - Custom style rules
@@ -307,7 +307,7 @@ spm test
 
 ## Contributing
 
-To contribute to Sapphire tooling:
+To contribute to Corin tooling:
 
 1. Fork the repository
 2. Create a feature branch

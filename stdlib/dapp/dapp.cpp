@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <cstring>
 
-namespace Sapphire {
+namespace Corin {
 namespace DApp {
 
 // ===== Helpers =====
@@ -267,4 +267,4 @@ std::string abi_function_selector(const std::string& function_sig) {
 }
 
 } // namespace DApp
-} // namespace Sapphire
+} // namespace Corin

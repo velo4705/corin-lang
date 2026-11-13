@@ -1,11 +1,11 @@
-#ifndef SAPPHIRE_TYPE_H
-#define SAPPHIRE_TYPE_H
+#ifndef CORIN_TYPE_H
+#define CORIN_TYPE_H
 
 #include <string>
 #include <memory>
 #include <vector>
 
-namespace sapphire {
+namespace corin {
 
 // Forward declarations
 class TypeVisitor;
@@ -230,6 +230,6 @@ public:
     }
 };
 
-} // namespace sapphire
+} // namespace corin
 
-#endif // SAPPHIRE_TYPE_H
+#endif // CORIN_TYPE_H

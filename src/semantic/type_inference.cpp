@@ -1,6 +1,6 @@
 #include "type_inference.h"
 
-namespace sapphire {
+namespace corin {
 
 // Expression visitors
 
@@ -282,4 +282,4 @@ void TypeInference::visitForStmt(ForStmt& stmt) {
     }
 }
 
-} // namespace sapphire
+} // namespace corin

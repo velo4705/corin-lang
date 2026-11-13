@@ -6,7 +6,7 @@ Learn how to control the flow of your program with conditions and loops.
 
 Make decisions in your code:
 
-```sapphire
+```corin
 fn main() {
     let age = 18
     
@@ -18,7 +18,7 @@ fn main() {
 
 ### If-Else
 
-```sapphire
+```corin
 fn main() {
     let temperature = 25
     
@@ -32,7 +32,7 @@ fn main() {
 
 ### If-Else If-Else
 
-```sapphire
+```corin
 fn main() {
     let score = 85
     
@@ -50,7 +50,7 @@ fn main() {
 
 ## Comparison Operators
 
-```sapphire
+```corin
 fn main() {
     let x = 10
     let y = 20
@@ -68,7 +68,7 @@ fn main() {
 
 Combine conditions:
 
-```sapphire
+```corin
 fn main() {
     let age = 25
     let has_license = true
@@ -99,7 +99,7 @@ fn main() {
 
 Repeat code while a condition is true:
 
-```sapphire
+```corin
 fn main() {
     let mut count = 1
     
@@ -121,7 +121,7 @@ Count: 5
 
 ### Infinite Loop with Break
 
-```sapphire
+```corin
 fn main() {
     let mut i = 0
     
@@ -140,7 +140,7 @@ fn main() {
 
 Iterate over a range:
 
-```sapphire
+```corin
 fn main() {
     // Loop from 0 to 4
     for i in 0..5 {
@@ -160,7 +160,7 @@ Output:
 
 ### Loop with Step
 
-```sapphire
+```corin
 fn main() {
     // Count by 2s
     for i in 0..10 step 2 {
@@ -180,7 +180,7 @@ Output:
 
 ### Loop Over Array
 
-```sapphire
+```corin
 fn main() {
     let fruits = ["apple", "banana", "orange"]
     
@@ -194,7 +194,7 @@ fn main() {
 
 Skip to the next iteration:
 
-```sapphire
+```corin
 fn main() {
     for i in 0..10 {
         if i % 2 == 0 {
@@ -218,7 +218,7 @@ Output:
 
 Loops inside loops:
 
-```sapphire
+```corin
 fn main() {
     for i in 1..4 {
         for j in 1..4 {
@@ -240,7 +240,7 @@ Output:
 
 Pattern matching for multiple conditions:
 
-```sapphire
+```corin
 fn main() {
     let day = "Monday"
     
@@ -258,7 +258,7 @@ fn main() {
 ### Exercise 1: Even or Odd
 Write a program that checks if a number is even or odd:
 
-```sapphire
+```corin
 fn main() {
     let number = 7
     
@@ -273,7 +273,7 @@ fn main() {
 ### Exercise 2: Countdown
 Write a countdown from 10 to 1:
 
-```sapphire
+```corin
 fn main() {
     let mut count = 10
     
@@ -288,7 +288,7 @@ fn main() {
 ### Exercise 3: Multiplication Table
 Print the multiplication table for a number:
 
-```sapphire
+```corin
 fn main() {
     let number = 5
     
@@ -301,7 +301,7 @@ fn main() {
 ### Exercise 4: FizzBuzz
 Classic programming challenge:
 
-```sapphire
+```corin
 fn main() {
     for i in 1..101 {
         if i % 15 == 0 {
@@ -320,7 +320,7 @@ fn main() {
 ### Exercise 5: Grade Calculator
 Calculate letter grade from score:
 
-```sapphire
+```corin
 fn main() {
     let score = 87
     let grade = ""
@@ -344,7 +344,7 @@ fn main() {
 ## Common Mistakes
 
 ### 1. Forgetting Braces
-```sapphire
+```corin
 // Wrong:
 if x > 5
     println("Big")
@@ -356,7 +356,7 @@ if x > 5 {
 ```
 
 ### 2. Using = Instead of ==
-```sapphire
+```corin
 // Wrong:
 if x = 5 {  // This assigns, not compares!
     println("Five")
@@ -369,7 +369,7 @@ if x == 5 {
 ```
 
 ### 3. Infinite Loops
-```sapphire
+```corin
 // Wrong:
 let mut i = 0
 while i < 10 {
