@@ -64,7 +64,7 @@
 - **Smart casts** after type checks
 - **Coroutines** for structured concurrency
 
-### Unique Corin Features 💎
+### Unique Corin Features
 - **Adaptive optimization** - JIT for hot paths, AOT for cold
 - **Gradual typing** - start dynamic, add types as needed
 - **Built-in profiler** and debugger

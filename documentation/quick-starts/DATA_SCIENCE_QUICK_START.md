@@ -331,5 +331,5 @@ print("Time:", end - start, "us")
 
 ---
 
-**Happy data science with Corin!** 📊💎
+**Happy data science with Corin!** 📊
 

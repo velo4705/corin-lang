@@ -49,7 +49,7 @@ void REPL::run() {
         }
     }
     
-    std::cout << "\nGoodbye! 💎\n";
+    std::cout << "\nGoodbye!\n";
 }
 
 void REPL::processLine(const std::string& line) {

@@ -21,7 +21,7 @@
 
 void printUsage(const char* program) {
     (void)program;
-    std::cout << "Corin Programming Language 💎\n";
+    std::cout << "Corin Programming Language\n";
     std::cout << "A Fast and Powerful Language built with simplicity on top.\n\n";
     std::cout << "Usage:\n";
     std::cout << "  corin                         # Start interactive REPL\n";

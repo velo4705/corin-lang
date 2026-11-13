@@ -319,4 +319,4 @@ let channel = Channel::new()
 let pool = ThreadPool::new(4)
 ```
 
-Welcome to Corin! Happy coding! 💎
+Welcome to Corin! Happy coding!

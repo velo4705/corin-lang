@@ -131,4 +131,4 @@ To contribute to the website:
 
 ---
 
-Made with 💎 by the Corin community
+Made with by the Corin community

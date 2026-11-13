@@ -4,7 +4,7 @@ All notable changes to Corin will be documented in this file.
 
 ## [Unreleased]
 
-### 💎 Rebrand: Sapphire → Corin
+### Rebrand: Sapphire → Corin
 
 - Language renamed to **Corin** (`corin` compiler binary); repository renamed to `corin-lang`.
 - File extension changed: `.spp` → `.corin`.

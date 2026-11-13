@@ -75,4 +75,4 @@ For scripts and documentation, you can use either:
 - **Documentation**: Use `corin` (clearer)
 - **Scripts**: Either works, choose based on preference
 
-The choice is yours! 💎
+The choice is yours!

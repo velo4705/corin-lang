@@ -262,4 +262,4 @@ Want to help improve the compiler?
 
 ---
 
-Happy compiling! 🚀💎
+Happy compiling! 🚀

@@ -198,4 +198,4 @@ All files are in Git - your backup is the repository itself.
 
 ---
 
-Made with 💎 by the Corin community
+Made with by the Corin community

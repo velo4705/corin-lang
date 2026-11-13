@@ -21,9 +21,9 @@ const EXAMPLES = {
     hello: {
         file: 'hello.corin',
         code: `# Hello World in Corin
-print("Hello, Corin! 💎")
+print("Hello, Corin!")
 print("Welcome to the playground.")`,
-        output: `Hello, Corin! 💎
+        output: `Hello, Corin!
 Welcome to the playground.`
     },
 
@@ -409,7 +409,7 @@ function initEditor(code) {
     }
     editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
         mode: 'corin',
-        theme: 'dracula',
+        theme: 'corin',
         lineNumbers: true,
         matchBrackets: true,
         autoCloseBrackets: true,

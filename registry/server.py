@@ -349,7 +349,7 @@ class RegistryHandler(BaseHTTPRequestHandler):
     </style>
 </head>
 <body>
-    <h1>💎 Corin Package Registry</h1>
+    <h1> Corin Package Registry</h1>
     <p>Discover and share Corin packages</p>
     
     <input type="text" class="search-box" id="search" placeholder="Search packages...">

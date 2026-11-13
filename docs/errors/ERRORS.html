@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Reference — Corin 💎</title>
+    <title>Error Reference — Corin</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cyan: #4d9fff;
-            --blue: #1a56db;
-            --blue-deep: #0f2d8a;
-            --dark: #050a18;
-            --darker: #020510;
-            --card: #070d1f;
-            --text: #e8f0ff;
-            --text-dim: #90b8ff;
-            --text-muted: #3a5899;
-            --border: #0f1e4a;
+            --green: #2fd47a;
+            --green-light: #8ef0b5;
+            --green-strong: #1faa5e;
+            --green-deep: #14532d;
+            --dark: #0b100c;
+            --darker: #060906;
+            --card: #0d1510;
+            --text: #eef7f0;
+            --text-dim: #a3d3b3;
+            --text-muted: #6f9b7f;
+            --border: #173323;
             --red: #ff4d6a;
-            --green: #4dffb4;
-        }
+            --ok: #86efac;
+}
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
@@ -33,7 +34,7 @@
         /* ── Nav ── */
         nav {
             position: sticky; top: 0; z-index: 100;
-            background: rgba(2,5,16,0.92);
+            background: rgba(6,9,6,0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             padding: 0 2rem;
@@ -44,11 +45,11 @@
             height: 56px;
         }
         .nav-inner a { color: var(--text-dim); text-decoration: none; font-size: .9rem; }
-        .nav-inner a:hover { color: var(--cyan); }
+        .nav-inner a:hover { color: var(--green); }
         .nav-home { display: flex; align-items: center; gap: .5rem; font-weight: 600; color: var(--text) !important; }
         .nav-home img { width: 22px; height: 22px; }
         .nav-sep { color: var(--text-muted); }
-        .nav-title { color: var(--cyan) !important; font-weight: 600; }
+        .nav-title { color: var(--green) !important; font-weight: 600; }
         /* ── Layout ── */
         .layout {
             max-width: 1100px; margin: 0 auto;
@@ -70,17 +71,17 @@
             color: var(--text-dim); text-decoration: none; font-size: .85rem;
             transition: background .15s, color .15s;
         }
-        .sidebar ul li a:hover { background: rgba(77,159,255,.08); color: var(--cyan); }
+        .sidebar ul li a:hover { background: rgba(47,212,122,.09); color: var(--green); }
         .sidebar ul li a .badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: .72rem; color: var(--cyan);
-            background: rgba(77,159,255,.1); border-radius: 4px;
+            font-size: .72rem; color: var(--green);
+            background: rgba(47,212,122,.1); border-radius: 4px;
             padding: 1px 5px;
         }
         /* ── Main content ── */
         .content h1 {
             font-size: 2rem; font-weight: 800;
-            background: linear-gradient(90deg, var(--cyan), var(--blue));
+            background: linear-gradient(90deg, var(--green), var(--green-strong));
             -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: .5rem;
         }
@@ -88,13 +89,13 @@
             color: var(--text-dim); font-size: 1rem; margin-bottom: 2rem;
         }
         .tip {
-            background: rgba(77,159,255,.07); border: 1px solid rgba(77,159,255,.2);
+            background: rgba(47,212,122,.08); border: 1px solid rgba(47,212,122,.2);
             border-radius: 8px; padding: .75rem 1rem;
             font-size: .85rem; color: var(--text-dim); margin-bottom: 2.5rem;
         }
         .tip code {
             font-family: 'JetBrains Mono', monospace;
-            color: var(--cyan); background: rgba(77,159,255,.1);
+            color: var(--green); background: rgba(47,212,122,.1);
             padding: 1px 6px; border-radius: 4px;
         }
         /* ── Category header ── */
@@ -105,8 +106,8 @@
         .cat-header h2 { font-size: 1.2rem; font-weight: 700; color: var(--text); }
         .cat-tag {
             font-family: 'JetBrains Mono', monospace; font-size: .8rem;
-            background: rgba(77,159,255,.12); color: var(--cyan);
-            border: 1px solid rgba(77,159,255,.25); border-radius: 6px;
+            background: rgba(47,212,122,.12); color: var(--green);
+            border: 1px solid rgba(47,212,122,.25); border-radius: 6px;
             padding: 2px 8px;
         }
         /* ── Error card ── */
@@ -115,33 +116,33 @@
             border-radius: 12px; padding: 1.25rem 1.5rem;
             margin-bottom: 1rem; scroll-margin-top: 80px;
         }
-        .error-card:hover { border-color: rgba(77,159,255,.3); }
+        .error-card:hover { border-color: rgba(47,212,122,.3); }
         .error-card .ec-head {
             display: flex; align-items: center; gap: .75rem; margin-bottom: .6rem;
         }
         .ec-code {
             font-family: 'JetBrains Mono', monospace; font-size: .85rem;
-            font-weight: 600; color: var(--cyan);
-            background: rgba(77,159,255,.1); border-radius: 6px;
-            padding: 2px 8px; border: 1px solid rgba(77,159,255,.2);
+            font-weight: 600; color: var(--green);
+            background: rgba(47,212,122,.1); border-radius: 6px;
+            padding: 2px 8px; border: 1px solid rgba(47,212,122,.2);
         }
         .ec-title { font-size: 1rem; font-weight: 600; color: var(--text); }
         .ec-note {
             font-size: .85rem; color: var(--text-dim);
-            background: rgba(77,159,255,.05); border-left: 3px solid var(--blue);
+            background: rgba(47,212,122,.06); border-left: 3px solid var(--green-strong);
             padding: .4rem .75rem; border-radius: 0 6px 6px 0;
             margin-bottom: .75rem;
         }
-        .ec-note strong { color: var(--cyan); }
+        .ec-note strong { color: var(--green); }
         pre {
-            background: #030814; border: 1px solid var(--border);
+            background: #26221d; border: 1px solid var(--border);
             border-radius: 8px; padding: .9rem 1rem;
             font-family: 'JetBrains Mono', monospace; font-size: .8rem;
-            color: #c8d8ff; overflow-x: auto; margin-bottom: .5rem;
+            color: #f0ebe3; overflow-x: auto; margin-bottom: .5rem;
         }
         pre .comment { color: var(--text-muted); }
         pre .bad { color: var(--red); }
-        pre .good { color: var(--green); }
+        pre .good { color: var(--ok); }
         /* ── Table ── */
         .range-table {
             width: 100%; border-collapse: collapse;
@@ -152,10 +153,10 @@
             color: var(--text-muted); font-weight: 600;
             border-bottom: 1px solid var(--border);
         }
-        .range-table td { padding: .45rem .75rem; border-bottom: 1px solid rgba(15,30,74,.5); }
+        .range-table td { padding: .45rem .75rem; border-bottom: 1px solid rgba(23,51,35,.5); }
         .range-table td:first-child {
             font-family: 'JetBrains Mono', monospace;
-            color: var(--cyan); font-size: .8rem;
+            color: var(--green); font-size: .8rem;
         }
         @media (max-width: 700px) {
             .layout { grid-template-columns: 1fr; }
@@ -167,7 +168,6 @@
 <nav>
     <div class="nav-inner">
         <a href="../index.html" class="nav-home">
-            <img src="../corin-icon.svg" alt="Corin">
             Corin
         </a>
         <span class="nav-sep">/</span>

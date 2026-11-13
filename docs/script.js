@@ -1,4 +1,4 @@
-// ─── Background: crystalline gem shards ─────────────────────────────────────
+// ─── Background: crystalline shards ─────────────────────────────────────
 function initHeroCanvas() {
     const canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -13,10 +13,10 @@ function initHeroCanvas() {
 
     // Shard definition — a polygon with position, velocity, rotation
     const COLORS = [
-        'rgba(26,86,219,',    // vivid royal blue
-        'rgba(77,159,255,',   // electric corin
-        'rgba(15,45,138,',    // deep saturated navy
-        'rgba(45,110,240,',   // bright mid blue
+        'rgba(47,212,122,',   // cool green
+        'rgba(142,240,181,',  // light green
+        'rgba(20,83,45,',     // deep green
+        'rgba(31,170,94,',    // mid green
     ];
 
     function randomShard() {
@@ -46,7 +46,7 @@ function initHeroCanvas() {
         ctx.beginPath();
         for (let i = 0; i < s.sides; i++) {
             const a = (i / s.sides) * Math.PI * 2 - Math.PI / 2;
-            const r = i % 2 === 0 ? s.size : s.size * 0.6; // irregular gem shape
+            const r = i % 2 === 0 ? s.size : s.size * 0.6; // 
             const x = Math.cos(a) * r;
             const y = Math.sin(a) * r;
             i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
@@ -73,7 +73,7 @@ function initHeroCanvas() {
                     ctx.beginPath();
                     ctx.moveTo(shards[i].x, shards[i].y);
                     ctx.lineTo(shards[j].x, shards[j].y);
-                    ctx.strokeStyle = `rgba(77,159,255,${alpha})`;
+                    ctx.strokeStyle = `rgba(142,240,181,${alpha})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
@@ -117,7 +117,7 @@ const SNIPPETS = [
             { text: '    ' },
             { text: 'println', cls: 'f' },
             { text: '(' },
-            { text: '"Hello, Corin! 💎"', cls: 's' },
+            { text: '"Hello, Corin!"', cls: 's' },
             { text: ')\n}' },
         ]
     },

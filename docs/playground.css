@@ -15,7 +15,7 @@
 .playground-title {
     font-size: 2.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    background: linear-gradient(135deg, var(--green), var(--green-strong));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -73,14 +73,14 @@
 }
 
 .example-item:hover {
-    background: rgba(42, 79, 138, 0.08);
+    background: rgba(47, 212, 122, 0.09);
     color: var(--text);
 }
 
 .example-item.active {
-    background: rgba(42, 79, 138, 0.15);
-    border-left-color: var(--cyan);
-    color: var(--cyan);
+    background: rgba(47, 212, 122, 0.14);
+    border-left-color: var(--green);
+    color: var(--green);
 }
 
 /* Main editor area */
@@ -150,14 +150,14 @@
 }
 
 .btn-icon:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
+    border-color: var(--green);
+    color: var(--green);
 }
 
 .btn-run {
-    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    background: linear-gradient(135deg, var(--green), var(--green-strong));
     border: none;
-    color: white;
+    color: var(--btn-text);
     padding: 0.4rem 1.25rem;
     border-radius: 6px;
     font-size: 0.875rem;
@@ -170,7 +170,7 @@
 .btn-run:hover {
     opacity: 0.9;
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(42, 79, 138, 0.5);
+    box-shadow: 0 4px 15px rgba(47, 212, 122, 0.45);
 }
 
 .btn-run:active {
@@ -194,7 +194,7 @@
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
-    background: #1a1f2e !important;
+    background: #26221d !important;
     color: #f8f8f2 !important;
 }
 
@@ -223,12 +223,12 @@
 }
 
 .CodeMirror-gutters {
-    background: #151a28 !important;
+    background: #1f1d19 !important;
     border-right: 1px solid var(--border) !important;
 }
 
 .CodeMirror-linenumber {
-    color: #4a5568 !important;
+    color: #7a756c !important;
 }
 
 /* Output */
@@ -239,8 +239,8 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.875rem;
     line-height: 1.7;
-    color: #a8ff78;
-    background: #0d1117;
+    color: #8ef0b5;
+    background: #26221d;
     white-space: pre-wrap;
     word-break: break-word;
 }
@@ -272,8 +272,8 @@
 }
 
 .output-status.running {
-    background: rgba(42, 79, 138, 0.2);
-    color: var(--cyan);
+    background: rgba(47, 212, 122, 0.18);
+    color: var(--green);
 }
 
 /* Note bar */
@@ -283,15 +283,15 @@
     gap: 0.75rem;
     margin-top: 1.25rem;
     padding: 0.875rem 1.25rem;
-    background: rgba(42, 79, 138, 0.08);
-    border: 1px solid rgba(123, 159, 212, 0.2);
+    background: rgba(47, 212, 122, 0.09);
+    border: 1px solid rgba(142, 240, 181, 0.25);
     border-radius: 10px;
     font-size: 0.875rem;
     color: var(--text-muted);
 }
 
 .playground-note a {
-    color: var(--cyan);
+    color: var(--green);
     text-decoration: none;
 }
 
@@ -328,8 +328,8 @@
     }
 
     .example-item.active {
-        border-bottom-color: var(--cyan);
-        background: rgba(42, 79, 138, 0.15);
+        border-bottom-color: var(--green);
+        background: rgba(47, 212, 122, 0.14);
     }
 
     .playground-main {
@@ -350,3 +350,21 @@
         height: 600px;
     }
 }
+
+/* Corin editor theme — warm grey with faint orange tint */
+.cm-s-corin.CodeMirror { background: #26221d !important; color: #f0ebe3 !important; }
+.cm-s-corin .CodeMirror-gutters { background: #1f1d19 !important; border-right: 1px solid var(--border) !important; }
+.cm-s-corin .CodeMirror-linenumber { color: #7a756c !important; }
+.cm-s-corin .CodeMirror-cursor { border-left: 2px solid #2fd47a !important; }
+.cm-s-corin .CodeMirror-selected { background: rgba(47, 212, 122, 0.16) !important; }
+.cm-s-corin .CodeMirror-activeline-background { background: rgba(240, 235, 227, 0.04) !important; }
+.cm-s-corin .cm-comment { color: #8a8378 !important; font-style: italic; }
+.cm-s-corin .cm-string { color: #d9f99d !important; }
+.cm-s-corin .cm-keyword { color: #2fd47a !important; }
+.cm-s-corin .cm-type { color: #fbbf72 !important; }
+.cm-s-corin .cm-builtin { color: #8ef0b5 !important; }
+.cm-s-corin .cm-def { color: #8ef0b5 !important; }
+.cm-s-corin .cm-attribute { color: #ffd166 !important; }
+.cm-s-corin .cm-number { color: #fbbf72 !important; }
+.cm-s-corin .cm-operator { color: #f0ebe3 !important; }
+.cm-s-corin .cm-bracket { color: #cfc8bc !important; }

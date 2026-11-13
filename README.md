@@ -1,4 +1,4 @@
-# Corin 💎
+# Corin
 
 A modern programming language that's as fast as C and as easy as Python.
 
@@ -40,7 +40,7 @@ make quick
 
 ```corin
 fn main() {
-    println("Hello, Corin! 💎")
+    println("Hello, Corin!")
 }
 ```
 
@@ -450,7 +450,7 @@ MIT License - see [LICENSE](LICENSE)
 
 <div align="center">
 
-**Made with 💎 by the Corin community**
+**Made with by the Corin community**
 
 [⭐ Star](https://github.com/velo4705/corin-lang) · [🐛 Report Bug](https://github.com/velo4705/corin-lang/issues) · [� Request Feature](https://github.com/velo4705/corin-lang/issues)
 
