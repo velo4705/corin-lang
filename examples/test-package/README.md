@@ -5,7 +5,7 @@ A simple hello world package for testing the Corin Package Registry.
 ## Installation
 
 ```bash
-spm-registry install hello-world
+cpm-registry install hello-world
 ```
 
 ## Usage

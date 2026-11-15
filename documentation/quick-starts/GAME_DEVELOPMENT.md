@@ -128,12 +128,12 @@ gl_end()
 ### Pong (Multiple Implementations)
 **Location**: `examples/challenges/round3_field_level/`
 
-1. **SDL2 Pong** (`pong_simple.corin`)
+1. **SDL2 Pong** (`pong_simple.crn`)
    - 2D, fully functional
    - 150 lines of Corin
    - Best for beginners
 
-2. **OpenGL Pong** (`pong_opengl.corin`)
+2. **OpenGL Pong** (`pong_opengl.crn`)
    - 3D simulation demo
    - 120 lines of Corin
    - Educational
@@ -146,8 +146,8 @@ gl_end()
 ### Black Hole Simulations
 **Location**: `examples/challenges/round3_field_level/`
 
-1. **SDL2** (`blackhole_sdl2.corin`) - 2D particles
-2. **OpenGL** (`blackhole_opengl_corin.corin`) - 3D particles
+1. **SDL2** (`blackhole_sdl2.crn`) - 2D particles
+2. **OpenGL** (`blackhole_opengl_corin.crn`) - 3D particles
 3. **GLUT** (`blackhole_glut.cpp`) - 3D with utility shapes
 
 ---
@@ -208,7 +208,7 @@ gl_end()
 
 ### Examples
 - `examples/challenges/round3_field_level/` - Game examples
-- `examples/test_opengl.corin` - OpenGL test
+- `examples/test_opengl.crn` - OpenGL test
 
 ### Comparisons
 - `examples/challenges/round3_field_level/PONG_COMPARISON.md` - Detailed comparison
@@ -224,7 +224,7 @@ gl_end()
 ### SDL2 Game
 ```bash
 # Compile Corin to LLVM IR
-./corin compile game.corin 2>/dev/null > game.ll
+./corin compile game.crn 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o
@@ -254,7 +254,7 @@ brew install sdl2 sdl2_ttf
 ### OpenGL Game
 ```bash
 # Compile Corin to LLVM IR
-./corin compile game.corin 2>/dev/null > game.ll
+./corin compile game.crn 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o

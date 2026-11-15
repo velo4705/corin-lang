@@ -134,7 +134,7 @@ while running:
 
 ### Quick Compile
 ```bash
-./corin compile program.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll
+./corin compile program.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll
 llc program.ll -filetype=obj -o program.o
 gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread
 ./program
@@ -142,7 +142,7 @@ gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread
 
 ### One-Liner
 ```bash
-./corin compile program.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll && llc program.ll -filetype=obj -o program.o && gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread && ./program
+./corin compile program.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > program.ll && llc program.ll -filetype=obj -o program.o && gcc program.o stdlib/system/system.cpp -o program -lstdc++ -lpthread && ./program
 ```
 
 ---
@@ -235,11 +235,11 @@ corin_system_free(temp_buffer)
 - `EMBEDDED_COMPLETE.md` - Complete embedded summary
 
 ### Examples
-- `system_demo.corin` - System capabilities
-- `kernel_hello.corin` - Kernel initialization
-- `process_monitor.corin` - Process monitoring
-- `embedded_demo.corin` - Temperature controller
-- `iot_sensor_node.corin` - IoT sensor node
+- `system_demo.crn` - System capabilities
+- `kernel_hello.crn` - Kernel initialization
+- `process_monitor.crn` - Process monitoring
+- `embedded_demo.crn` - Temperature controller
+- `iot_sensor_node.crn` - IoT sensor node
 
 ---
 

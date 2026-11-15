@@ -196,7 +196,7 @@ fn build_ui() -> Widget {
 Changes to UI code are reflected immediately without restarting:
 
 ```bash
-spm run --hot-reload
+cpm run --hot-reload
 ```
 
 ## Building for Platforms
@@ -204,29 +204,29 @@ spm run --hot-reload
 ### iOS
 
 ```bash
-spm build --target ios
-spm run --target ios --device "iPhone 14"
+cpm build --target ios
+cpm run --target ios --device "iPhone 14"
 ```
 
 ### Android
 
 ```bash
-spm build --target android
-spm run --target android --device "Pixel 7"
+cpm build --target android
+cpm run --target android --device "Pixel 7"
 ```
 
 ### Web (WASM)
 
 ```bash
-spm build --target wasm
-spm serve  # Starts local web server
+cpm build --target wasm
+cpm serve  # Starts local web server
 ```
 
 ### Desktop
 
 ```bash
-spm build --target desktop
-spm run
+cpm build --target desktop
+cpm run
 ```
 
 ## Best Practices
@@ -257,8 +257,8 @@ fn use_camera() {
 ## Examples
 
 See the `examples/` directory:
-- `mobile_example.corin` - Mobile app with native APIs
-- `platform_directives.corin` - Platform-specific code patterns
+- `mobile_example.crn` - Mobile app with native APIs
+- `platform_directives.crn` - Platform-specific code patterns
 
 ## Platform Support Matrix
 

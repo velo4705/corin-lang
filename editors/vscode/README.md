@@ -47,7 +47,7 @@ Configure the extension in VSCode settings:
 
 ## Usage
 
-1. Open a `.corin` file
+1. Open a `.crn` file
 2. Start typing - auto-completion will appear
 3. Hover over symbols for documentation
 4. Right-click and select "Go to Definition"
@@ -72,7 +72,7 @@ This creates the `corin-lsp` executable.
 
 ### Syntax highlighting not working
 
-1. Make sure file extension is `.corin`
+1. Make sure file extension is `.crn`
 2. Try reloading VSCode window (Ctrl+Shift+P > Reload Window)
 
 ## Contributing

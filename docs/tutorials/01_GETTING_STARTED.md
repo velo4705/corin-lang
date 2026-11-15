@@ -25,7 +25,7 @@ cd corin-lang
 
 This will install:
 - `corin` - Corin compiler
-- `spm` - Corin package manager
+- `cpm` - Corin package manager
 - `corin-fmt` - Code formatter
 
 ### Verify Installation
@@ -37,7 +37,7 @@ corin --version
 
 ### Hello, World!
 
-Create a file called `hello.corin`:
+Create a file called `hello.crn`:
 
 ```corin
 fn main() {
@@ -48,7 +48,7 @@ fn main() {
 ### Run Your Program
 
 ```bash
-corin hello.corin
+corin hello.crn
 ```
 
 You should see:

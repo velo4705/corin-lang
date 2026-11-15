@@ -73,31 +73,31 @@ echo ""
 
 run_algo_bench \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.corin" \
+    "benchmarks/algorithms/fibonacci_dp.crn" \
     "benchmarks/algorithms/fibonacci_dp.c" \
     "Time: O(n), Space: O(n)"
 
 run_algo_bench \
     "Matrix Multiply" \
-    "benchmarks/algorithms/matrix_multiply.corin" \
+    "benchmarks/algorithms/matrix_multiply.crn" \
     "benchmarks/algorithms/matrix_multiply.c" \
     "Time: O(n³), Space: O(n²)"
 
 run_algo_bench \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.corin" \
+    "benchmarks/algorithms/hash_operations.crn" \
     "benchmarks/algorithms/hash_operations.c" \
     "Time: O(1) avg, Space: O(n)"
 
 run_algo_bench \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.corin" \
+    "benchmarks/algorithms/string_operations.crn" \
     "benchmarks/algorithms/string_operations.c" \
     "Time: O(n), Space: O(n)"
 
 run_algo_bench \
     "Sorting" \
-    "benchmarks/algorithms/sorting_benchmark.corin" \
+    "benchmarks/algorithms/sorting_benchmark.crn" \
     "benchmarks/algorithms/sorting_benchmark.c" \
     "Time: O(n log n), Space: O(log n)"
 

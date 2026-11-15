@@ -6,9 +6,9 @@ This directory contains example programs demonstrating Corin's features.
 
 These examples work with the current parser and have been verified:
 
-### `hello.corin` - Hello World
+### `hello.crn` - Hello World
 ```bash
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 Output:
 ```
@@ -16,9 +16,9 @@ Hello, Corin!
 Hello, World!
 ```
 
-### `simple.corin` - Basic variables and arithmetic
+### `simple.crn` - Basic variables and arithmetic
 ```bash
-./corin examples/simple.corin
+./corin examples/simple.crn
 ```
 Output:
 ```
@@ -26,9 +26,9 @@ Output:
 30
 ```
 
-### `showcase.corin` - Working language features
+### `showcase.crn` - Working language features
 ```bash
-./corin examples/showcase.corin
+./corin examples/showcase.crn
 ```
 Output:
 ```
@@ -42,9 +42,9 @@ true
 78.539750
 ```
 
-### `data_science_simple.corin` - Basic data processing
+### `data_science_simple.crn` - Basic data processing
 ```bash
-./corin examples/data_science_simple.corin
+./corin examples/data_science_simple.crn
 ```
 Output:
 ```
@@ -64,9 +64,9 @@ true
 ✓ Data analysis complete!
 ```
 
-### `test_basic.corin` - Basic operations
+### `test_basic.crn` - Basic operations
 ```bash
-./corin examples/test_basic.corin
+./corin examples/test_basic.crn
 ```
 Output:
 ```
@@ -79,9 +79,9 @@ true
 4.200000
 ```
 
-### `test_arithmetic.corin` - Arithmetic operations
+### `test_arithmetic.crn` - Arithmetic operations
 ```bash
-./corin examples/test_arithmetic.corin
+./corin examples/test_arithmetic.crn
 ```
 Output:
 ```
@@ -91,9 +91,9 @@ Output:
 2.000000
 ```
 
-### `test_comparison.corin` - Comparison operators
+### `test_comparison.crn` - Comparison operators
 ```bash
-./corin examples/test_comparison.corin
+./corin examples/test_comparison.crn
 ```
 Output:
 ```
@@ -103,27 +103,27 @@ false
 true
 ```
 
-### `file_io_example.corin` - File I/O simulation
+### `file_io_example.crn` - File I/O simulation
 ```bash
-./corin examples/file_io_example.corin
+./corin examples/file_io_example.crn
 ```
 Demonstrates file operations concepts (reading, writing, CSV, JSON).
 
-### `user_input_example.corin` - User input simulation
+### `user_input_example.crn` - User input simulation
 ```bash
-./corin examples/user_input_example.corin
+./corin examples/user_input_example.crn
 ```
 Demonstrates user input validation and processing.
 
-### `system_programming_example.corin` - System programming simulation
+### `system_programming_example.crn` - System programming simulation
 ```bash
-./corin examples/system_programming_example.corin
+./corin examples/system_programming_example.crn
 ```
 Demonstrates system-level operations (processes, memory, CPU, disk).
 
-### `directives_example.corin` - Directives simulation
+### `directives_example.crn` - Directives simulation
 ```bash
-./corin examples/directives_example.corin
+./corin examples/directives_example.crn
 ```
 Demonstrates compiler directives and optimization concepts.
 
@@ -138,20 +138,20 @@ All 24 examples pass! ✅
 
 These examples demonstrate planned features for future versions. They will not run yet but show the direction of the language:
 
-- **`data_science.corin`** - ML and data analysis (requires: imports, classes, async)
-- **`advanced_features.corin`** - Advanced language features
-- **`advanced_types.corin`** - Dependent types, higher-kinded types
-- **`macros.corin`** - Macro system
-- **`jit_compilation.corin`** - JIT compilation features
-- **`mobile_example.corin`** - Mobile platform directives
-- **`platform_directives.corin`** - Platform-specific code
-- **`cli_tool.corin`** - CLI application (requires: imports, modules)
-- **`complete_cli_tool.corin`** - Full CLI tool
-- **`concurrent_example.corin`** - Concurrency (requires: Thread API)
-- **`json_example.corin`** - JSON processing (requires: imports)
-- **`web_server.corin`** - HTTP server (requires: imports)
-- **`microservice.corin`** - Microservice example
-- **`systems_programming.corin`** - Systems programming
+- **`data_science.crn`** - ML and data analysis (requires: imports, classes, async)
+- **`advanced_features.crn`** - Advanced language features
+- **`advanced_types.crn`** - Dependent types, higher-kinded types
+- **`macros.crn`** - Macro system
+- **`jit_compilation.crn`** - JIT compilation features
+- **`mobile_example.crn`** - Mobile platform directives
+- **`platform_directives.crn`** - Platform-specific code
+- **`cli_tool.crn`** - CLI application (requires: imports, modules)
+- **`complete_cli_tool.crn`** - Full CLI tool
+- **`concurrent_example.crn`** - Concurrency (requires: Thread API)
+- **`json_example.crn`** - JSON processing (requires: imports)
+- **`web_server.crn`** - HTTP server (requires: imports)
+- **`microservice.crn`** - Microservice example
+- **`systems_programming.crn`** - Systems programming
 
 These are documentation examples showing the vision for Corin's future capabilities.
 
@@ -255,7 +255,7 @@ Features being implemented for v1.0-beta.6:
 - 🔄 WASM compilation
 
 ### Tooling
-- 🔄 Package manager (spm)
+- 🔄 Package manager (cpm)
 - 🔄 Build system
 - 🔄 Test framework
 - 🔄 Code formatter
@@ -293,12 +293,12 @@ if x > 5:
 
 Test a specific example:
 ```bash
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 
 Test all working examples:
 ```bash
-for file in examples/hello.corin examples/simple.corin examples/showcase.corin; do
+for file in examples/hello.crn examples/simple.crn examples/showcase.crn; do
     echo "Testing: $file"
     ./corin "$file"
     echo ""
@@ -309,7 +309,7 @@ done
 
 When adding new examples:
 
-1. Test with current parser: `./corin your_example.corin`
+1. Test with current parser: `./corin your_example.crn`
 2. If it uses future features, add a note at the top
 3. Consider creating a simplified version that works now
 4. Update this README

@@ -7,10 +7,10 @@ All notable changes to Corin will be documented in this file.
 ### Rebrand: Sapphire → Corin
 
 - Language renamed to **Corin** (`corin` compiler binary); repository renamed to `corin-lang`.
-- File extension changed: `.spp` → `.corin`.
+- File extension changed: `.spp` → `.crn`.
+- Package manager renamed: `spm` → `cpm` (Corin Package Manager; `cpm.toml`, `.cpm/`, `cpm.lock`, `cpm-registry`).
 - Tooling renamed: `sapphire-fmt` → `corin-fmt`, `sapphire-lsp` → `corin-lsp`, `sapphire-debug` → `corin-debug`, `sapphire-doc` → `corin-doc`; VSCode extension is now `corin-lang`.
-- `spm` package manager name unchanged.
-- Historical entries below were mechanically rebranded (Sapphire → Corin); release dates and version numbering are unchanged.
+- Historical entries below were mechanically rebranded (Sapphire → Corin, spm → cpm); release dates and version numbering are unchanged.
 
 ---
 
@@ -380,7 +380,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 #### Package Registry ✅ COMPLETE
 - ✅ HTTP registry server (Python-based)
 - ✅ SQLite database for package metadata
-- ✅ Registry client tool (spm-registry)
+- ✅ Registry client tool (cpm-registry)
 - ✅ Package publish endpoint
 - ✅ Package install from remote registry
 - ✅ Package search functionality
@@ -399,7 +399,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 - ✅ Batch processing support
 
 #### VSCode Extension ✅ COMPLETE
-- ✅ Full syntax highlighting for .corin files
+- ✅ Full syntax highlighting for .crn files
 - ✅ LSP client integration
 - ✅ Debug adapter integration
 - ✅ Language configuration (brackets, comments, indentation)
@@ -436,7 +436,7 @@ Professional IDE support, debugging, package registry, documentation generation,
 ### Tools Added
 - `corin-lsp` - Language Server Protocol implementation
 - `corin-debug` - Debug Adapter Protocol implementation
-- `spm-registry` - Package registry client
+- `cpm-registry` - Package registry client
 - `corin-doc` - Documentation generator
 
 ### Known Limitations
@@ -472,7 +472,7 @@ Professional IDE support with Language Server Protocol implementation.
 - ✅ Position tracking from token data
 
 #### VSCode Extension ✅ COMPLETE
-- ✅ Full syntax highlighting for .corin files
+- ✅ Full syntax highlighting for .crn files
 - ✅ LSP client integration
 - ✅ Language configuration (brackets, comments, indentation)
 - ✅ Auto-completion support
@@ -518,15 +518,15 @@ Developer tools and enhanced standard library for production readiness.
 
 ### Added
 
-#### Package Manager (spm) ✅ COMPLETE
-- ✅ spm init - Create new packages with structure
-- ✅ spm build - Build and validate packages
-- ✅ spm test - Run all tests with reporting
-- ✅ spm run - Execute Corin files
-- ✅ spm clean - Clean build artifacts
-- ✅ spm install - Dependency management (manual)
-- ✅ spm publish - Package validation
-- ✅ Package manifest (spm.toml)
+#### Package Manager (cpm) ✅ COMPLETE
+- ✅ cpm init - Create new packages with structure
+- ✅ cpm build - Build and validate packages
+- ✅ cpm test - Run all tests with reporting
+- ✅ cpm run - Execute Corin files
+- ✅ cpm clean - Clean build artifacts
+- ✅ cpm install - Dependency management (manual)
+- ✅ cpm publish - Package validation
+- ✅ Package manifest (cpm.toml)
 - ✅ Automatic project structure generation
 
 #### Code Formatter (corin-fmt) ✅ COMPLETE
@@ -719,20 +719,20 @@ Development version with new language features for v1.1 release.
 - ⏳ Goroutines (go keyword) - planned
 
 ### Examples
-- `examples/pattern_matching_simple.corin` - Basic pattern matching
-- `examples/pattern_matching_comprehensive.corin` - All pattern features
-- `examples/pattern_matching_arrays.corin` - Array destructuring
-- `examples/pattern_matching_objects.corin` - Object destructuring
-- `examples/pattern_matching_rest.corin` - Rest patterns
-- `examples/match_guard_simple.corin` - Guard clauses
-- `examples/match_guard_indent.corin` - Guard clauses with indentation
-- `examples/match_multi_arm.corin` - Multiple match arms
-- `examples/traits_working.corin` - Basic traits
-- `examples/traits_full_demo.corin` - Complete trait demo
-- `examples/traits_generics.corin` - Traits with generics
-- `examples/traits_multiple.corin` - Multiple traits per type
-- `examples/async_simple.corin` - Basic async/await
-- `examples/async_comprehensive.corin` - Comprehensive async features
+- `examples/pattern_matching_simple.crn` - Basic pattern matching
+- `examples/pattern_matching_comprehensive.crn` - All pattern features
+- `examples/pattern_matching_arrays.crn` - Array destructuring
+- `examples/pattern_matching_objects.crn` - Object destructuring
+- `examples/pattern_matching_rest.crn` - Rest patterns
+- `examples/match_guard_simple.crn` - Guard clauses
+- `examples/match_guard_indent.crn` - Guard clauses with indentation
+- `examples/match_multi_arm.crn` - Multiple match arms
+- `examples/traits_working.crn` - Basic traits
+- `examples/traits_full_demo.crn` - Complete trait demo
+- `examples/traits_generics.crn` - Traits with generics
+- `examples/traits_multiple.crn` - Multiple traits per type
+- `examples/async_simple.crn` - Basic async/await
+- `examples/async_comprehensive.crn` - Comprehensive async features
 
 ### Documentation
 - `docs/PATTERN_MATCHING.md` - Pattern matching guide
@@ -805,7 +805,7 @@ This is the first stable release of Corin, a modern programming language combini
 - ✅ 33 concurrency tests
 
 #### Developer Tools (Milestones 7-8)
-- ✅ Package manager (spm)
+- ✅ Package manager (cpm)
   - Project initialization
   - Build system
   - Test runner

@@ -31,7 +31,7 @@ export function activate(context: ExtensionContext) {
         const clientOptions: LanguageClientOptions = {
             documentSelector: [{ scheme: 'file', language: 'corin' }],
             synchronize: {
-                fileEvents: workspace.createFileSystemWatcher('**/.corin')
+                fileEvents: workspace.createFileSystemWatcher('**/.crn')
             }
         };
 

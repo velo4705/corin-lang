@@ -317,7 +317,7 @@ swap!(x, y)
 ### Expand Macros
 
 ```bash
-corin --expand-macros file.corin
+corin --expand-macros file.crn
 ```
 
 ### Show Macro Expansion
@@ -386,7 +386,7 @@ cfg_if!(target_os = "linux",
 
 ## Examples
 
-See `examples/macros.corin` for complete examples.
+See `examples/macros.crn` for complete examples.
 
 ## Further Reading
 

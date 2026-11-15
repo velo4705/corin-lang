@@ -109,7 +109,7 @@ function initHeroCanvas() {
 // ─── Code snippets to cycle through in the hero preview ─────────────────────
 const SNIPPETS = [
     {
-        filename: 'hello.corin',
+        filename: 'hello.crn',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'main', cls: 'f' },
@@ -122,7 +122,7 @@ const SNIPPETS = [
         ]
     },
     {
-        filename: 'fibonacci.corin',
+        filename: 'fibonacci.crn',
         code: [
             { text: '@cache\n', cls: 'attr' },
             { text: 'fn ', cls: 'k' },
@@ -153,7 +153,7 @@ const SNIPPETS = [
         ]
     },
     {
-        filename: 'pattern.corin',
+        filename: 'pattern.crn',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'classify', cls: 'f' },
@@ -187,7 +187,7 @@ const SNIPPETS = [
         ]
     },
     {
-        filename: 'loops.corin',
+        filename: 'loops.crn',
         code: [
             { text: 'fn ', cls: 'k' },
             { text: 'main', cls: 'f' },

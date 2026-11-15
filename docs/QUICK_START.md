@@ -18,7 +18,7 @@ make quick
 
 ## Your First Program
 
-Create `hello.corin`:
+Create `hello.crn`:
 
 ```corin
 # Hello World in Corin
@@ -29,9 +29,9 @@ print(message)
 Run it:
 
 ```bash
-./corin hello.corin
+./corin hello.crn
 # or
-./corin hello.corin
+./corin hello.crn
 ```
 
 **Note:** Both `corin` (short) and `corin` (full) work!
@@ -115,8 +115,8 @@ let x = 42  # Inline comment
 Check out the `examples/` directory:
 
 ```bash
-./corin examples/demo.corin
-./corin examples/simple.corin
+./corin examples/demo.crn
+./corin examples/simple.crn
 ```
 
 ## Getting Help

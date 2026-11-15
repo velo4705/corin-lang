@@ -33,7 +33,7 @@ Or build from source:
 git clone https://github.com/velo4705/corin-lang.git
 cd corin-lang
 make quick
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 
 ### Hello World
@@ -46,7 +46,7 @@ fn main() {
 
 Run it:
 ```bash
-corin hello.corin
+corin hello.crn
 ```
 
 ---
@@ -232,22 +232,22 @@ More examples in [examples/](examples/)
 
 **corin** - Compiler and interpreter
 ```bash
-corin hello.corin              # Run program
-corin --compile hello.corin    # Compile to binary
+corin hello.crn              # Run program
+corin --compile hello.crn    # Compile to binary
 corin --version              # Show version
 ```
 
-**spm** - Package manager
+**cpm** - Package manager
 ```bash
-spm init                    # Create new project
-spm build                   # Build project
-spm test                    # Run tests
-spm run                     # Run project
+cpm init                    # Create new project
+cpm build                   # Build project
+cpm test                    # Run tests
+cpm run                     # Run project
 ```
 
 **corin-fmt** - Code formatter
 ```bash
-corin-fmt file.corin       # Format file
+corin-fmt file.crn       # Format file
 corin-fmt --check .      # Check formatting
 ```
 
@@ -265,15 +265,15 @@ corin-fmt --check .      # Check formatting
 
 **corin-doc** - Documentation generator
 ```bash
-corin-doc file.corin       # Generate docs for one file
+corin-doc file.crn       # Generate docs for one file
 corin-doc examples/      # Generate docs for directory
 ```
 
-**spm-registry** - Package registry client
+**cpm-registry** - Package registry client
 ```bash
-spm-registry publish        # Publish package to registry
-spm-registry install pkg    # Install package from registry
-spm-registry search query   # Search for packages
+cpm-registry publish        # Publish package to registry
+cpm-registry install pkg    # Install package from registry
+cpm-registry search query   # Search for packages
 ```
 
 ---
@@ -339,9 +339,9 @@ print("Elapsed:", end - start, "ns")
 ```
 
 ### Working Examples
-- `system_demo.corin` - System capabilities demo
-- `kernel_hello.corin` - Kernel-style initialization
-- `process_monitor.corin` - Process monitoring tool
+- `system_demo.crn` - System capabilities demo
+- `kernel_hello.crn` - Kernel-style initialization
+- `process_monitor.crn` - Process monitoring tool
 
 **Documentation:**
 - [System Library Complete Guide](SYSTEM_LIBRARY_COMPLETE.md)

@@ -281,7 +281,7 @@ glut_swap_buffers()
 ### With OpenGL
 ```bash
 # Compile Corin to LLVM IR
-./corin compile program.corin 2>/dev/null > program.ll
+./corin compile program.crn 2>/dev/null > program.ll
 
 # Compile to object file
 llc -filetype=obj program.ll -o program.o
@@ -296,7 +296,7 @@ clang program.o -o program -lGL -lGLU -lstdc++
 ### With GLUT
 ```bash
 # Compile Corin to LLVM IR
-./corin compile program.corin 2>/dev/null > program.ll
+./corin compile program.crn 2>/dev/null > program.ll
 
 # Compile to object file
 llc -filetype=obj program.ll -o program.o
@@ -415,7 +415,7 @@ Wait for Vulkan support (or use C++ for now).
 ## Examples
 
 ### Simple Triangle (OpenGL)
-See: `examples/test_opengl.corin`
+See: `examples/test_opengl.crn`
 
 ### Black Hole Simulation (OpenGL)
 See: `examples/challenges/round3_field_level/blackhole_opengl.cpp` (C++ reference)

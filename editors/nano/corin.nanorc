@@ -1,9 +1,9 @@
-## Nano syntax highlighting for Corin (.corin)
+## Nano syntax highlighting for Corin (.crn)
 ## Copy to ~/.config/nano/corin.nanorc and add:
 ##   include "~/.config/nano/corin.nanorc"
 ## to your ~/.nanorc
 
-syntax "corin" "\.corin$"
+syntax "corin" "\.crn$"
 
 ## Doc comments (bright cyan)
 color brightcyan "///.*$"

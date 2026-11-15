@@ -12,12 +12,12 @@ This document describes how to test Corin examples and features.
 ./test_examples.sh
 ```
 
-This will test all 186 .corin files in the examples/ directory.
+This will test all 186 .crn files in the examples/ directory.
 
 ### Run Specific Example
 
 ```bash
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 
 ---
@@ -33,7 +33,7 @@ This will test all 186 .corin files in the examples/ directory.
 ### Test Script Features
 
 1. **Automatic Discovery**
-   - Finds all .corin files in examples/
+   - Finds all .crn files in examples/
    - No manual maintenance needed
 
 2. **Error Detection**
@@ -129,10 +129,10 @@ This will test all 186 .corin files in the examples/ directory.
 
 ### 1. Create Test File
 
-Create a new .corin file in examples/:
+Create a new .crn file in examples/:
 
 ```corin
-# examples/my_test.corin
+# examples/my_test.crn
 print("Testing my feature")
 
 let result = my_function()
@@ -153,10 +153,10 @@ If your test requires user input, add it to the skip list in `test_examples.sh`:
 
 ```bash
 SKIP_FILES=(
-    "examples/input_test_simple.corin"
-    "examples/input_working.corin"
-    "examples/user_input_example.corin"
-    "examples/my_interactive_test.corin"  # Add here
+    "examples/input_test_simple.crn"
+    "examples/input_working.crn"
+    "examples/user_input_example.crn"
+    "examples/my_interactive_test.crn"  # Add here
 )
 ```
 
@@ -187,7 +187,7 @@ Total:   186
 ### 1. Run Individual Test
 
 ```bash
-./corin examples/failing_test.corin
+./corin examples/failing_test.crn
 ```
 
 ### 2. Check Error Output
@@ -201,10 +201,10 @@ Look for:
 
 ```bash
 # Edit the file
-vim examples/failing_test.corin
+vim examples/failing_test.crn
 
 # Test again
-./corin examples/failing_test.corin
+./corin examples/failing_test.crn
 
 # Run full suite
 ./test_examples.sh
@@ -267,8 +267,8 @@ jobs:
    - Minimal dependencies
 
 2. **Use descriptive names**
-   - `test_pattern_matching_guards.corin`
-   - `example_async_channels.corin`
+   - `test_pattern_matching_guards.crn`
+   - `example_async_channels.crn`
 
 3. **Add comments**
    - Explain what's being tested

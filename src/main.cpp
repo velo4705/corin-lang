@@ -25,10 +25,10 @@ void printUsage(const char* program) {
     std::cout << "A Fast and Powerful Language built with simplicity on top.\n\n";
     std::cout << "Usage:\n";
     std::cout << "  corin                         # Start interactive REPL\n";
-    std::cout << "  corin <file.corin>              # Run a program (interpreter)\n";
-    std::cout << "  corin compile <file.corin>      # Compile and show LLVM IR\n";
+    std::cout << "  corin <file.crn>              # Run a program (interpreter)\n";
+    std::cout << "  corin compile <file.crn>      # Compile and show LLVM IR\n";
     std::cout << "  corin new <project>           # Scaffold a new project\n";
-    std::cout << "  corin --fmt <file.corin>        # Format code in-place\n";
+    std::cout << "  corin --fmt <file.crn>        # Format code in-place\n";
     std::cout << "  corin --version               # Show version\n";
     std::cout << "  corin --update                # Update to latest version\n";
     std::cout << "  corin --help                  # Show this help\n";
@@ -195,8 +195,8 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         
-        // Create main.corin
-        std::ofstream main_file(dir + "/main.corin");
+        // Create main.crn
+        std::ofstream main_file(dir + "/main.crn");
         main_file << "// " << project_name << "\n";
         main_file << "// A Corin program\n\n";
         main_file << "fn main():\n";
@@ -210,16 +210,16 @@ int main(int argc, char* argv[]) {
         readme_file.close();
         
         std::cout << "Created project '" << project_name << "'\n";
-        std::cout << "  " << dir << "/main.corin\n";
+        std::cout << "  " << dir << "/main.crn\n";
         std::cout << "  " << dir << "/README.md\n";
-        std::cout << "\nRun: cd " << dir << " && corin main.corin\n";
+        std::cout << "\nRun: cd " << dir << " && corin main.crn\n";
         return 0;
     }
     
-    // corin --fmt file.corin  →  format a file in-place
+    // corin --fmt file.crn  →  format a file in-place
     if (arg == "--fmt") {
         if (argc < 3) {
-            std::cerr << "Usage: corin --fmt <file.corin>\n";
+            std::cerr << "Usage: corin --fmt <file.crn>\n";
             return 1;
         }
         corin::Formatter fmt;
@@ -255,10 +255,10 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    // corin --watch file.corin  →  watch file for changes, auto-rerun
+    // corin --watch file.crn  →  watch file for changes, auto-rerun
     if (arg == "--watch") {
         if (argc < 3) {
-            std::cerr << "Usage: corin --watch <file.corin>\n";
+            std::cerr << "Usage: corin --watch <file.crn>\n";
             return 1;
         }
         std::string watch_file = argv[2];
@@ -322,7 +322,7 @@ int main(int argc, char* argv[]) {
     if (arg == "compile") {
         if (argc < 3) {
             std::cerr << "Error: compile command requires a filename\n";
-            std::cerr << "Usage: corin compile <file.corin> [-o output] [--emit-llvm]\n";
+            std::cerr << "Usage: corin compile <file.crn> [-o output] [--emit-llvm]\n";
             return 1;
         }
         compile_mode = true;

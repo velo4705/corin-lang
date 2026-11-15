@@ -47,7 +47,7 @@ This creates the `corin` compiler.
 
 ## Your First Program
 
-Create a file called `hello.corin`:
+Create a file called `hello.crn`:
 
 ```corin
 # Hello World in Corin
@@ -57,7 +57,7 @@ print("Hello, Corin!")
 Run it:
 
 ```bash
-./corin hello.corin
+./corin hello.crn
 ```
 
 Output:
@@ -67,21 +67,21 @@ Hello, Corin!
 
 ## Using the Package Manager
 
-Corin comes with `spm`, a package manager for creating and managing projects.
+Corin comes with `cpm`, a package manager for creating and managing projects.
 
 ### Create a New Project
 
 ```bash
-./spm init my-project
+./cpm init my-project
 cd my-project
 ```
 
 This creates:
 ```
 my-project/
-  spm.toml          # Project configuration
+  cpm.toml          # Project configuration
   src/
-    main.corin        # Main source file
+    main.crn        # Main source file
   tests/            # Test files
   docs/             # Documentation
 ```
@@ -89,14 +89,14 @@ my-project/
 ### Build and Run
 
 ```bash
-../spm build    # Build the project
-../spm run      # Build and run
+../cpm build    # Build the project
+../cpm run      # Build and run
 ```
 
 ### Run Tests
 
 ```bash
-../spm test
+../cpm test
 ```
 
 ## Language Basics
@@ -265,21 +265,21 @@ let result = future.get()
 
 ```bash
 # Compiler
-./corin program.corin              # Run program
-./corin compile program.corin      # Compile to LLVM IR
+./corin program.crn              # Run program
+./corin compile program.crn      # Compile to LLVM IR
 
 # Package Manager
-./spm init <name>               # Create new project
-./spm build                     # Build project
-./spm run                       # Build and run
-./spm test                      # Run tests
-./spm clean                     # Clean build artifacts
-./spm doc                       # Generate docs
-./spm fmt                       # Format code
+./cpm init <name>               # Create new project
+./cpm build                     # Build project
+./cpm run                       # Build and run
+./cpm test                      # Run tests
+./cpm clean                     # Clean build artifacts
+./cpm doc                       # Generate docs
+./cpm fmt                       # Format code
 
 # Tools
-./corin-fmt file.corin         # Format code
-./corin-fmt --check file.corin # Check formatting
+./corin-fmt file.crn         # Format code
+./corin-fmt --check file.crn # Check formatting
 ```
 
 ### Syntax Cheat Sheet

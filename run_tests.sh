@@ -79,8 +79,8 @@ run_test() {
     fi
 }
 
-echo "=== Running examples/*.corin (core tests only) ==="
-for f in examples/*.corin; do
+echo "=== Running examples/*.crn (core tests only) ==="
+for f in examples/*.crn; do
     run_test "$f"
 done
 

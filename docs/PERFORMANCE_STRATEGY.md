@@ -145,16 +145,16 @@ D-Tier: Python (CPython), Ruby
 
 ```bash
 # Development (fast compilation)
-corin build --opt=0 main.corin
+corin build --opt=0 main.crn
 
 # Balanced (default)
-corin build --opt=2 main.corin
+corin build --opt=2 main.crn
 
 # Maximum performance
-corin build --opt=3 --lto main.corin
+corin build --opt=3 --lto main.crn
 
 # Profile-guided optimization
-corin build --opt=3 --pgo main.corin
+corin build --opt=3 --pgo main.crn
 ```
 
 ## Performance Features

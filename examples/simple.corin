@@ -1,7 +1,0 @@
-# Simple test
-let x = 10
-print(x)
-
-let y = 20
-let z = x + y
-print(z)

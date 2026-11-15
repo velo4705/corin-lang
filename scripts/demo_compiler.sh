@@ -1,23 +1,23 @@
 #!/bin/bash
 # Corin Compiler Demo
-# Demonstrates end-to-end compilation from .corin to native executable
+# Demonstrates end-to-end compilation from .crn to native executable
 
 set -e
 
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║         Corin Compiler - End-to-End Demo                   ║"
-echo "║         From .corin source to native executable                 ║"
+echo "║         From .crn source to native executable                 ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 
 # Check if example file is provided
 if [ -z "$1" ]; then
-    EXAMPLE="examples/simple_test.corin"
+    EXAMPLE="examples/simple_test.crn"
 else
     EXAMPLE="$1"
 fi
 
-BASENAME=$(basename "$EXAMPLE" .corin)
+BASENAME=$(basename "$EXAMPLE" .crn)
 OUTPUT_DIR="/tmp/corin_demo"
 mkdir -p "$OUTPUT_DIR"
 
@@ -69,4 +69,4 @@ echo "  - Object:     $OUTPUT_DIR/$BASENAME.o"
 echo "  - Executable: $OUTPUT_DIR/$BASENAME"
 echo ""
 echo "Try it yourself:"
-echo "  ./scripts/demo_compiler.sh examples/comprehensive_test.corin"
+echo "  ./scripts/demo_compiler.sh examples/comprehensive_test.crn"

@@ -19,7 +19,7 @@ Space Complexity: [Big O notation]
 
 ```bash
 # Run individual test
-./corin benchmarks/algorithms/[algorithm].corin
+./corin benchmarks/algorithms/[algorithm].crn
 
 # Run all tests with verification
 ./benchmarks/verify_outputs.sh
@@ -39,7 +39,7 @@ Space Complexity: [Big O notation]
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/fibonacci_dp.corin
+./corin benchmarks/algorithms/fibonacci_dp.crn
 # Should output: 102334155
 ```
 
@@ -70,7 +70,7 @@ Sum = 30+24+18+84+69+54+138+114+90 = 621
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/matrix_multiply.corin
+./corin benchmarks/algorithms/matrix_multiply.crn
 # Should output: 621
 ```
 
@@ -104,7 +104,7 @@ result = 690 + 1780 + 222 + 444 + 666 = 3802
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/hash_operations.corin
+./corin benchmarks/algorithms/hash_operations.crn
 # Should output: 3802
 ```
 
@@ -135,7 +135,7 @@ result = 26 + 25 + 10 + 25 + 95 = 181
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/string_operations.corin
+./corin benchmarks/algorithms/string_operations.crn
 # Should output: 181
 ```
 
@@ -156,7 +156,7 @@ Sum = 64 + 34 + 25 + 12 + 22 + 11 + 90 + 88 + 45 + 50 = 441
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/sorting_benchmark.corin
+./corin benchmarks/algorithms/sorting_benchmark.crn
 # Should output: 441
 ```
 
@@ -219,7 +219,7 @@ Algorithm: Fibonacci DP
 
 To add a new algorithm benchmark:
 
-1. Create `benchmarks/algorithms/your_algorithm.corin`
+1. Create `benchmarks/algorithms/your_algorithm.crn`
 2. Create `benchmarks/algorithms/your_algorithm.c`
 3. Add test case to this README
 4. Update `verify_outputs.sh`
@@ -242,7 +242,7 @@ To add a new algorithm benchmark:
 
 **Verification**:
 ```bash
-./corin benchmarks/algorithms/your_algorithm.corin
+./corin benchmarks/algorithms/your_algorithm.crn
 # Should output: [expected]
 ```
 ```

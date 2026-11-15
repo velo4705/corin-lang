@@ -2,7 +2,7 @@
 ---
 name: Corin
 file_extensions: [corin]
-scope: source.corin
+scope: source.crn
 
 contexts:
   main:
@@ -21,158 +21,158 @@ contexts:
   # ── Doc comments ──────────────────────────────────────────────────────
   doc-comments:
     - match: '///.*$'
-      scope: comment.line.documentation.corin
+      scope: comment.line.documentation.crn
     - match: '#!.*$'
-      scope: comment.line.documentation.corin
+      scope: comment.line.documentation.crn
 
   # ── Comments ──────────────────────────────────────────────────────────
   comments:
     - match: '#(?!!)[^\n]*$'
-      scope: comment.line.number-sign.corin
+      scope: comment.line.number-sign.crn
 
   # ── Decorators ────────────────────────────────────────────────────────
   decorators:
     - match: '@[a-zA-Z_][a-zA-Z0-9_]*'
-      scope: entity.name.function.decorator.corin
+      scope: entity.name.function.decorator.crn
 
   # ── Keywords ──────────────────────────────────────────────────────────
   keywords:
     - match: \b(if|else|elif|for|while|break|continue|return|match|case|default|in|pass|del)\b
-      scope: keyword.control.corin
+      scope: keyword.control.crn
     - match: \b(fn|class|trait|impl|macro|enum)\b
-      scope: keyword.declaration.corin
+      scope: keyword.declaration.crn
     - match: \b(import|from|as|let|var|const)\b
-      scope: keyword.other.corin
+      scope: keyword.other.crn
     - match: \b(async|await|chan|go|select)\b
-      scope: keyword.control.async.corin
+      scope: keyword.control.async.crn
     - match: \b(try|catch|finally|throw|raise)\b
-      scope: keyword.control.exception.corin
+      scope: keyword.control.exception.crn
     - match: \b(pub|priv|static|mut|owned|where|dyn|Self)\b
-      scope: storage.modifier.corin
+      scope: storage.modifier.crn
     - match: \b(int|float|double|str|bool|void|any|list|dict|tuple|set|bytes|char)\b
-      scope: storage.type.corin
+      scope: storage.type.crn
 
   # ── Constants ─────────────────────────────────────────────────────────
   constants:
     - match: \b(true|false|none|None|Some|Ok|Err)\b
-      scope: constant.language.corin
+      scope: constant.language.crn
 
   # ── F-strings ─────────────────────────────────────────────────────────
   fstrings:
     - match: 'f"'
-      scope: string.interpolated.corin punctuation.definition.string.begin.corin
+      scope: string.interpolated.crn punctuation.definition.string.begin.crn
       push: fstring-double-body
     - match: "f'"
-      scope: string.interpolated.corin punctuation.definition.string.begin.corin
+      scope: string.interpolated.crn punctuation.definition.string.begin.crn
       push: fstring-single-body
 
   fstring-double-body:
-    - meta_scope: string.interpolated.corin
+    - meta_scope: string.interpolated.crn
     - match: '"'
-      scope: punctuation.definition.string.end.corin
+      scope: punctuation.definition.string.end.crn
       pop: true
     - match: '\{'
-      scope: punctuation.section.interpolation.begin.corin
+      scope: punctuation.section.interpolation.begin.crn
       push: interpolation
     - match: '\\.'
-      scope: constant.character.escape.corin
+      scope: constant.character.escape.crn
 
   fstring-single-body:
-    - meta_scope: string.interpolated.corin
+    - meta_scope: string.interpolated.crn
     - match: "'"
-      scope: punctuation.definition.string.end.corin
+      scope: punctuation.definition.string.end.crn
       pop: true
     - match: '\{'
-      scope: punctuation.section.interpolation.begin.corin
+      scope: punctuation.section.interpolation.begin.crn
       push: interpolation
     - match: '\\.'
-      scope: constant.character.escape.corin
+      scope: constant.character.escape.crn
 
   interpolation:
-    - meta_scope: meta.interpolation.corin
+    - meta_scope: meta.interpolation.crn
     - match: '\}'
-      scope: punctuation.section.interpolation.end.corin
+      scope: punctuation.section.interpolation.end.crn
       pop: true
     - include: main
 
   # ── Strings ───────────────────────────────────────────────────────────
   strings:
     - match: '"""'
-      scope: punctuation.definition.string.begin.corin
+      scope: punctuation.definition.string.begin.crn
       push: triple-string-body
     - match: '"'
-      scope: punctuation.definition.string.begin.corin
+      scope: punctuation.definition.string.begin.crn
       push: double-string-body
     - match: "'"
-      scope: punctuation.definition.string.begin.corin
+      scope: punctuation.definition.string.begin.crn
       push: single-string-body
 
   triple-string-body:
-    - meta_scope: string.quoted.triple.corin
+    - meta_scope: string.quoted.triple.crn
     - match: '"""'
-      scope: punctuation.definition.string.end.corin
+      scope: punctuation.definition.string.end.crn
       pop: true
     - match: '\\.'
-      scope: constant.character.escape.corin
+      scope: constant.character.escape.crn
 
   double-string-body:
-    - meta_scope: string.quoted.double.corin
+    - meta_scope: string.quoted.double.crn
     - match: '"'
-      scope: punctuation.definition.string.end.corin
+      scope: punctuation.definition.string.end.crn
       pop: true
     - match: '\\.'
-      scope: constant.character.escape.corin
+      scope: constant.character.escape.crn
 
   single-string-body:
-    - meta_scope: string.quoted.single.corin
+    - meta_scope: string.quoted.single.crn
     - match: "'"
-      scope: punctuation.definition.string.end.corin
+      scope: punctuation.definition.string.end.crn
       pop: true
     - match: '\\.'
-      scope: constant.character.escape.corin
+      scope: constant.character.escape.crn
 
   # ── Numbers ───────────────────────────────────────────────────────────
   numbers:
     - match: '\b0[xX][0-9a-fA-F_]+\b'
-      scope: constant.numeric.hex.corin
+      scope: constant.numeric.hex.crn
     - match: '\b0[bB][01_]+\b'
-      scope: constant.numeric.binary.corin
+      scope: constant.numeric.binary.crn
     - match: '\b0[oO][0-7_]+\b'
-      scope: constant.numeric.octal.corin
+      scope: constant.numeric.octal.crn
     - match: '\b[0-9][0-9_]*\.[0-9][0-9_]*([eE][+-]?[0-9]+)?\b'
-      scope: constant.numeric.float.corin
+      scope: constant.numeric.float.crn
     - match: '\b[0-9][0-9_]*\b'
-      scope: constant.numeric.integer.corin
+      scope: constant.numeric.integer.crn
 
   # ── Class / type names ────────────────────────────────────────────────
   class-names:
     - match: '\b(class|trait|impl|enum)\s+([A-Za-z_][A-Za-z0-9_]*)'
       captures:
-        1: keyword.declaration.corin
-        2: entity.name.type.corin
+        1: keyword.declaration.crn
+        2: entity.name.type.crn
     - match: '\b[A-Z][a-zA-Z0-9_]*\b'
-      scope: entity.name.type.corin
+      scope: entity.name.type.crn
 
   # ── Functions ─────────────────────────────────────────────────────────
   functions:
     - match: '\b(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)'
       captures:
-        1: keyword.declaration.corin
-        2: entity.name.function.corin
+        1: keyword.declaration.crn
+        2: entity.name.function.crn
     - match: '\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()'
-      scope: entity.name.function.corin
+      scope: entity.name.function.crn
 
   # ── Operators ─────────────────────────────────────────────────────────
   operators:
     - match: '=>'
-      scope: keyword.operator.arrow.corin
+      scope: keyword.operator.arrow.crn
     - match: '->'
-      scope: keyword.operator.arrow.corin
+      scope: keyword.operator.arrow.crn
     - match: '<-'
-      scope: keyword.operator.channel.corin
+      scope: keyword.operator.channel.crn
     - match: '\*\*'
-      scope: keyword.operator.corin
+      scope: keyword.operator.crn
     - match: '==|!=|<=|>=|&&|\|\||\+=|-=|\*=|/=|%='
-      scope: keyword.operator.corin
+      scope: keyword.operator.crn
     - match: '[+\-*/%<>!&|^~=?]'
-      scope: keyword.operator.corin
+      scope: keyword.operator.crn

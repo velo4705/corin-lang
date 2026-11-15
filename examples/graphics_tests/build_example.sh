@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
 fi
 
 EXAMPLE=$1
-SOURCE="examples/graphics_tests/${EXAMPLE}.corin"
+SOURCE="examples/graphics_tests/${EXAMPLE}.crn"
 OUTPUT="${EXAMPLE}"
 
 # Check if source exists

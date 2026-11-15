@@ -31,7 +31,7 @@ window_destroy(window)
 
 **Compile:**
 ```bash
-./corin compile game.corin 2>/dev/null > game.ll
+./corin compile game.crn 2>/dev/null > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o stdlib/gui/window.cpp -o game -lSDL2 -lSDL2_ttf -lstdc++
 ./game
@@ -113,7 +113,7 @@ A complete 2-player Pong game in pure Corin:
 - Window closing with ESC or X button
 - First to 10 points wins
 
-**Code:** `examples/challenges/round3_field_level/pong_simple.corin`
+**Code:** `examples/challenges/round3_field_level/pong_simple.crn`
 
 ## Architecture
 

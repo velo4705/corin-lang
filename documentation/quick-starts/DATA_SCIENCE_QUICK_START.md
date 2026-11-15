@@ -134,7 +134,7 @@ print("Next day forecast:", forecast)
 
 ### Quick Compile
 ```bash
-./corin compile myprogram.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll
+./corin compile myprogram.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll
 llc myprogram.ll -filetype=obj -o myprogram.o
 gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread
 ./myprogram
@@ -142,7 +142,7 @@ gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread
 
 ### One-liner
 ```bash
-./corin compile myprogram.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll && llc myprogram.ll -filetype=obj -o myprogram.o && gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread && ./myprogram
+./corin compile myprogram.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > myprogram.ll && llc myprogram.ll -filetype=obj -o myprogram.o && gcc myprogram.o stdlib/system/system.cpp -o myprogram -lstdc++ -lpthread && ./myprogram
 ```
 
 ---
@@ -275,7 +275,7 @@ corin_system_cpu_arch()      // Architecture
 ls -lh myprogram.ll
 
 # Check for errors
-./corin compile myprogram.corin
+./corin compile myprogram.crn
 ```
 
 ### Runtime Errors
@@ -306,9 +306,9 @@ print("Time:", end - start, "us")
 - `SYSTEM_LIBRARY_COMPLETE.md` - System functions
 
 ### Examples
-- `data_science_demo.corin` - Statistical analysis
-- `ml_simple.corin` - Machine learning
-- `time_series_simple.corin` - Time series
+- `data_science_demo.crn` - Statistical analysis
+- `ml_simple.crn` - Machine learning
+- `time_series_simple.crn` - Time series
 
 ### Community
 - GitHub: [corin-lang](https://github.com/velo4705/corin-lang)

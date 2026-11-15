@@ -492,11 +492,11 @@ import http</span></pre>
         <div class="error-card" id="E5A1">
             <div class="ec-head"><span class="ec-code">E5A1</span><span class="ec-title">circular import</span></div>
             <div class="ec-note"><strong>note:</strong> two modules are importing each other — restructure to break the cycle</div>
-            <pre><span class="comment"># a.corin imports b.corin
-# b.corin imports a.corin  ← cycle
+            <pre><span class="comment"># a.crn imports b.crn
+# b.crn imports a.crn  ← cycle
 
-# fix: extract shared code into c.corin
-# both a.corin and b.corin import c.corin</span></pre>
+# fix: extract shared code into c.crn
+# both a.crn and b.crn import c.crn</span></pre>
         </div>
 
         <!-- ── E6xx IO ── -->

@@ -758,7 +758,7 @@ This document lists ALL features from major programming languages that Corin inc
 ## Tooling
 
 ### Build Tools
-- ✅ Package manager (spm)
+- ✅ Package manager (cpm)
 - ✅ Build system
 - ✅ Dependency management
 - ✅ Version management

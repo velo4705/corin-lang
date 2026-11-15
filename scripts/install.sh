@@ -15,7 +15,7 @@ fi
 
 # Install binaries
 sudo install -m 755 build/corin "$PREFIX/bin/"
-sudo install -m 755 build/tools/spm/spm "$PREFIX/bin/" 2>/dev/null || true
+sudo install -m 755 build/tools/cpm/cpm "$PREFIX/bin/" 2>/dev/null || true
 
 # Install libraries
 sudo mkdir -p "$PREFIX/lib/corin"

@@ -58,54 +58,54 @@ fn android_specific():
 ## Files in This Directory
 
 ### Advanced Language Features
-- advanced_features.corin
-- advanced_types.corin
-- generics_test.corin
-- jit_compilation.corin
-- macros.corin
+- advanced_features.crn
+- advanced_types.crn
+- generics_test.crn
+- jit_compilation.crn
+- macros.crn
 
 ### CLI and Tools
-- cli_tool.corin
-- complete_cli_tool.corin
+- cli_tool.crn
+- complete_cli_tool.crn
 
 ### Data Science
-- data_science.corin
+- data_science.crn
 
 ### Documentation
-- documented_example.corin
+- documented_example.crn
 
 ### Microservices
-- microservice.corin
-- web_server.corin
+- microservice.crn
+- web_server.crn
 
 ### Mobile Development
-- mobile_example.corin
-- platform_directives.corin
+- mobile_example.crn
+- platform_directives.crn
 
 ### Modules and Packages
-- modules_ecommerce.corin
-- modules_library_system.corin
-- modules_simple_examples.corin
+- modules_ecommerce.crn
+- modules_library_system.crn
+- modules_simple_examples.crn
 
 ### OOP Examples
-- oop_algorithms.corin
-- oop_data_structures.corin
-- oop_design_patterns.corin
-- oop_game_dev.corin
-- oop_modules_banking.corin
-- oop_simple_examples.corin
+- oop_algorithms.crn
+- oop_data_structures.crn
+- oop_design_patterns.crn
+- oop_game_dev.crn
+- oop_modules_banking.crn
+- oop_simple_examples.crn
 
 ### Error Handling
-- option_result_combined.corin
-- option_test.corin
-- try_operator_comprehensive.corin
+- option_result_combined.crn
+- option_test.crn
+- try_operator_comprehensive.crn
 
 ### System Programming
-- os_development.corin
-- systems_programming.corin
+- os_development.crn
+- systems_programming.crn
 
 ### Traits
-- traits_basic.corin
+- traits_basic.crn
 
 ---
 
@@ -135,10 +135,10 @@ These examples may have parse errors or runtime errors. To test them:
 
 ```bash
 # Test individual file
-./corin examples/future_features/advanced_features.corin
+./corin examples/future_features/advanced_features.crn
 
 # Some may work partially
-./corin examples/future_features/macros.corin
+./corin examples/future_features/macros.crn
 ```
 
 ---

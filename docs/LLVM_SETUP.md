@@ -139,7 +139,7 @@ The build system will automatically detect LLVM and enable code generation.
 
 ```bash
 # Create a simple test program
-cat > test.corin << 'EOF'
+cat > test.crn << 'EOF'
 let x = 10
 let y = 20
 let sum = x + y
@@ -147,13 +147,13 @@ print(sum)
 EOF
 
 # Compile to LLVM IR
-./corin compile test.corin --emit-llvm -o test.ll
+./corin compile test.crn --emit-llvm -o test.ll
 
 # View the generated IR
 cat test.ll
 
 # Compile to executable
-./corin compile test.corin -o test
+./corin compile test.crn -o test
 
 # Run the executable
 ./test
@@ -262,16 +262,16 @@ LLVM-compiled code is significantly faster:
 
 ```bash
 # No optimization (fast compile, slow runtime)
-./corin compile -O0 program.corin
+./corin compile -O0 program.crn
 
 # Basic optimization (balanced)
-./corin compile -O1 program.corin
+./corin compile -O1 program.crn
 
 # Default optimization (recommended)
-./corin compile -O2 program.corin
+./corin compile -O2 program.crn
 
 # Aggressive optimization (slow compile, fast runtime)
-./corin compile -O3 program.corin
+./corin compile -O3 program.crn
 ```
 
 ## Next Steps

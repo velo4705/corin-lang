@@ -24,7 +24,7 @@ Thank you for your interest in contributing to Corin! This project aims to combi
 ### Building
 ```bash
 make build
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 
 ## Project Structure

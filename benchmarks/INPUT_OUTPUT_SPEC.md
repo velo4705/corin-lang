@@ -27,7 +27,7 @@ Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 **Verification**:
 ```bash
-$ ./corin benchmarks/algorithms/fibonacci_dp.corin
+$ ./corin benchmarks/algorithms/fibonacci_dp.crn
 102334155
 
 $ gcc benchmarks/algorithms/fibonacci_dp.c -o fib_c -O3
@@ -87,7 +87,7 @@ Result Matrix C:
 
 **Verification**:
 ```bash
-$ ./corin benchmarks/algorithms/matrix_multiply.corin
+$ ./corin benchmarks/algorithms/matrix_multiply.crn
 621
 
 $ gcc benchmarks/algorithms/matrix_multiply.c -o matrix_c -O3 -lm
@@ -131,7 +131,7 @@ Sum of values = 690 + 1780 + 222 + 444 + 666 = 3802
 
 **Verification**:
 ```bash
-$ ./corin benchmarks/algorithms/hash_operations.corin
+$ ./corin benchmarks/algorithms/hash_operations.crn
 3802
 
 $ gcc benchmarks/algorithms/hash_operations.c -o hash_c -O3
@@ -176,7 +176,7 @@ result = 26 + 25 + 10 + 25 + 95 = 181
 
 **Verification**:
 ```bash
-$ ./corin benchmarks/algorithms/string_operations.corin
+$ ./corin benchmarks/algorithms/string_operations.crn
 181
 
 $ gcc benchmarks/algorithms/string_operations.c -o string_c -O3
@@ -218,7 +218,7 @@ Sum of elements = 64 + 34 + 25 + 12 + 22 + 11 + 90 + 88 + 45 + 50
 
 **Verification**:
 ```bash
-$ ./corin benchmarks/algorithms/sorting_benchmark.corin
+$ ./corin benchmarks/algorithms/sorting_benchmark.crn
 441
 
 $ gcc benchmarks/algorithms/sorting_benchmark.c -o sort_c -O3
@@ -328,7 +328,7 @@ To add a new algorithm with input/output:
    - Expected output
 
 2. **Implement in Corin**
-   - Create `.corin` file
+   - Create `.crn` file
    - Use deterministic input
    - Print expected output
 

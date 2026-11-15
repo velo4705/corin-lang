@@ -1,6 +1,0 @@
-# Basic Trait Test
-
-trait Drawable:
-    fn draw(self) -> str
-
-print("Trait declared successfully")

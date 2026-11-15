@@ -97,7 +97,7 @@ Expected production-ready: 2027-2028
 
 ### Q: What file extension does Corin use?
 
-**A:** `.corin` (Corin++)
+**A:** `.crn` (Corin++)
 
 ### Q: What are the compiler commands?
 
@@ -121,11 +121,11 @@ You choose based on your needs.
 
 ### Q: Does Corin have a package manager?
 
-**A:** Yes, SPM (Corin Package Manager) - similar to Cargo/npm.
-- `spm init` - Create new project
-- `spm add <package>` - Add dependency
-- `spm build` - Build project
-- `spm test` - Run tests
+**A:** Yes, CPM (Corin Package Manager) - similar to Cargo/npm.
+- `cpm init` - Create new project
+- `cpm add <package>` - Add dependency
+- `cpm build` - Build project
+- `cpm test` - Run tests
 
 (Coming in Milestone 6)
 
@@ -158,7 +158,7 @@ You choose based on your needs.
 git clone https://github.com/velo4705/corin-lang.git
 cd corin-lang
 make quick
-./corin examples/demo.corin
+./corin examples/demo.crn
 ```
 
 Binary releases coming soon.

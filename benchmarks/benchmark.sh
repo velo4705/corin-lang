@@ -10,7 +10,7 @@ echo ""
 
 # Compile Corin to native
 echo "[1/4] Compiling Corin to LLVM IR..."
-./corin compile benchmarks/bench_simple.corin > /tmp/bench.ll 2>&1
+./corin compile benchmarks/bench_simple.crn > /tmp/bench.ll 2>&1
 
 echo "[2/4] Compiling LLVM IR to native code (with -O3)..."
 llc /tmp/bench.ll -o /tmp/bench.s -O3 2>/dev/null

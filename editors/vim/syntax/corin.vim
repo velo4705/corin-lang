@@ -1,4 +1,4 @@
-" Vim syntax file for Corin (.corin)
+" Vim syntax file for Corin (.crn)
 " Language: Corin
 " Maintainer: Corin Language Team
 " Latest Revision: 2026

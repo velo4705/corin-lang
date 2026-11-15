@@ -8,7 +8,7 @@ Corin now has a working compiler that generates LLVM IR! This guide shows you ho
 
 ### Compile and Show IR
 ```bash
-./corin compile program.corin
+./corin compile program.crn
 ```
 
 This will:
@@ -18,7 +18,7 @@ This will:
 
 ### Save IR to File
 ```bash
-./corin compile program.corin > program.ll
+./corin compile program.crn > program.ll
 ```
 
 ### Compile to Native Executable
@@ -26,7 +26,7 @@ This will:
 #### Step-by-Step
 ```bash
 # 1. Generate LLVM IR
-./corin compile program.corin > program.ll
+./corin compile program.crn > program.ll
 
 # 2. Compile IR to object file
 llc program.ll -o program.o
@@ -40,7 +40,7 @@ clang program.o -o program
 
 #### One-Liner
 ```bash
-./corin compile program.corin > program.ll && llc program.ll -o program.o && clang program.o -o program && ./program
+./corin compile program.crn > program.ll && llc program.ll -o program.o && clang program.o -o program && ./program
 ```
 
 ## Supported Features
@@ -71,7 +71,7 @@ clang program.o -o program
 
 ### Simple Arithmetic
 ```corin
-# simple.corin
+# simple.crn
 let x = 10
 let y = 20
 let sum = x + y
@@ -80,12 +80,12 @@ let product = x * y
 
 Compile:
 ```bash
-./corin compile simple.corin
+./corin compile simple.crn
 ```
 
 ### Type Promotion
 ```corin
-# types.corin
+# types.crn
 let a = 100
 let x = 3.14
 let mixed = a + x  # Promotes a to float
@@ -93,7 +93,7 @@ let mixed = a + x  # Promotes a to float
 
 ### Comparisons
 ```corin
-# compare.corin
+# compare.crn
 let a = 100
 let b = 50
 let is_greater = a > b
@@ -102,7 +102,7 @@ let is_equal = a == 100
 
 ### Logical Operations
 ```corin
-# logic.corin
+# logic.crn
 let x = true
 let y = false
 let both = x and y
@@ -112,7 +112,7 @@ let negated = not x
 
 ### Control Flow
 ```corin
-# control.corin
+# control.crn
 let x = 10
 
 if x > 5:
@@ -199,7 +199,7 @@ Optimization levels:
 
 ### Segmentation fault
 - Likely caused by function calls (known issue)
-- Workaround: Use interpreter mode (`./corin program.corin`)
+- Workaround: Use interpreter mode (`./corin program.crn`)
 
 ### Empty IR output
 - Check that your program has statements
@@ -207,7 +207,7 @@ Optimization levels:
 
 ### "Could not open file" error
 - Check the file path
-- Make sure the file has `.corin` extension
+- Make sure the file has `.crn` extension
 
 ## Performance
 
@@ -223,7 +223,7 @@ Optimization levels:
 
 ### Interpreter Mode
 ```bash
-./corin program.corin
+./corin program.crn
 ```
 - Pros: Fast development, supports all features
 - Cons: ~1000x slower than compiled code
@@ -231,7 +231,7 @@ Optimization levels:
 
 ### Compiler Mode
 ```bash
-./corin compile program.corin > program.ll
+./corin compile program.crn > program.ll
 llc program.ll -o program.o
 clang program.o -o program
 ```

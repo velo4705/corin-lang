@@ -81,7 +81,7 @@ To install Corin system-wide (accessible from anywhere):
 ```bash
 sudo cp corin /usr/local/bin/
 sudo cp corin /usr/local/bin/
-sudo cp spm /usr/local/bin/
+sudo cp cpm /usr/local/bin/
 sudo cp corin-fmt /usr/local/bin/
 ```
 

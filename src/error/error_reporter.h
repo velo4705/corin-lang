@@ -37,7 +37,7 @@ static inline std::vector<std::string> split_lines(const std::string& src) {
 // Produces output like:
 //
 //   error[E201]: undefined variable 'foo'
-//    --> script.corin:12:5
+//    --> script.crn:12:5
 //     |
 //  12 |     x = foo + 1
 //     |         ^^^ not defined here

@@ -102,31 +102,31 @@ mkdir -p benchmarks/output
 # Run comparisons
 benchmark_comparison \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.corin" \
+    "benchmarks/algorithms/fibonacci_dp.crn" \
     "benchmarks/algorithms/fibonacci_dp.c" \
     "102334155"
 
 benchmark_comparison \
     "Matrix Multiply" \
-    "benchmarks/algorithms/matrix_multiply.corin" \
+    "benchmarks/algorithms/matrix_multiply.crn" \
     "benchmarks/algorithms/matrix_multiply.c" \
     "621"
 
 benchmark_comparison \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.corin" \
+    "benchmarks/algorithms/hash_operations.crn" \
     "benchmarks/algorithms/hash_operations.c" \
     "999000"
 
 benchmark_comparison \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.corin" \
+    "benchmarks/algorithms/string_operations.crn" \
     "benchmarks/algorithms/string_operations.c" \
     "181"
 
 benchmark_comparison \
     "Sorting" \
-    "benchmarks/algorithms/sorting_benchmark.corin" \
+    "benchmarks/algorithms/sorting_benchmark.crn" \
     "benchmarks/algorithms/sorting_benchmark.c" \
     "499472500"
 

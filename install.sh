@@ -37,7 +37,7 @@ make quick
 
 echo ""
 echo "Building additional tools..."
-make spm 2>/dev/null && echo "  ✓ spm built" || echo "  ⚠ spm build skipped"
+make cpm 2>/dev/null && echo "  ✓ cpm built" || echo "  ⚠ cpm build skipped"
 make corin-fmt 2>/dev/null && echo "  ✓ corin-fmt built" || echo "  ⚠ corin-fmt build skipped"
 
 # Hybrid Installation: Both system-wide and user PATH
@@ -52,8 +52,8 @@ if sudo -n true 2>/dev/null; then
     sudo cp corin /usr/local/bin/ 2>/dev/null && echo "✓ System-wide install successful" || echo "⚠ System-wide install failed"
     sudo cp corin /usr/local/bin/ 2>/dev/null
     
-    if [ -f "spm" ]; then
-        sudo cp spm /usr/local/bin/ 2>/dev/null
+    if [ -f "cpm" ]; then
+        sudo cp cpm /usr/local/bin/ 2>/dev/null
     fi
     
     if [ -f "corin-fmt" ]; then
@@ -70,8 +70,8 @@ else
             echo "✓ System-wide install successful"
             sudo cp corin /usr/local/bin/ 2>/dev/null
             
-            if [ -f "spm" ]; then
-                sudo cp spm /usr/local/bin/ 2>/dev/null
+            if [ -f "cpm" ]; then
+                sudo cp cpm /usr/local/bin/ 2>/dev/null
             fi
             
             if [ -f "corin-fmt" ]; then
@@ -131,7 +131,7 @@ echo "║  ✓ Corin installed successfully! (Hybrid Installation)    ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Quick start:"
-echo "  corin examples/hello.corin"
+echo "  corin examples/hello.crn"
 echo "  corin --version"
 echo ""
 echo "Available everywhere:"

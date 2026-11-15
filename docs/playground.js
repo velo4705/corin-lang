@@ -19,7 +19,7 @@ CodeMirror.defineSimpleMode('corin', {
 // ─── Example programs ────────────────────────────────────────────────────────
 const EXAMPLES = {
     hello: {
-        file: 'hello.corin',
+        file: 'hello.crn',
         code: `# Hello World in Corin
 print("Hello, Corin!")
 print("Welcome to the playground.")`,
@@ -28,7 +28,7 @@ Welcome to the playground.`
     },
 
     fibonacci: {
-        file: 'fibonacci.corin',
+        file: 'fibonacci.crn',
         code: `fn fibonacci(n):
     if n <= 1:
         return n
@@ -51,7 +51,7 @@ for i in range(10):
     },
 
     functions: {
-        file: 'functions.corin',
+        file: 'functions.crn',
         code: `fn greet(name):
     return "Hello, " + name + "!"
 
@@ -72,7 +72,7 @@ print(factorial(10))`,
     },
 
     loops: {
-        file: 'loops.corin',
+        file: 'loops.crn',
         code: `# Range loop
 for i in range(5):
     print(i)
@@ -91,7 +91,7 @@ print(n)`,
     },
 
     pattern: {
-        file: 'pattern_matching.corin',
+        file: 'pattern_matching.crn',
         code: `fn classify(n):
     return match n:
         0 => "zero"
@@ -110,7 +110,7 @@ other`
     },
 
     classes: {
-        file: 'classes.corin',
+        file: 'classes.crn',
         code: `class Animal:
     fn __init__(self, name):
         self.name = name
@@ -140,7 +140,7 @@ Whiskers says: Meow!`
     },
 
     errors: {
-        file: 'error_handling.corin',
+        file: 'error_handling.crn',
         code: `# Basic try-catch
 try:
     throw "Division by zero"
@@ -170,7 +170,7 @@ Outer catch`
     },
 
     hashmap: {
-        file: 'hashmap.corin',
+        file: 'hashmap.crn',
         code: `import HashMap from "stdlib/collections"
 
 scores = HashMap.new()
@@ -191,7 +191,7 @@ false
     },
 
     decorators: {
-        file: 'decorators.corin',
+        file: 'decorators.crn',
         code: `@cache
 fn fib(n):
     if n <= 1:
@@ -213,7 +213,7 @@ Function 'compute' took 0.12ms`
     },
 
     arrays: {
-        file: 'arrays.corin',
+        file: 'arrays.crn',
         code: `arr = [1, 2, 3, 4, 5]
 print(arr)
 print(arr[0])
@@ -240,7 +240,7 @@ print(matrix[1][1])`,
     },
 
     oop: {
-        file: 'oop.corin',
+        file: 'oop.crn',
         code: `class Shape:
     fn area(self):
         return 0
@@ -270,7 +270,7 @@ print(circ.area())`,
     },
 
     sorting: {
-        file: 'sorting.corin',
+        file: 'sorting.crn',
         code: `fn sort(arr):
     i = 0
     while i < len(arr):
@@ -294,7 +294,7 @@ print(nums[5])`,
     },
 
     generics: {
-        file: 'generics.corin',
+        file: 'generics.crn',
         code: `fn identity[T](x):
     return x
 
@@ -313,7 +313,7 @@ hello
     },
 
     traits: {
-        file: 'traits.corin',
+        file: 'traits.crn',
         code: `trait Describable:
     fn describe(self) -> String
 
@@ -335,7 +335,7 @@ print_description(alice)`,
     },
 
     channels: {
-        file: 'channels.corin',
+        file: 'channels.crn',
         code: `ch = Channel[int]()
 fn producer():
     ch.send(10)
@@ -356,7 +356,7 @@ done`
     },
 
     fizzbuzz: {
-        file: 'fizzbuzz.corin',
+        file: 'fizzbuzz.crn',
         code: `fn fizzbuzz(n):
     if n % 15 == 0:
         return "FizzBuzz"
@@ -541,7 +541,7 @@ function escapeHtml(s) {
 // ─── Event listeners ─────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     initEditor('');
-    document.getElementById('currentFile').textContent = 'main.corin';
+    document.getElementById('currentFile').textContent = 'main.crn';
 
     // Keyboard navigation for example list
     const exampleList = document.getElementById('exampleList');

@@ -53,7 +53,7 @@ add_library(corin_runtime SHARED ${RUNTIME_SOURCES})
 
 # Tools
 if(BUILD_TOOLS)
-    # add_subdirectory(tools/spm)
+    # add_subdirectory(tools/cpm)
     # add_subdirectory(tools/lsp)
 endif()
 

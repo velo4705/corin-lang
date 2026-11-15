@@ -55,21 +55,21 @@ cd corin-lang
 make quick
 
 # Build additional tools (optional)
-make spm           # Package manager
+make cpm           # Package manager
 make corin-fmt  # Code formatter
 ```
 
 This creates:
 - `./corin` - Corin compiler/interpreter
 - `./corin` - Alias for corin
-- `./spm` - Package manager (if built)
+- `./cpm` - Package manager (if built)
 - `./corin-fmt` - Code formatter (if built)
 
 ### Step 3: Test
 
 ```bash
 ./corin --version
-./corin examples/hello.corin
+./corin examples/hello.crn
 ```
 
 ## System-Wide Installation
@@ -83,14 +83,14 @@ sudo cp corin /usr/local/bin/
 
 Optional tools (if available):
 ```bash
-sudo cp spm /usr/local/bin/           # Package manager
+sudo cp cpm /usr/local/bin/           # Package manager
 sudo cp corin-fmt /usr/local/bin/  # Code formatter
 ```
 
 Now you can run:
 ```bash
 corin --version
-corin myprogram.corin
+corin myprogram.crn
 ```
 
 ## Update
@@ -167,7 +167,7 @@ sudo rm /usr/local/bin/corin
 sudo rm /usr/local/bin/corin
 
 # If you installed optional tools
-sudo rm /usr/local/bin/spm 2>/dev/null
+sudo rm /usr/local/bin/cpm 2>/dev/null
 sudo rm /usr/local/bin/corin-fmt 2>/dev/null
 ```
 
@@ -224,11 +224,11 @@ sudo cp corin /usr/local/bin/
 corin --version
 
 # Run hello world
-corin examples/hello.corin
+corin examples/hello.crn
 
 # Check all tools
 corin --help
-spm --help
+cpm --help
 corin-fmt --help
 ```
 
@@ -238,7 +238,7 @@ After installation:
 
 1. **Read the docs**: [Getting Started](docs/GETTING_STARTED.md)
 2. **Try examples**: `ls examples/`
-3. **Create a project**: `spm init my-project`
+3. **Create a project**: `cpm init my-project`
 4. **Join the community**: [GitHub Discussions](https://github.com/velo4705/corin-lang/discussions)
 
 ## Platform Support

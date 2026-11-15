@@ -288,7 +288,7 @@ fn create_container<T>(value: T) -> exists T. Container<T> {
 
 ## Examples
 
-See `examples/advanced_types.corin` for complete examples.
+See `examples/advanced_types.crn` for complete examples.
 
 ## Further Reading
 

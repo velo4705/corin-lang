@@ -74,8 +74,8 @@ run_test() {
     fi
 }
 
-echo "=== Running window/gui/web examples/*.corin ==="
-for f in examples/*.corin; do
+echo "=== Running window/gui/web examples/*.crn ==="
+for f in examples/*.crn; do
     run_test "$f"
 done
 

@@ -47,7 +47,7 @@ fn main():
 
 **Compile and run:**
 ```bash
-./corin compile game.corin > game.ll
+./corin compile game.crn > game.ll
 llc -filetype=obj game.ll -o game.o
 clang game.o -o game stdlib/gui/window.cpp -Istdlib -lSDL2 -lSDL2_ttf -lstdc++
 ./game
@@ -288,9 +288,9 @@ GL_PROJECTION = 0x1701
 ## Examples
 
 See these working examples:
-- `examples/test_window_visible.corin` - Window with colored rectangles
-- `examples/test_window_create.corin` - Basic window creation
-- `examples/challenges/round3_field_level/pong_sdl2.corin` - Pong game
+- `examples/test_window_visible.crn` - Window with colored rectangles
+- `examples/test_window_create.crn` - Basic window creation
+- `examples/challenges/round3_field_level/pong_sdl2.crn` - Pong game
 
 ---
 

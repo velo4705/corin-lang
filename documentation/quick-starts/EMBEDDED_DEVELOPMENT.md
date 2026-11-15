@@ -361,13 +361,13 @@ Select from menu:
 
 ```bash
 # Temperature Controller
-./corin compile embedded_demo.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > embedded_demo.ll
+./corin compile embedded_demo.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > embedded_demo.ll
 llc embedded_demo.ll -filetype=obj -o embedded_demo.o
 gcc embedded_demo.o stdlib/system/system.cpp -o embedded_demo -lstdc++ -lpthread
 ./embedded_demo
 
 # IoT Sensor Node
-./corin compile iot_sensor_node.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > iot_sensor_node.ll
+./corin compile iot_sensor_node.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > iot_sensor_node.ll
 llc iot_sensor_node.ll -filetype=obj -o iot_sensor_node.o
 gcc iot_sensor_node.o stdlib/system/system.cpp -o iot_sensor_node -lstdc++ -lpthread
 ./iot_sensor_node
@@ -547,10 +547,10 @@ Corin provides excellent support for embedded systems development with:
 - [OS Development Guide](docs/OS_DEVELOPMENT.md)
 
 ### Examples
-- `embedded_demo.corin` - Temperature controller
-- `iot_sensor_node.corin` - IoT sensor node
-- `system_demo.corin` - System capabilities
-- `process_monitor.corin` - Process monitoring
+- `embedded_demo.crn` - Temperature controller
+- `iot_sensor_node.crn` - IoT sensor node
+- `system_demo.crn` - System capabilities
+- `process_monitor.crn` - Process monitoring
 
 ### Scripts
 - `run_embedded_demos.sh` - Demo launcher

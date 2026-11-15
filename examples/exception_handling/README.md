@@ -49,16 +49,16 @@ match value:
 ## Files in This Directory
 
 ### Basic Exception Tests
-- **error_test_minimal.corin** - Minimal exception example
-- **error_test_simple.corin** - Simple try/catch
-- **error_test_division.corin** - Division by zero handling
-- **error_test_specific.corin** - Specific exception types
-- **error_test_throw.corin** - Throwing exceptions
-- **error_test_finally.corin** - Finally blocks
+- **error_test_minimal.crn** - Minimal exception example
+- **error_test_simple.crn** - Simple try/catch
+- **error_test_division.crn** - Division by zero handling
+- **error_test_specific.crn** - Specific exception types
+- **error_test_throw.crn** - Throwing exceptions
+- **error_test_finally.crn** - Finally blocks
 
 ### Complete Examples
-- **error_handling_complete.corin** - Comprehensive error handling
-- **option_error_handling.corin** - Option type error handling
+- **error_handling_complete.crn** - Comprehensive error handling
+- **option_error_handling.crn** - Option type error handling
 
 ---
 
@@ -68,7 +68,7 @@ All these examples work correctly and demonstrate proper error handling:
 
 ```bash
 # Run individual example
-./corin examples/exception_handling/error_test_division.corin
+./corin examples/exception_handling/error_test_division.crn
 
 # Expected output includes error messages (this is correct!)
 # Example:
@@ -153,7 +153,7 @@ To verify these examples work:
 
 ```bash
 # Run each file
-for file in examples/exception_handling/*.corin; do
+for file in examples/exception_handling/*.crn; do
     echo "Testing: $file"
     ./corin "$file"
     echo "---"

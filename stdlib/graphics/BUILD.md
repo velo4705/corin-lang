@@ -87,7 +87,7 @@ g++ -shared -o stdlib/graphics/vulkan/libcorin_vulkan.so \
 ### SDL2 Example
 
 ```corin
-# my_game.corin
+# my_game.crn
 import "stdlib/graphics/sdl2"
 
 fn main():
@@ -106,7 +106,7 @@ fn main():
 
 Compile and link:
 ```bash
-./corin compile my_game.corin 2>/dev/null > my_game.ll
+./corin compile my_game.crn 2>/dev/null > my_game.ll
 llc -filetype=obj my_game.ll -o my_game.o
 clang my_game.o -o my_game \
     -Lstdlib/graphics/sdl2 -lcorin_sdl2 -lSDL2 -lstdc++
@@ -116,7 +116,7 @@ clang my_game.o -o my_game \
 ### OpenGL Example
 
 ```corin
-# my_3d_app.corin
+# my_3d_app.crn
 import "stdlib/graphics/opengl"
 
 fn main():
@@ -136,7 +136,7 @@ fn main():
 
 Compile and link:
 ```bash
-./corin compile my_3d_app.corin 2>/dev/null > my_3d_app.ll
+./corin compile my_3d_app.crn 2>/dev/null > my_3d_app.ll
 llc -filetype=obj my_3d_app.ll -o my_3d_app.o
 clang my_3d_app.o -o my_3d_app \
     -Lstdlib/graphics/opengl -lcorin_opengl -lGL -lGLU -lstdc++
@@ -146,7 +146,7 @@ clang my_3d_app.o -o my_3d_app \
 ### GLUT Example
 
 ```corin
-# my_glut_app.corin
+# my_glut_app.crn
 import "stdlib/graphics/glut"
 
 fn main():
@@ -161,7 +161,7 @@ fn main():
 
 Compile and link:
 ```bash
-./corin compile my_glut_app.corin 2>/dev/null > my_glut_app.ll
+./corin compile my_glut_app.crn 2>/dev/null > my_glut_app.ll
 llc -filetype=obj my_glut_app.ll -o my_glut_app.o
 clang my_glut_app.o -o my_glut_app \
     -Lstdlib/graphics/glut -lcorin_glut -lglut -lGL -lGLU -lstdc++
@@ -171,7 +171,7 @@ clang my_glut_app.o -o my_glut_app \
 ### Vulkan Example
 
 ```corin
-# my_vulkan_app.corin
+# my_vulkan_app.crn
 import "stdlib/graphics/vulkan"
 
 fn main():
@@ -189,7 +189,7 @@ fn main():
 
 Compile and link:
 ```bash
-./corin compile my_vulkan_app.corin 2>/dev/null > my_vulkan_app.ll
+./corin compile my_vulkan_app.crn 2>/dev/null > my_vulkan_app.ll
 llc -filetype=obj my_vulkan_app.ll -o my_vulkan_app.o
 clang my_vulkan_app.o -o my_vulkan_app \
     -Lstdlib/graphics/vulkan -lcorin_vulkan -lvulkan -lSDL2 -lstdc++

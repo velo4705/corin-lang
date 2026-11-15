@@ -46,7 +46,7 @@ A     185.199.111.153
 
 **For www subdomain:**
 ```
-CNAME www.corin-lang.org velo4705.github.io
+CNAME www.crn-lang.org velo4705.github.io
 ```
 
 ### 3. Enable HTTPS

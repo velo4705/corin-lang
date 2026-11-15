@@ -19,11 +19,11 @@
     "doc-comments": {
       "patterns": [
         {
-          "name": "comment.line.documentation.corin",
+          "name": "comment.line.documentation.crn",
           "match": "///.*$"
         },
         {
-          "name": "comment.line.documentation.corin",
+          "name": "comment.line.documentation.crn",
           "match": "#!.*$"
         }
       ]
@@ -31,7 +31,7 @@
     "comments": {
       "patterns": [
         {
-          "name": "comment.line.number-sign.corin",
+          "name": "comment.line.number-sign.crn",
           "match": "#(?!!)[^\\n]*$"
         }
       ]
@@ -39,10 +39,10 @@
     "decorators": {
       "patterns": [
         {
-          "name": "meta.decorator.corin",
+          "name": "meta.decorator.crn",
           "match": "(@[a-zA-Z_][a-zA-Z0-9_]*)",
           "captures": {
-            "1": { "name": "entity.name.function.decorator.corin" }
+            "1": { "name": "entity.name.function.decorator.crn" }
           }
         }
       ]
@@ -50,27 +50,27 @@
     "keywords": {
       "patterns": [
         {
-          "name": "keyword.control.corin",
+          "name": "keyword.control.crn",
           "match": "\\b(if|else|elif|for|while|break|continue|return|match|case|default|in|pass)\\b"
         },
         {
-          "name": "keyword.declaration.corin",
+          "name": "keyword.declaration.crn",
           "match": "\\b(fn|class|trait|impl|macro|enum)\\b"
         },
         {
-          "name": "keyword.other.corin",
+          "name": "keyword.other.crn",
           "match": "\\b(import|from|as|let|var|const|del)\\b"
         },
         {
-          "name": "keyword.control.async.corin",
+          "name": "keyword.control.async.crn",
           "match": "\\b(async|await|chan|go|select)\\b"
         },
         {
-          "name": "keyword.control.exception.corin",
+          "name": "keyword.control.exception.crn",
           "match": "\\b(try|catch|finally|throw|raise)\\b"
         },
         {
-          "name": "storage.modifier.corin",
+          "name": "storage.modifier.crn",
           "match": "\\b(pub|priv|static|mut|owned|where|dyn|Self)\\b"
         }
       ]
@@ -78,28 +78,28 @@
     "types": {
       "patterns": [
         {
-          "name": "storage.type.corin",
+          "name": "storage.type.crn",
           "match": "\\b(int|float|double|str|bool|void|any|list|dict|tuple|set|bytes|char)\\b"
         },
         {
           "comment": "Generic type parameters e.g. Vec<T>, Option<T>",
           "match": "\\b([A-Z][a-zA-Z0-9_]*)\\s*(?=<)",
           "captures": {
-            "1": { "name": "entity.name.type.corin" }
+            "1": { "name": "entity.name.type.crn" }
           }
         },
         {
           "comment": "Type annotation after colon e.g. x: int",
           "match": "(?<=:\\s{0,10})([A-Z][a-zA-Z0-9_]*|int|float|str|bool|void|any)\\b",
           "captures": {
-            "1": { "name": "storage.type.corin" }
+            "1": { "name": "storage.type.crn" }
           }
         },
         {
           "comment": "Return type annotation e.g. -> int",
           "match": "(?<=->\\s{0,10})([A-Z][a-zA-Z0-9_]*|int|float|str|bool|void|any)\\b",
           "captures": {
-            "1": { "name": "storage.type.corin" }
+            "1": { "name": "storage.type.crn" }
           }
         }
       ]
@@ -107,7 +107,7 @@
     "constants": {
       "patterns": [
         {
-          "name": "constant.language.corin",
+          "name": "constant.language.crn",
           "match": "\\b(true|false|none|None|Some|Ok|Err)\\b"
         }
       ]
@@ -115,12 +115,12 @@
     "fstrings": {
       "patterns": [
         {
-          "name": "string.interpolated.corin",
+          "name": "string.interpolated.crn",
           "begin": "f\"",
           "end": "\"",
           "patterns": [
             {
-              "name": "meta.interpolation.corin",
+              "name": "meta.interpolation.crn",
               "begin": "\\{",
               "end": "\\}",
               "patterns": [
@@ -128,18 +128,18 @@
               ]
             },
             {
-              "name": "constant.character.escape.corin",
+              "name": "constant.character.escape.crn",
               "match": "\\\\."
             }
           ]
         },
         {
-          "name": "string.interpolated.corin",
+          "name": "string.interpolated.crn",
           "begin": "f'",
           "end": "'",
           "patterns": [
             {
-              "name": "meta.interpolation.corin",
+              "name": "meta.interpolation.crn",
               "begin": "\\{",
               "end": "\\}",
               "patterns": [
@@ -147,7 +147,7 @@
               ]
             },
             {
-              "name": "constant.character.escape.corin",
+              "name": "constant.character.escape.crn",
               "match": "\\\\."
             }
           ]
@@ -157,27 +157,27 @@
     "strings": {
       "patterns": [
         {
-          "name": "string.quoted.triple.corin",
+          "name": "string.quoted.triple.crn",
           "begin": "\"\"\"",
           "end": "\"\"\"",
           "patterns": [
-            { "name": "constant.character.escape.corin", "match": "\\\\." }
+            { "name": "constant.character.escape.crn", "match": "\\\\." }
           ]
         },
         {
-          "name": "string.quoted.double.corin",
+          "name": "string.quoted.double.crn",
           "begin": "\"",
           "end": "\"",
           "patterns": [
-            { "name": "constant.character.escape.corin", "match": "\\\\." }
+            { "name": "constant.character.escape.crn", "match": "\\\\." }
           ]
         },
         {
-          "name": "string.quoted.single.corin",
+          "name": "string.quoted.single.crn",
           "begin": "'",
           "end": "'",
           "patterns": [
-            { "name": "constant.character.escape.corin", "match": "\\\\." }
+            { "name": "constant.character.escape.crn", "match": "\\\\." }
           ]
         }
       ]
@@ -185,23 +185,23 @@
     "numbers": {
       "patterns": [
         {
-          "name": "constant.numeric.hex.corin",
+          "name": "constant.numeric.hex.crn",
           "match": "\\b0[xX][0-9a-fA-F_]+\\b"
         },
         {
-          "name": "constant.numeric.binary.corin",
+          "name": "constant.numeric.binary.crn",
           "match": "\\b0[bB][01_]+\\b"
         },
         {
-          "name": "constant.numeric.octal.corin",
+          "name": "constant.numeric.octal.crn",
           "match": "\\b0[oO][0-7_]+\\b"
         },
         {
-          "name": "constant.numeric.float.corin",
+          "name": "constant.numeric.float.crn",
           "match": "\\b\\d[\\d_]*\\.\\d[\\d_]*([eE][+-]?\\d+)?\\b"
         },
         {
-          "name": "constant.numeric.integer.corin",
+          "name": "constant.numeric.integer.crn",
           "match": "\\b\\d[\\d_]*\\b"
         }
       ]
@@ -212,13 +212,13 @@
           "comment": "Class/trait name after declaration keyword",
           "match": "\\b(class|trait|impl|enum)\\s+([A-Za-z_][A-Za-z0-9_]*)",
           "captures": {
-            "1": { "name": "keyword.declaration.corin" },
-            "2": { "name": "entity.name.type.corin" }
+            "1": { "name": "keyword.declaration.crn" },
+            "2": { "name": "entity.name.type.crn" }
           }
         },
         {
           "comment": "Uppercase identifiers used as types",
-          "name": "entity.name.type.corin",
+          "name": "entity.name.type.crn",
           "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
         }
       ]
@@ -229,13 +229,13 @@
           "comment": "Function declaration name",
           "match": "\\b(fn)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
           "captures": {
-            "1": { "name": "keyword.declaration.corin" },
-            "2": { "name": "entity.name.function.corin" }
+            "1": { "name": "keyword.declaration.crn" },
+            "2": { "name": "entity.name.function.crn" }
           }
         },
         {
           "comment": "Function call",
-          "name": "entity.name.function.corin",
+          "name": "entity.name.function.crn",
           "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
         }
       ]
@@ -244,41 +244,41 @@
       "patterns": [
         {
           "comment": "Match arm arrow",
-          "name": "keyword.operator.arrow.corin",
+          "name": "keyword.operator.arrow.crn",
           "match": "=>"
         },
         {
           "comment": "Return type / lambda arrow",
-          "name": "keyword.operator.arrow.corin",
+          "name": "keyword.operator.arrow.crn",
           "match": "->"
         },
         {
           "comment": "Channel send/receive",
-          "name": "keyword.operator.channel.corin",
+          "name": "keyword.operator.channel.crn",
           "match": "<-"
         },
         {
           "comment": "Error propagation",
-          "name": "keyword.operator.corin",
+          "name": "keyword.operator.crn",
           "match": "\\?"
         },
         {
           "comment": "Power operator",
-          "name": "keyword.operator.corin",
+          "name": "keyword.operator.crn",
           "match": "\\*\\*"
         },
         {
           "comment": "Comparison and assignment operators",
-          "name": "keyword.operator.corin",
+          "name": "keyword.operator.crn",
           "match": "(==|!=|<=|>=|&&|\\|\\||\\+=|-=|\\*=|/=|%=|//=|\\*\\*=)"
         },
         {
           "comment": "Arithmetic and single-char operators",
-          "name": "keyword.operator.corin",
+          "name": "keyword.operator.crn",
           "match": "[+\\-*/%<>!&|^~=]"
         }
       ]
     }
   },
-  "scopeName": "source.corin"
+  "scopeName": "source.crn"
 }

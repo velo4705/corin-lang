@@ -1,3 +1,0 @@
-# Minimal Option test
-let x = Some(5)
-print(x)

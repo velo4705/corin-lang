@@ -178,8 +178,8 @@ void test_error_handling() {
     std::cout << "Testing Error Handling..." << std::endl;
     
     // Test stack trace
-    Error::ErrorHandler::push_frame("test_function", "test_file.corin", 42);
-    Error::ErrorHandler::push_frame("main", "main.corin", 10);
+    Error::ErrorHandler::push_frame("test_function", "test_file.crn", 42);
+    Error::ErrorHandler::push_frame("main", "main.crn", 10);
     
     Error::StackTrace trace = Error::ErrorHandler::capture_stack_trace();
     assert(trace.depth() == 2);
@@ -307,7 +307,7 @@ void test_c_api() {
     
     // Test error handling C API
     corin_error_enable_stack_traces(true);
-    corin_stack_push_frame("test_function", "test.corin", 42);
+    corin_stack_push_frame("test_function", "test.crn", 42);
     
     const char* trace = corin_stack_get_trace();
     assert(trace != nullptr);

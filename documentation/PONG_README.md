@@ -26,7 +26,7 @@ A simple but fully functional Pong game written in Corin, demonstrating the lang
 ### Manual Build
 ```bash
 # Compile to LLVM IR
-./corin compile working_pong.corin > working_pong.ll
+./corin compile working_pong.crn > working_pong.ll
 
 # Compile to object file
 llc working_pong.ll -filetype=obj -o working_pong.o

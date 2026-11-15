@@ -354,7 +354,7 @@ fn log(message: str):
 
 ## Example Code
 
-See [examples/file_io_example.corin](../examples/file_io_example.corin) for a complete working example.
+See [examples/file_io_example.crn](../examples/file_io_example.crn) for a complete working example.
 
 ## See Also
 

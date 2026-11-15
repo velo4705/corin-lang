@@ -1,4 +1,0 @@
-macro test(x):
-    print(x)
-
-print("Done")

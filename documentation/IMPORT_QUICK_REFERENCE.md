@@ -124,7 +124,7 @@ fn main() {
 
 ```bash
 # 1. Compile to LLVM IR
-./corin compile myapp.corin 2>/dev/null > myapp.ll
+./corin compile myapp.crn 2>/dev/null > myapp.ll
 
 # 2. Compile to object file
 llc myapp.ll -filetype=obj -o myapp.o
@@ -149,7 +149,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/MODULE:$LD_LIBRARY_PATH ./myapp
 ## Complete Example
 
 ```corin
-// simple_window.corin
+// simple_window.crn
 import graphics.sdl2
 
 fn main() {
@@ -172,7 +172,7 @@ fn main() {
 
 Compile and run:
 ```bash
-./corin compile simple_window.corin 2>/dev/null > simple_window.ll
+./corin compile simple_window.crn 2>/dev/null > simple_window.ll
 llc simple_window.ll -filetype=obj -o simple_window.o
 clang simple_window.o -o simple_window \
     -L./stdlib/graphics/sdl2 -lcorin_sdl2 -lSDL2 -lstdc++
@@ -185,7 +185,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./simple_window
 2. **Error Handling**: Check compilation errors in stderr
 3. **Library Path**: Always set LD_LIBRARY_PATH when running
 4. **Multiple Imports**: You can import multiple modules in one program
-5. **Examples**: See `examples/test_import_sdl2.corin` for a working example
+5. **Examples**: See `examples/test_import_sdl2.crn` for a working example
 
 ## Troubleshooting
 
@@ -204,4 +204,4 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./simple_window
 - Full documentation: `stdlib/graphics/IMPORT_GUIDE.md`
 - Build instructions: `stdlib/graphics/BUILD.md`
 - Graphics guide: `GRAPHICS_QUICK_START.md`
-- Examples: `examples/test_import_sdl2.corin`
+- Examples: `examples/test_import_sdl2.crn`

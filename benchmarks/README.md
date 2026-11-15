@@ -38,17 +38,17 @@ Corin targets being the **second-fastest language** after C/Assembly:
 
 ## Benchmark Programs
 
-- `bench_simple.corin` - Arithmetic and memory operations
+- `bench_simple.crn` - Arithmetic and memory operations
 - `bench_simple.c` - C equivalent for comparison
 
 ## Running Benchmarks
 
 ```bash
 # Simple interpreter test
-./corin benchmarks/bench_simple.corin
+./corin benchmarks/bench_simple.crn
 
 # Compile and run (when LLVM toolchain is available)
-./corin compile benchmarks/bench_simple.corin > output.ll
+./corin compile benchmarks/bench_simple.crn > output.ll
 llc output.ll -o output.s -O3
 clang output.s -o output -O3
 ./output

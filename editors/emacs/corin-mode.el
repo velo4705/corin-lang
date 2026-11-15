@@ -7,7 +7,7 @@
 
 ;;; Commentary:
 ;; Provides syntax highlighting, indentation, and basic navigation
-;; for Corin (.corin) source files.
+;; for Corin (.crn) source files.
 ;;
 ;; Installation:
 ;;   (add-to-list 'load-path "/path/to/editors/emacs")
@@ -166,7 +166,7 @@
   (setq-local font-lock-defaults '(corin-font-lock-keywords nil nil nil nil)))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.corin\\'" . corin-mode))
+(add-to-list 'auto-mode-alist '("\\.crn\\'" . corin-mode))
 
 (provide 'corin-mode)
 ;;; corin-mode.el ends here

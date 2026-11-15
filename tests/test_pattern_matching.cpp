@@ -17,7 +17,7 @@ void test(const std::string& name, bool condition) {
 int main() {
     std::cout << "=== Pattern Matching Tests ===" << std::endl;
     
-    // Note: These are integration tests that would run .corin files
+    // Note: These are integration tests that would run .crn files
     // For now, we document what should be tested
     
     std::cout << "\nTest Categories:" << std::endl;
@@ -33,7 +33,7 @@ int main() {
     std::cout << "10. Exhaustiveness checking" << std::endl;
     
     std::cout << "\n✓ Pattern matching test suite defined" << std::endl;
-    std::cout << "Run: ./corin examples/pattern_matching_*.corin" << std::endl;
+    std::cout << "Run: ./corin examples/pattern_matching_*.crn" << std::endl;
     
     return 0;
 }

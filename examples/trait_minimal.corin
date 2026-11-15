@@ -1,6 +1,0 @@
-# Minimal trait test
-
-trait Drawable:
-    fn draw(self) -> str
-
-print("Done")

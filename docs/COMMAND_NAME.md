@@ -22,12 +22,12 @@ Both commands work identically:
 
 ```bash
 # Using short name (recommended)
-corin hello.corin
+corin hello.crn
 corin --version
 corin --help
 
 # Using full name (also works)
-corin hello.corin
+corin hello.crn
 corin --version
 corin --help
 ```
@@ -53,8 +53,8 @@ When installed system-wide, both commands are available:
 sudo make install
 
 # Both work
-corin myprogram.corin
-corin myprogram.corin
+corin myprogram.crn
+corin myprogram.crn
 ```
 
 ## In Scripts

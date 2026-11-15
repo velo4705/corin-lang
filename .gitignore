@@ -12,7 +12,7 @@ obj/
 # Executables
 corin
 corin
-spm
+cpm
 corin-fmt
 corin-lsp
 corin-debug
@@ -33,8 +33,8 @@ test_type_inference
 .DS_Store
 
 # Package manager
-.spm/
-spm.lock
+.cpm/
+cpm.lock
 vendor/
 
 # Test outputs
@@ -142,8 +142,8 @@ docs/MILESTONE_STATUS.md
 editors/vscode/.vscode/
 
 # Test language feature files (generated/scratch tests)
-tests/language_features/test_*.corin
-tests/pattern_matching/test_*.corin
+tests/language_features/test_*.crn
+tests/pattern_matching/test_*.crn
 tests/codegen/
 
 # Test project folders

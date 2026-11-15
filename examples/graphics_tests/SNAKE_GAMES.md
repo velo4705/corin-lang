@@ -2,7 +2,7 @@
 
 Two versions of the classic Snake game built with Corin and SDL2.
 
-## 🐍 game_snake.corin - Classic Version
+## 🐍 game_snake.crn - Classic Version
 
 Simple, clean implementation of Snake.
 
@@ -25,7 +25,7 @@ Simple, clean implementation of Snake.
 
 ---
 
-## 🐍✨ game_snake_enhanced.corin - Enhanced Version
+## 🐍✨ game_snake_enhanced.crn - Enhanced Version
 
 Full-featured Snake with growing tail and better visuals.
 

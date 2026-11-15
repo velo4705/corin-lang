@@ -97,63 +97,63 @@ corin/
 │
 ├── stdlib/                        # Standard library
 │   ├── core/                      # Core types
-│   │   ├── int.corin
-│   │   ├── float.corin
-│   │   ├── string.corin
-│   │   ├── bool.corin
-│   │   └── option.corin
+│   │   ├── int.crn
+│   │   ├── float.crn
+│   │   ├── string.crn
+│   │   ├── bool.crn
+│   │   └── option.crn
 │   │
 │   ├── collections/               # Data structures
-│   │   ├── list.corin
-│   │   ├── dict.corin
-│   │   ├── set.corin
-│   │   ├── queue.corin
-│   │   └── heap.corin
+│   │   ├── list.crn
+│   │   ├── dict.crn
+│   │   ├── set.crn
+│   │   ├── queue.crn
+│   │   └── heap.crn
 │   │
 │   ├── io/                        # Input/Output
-│   │   ├── file.corin
-│   │   ├── stream.corin
-│   │   ├── reader.corin
-│   │   └── writer.corin
+│   │   ├── file.crn
+│   │   ├── stream.crn
+│   │   ├── reader.crn
+│   │   └── writer.crn
 │   │
 │   ├── async/                     # Async primitives
-│   │   ├── future.corin
-│   │   ├── promise.corin
-│   │   ├── task.corin
-│   │   └── runtime.corin
+│   │   ├── future.crn
+│   │   ├── promise.crn
+│   │   ├── task.crn
+│   │   └── runtime.crn
 │   │
 │   ├── sync/                      # Synchronization
-│   │   ├── mutex.corin
-│   │   ├── rwlock.corin
-│   │   ├── channel.corin
-│   │   └── atomic.corin
+│   │   ├── mutex.crn
+│   │   ├── rwlock.crn
+│   │   ├── channel.crn
+│   │   └── atomic.crn
 │   │
 │   ├── net/                       # Networking
-│   │   ├── tcp.corin
-│   │   ├── udp.corin
-│   │   ├── http.corin
-│   │   └── websocket.corin
+│   │   ├── tcp.crn
+│   │   ├── udp.crn
+│   │   ├── http.crn
+│   │   └── websocket.crn
 │   │
 │   ├── json/                      # JSON support
-│   │   ├── parser.corin
-│   │   ├── serializer.corin
-│   │   └── value.corin
+│   │   ├── parser.crn
+│   │   ├── serializer.crn
+│   │   └── value.crn
 │   │
 │   ├── crypto/                    # Cryptography
-│   │   ├── hash.corin
-│   │   ├── aes.corin
-│   │   ├── rsa.corin
-│   │   └── jwt.corin
+│   │   ├── hash.crn
+│   │   ├── aes.crn
+│   │   ├── rsa.crn
+│   │   └── jwt.crn
 │   │
 │   ├── test/                      # Testing framework
-│   │   ├── assert.corin
-│   │   ├── suite.corin
-│   │   └── mock.corin
+│   │   ├── assert.crn
+│   │   ├── suite.crn
+│   │   └── mock.crn
 │   │
 │   └── sys/                       # System interface
-│       ├── process.corin
-│       ├── signal.corin
-│       └── env.corin
+│       ├── process.crn
+│       ├── signal.crn
+│       └── env.crn
 │
 ├── runtime/                       # Runtime C/C++ code
 │   ├── gc/                        # GC implementation
@@ -170,7 +170,7 @@ corin/
 │       └── wrapper.cpp
 │
 ├── tools/                         # Development tools
-│   ├── spm/                       # Package manager
+│   ├── cpm/                       # Package manager
 │   │   ├── main.cpp
 │   │   ├── registry.cpp
 │   │   ├── resolver.cpp
@@ -196,22 +196,22 @@ corin/
 │       └── style.cpp
 │
 ├── examples/                      # Example programs
-│   ├── hello.corin                  # Hello World
-│   ├── fibonacci.corin              # Recursion example
-│   ├── showcase.corin               # Feature showcase
-│   ├── advanced_features.corin      # Advanced patterns
-│   ├── web_server.corin             # Web application
-│   ├── systems_programming.corin    # Systems code
-│   ├── data_science.corin           # ML/Data science
-│   ├── microservice.corin           # Microservices
-│   ├── cli_tool.corin               # CLI application
+│   ├── hello.crn                  # Hello World
+│   ├── fibonacci.crn              # Recursion example
+│   ├── showcase.crn               # Feature showcase
+│   ├── advanced_features.crn      # Advanced patterns
+│   ├── web_server.crn             # Web application
+│   ├── systems_programming.crn    # Systems code
+│   ├── data_science.crn           # ML/Data science
+│   ├── microservice.crn           # Microservices
+│   ├── cli_tool.crn               # CLI application
 │   ├── game/                      # Game example
-│   │   ├── main.corin
-│   │   ├── player.corin
-│   │   └── enemy.corin
+│   │   ├── main.crn
+│   │   ├── player.crn
+│   │   └── enemy.crn
 │   └── blockchain/                # Blockchain example
-│       ├── chain.corin
-│       └── transaction.corin
+│       ├── chain.crn
+│       └── transaction.crn
 │
 ├── tests/                         # Test suite
 │   ├── unit/                      # Unit tests
@@ -226,35 +226,35 @@ corin/
 │   │   └── test_stdlib.cpp
 │   │
 │   ├── e2e/                       # End-to-end tests
-│   │   ├── test_hello_world.corin
-│   │   ├── test_fibonacci.corin
-│   │   └── test_web_server.corin
+│   │   ├── test_hello_world.crn
+│   │   ├── test_fibonacci.crn
+│   │   └── test_web_server.crn
 │   │
 │   └── benchmarks/                # Performance benchmarks
-│       ├── bench_fibonacci.corin
-│       ├── bench_sorting.corin
-│       └── bench_http.corin
+│       ├── bench_fibonacci.crn
+│       ├── bench_sorting.crn
+│       └── bench_http.crn
 │
 ├── libs/                          # Third-party libraries
 │   ├── web/                       # Web framework
-│   │   ├── router.corin
-│   │   ├── middleware.corin
-│   │   └── template.corin
+│   │   ├── router.crn
+│   │   ├── middleware.crn
+│   │   └── template.crn
 │   │
 │   ├── db/                        # Database drivers
-│   │   ├── postgres.corin
-│   │   ├── mysql.corin
-│   │   └── sqlite.corin
+│   │   ├── postgres.crn
+│   │   ├── mysql.crn
+│   │   └── sqlite.crn
 │   │
 │   ├── ml/                        # Machine learning
-│   │   ├── tensor.corin
-│   │   ├── nn.corin
-│   │   └── optim.corin
+│   │   ├── tensor.crn
+│   │   ├── nn.crn
+│   │   └── optim.crn
 │   │
 │   └── gui/                       # GUI framework
-│       ├── window.corin
-│       ├── widget.corin
-│       └── layout.corin
+│       ├── window.crn
+│       ├── widget.crn
+│       └── layout.crn
 │
 ├── scripts/                       # Build/utility scripts
 │   ├── build.sh                   # Build script
@@ -322,7 +322,7 @@ Syntax highlighting, autocomplete, debugging for popular editors.
 build/
 ├── bin/
 │   ├── corin              # Main compiler
-│   ├── spm                   # Package manager
+│   ├── cpm                   # Package manager
 │   ├── corin-lsp          # Language server
 │   └── corin-debug        # Debugger
 ├── lib/
@@ -341,7 +341,7 @@ build/
 /usr/local/
 ├── bin/
 │   ├── corin
-│   └── spm
+│   └── cpm
 ├── lib/
 │   └── corin/
 │       ├── stdlib/

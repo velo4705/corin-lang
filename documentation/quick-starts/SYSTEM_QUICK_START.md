@@ -12,7 +12,7 @@ No installation needed! The system library is built into the Corin compiler.
 
 ## Your First System Program
 
-Create `hello_system.corin`:
+Create `hello_system.crn`:
 
 ```corin
 import system
@@ -34,7 +34,7 @@ print("Done!")
 Compile and run:
 
 ```bash
-./corin compile hello_system.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > hello_system.ll
+./corin compile hello_system.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > hello_system.ll
 llc hello_system.ll -filetype=obj -o hello_system.o
 gcc hello_system.o stdlib/system/system.cpp -o hello_system -lstdc++ -lpthread
 ./hello_system
@@ -173,17 +173,17 @@ print("Memory freed")
 ./run_kernel_demo.sh
 
 # Or manually:
-./corin compile system_demo.corin 2>/dev/null | grep -A 1000 "^; ModuleID" > system_demo.ll
+./corin compile system_demo.crn 2>/dev/null | grep -A 1000 "^; ModuleID" > system_demo.ll
 llc system_demo.ll -filetype=obj -o system_demo.o
 gcc system_demo.o stdlib/system/system.cpp -o system_demo -lstdc++ -lpthread
 ./system_demo
 ```
 
 Available demos:
-- `system_demo.corin` - Comprehensive system demo
-- `kernel_hello.corin` - Kernel-style initialization
-- `process_monitor.corin` - Process monitoring
-- `test_system_simple.corin` - Minimal test
+- `system_demo.crn` - Comprehensive system demo
+- `kernel_hello.crn` - Kernel-style initialization
+- `process_monitor.crn` - Process monitoring
+- `test_system_simple.crn` - Minimal test
 
 ---
 

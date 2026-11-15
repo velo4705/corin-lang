@@ -191,20 +191,20 @@ DB_PATH = 'registry.db'    # Database file
 PORT = 8080                # Server port
 ```
 
-## Integration with spm
+## Integration with cpm
 
-The registry is designed to work with the Corin Package Manager (spm).
+The registry is designed to work with the Corin Package Manager (cpm).
 
 ### Publishing
 
 ```bash
-spm publish --registry http://localhost:8080
+cpm publish --registry http://localhost:8080
 ```
 
 ### Installing
 
 ```bash
-spm install http-client --registry http://localhost:8080
+cpm install http-client --registry http://localhost:8080
 ```
 
 ## Security Considerations

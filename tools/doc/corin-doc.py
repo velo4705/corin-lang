@@ -104,7 +104,7 @@ class DocParser:
     
     def parse_directory(self, directory):
         """Parse all Corin files in a directory"""
-        for filepath in Path(directory).rglob('*.corin'):
+        for filepath in Path(directory).rglob('*.crn'):
             self.parse_file(filepath)
 
 class HTMLGenerator:

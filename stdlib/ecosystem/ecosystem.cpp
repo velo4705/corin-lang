@@ -321,7 +321,7 @@ std::string pkgmgr_lockfile(const Manifest& m) {
         oss << "[[package]]\n"
             << "name = \"" << dep.name << "\"\n"
             << "version = \"" << ver << "\"\n"
-            << "resolved = \"https://registry.corin-lang.org/" << dep.name << "/" << ver << "\"\n\n";
+            << "resolved = \"https://registry.crn-lang.org/" << dep.name << "/" << ver << "\"\n\n";
     }
     return oss.str();
 }

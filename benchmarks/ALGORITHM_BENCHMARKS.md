@@ -7,7 +7,7 @@ Comprehensive benchmarks testing Corin's performance on complex algorithms and d
 ## Benchmark Categories
 
 ### 1. Dynamic Programming
-**File**: `algorithms/fibonacci_dp.corin` vs `algorithms/fibonacci_dp.c`
+**File**: `algorithms/fibonacci_dp.crn` vs `algorithms/fibonacci_dp.c`
 
 **Algorithm**: Fibonacci with memoization
 - **Time Complexity**: O(n)
@@ -21,7 +21,7 @@ Comprehensive benchmarks testing Corin's performance on complex algorithms and d
 - Cache efficiency
 
 ### 2. Matrix Operations
-**File**: `algorithms/matrix_multiply.corin` vs `algorithms/matrix_multiply.c`
+**File**: `algorithms/matrix_multiply.crn` vs `algorithms/matrix_multiply.c`
 
 **Algorithm**: Matrix multiplication
 - **Time Complexity**: O(n³)
@@ -35,7 +35,7 @@ Comprehensive benchmarks testing Corin's performance on complex algorithms and d
 - Arithmetic operations
 
 ### 3. Hash Table Operations
-**File**: `algorithms/hash_operations.corin` vs `algorithms/hash_operations.c`
+**File**: `algorithms/hash_operations.crn` vs `algorithms/hash_operations.c`
 
 **Algorithm**: Hash table insert/lookup
 - **Time Complexity**: O(1) average, O(n) worst case
@@ -49,7 +49,7 @@ Comprehensive benchmarks testing Corin's performance on complex algorithms and d
 - Pointer operations
 
 ### 4. String Manipulation
-**File**: `algorithms/string_operations.corin` vs `algorithms/string_operations.c`
+**File**: `algorithms/string_operations.crn` vs `algorithms/string_operations.c`
 
 **Algorithm**: String concat, reverse, pattern matching
 - **Time Complexity**: O(n) for most operations
@@ -63,7 +63,7 @@ Comprehensive benchmarks testing Corin's performance on complex algorithms and d
 - Character manipulation
 
 ### 5. Sorting Algorithms
-**File**: `algorithms/sorting_benchmark.corin` vs `algorithms/sorting_benchmark.c`
+**File**: `algorithms/sorting_benchmark.crn` vs `algorithms/sorting_benchmark.c`
 
 **Algorithm**: QuickSort
 - **Time Complexity**: O(n log n) average, O(n²) worst
@@ -133,10 +133,10 @@ Based on LLVM optimization and runtime overhead:
 
 ```bash
 # Corin (interpreter)
-./corin benchmarks/algorithms/fibonacci_dp.corin
+./corin benchmarks/algorithms/fibonacci_dp.crn
 
 # Corin (compiled)
-./corin compile benchmarks/algorithms/fibonacci_dp.corin > fib.ll
+./corin compile benchmarks/algorithms/fibonacci_dp.crn > fib.ll
 llc fib.ll -o fib.s -O3
 clang fib.s -o fib_corin -O3
 time ./fib_corin

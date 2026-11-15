@@ -450,7 +450,7 @@ fn shell():
 
 ## Example Code
 
-See [examples/user_input_example.corin](../examples/user_input_example.corin) for a complete working example.
+See [examples/user_input_example.crn](../examples/user_input_example.crn) for a complete working example.
 
 ## See Also
 

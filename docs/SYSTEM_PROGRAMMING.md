@@ -560,7 +560,7 @@ fn profile_memory():
 
 ## Example Code
 
-See [examples/system_programming_example.corin](../examples/system_programming_example.corin) for a complete working example.
+See [examples/system_programming_example.crn](../examples/system_programming_example.crn) for a complete working example.
 
 ## See Also
 

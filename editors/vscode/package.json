@@ -29,7 +29,7 @@
           "corin"
         ],
         "extensions": [
-          ".corin"
+          ".crn"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -37,7 +37,7 @@
     "grammars": [
       {
         "language": "corin",
-        "scopeName": "source.corin",
+        "scopeName": "source.crn",
         "path": "./syntaxes/corin.tmLanguage.json"
       }
     ],

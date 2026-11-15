@@ -267,10 +267,10 @@ All operations are zero-cost:
 ## Examples
 
 See these files for complete examples:
-- `examples/option_showcase.corin` - Option features
-- `examples/result_showcase.corin` - Result features
-- `examples/try_operator_showcase.corin` - ? operator
-- `examples/milestone5_complete.corin` - All features together
+- `examples/option_showcase.crn` - Option features
+- `examples/result_showcase.crn` - Result features
+- `examples/try_operator_showcase.crn` - ? operator
+- `examples/milestone5_complete.crn` - All features together
 
 ---
 

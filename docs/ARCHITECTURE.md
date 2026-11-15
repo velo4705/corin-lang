@@ -3,7 +3,7 @@
 ## Compilation Pipeline
 
 ```
-Source Code (.corin)
+Source Code (.crn)
     ↓
 [Lexer] → Tokens
     ↓

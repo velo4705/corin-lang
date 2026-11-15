@@ -4,7 +4,7 @@ Corin's Option<T> type provides a type-safe way to handle nullable values, inspi
 
 ## Available Examples
 
-### 1. option_comprehensive.corin
+### 1. option_comprehensive.crn
 Complete feature demonstration covering all Option capabilities:
 - Basic construction (Some/None)
 - State checking (is_some/is_none)
@@ -15,9 +15,9 @@ Complete feature demonstration covering all Option capabilities:
 - Nested Options
 - Real-world scenarios
 
-Run: `./corin examples/option_comprehensive.corin`
+Run: `./corin examples/option_comprehensive.crn`
 
-### 2. option_practical.corin
+### 2. option_practical.crn
 Real-world usage patterns:
 - Safe dictionary lookup
 - Configuration with defaults
@@ -29,9 +29,9 @@ Real-world usage patterns:
 - Nested Options
 - Option in loops
 
-Run: `./corin examples/option_practical.corin`
+Run: `./corin examples/option_practical.crn`
 
-### 3. option_error_handling.corin
+### 3. option_error_handling.crn
 Error handling patterns with Option:
 - Safe division
 - Safe string parsing
@@ -39,7 +39,7 @@ Error handling patterns with Option:
 - Optional return values
 - Avoiding null pointer errors
 
-Run: `./corin examples/option_error_handling.corin`
+Run: `./corin examples/option_error_handling.crn`
 
 ## Quick Reference
 

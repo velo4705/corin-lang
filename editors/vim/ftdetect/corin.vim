@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.corin set filetype=corin
+autocmd BufNewFile,BufRead *.crn set filetype=corin

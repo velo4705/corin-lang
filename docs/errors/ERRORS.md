@@ -392,11 +392,11 @@ import http
 Two modules are importing each other, creating a cycle.
 
 ```
-# a.corin imports b.corin
-# b.corin imports a.corin  ← cycle
+# a.crn imports b.crn
+# b.crn imports a.crn  ← cycle
 
-# fix — extract shared code into a third module c.corin
-# both a.corin and b.corin import c.corin
+# fix — extract shared code into a third module c.crn
+# both a.crn and b.crn import c.crn
 ```
 
 ---

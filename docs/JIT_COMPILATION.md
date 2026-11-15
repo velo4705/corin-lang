@@ -371,19 +371,19 @@ fn huge_function() {
 ### Trace Compilation
 
 ```bash
-corin --trace-jit file.corin
+corin --trace-jit file.crn
 ```
 
 ### Dump Generated Code
 
 ```bash
-corin --dump-jit-code file.corin
+corin --dump-jit-code file.crn
 ```
 
 ### Profile JIT
 
 ```bash
-corin --profile-jit file.corin
+corin --profile-jit file.crn
 ```
 
 ## Architecture
@@ -406,7 +406,7 @@ Typical speedups:
 
 ## Examples
 
-See `examples/jit_compilation.corin` for complete examples.
+See `examples/jit_compilation.crn` for complete examples.
 
 ## Further Reading
 

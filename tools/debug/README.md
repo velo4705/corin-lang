@@ -23,7 +23,7 @@ The debug adapter communicates over stdin/stdout using the Debug Adapter Protoco
 ### With VSCode
 
 1. Install the Corin VSCode extension from `editors/vscode/`
-2. Open a `.corin` file
+2. Open a `.crn` file
 3. Set breakpoints by clicking in the gutter
 4. Press F5 or click "Run and Debug"
 5. Select "Debug Corin Program"

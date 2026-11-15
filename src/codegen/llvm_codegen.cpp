@@ -1770,7 +1770,7 @@ void LLVMCodeGen::writeObject(const std::string& filename) {
     
     std::cerr << "Note: Direct executable generation not yet implemented for LLVM 21.\n";
     std::cerr << "Use this workflow instead:\n";
-    std::cerr << "  1. Generate IR: ./corin compile " << impl->module_name << ".corin > output.ll\n";
+    std::cerr << "  1. Generate IR: ./corin compile " << impl->module_name << ".crn > output.ll\n";
     std::cerr << "  2. Compile:     llc output.ll -o output.o\n";
     std::cerr << "  3. Link:        clang output.o -o " << filename << "\n";
     std::cerr << "\nThis achieves the same native performance!\n";

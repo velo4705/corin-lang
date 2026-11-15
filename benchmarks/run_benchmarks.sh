@@ -90,8 +90,8 @@ run_benchmark() {
 }
 
 # Run benchmarks
-run_benchmark "arithmetic" "benchmarks/bench_arithmetic.corin" "benchmarks/bench_arithmetic.c"
-run_benchmark "memory" "benchmarks/bench_memory.corin" "benchmarks/bench_memory.c"
+run_benchmark "arithmetic" "benchmarks/bench_arithmetic.crn" "benchmarks/bench_arithmetic.c"
+run_benchmark "memory" "benchmarks/bench_memory.crn" "benchmarks/bench_memory.c"
 
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║                    BENCHMARK COMPLETE                        ║"

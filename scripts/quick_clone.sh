@@ -24,7 +24,7 @@ if [ -f ~/.ssh/id_ed25519 ] || [ -f ~/.ssh/id_rsa ]; then
         make quick
         echo ""
         echo "✓ Done! Run your first program:"
-        echo "  ./corin examples/hello.corin"
+        echo "  ./corin examples/hello.crn"
         exit 0
     else
         echo "⚠ SSH key exists but not configured with GitHub"
@@ -60,7 +60,7 @@ if [[ $has_token =~ ^[Yy]$ ]]; then
         make quick
         echo ""
         echo "✓ Done! Run your first program:"
-        echo "  ./corin examples/hello.corin"
+        echo "  ./corin examples/hello.crn"
     else
         echo ""
         echo "✗ Clone failed. Try setting up SSH instead:"

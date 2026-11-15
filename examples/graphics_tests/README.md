@@ -18,7 +18,7 @@ These examples demonstrate graphics functionality and require **compiled mode** 
 
 ## 🎮 Games
 
-### game_pong.corin - Classic Pong
+### game_pong.crn - Classic Pong
 Two-player Pong game with scoring.
 
 **Controls:**
@@ -36,7 +36,7 @@ Two-player Pong game with scoring.
 
 ---
 
-### game_snake.corin - Snake Game
+### game_snake.crn - Snake Game
 Eat food, grow longer, don't hit walls!
 
 **Controls:**
@@ -55,7 +55,7 @@ Eat food, grow longer, don't hit walls!
 
 ## 🎨 Applications
 
-### app_paint.corin - Paint Application
+### app_paint.crn - Paint Application
 Simple drawing application with color selection.
 
 **Controls:**
@@ -76,7 +76,7 @@ Simple drawing application with color selection.
 
 ## ✨ Demos
 
-### demo_particles.corin - Particle System
+### demo_particles.crn - Particle System
 Animated bouncing particles with motion trails.
 
 **Controls:**
@@ -92,7 +92,7 @@ Animated bouncing particles with motion trails.
 
 ---
 
-### demo_3d_cube.corin - 3D Rotating Cube
+### demo_3d_cube.crn - 3D Rotating Cube
 OpenGL 3D graphics demonstration.
 
 **Controls:**
@@ -130,7 +130,7 @@ These examples are designed for the **compiler** and must be compiled to native 
 
 ```bash
 # 1. Compile to LLVM IR
-./corin compile examples/graphics_tests/game_pong.corin 2>/dev/null > game_pong.ll
+./corin compile examples/graphics_tests/game_pong.crn 2>/dev/null > game_pong.ll
 
 # 2. Compile to object file
 llc game_pong.ll -filetype=obj -o game_pong.o
@@ -150,7 +150,7 @@ LD_LIBRARY_PATH=./stdlib/graphics/sdl2:$LD_LIBRARY_PATH ./game_pong
 
 ```bash
 # 1. Compile to LLVM IR
-./corin compile examples/graphics_tests/demo_3d_cube.corin 2>/dev/null > demo_3d_cube.ll
+./corin compile examples/graphics_tests/demo_3d_cube.crn 2>/dev/null > demo_3d_cube.ll
 
 # 2. Compile to object file
 llc demo_3d_cube.ll -filetype=obj -o demo_3d_cube.o

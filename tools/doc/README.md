@@ -22,7 +22,7 @@ python3 tools/doc/corin-doc.py src/ docs/
 ```
 
 This will:
-1. Parse all `.corin` files in `src/`
+1. Parse all `.crn` files in `src/`
 2. Extract doc comments
 3. Generate HTML in `docs/`
 
@@ -81,9 +81,9 @@ docs/
 └── classes.html     # All classes
 ```
 
-## Integration with spm
+## Integration with cpm
 
-Add to your `spm.toml`:
+Add to your `cpm.toml`:
 
 ```toml
 [scripts]
@@ -93,7 +93,7 @@ docs = "python3 tools/doc/corin-doc.py src/ docs/"
 Then run:
 
 ```bash
-spm run docs
+cpm run docs
 ```
 
 ## Future Enhancements

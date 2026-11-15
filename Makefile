@@ -301,8 +301,8 @@ help:
 	@echo ""
 	@echo "Targets:"
 	@echo "  make quick      - Quick build (no CMake)"
-	@echo "  make spm        - Build package manager"
-	@echo "  make run        - Build and run hello.corin"
+	@echo "  make cpm        - Build package manager"
+	@echo "  make run        - Build and run hello.crn"
 	@echo "  make clean      - Clean build artifacts"
 	@echo ""
 	@echo "Status:"
@@ -310,13 +310,13 @@ help:
 	@echo ""
 	@echo "For full build, use: ./scripts/build.sh"
 
-spm:
-	@echo "Building spm (Corin Package Manager)..."
-	@mkdir -p build/spm
+cpm:
+	@echo "Building cpm (Corin Package Manager)..."
+	@mkdir -p build/cpm
 	$(CXX) -std=c++20 -Wall -Wextra -O2 \
-		tools/spm/main.cpp \
-		-o spm
-	@echo "✓ Build complete: ./spm"
+		tools/cpm/main.cpp \
+		-o cpm
+	@echo "✓ Build complete: ./cpm"
 
 corin-fmt:
 	@echo "Building corin-fmt (Code Formatter)..."
@@ -346,7 +346,7 @@ corin-debug:
 		-o corin-debug
 	@echo "✓ Build complete: ./corin-debug"
 
-tools: spm corin-fmt corin-lsp corin-debug
+tools: cpm corin-fmt corin-lsp corin-debug
 	@echo "✓ All tools built successfully!"
 
 quick: $(TARGET)
@@ -380,8 +380,8 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)/runtime
 
 run: quick
-	@echo "Running examples/hello.corin..."
-	@./corin examples/hello.corin
+	@echo "Running examples/hello.crn..."
+	@./corin examples/hello.crn
 
 clean:
 	rm -rf $(OBJDIR) $(TARGET)

@@ -245,7 +245,7 @@ Window programs require SDL2 libraries at link time:
 
 ```bash
 # Compile Corin to LLVM IR
-./corin compile game.corin 2>/dev/null > game.ll
+./corin compile game.crn 2>/dev/null > game.ll
 
 # Compile to object file
 llc -filetype=obj game.ll -o game.o
@@ -286,8 +286,8 @@ brew install sdl2 sdl2_ttf
 ## Examples
 
 See `examples/challenges/round3_field_level/` for complete examples:
-- `test_window.corin` - Basic window test
-- `pong_simple.corin` - Complete Pong game
+- `test_window.crn` - Basic window test
+- `pong_simple.crn` - Complete Pong game
 - `pong_game.cpp` - C++ reference implementation
 
 ## Limitations

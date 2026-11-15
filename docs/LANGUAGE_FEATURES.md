@@ -25,7 +25,7 @@
 - **Result/Option types** for error handling
 - **Trait system** for polymorphism
 - **Lifetime annotations** (when needed)
-- **Cargo-like package manager** (Corin Package Manager - spm)
+- **Cargo-like package manager** (Corin Package Manager - cpm)
 - **Excellent error messages** with suggestions
 - **Macro system** for code generation
 

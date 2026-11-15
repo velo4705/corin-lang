@@ -626,7 +626,7 @@ fn new_api(x: i64) -> i64 {
 
 ## Example Code
 
-See [examples/directives_example.corin](../examples/directives_example.corin) for a complete working example.
+See [examples/directives_example.crn](../examples/directives_example.crn) for a complete working example.
 
 ## See Also
 

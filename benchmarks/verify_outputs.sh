@@ -52,31 +52,31 @@ echo ""
 
 test_algorithm \
     "Fibonacci DP" \
-    "benchmarks/algorithms/fibonacci_dp.corin" \
+    "benchmarks/algorithms/fibonacci_dp.crn" \
     "55" \
     "Time: O(n), Space: O(n)"
 
 test_algorithm \
     "Matrix Multiplication" \
-    "benchmarks/algorithms/matrix_multiply.corin" \
+    "benchmarks/algorithms/matrix_multiply.crn" \
     "621" \
     "Time: O(n³), Space: O(n²)"
 
 test_algorithm \
     "Hash Operations" \
-    "benchmarks/algorithms/hash_operations.corin" \
+    "benchmarks/algorithms/hash_operations.crn" \
     "3802" \
     "Time: O(1) avg, Space: O(n)"
 
 test_algorithm \
     "String Operations" \
-    "benchmarks/algorithms/string_operations.corin" \
+    "benchmarks/algorithms/string_operations.crn" \
     "181" \
     "Time: O(n), Space: O(n)"
 
 test_algorithm \
     "Sorting (Bubble Sort)" \
-    "benchmarks/algorithms/sorting_benchmark.corin" \
+    "benchmarks/algorithms/sorting_benchmark.crn" \
     "441" \
     "Time: O(n²), Space: O(1)"
 

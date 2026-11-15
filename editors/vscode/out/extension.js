@@ -23,7 +23,7 @@ function activate(context) {
         const clientOptions = {
             documentSelector: [{ scheme: 'file', language: 'corin' }],
             synchronize: {
-                fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.corin')
+                fileEvents: vscode_1.workspace.createFileSystemWatcher('**/.crn')
             }
         };
         // Create the language client

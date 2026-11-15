@@ -1,6 +1,6 @@
 # Corin Editor Support
 
-Syntax highlighting for Corin (`.corin`) across all major editors.
+Syntax highlighting for Corin (`.crn`) across all major editors.
 
 ## VSCode
 

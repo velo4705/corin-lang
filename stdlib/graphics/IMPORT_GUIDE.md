@@ -54,7 +54,7 @@ make -C stdlib/graphics info
 
 ### SDL2 Example
 
-Create `my_game.corin`:
+Create `my_game.crn`:
 ```corin
 # Import SDL2 graphics library
 # This will link against libcorin_sdl2
@@ -87,7 +87,7 @@ fn main():
 Compile and run:
 ```bash
 # Compile Corin to LLVM IR
-./corin compile my_game.corin 2>/dev/null > my_game.ll
+./corin compile my_game.crn 2>/dev/null > my_game.ll
 
 # Compile to object file
 llc -filetype=obj my_game.ll -o my_game.o
@@ -103,7 +103,7 @@ clang my_game.o -o my_game \
 
 ### OpenGL Example
 
-Create `my_3d_app.corin`:
+Create `my_3d_app.crn`:
 ```corin
 # Import OpenGL graphics library
 
@@ -141,7 +141,7 @@ fn main():
 
 Compile and run:
 ```bash
-./corin compile my_3d_app.corin 2>/dev/null > my_3d_app.ll
+./corin compile my_3d_app.crn 2>/dev/null > my_3d_app.ll
 llc -filetype=obj my_3d_app.ll -o my_3d_app.o
 clang my_3d_app.o -o my_3d_app \
     -Lstdlib/graphics/opengl -lcorin_opengl \
@@ -151,7 +151,7 @@ clang my_3d_app.o -o my_3d_app \
 
 ### GLUT Example
 
-Create `my_glut_app.corin`:
+Create `my_glut_app.crn`:
 ```corin
 # Import GLUT graphics library
 
@@ -174,7 +174,7 @@ fn main():
 
 Compile and run:
 ```bash
-./corin compile my_glut_app.corin 2>/dev/null > my_glut_app.ll
+./corin compile my_glut_app.crn 2>/dev/null > my_glut_app.ll
 llc -filetype=obj my_glut_app.ll -o my_glut_app.o
 clang my_glut_app.o -o my_glut_app \
     -Lstdlib/graphics/glut -lcorin_glut \
@@ -184,7 +184,7 @@ clang my_glut_app.o -o my_glut_app \
 
 ### Vulkan Example
 
-Create `my_vulkan_app.corin`:
+Create `my_vulkan_app.crn`:
 ```corin
 # Import Vulkan graphics library
 
@@ -209,7 +209,7 @@ fn main():
 
 Compile and run:
 ```bash
-./corin compile my_vulkan_app.corin 2>/dev/null > my_vulkan_app.ll
+./corin compile my_vulkan_app.crn 2>/dev/null > my_vulkan_app.ll
 llc -filetype=obj my_vulkan_app.ll -o my_vulkan_app.o
 clang my_vulkan_app.o -o my_vulkan_app \
     -Lstdlib/graphics/vulkan -lcorin_vulkan \

@@ -4,16 +4,16 @@ This guide covers the developer tools available in the Corin ecosystem.
 
 ---
 
-## Package Manager (spm)
+## Package Manager (cpm)
 
 The Corin Package Manager helps you create, build, test, and manage Corin projects.
 
 ### Installation
 
-The spm tool is built automatically with the Corin compiler:
+The cpm tool is built automatically with the Corin compiler:
 
 ```bash
-make spm
+make cpm
 ```
 
 ### Commands
@@ -21,15 +21,15 @@ make spm
 #### Create a New Package
 
 ```bash
-spm init my-package
+cpm init my-package
 ```
 
 Creates a new package with the following structure:
 ```
 my-package/
-├── spm.toml          # Package manifest
+├── cpm.toml          # Package manifest
 ├── src/
-│   └── main.corin      # Main source file
+│   └── main.crn      # Main source file
 ├── tests/            # Test files
 ├── examples/         # Example files
 ├── README.md
@@ -39,7 +39,7 @@ my-package/
 #### Build Package
 
 ```bash
-spm build
+cpm build
 ```
 
 Validates and builds all source files in the `src/` directory.
@@ -47,15 +47,15 @@ Validates and builds all source files in the `src/` directory.
 #### Run Tests
 
 ```bash
-spm test
+cpm test
 ```
 
-Runs all `.corin` files in the `tests/` directory and reports results.
+Runs all `.crn` files in the `tests/` directory and reports results.
 
 #### Run a File
 
 ```bash
-spm run src/main.corin
+cpm run src/main.crn
 ```
 
 Executes a Corin file using the interpreter.
@@ -63,7 +63,7 @@ Executes a Corin file using the interpreter.
 #### Clean Build Artifacts
 
 ```bash
-spm clean
+cpm clean
 ```
 
 Removes build artifacts and compiled binaries.
@@ -71,10 +71,10 @@ Removes build artifacts and compiled binaries.
 #### Install Dependencies
 
 ```bash
-spm install <package>
+cpm install <package>
 ```
 
-Note: Package registry not yet implemented. Manually add dependencies to `spm.toml`:
+Note: Package registry not yet implemented. Manually add dependencies to `cpm.toml`:
 
 ```toml
 [dependencies]
@@ -85,12 +85,12 @@ json = "2.0.0"
 #### Publish Package
 
 ```bash
-spm publish
+cpm publish
 ```
 
 Note: Package registry not yet implemented. Validates package structure.
 
-### Package Manifest (spm.toml)
+### Package Manifest (cpm.toml)
 
 ```toml
 [package]
@@ -130,7 +130,7 @@ make corin-fmt
 #### Format a File
 
 ```bash
-corin-fmt file.corin
+corin-fmt file.crn
 ```
 
 Formats the file in-place according to Corin style guidelines.
@@ -138,7 +138,7 @@ Formats the file in-place according to Corin style guidelines.
 #### Check Formatting
 
 ```bash
-corin-fmt --check file.corin
+corin-fmt --check file.crn
 ```
 
 Checks if a file is formatted correctly without modifying it. Returns exit code 0 if formatted, 1 if needs formatting.
@@ -146,7 +146,7 @@ Checks if a file is formatted correctly without modifying it. Returns exit code 
 #### Custom Indent Size
 
 ```bash
-corin-fmt --indent 2 file.corin
+corin-fmt --indent 2 file.crn
 ```
 
 Formats with a custom indent size (default is 4 spaces).
@@ -178,22 +178,22 @@ fn add(a:int, b:int) -> int:
     return x
 ```
 
-### Integration with spm
+### Integration with cpm
 
-You can use the formatter with spm:
+You can use the formatter with cpm:
 
 ```bash
 # Format all source files
-find src -name "*.corin" -exec corin-fmt {} \;
+find src -name "*.crn" -exec corin-fmt {} \;
 
 # Check formatting in CI
-find src -name "*.corin" -exec corin-fmt --check {} \;
+find src -name "*.crn" -exec corin-fmt --check {} \;
 ```
 
 ### Known Limitations
 
 - Indentation inference works best with already-indented code
-- No configuration file support yet (.corin-fmt.toml)
+- No configuration file support yet (.crn-fmt.toml)
 - Processes one file at a time (no directory recursion)
 - Basic dedent detection (may need manual adjustment for complex nesting)
 
@@ -207,10 +207,10 @@ The Corin compiler and interpreter.
 
 ```bash
 # Run a file
-./corin file.corin
+./corin file.crn
 
 # With verbose output
-./corin -v file.corin
+./corin -v file.crn
 
 # Show version
 ./corin --version
@@ -234,48 +234,48 @@ make quick
 
 ```bash
 # Create package
-spm init my-app
+cpm init my-app
 cd my-app
 
 # Write code
-vim src/main.corin
+vim src/main.crn
 
 # Format code
-corin-fmt src/main.corin
+corin-fmt src/main.crn
 
 # Run it
-spm run src/main.corin
+cpm run src/main.crn
 
 # Add tests
-vim tests/test_main.corin
+vim tests/test_main.crn
 
 # Run tests
-spm test
+cpm test
 ```
 
 ### Formatting Workflow
 
 ```bash
 # Format before committing
-find src -name "*.corin" -exec corin-fmt {} \;
+find src -name "*.crn" -exec corin-fmt {} \;
 
 # Check in CI
-corin-fmt --check src/**/*.corin
+corin-fmt --check src/**/*.crn
 ```
 
 ### Testing Workflow
 
 ```bash
 # Run all tests
-spm test
+cpm test
 
 # Run specific test
-spm run tests/test_feature.corin
+cpm run tests/test_feature.crn
 
 # Clean and rebuild
-spm clean
-spm build
-spm test
+cpm clean
+cpm build
+cpm test
 ```
 
 ---
@@ -287,10 +287,10 @@ spm test
 - Dependency resolution
 - Version management
 - Package publishing
-- Lock file (spm.lock)
+- Lock file (cpm.lock)
 
 ### Code Formatter
-- Configuration file (.corin-fmt.toml)
+- Configuration file (.crn-fmt.toml)
 - Directory recursion
 - Improved indentation inference
 - Custom style rules

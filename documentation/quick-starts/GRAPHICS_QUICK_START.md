@@ -11,7 +11,7 @@ Quick reference for using graphics APIs with Corin.
 
 ```bash
 # Run example
-./corin examples/test_window_visible.corin
+./corin examples/test_window_visible.crn
 ```
 
 **Lines**: 37  
@@ -192,7 +192,7 @@ Run all graphics tests:
 Individual tests:
 ```bash
 # SDL2 (Corin)
-./corin examples/test_window_visible.corin
+./corin examples/test_window_visible.crn
 
 # SDL2 + OpenGL
 ./examples/run_test_sdl2_opengl.sh
