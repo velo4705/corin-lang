@@ -1,0 +1,11 @@
+let x = 10
+
+# NOTE: This is a FUTURE VISION example
+# Current parser doesn't support all these features yet
+# For working examples, see: hello.crn, simple.crn, showcase.crn
+
+let y = 20
+let result = 0
+
+if x < y:
+    result = 1
